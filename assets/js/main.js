@@ -78,6 +78,34 @@ const mapData = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. --- Preloader Animation ---
+    const preloader = document.getElementById('preloader');
+    // Global delay for other animations so they don't play behind the preloader
+    const preloaderDelay = preloader ? 3.8 : 0.5;
+
+    if (preloader && typeof gsap !== 'undefined') {
+        const preTl = gsap.timeline({
+            onComplete: () => {
+                document.body.classList.remove('overflow-hidden');
+                preloader.style.display = 'none';
+                if (typeof AOS !== 'undefined') {
+                    // Slight delay before refresh to ensure layout is settled
+                    setTimeout(() => AOS.refresh(), 100);
+                }
+            }
+        });
+
+        // 1. Animate drawing the strokes of each letter with a stagger
+        preTl.to('#fenica-logo-svg .st0', { strokeDashoffset: 0, duration: 1.5, stagger: 0.15, ease: "power2.inOut" })
+             // 2. Fill the logo with color
+             .to('#fenica-logo-svg .st0', { fill: "#f0e0ca", duration: 0.5, ease: "power2.out" }, "-=0.5")
+             // 3. Animate the progress bar
+             .to('.preloader-progress', { width: '100%', duration: 1.0, ease: "power2.inOut" }, "-=0.5")
+             // 4. Massive scale up (zoom out effect) and fade out
+             .to('.preloader-logo', { scale: 8, opacity: 0, duration: 0.8, ease: "power3.in" })
+             .to(preloader, { yPercent: -100, duration: 0.8, ease: "power4.inOut" }, "-=0.5");
+    }
+
     // 1. --- Map Initialization ---
     const mapOrigin = document.getElementById('map-origin');
     const legendContainer = document.getElementById('legend-container');
@@ -219,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof gsap !== 'undefined') {
             gsap.config({ force3D: true });
 
-            const tl = gsap.timeline({ delay: 0.5 });
+            const tl = gsap.timeline({ delay: preloaderDelay });
             tl.fromTo(".fenica-title",
                 { y: 50, autoAlpha: 0 },
                 { y: 0, autoAlpha: 1, duration: 1.2, ease: "expo.out" }
@@ -372,8 +400,23 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+    // 6. --- News Carousel Initialization ---
+    if (typeof Swiper !== 'undefined' && document.querySelector('.newsSwiper')) {
+        const newsSwiper = new Swiper('.newsSwiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 32, // matches gap-8
+            loop: true,
+            speed: 5000,
+            freeMode: true,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            }
+        });
+    }
 
-    // 6. --- Initialize AOS ---
+    // 7. --- Initialize AOS ---
     if (typeof AOS !== 'undefined') {
         AOS.init({
             once: true,

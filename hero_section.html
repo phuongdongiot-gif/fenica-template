@@ -25,14 +25,46 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="min-h-screen bg-[#0e1e2e]">
+<body class="min-h-screen bg-[#0e1e2e] overflow-hidden">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-[#0e1e2e] flex flex-col items-center justify-center">
+        <svg class="h-10 md:h-14 w-auto mb-8 preloader-logo" id="fenica-logo-svg" xmlns="http://www.w3.org/2000/svg"
+            version="1.1" viewBox="0 0 1156.33 208.54">
+            <defs>
+                <style>
+                    .st0 {
+                        fill: transparent;
+                        stroke: #f0e0ca;
+                        stroke-width: 3px;
+                        stroke-dasharray: 3000;
+                        stroke-dashoffset: 3000;
+                    }
+                </style>
+            </defs>
+            <polygon class="st0"
+                points="147.09 40.49 147.09 3.71 0 3.71 0 204.03 39.91 204.03 39.91 122.91 140.36 122.91 140.36 86.13 39.91 86.13 39.91 40.49 147.09 40.49" />
+            <polygon class="st0"
+                points="237.94 167.4 237.94 121.33 341.53 121.33 341.53 84.71 237.94 84.71 237.94 40.35 346.54 40.35 346.54 3.71 198.01 3.71 198.01 204.03 347.68 204.03 347.68 167.4 237.94 167.4" />
+            <rect class="st0" x="642.4" y="3.71" width="39.93" height="200.31" />
+            <path class="st0"
+                d="M837.71,169.41c-35.34,0-63.1-25.33-63.25-65.54,0-38.92,26.9-65.53,63.25-65.53,22.31,0,40.49,10.31,51.79,27.62l34.34-21.04c-16.31-28.03-48.93-44.92-85.85-44.92-61.67,0-105.17,43.64-105.17,103.87s43.5,103.88,105.17,103.88c36.63,0,66.83-16.31,84.57-42.35l-32.63-23.47c-12.02,17.47-30.05,27.48-52.22,27.48Z" />
+            <path class="st0"
+                d="M1077.93,3.71h-48.66l-77.97,200.31h41.64l17.45-46.64h85.42l17.45,46.64h42.64L1077.93,3.71ZM1024.13,120.62l29.04-77.41,28.9,77.41h-57.94Z" />
+            <path class="st0"
+                d="M555.3,2.61h-11.41c-.73,0-1.32.59-1.32,1.32v82.92c-.02.97-1.08,1.56-1.91,1.05L404.38,3.93c-.88-.44-1.32,0-1.32.88v25.88c0,9.21,5.7,19.3,14.04,24.57l161.36,95.87c.83.49,1.88-.11,1.88-1.07l-.04-119.37c0-16.67-10.53-28.08-25.01-28.08ZM430.7,203.55h10.6c.69,0,1.24-.56,1.24-1.24v-75.53c0-1.32.88-1.75,2.63-.88l132.93,82.48c1.32.44,2.19,0,2.19-1.32v-25.45c0-10.09-5.7-20.18-13.6-24.57l-161.76-95.31c-.83-.49-1.88.11-1.88,1.07v112.66c0,16.67,11.41,28.08,27.64,28.08Z" />
+        </svg>
+        <div class="w-48 md:w-64 h-[2px] bg-white/20 rounded overflow-hidden">
+            <div class="h-full bg-[#d4ae6f] w-0 preloader-progress"></div>
+        </div>
+    </div>
+
     <div class="video-bg fixed w-screen h-screen -z-10 opacity-50">
         <video src="assets/videos/video-bg-fenica.mp4" class="opacity-20 w-full h-full object-cover" autoplay loop
             muted></video>
     </div>
     <!-- Hero Carousel Section -->
     <section class="w-full h-screen relative group">
-<div class="swiper heroSwiper w-full h-full">
+        <div class="swiper heroSwiper w-full h-full">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
                 <div class="swiper-slide relative">
@@ -540,10 +572,6 @@
                 <div class="md:col-span-3">
                     <div class="grid grid-cols-2 md:grid-cols-1 gap-2 px-4 md:px-8">
                         <div class="h-[20vh] md:h-[25vh] bg-center bg-cover" data-aos="zoom-out-right"
-                            data-aos-duration="800"
-                            style="background-image: url(https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/student.jpg); background-position: 100% 33%;">
-                        </div>
-                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover" data-aos="zoom-out-right"
                             data-aos-duration="800" data-aos-delay="100"
                             style="background-image: url(https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/shopping.jpg); background-position: 100% 33%;">
                         </div>
@@ -676,6 +704,380 @@
                     </div>
                 </div>
             </div>
+    </section>
+
+
+    <!-- News Section -->
+    <section class="py-16 md:py-24 relative z-10 bg-transparent">
+        <div class="max-w-full mx-auto px-4 md:px-8">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl md:text-6xl font-bold text-white playfair mb-4" data-aos="fade-up">Tin tức & Sự
+                        kiện mới nhất</h2>
+                    <p class="text-base md:text-lg text-gray-300 font-light" data-aos="fade-up" data-aos-delay="100">
+                        Cập nhật những thông tin, tiến độ và sự kiện nổi bật nhất từ dự án A&T Saigon Riverside.
+                    </p>
+                </div>
+                <a href="#"
+                    class="inline-flex items-center gap-2 bg-[#d4ae6f] hover:bg-[#c29b6f] text-[#0e1e2e] font-bold py-3 px-6 transition-colors duration-300 shadow-lg shrink-0"
+                    data-aos="fade-left" data-aos-delay="200">
+                    Xem tất cả bài viết
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Carousel Content -->
+            <style>
+                .news-ticker .swiper-wrapper {
+                    transition-timing-function: linear !important;
+                }
+            </style>
+            <div class="swiper newsSwiper w-full news-ticker overflow-visible" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper flex items-stretch">
+
+                    <div class="swiper-slide w-[300px] md:w-[400px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-visible transition-colors duration-300">
+                            <!-- Image Container with Hover Line Effects and NO rounded corners -->
+                            <div class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1541888081664-073c68ff8ce9?w=800&h=600&fit=crop"
+                                    alt="Tiến độ thi công A&T Saigon Riverside tháng 4/2026"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+
+                                <!-- Animated Hover Lines -->
+                                <div
+                                    class="absolute top-0 left-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 right-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute top-0 right-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20">
+                                </div>
+
+                                <!-- Overlay gradient to make it pop slightly on hover -->
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 z-10 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-6">
+                                <div class="text-[#d4ae6f] text-sm font-bold uppercase tracking-wider mb-3">Tiến độ dự
+                                    án</div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    Tiến độ thi công A&T Saigon Riverside tháng 4/2026
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Cập nhật tiến độ xây dựng mới nhất của dự án. Hiện tại, công trường đang thi công
+                                    phần móng và hầm theo đúng tiến độ đề ra, đảm bảo chất lượng và an toàn tuyệt đối...
+                                </p>
+                                <div class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Animated Bottom Divider Line for the Card -->
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-white/10"></div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#d4ae6f] transition-all duration-700 ease-in-out group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-[300px] md:w-[400px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-visible transition-colors duration-300">
+                            <!-- Image Container with Hover Line Effects and NO rounded corners -->
+                            <div class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop"
+                                    alt="5 lý do nên đầu tư vào A&T Saigon Riverside ngay hôm nay"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+
+                                <!-- Animated Hover Lines -->
+                                <div
+                                    class="absolute top-0 left-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 right-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute top-0 right-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20">
+                                </div>
+
+                                <!-- Overlay gradient to make it pop slightly on hover -->
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 z-10 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-6">
+                                <div class="text-[#d4ae6f] text-sm font-bold uppercase tracking-wider mb-3">Góc nhìn đầu
+                                    tư</div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    5 lý do nên đầu tư vào A&T Saigon Riverside ngay hôm nay
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Khám phá những ưu thế vượt trội về vị trí đắc địa, hệ tiện ích đẳng cấp và tiềm năng
+                                    tăng giá bền vững trong tương lai...
+                                </p>
+                                <div class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Animated Bottom Divider Line for the Card -->
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-white/10"></div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#d4ae6f] transition-all duration-700 ease-in-out group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-[300px] md:w-[400px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-visible transition-colors duration-300">
+                            <!-- Image Container with Hover Line Effects and NO rounded corners -->
+                            <div class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=600&fit=crop"
+                                    alt="Lễ ra quân dự án thu hút hàng ngàn chuyên viên tư vấn"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+
+                                <!-- Animated Hover Lines -->
+                                <div
+                                    class="absolute top-0 left-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 right-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute top-0 right-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20">
+                                </div>
+
+                                <!-- Overlay gradient to make it pop slightly on hover -->
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 z-10 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-6">
+                                <div class="text-[#d4ae6f] text-sm font-bold uppercase tracking-wider mb-3">Sự kiện
+                                </div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    Lễ ra quân dự án thu hút hàng ngàn chuyên viên tư vấn
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Sự kiện kickoff hoành tráng đánh dấu bước khởi đầu mạnh mẽ của dự án trên thị trường
+                                    bất động sản khu vực phía Nam...
+                                </p>
+                                <div class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Animated Bottom Divider Line for the Card -->
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-white/10"></div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#d4ae6f] transition-all duration-700 ease-in-out group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-[300px] md:w-[400px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-visible transition-colors duration-300">
+                            <!-- Image Container with Hover Line Effects and NO rounded corners -->
+                            <div class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&h=600&fit=crop"
+                                    alt="Phân tích tiềm năng tăng giá từ hạ tầng giao thông khu vực"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+
+                                <!-- Animated Hover Lines -->
+                                <div
+                                    class="absolute top-0 left-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 right-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute top-0 right-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20">
+                                </div>
+
+                                <!-- Overlay gradient to make it pop slightly on hover -->
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 z-10 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-6">
+                                <div class="text-[#d4ae6f] text-sm font-bold uppercase tracking-wider mb-3">Thị trường
+                                </div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    Phân tích tiềm năng tăng giá từ hạ tầng giao thông khu vực
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Với hàng loạt dự án hạ tầng trọng điểm đang triển khai, A&T Saigon Riverside đón đầu
+                                    cơ hội tăng trưởng bứt phá trong thập kỷ tới...
+                                </p>
+                                <div class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Animated Bottom Divider Line for the Card -->
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-white/10"></div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#d4ae6f] transition-all duration-700 ease-in-out group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-[300px] md:w-[400px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-visible transition-colors duration-300">
+                            <!-- Image Container with Hover Line Effects and NO rounded corners -->
+                            <div class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop"
+                                    alt="Ra mắt bộ sưu tập căn hộ mẫu mang hơi thở thiên nhiên"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+
+                                <!-- Animated Hover Lines -->
+                                <div
+                                    class="absolute top-0 left-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 right-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute top-0 right-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20">
+                                </div>
+
+                                <!-- Overlay gradient to make it pop slightly on hover -->
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 z-10 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-6">
+                                <div class="text-[#d4ae6f] text-sm font-bold uppercase tracking-wider mb-3">Trải nghiệm
+                                </div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    Ra mắt bộ sưu tập căn hộ mẫu mang hơi thở thiên nhiên
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Chiêm ngưỡng không gian sống đẳng cấp với thiết kế tối ưu hóa ánh sáng và gió tự
+                                    nhiên, mang lại cuộc sống trọn vẹn mỗi ngày...
+                                </p>
+                                <div class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Animated Bottom Divider Line for the Card -->
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-white/10"></div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#d4ae6f] transition-all duration-700 ease-in-out group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide w-[300px] md:w-[400px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-visible transition-colors duration-300">
+                            <!-- Image Container with Hover Line Effects and NO rounded corners -->
+                            <div class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=800&h=600&fit=crop"
+                                    alt="Chính sách bán hàng đột phá: Thanh toán 20% nhận nhà"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+
+                                <!-- Animated Hover Lines -->
+                                <div
+                                    class="absolute top-0 left-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 right-0 w-0 h-[2px] bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:w-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute top-0 right-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20 delay-100">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-[2px] h-0 bg-[#d4ae6f] transition-all duration-500 ease-in-out group-hover:h-full z-20">
+                                </div>
+
+                                <!-- Overlay gradient to make it pop slightly on hover -->
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 z-10 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-6">
+                                <div class="text-[#d4ae6f] text-sm font-bold uppercase tracking-wider mb-3">Chính sách
+                                </div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    Chính sách bán hàng đột phá: Thanh toán 20% nhận nhà
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Cơ hội sở hữu căn hộ ven sông dễ dàng hơn bao giờ hết với phương thức thanh toán
+                                    linh hoạt và hỗ trợ lãi suất 0% từ ngân hàng...
+                                </p>
+                                <div class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Animated Bottom Divider Line for the Card -->
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-white/10"></div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#d4ae6f] transition-all duration-700 ease-in-out group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer Section -->

@@ -13,124 +13,16 @@
     <!-- Include GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Include AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        .playfair {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Custom scrollbar for legend */
-        .legend-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .legend-scroll::-webkit-scrollbar-track {
-            background: #1e2e3e;
-            border-radius: 10px;
-        }
-
-        .legend-scroll::-webkit-scrollbar-thumb {
-            background: #dcb88e;
-            border-radius: 10px;
-        }
-
-        .legend-scroll::-webkit-scrollbar-thumb:hover {
-            background: #c29b6f;
-        }
-
-        /* Tab shape with rounded top corners via 3D transform */
-        .trapezoid-tab {
-            position: relative;
-            padding: 6px 14px 4px;
-            z-index: 1;
-            text-align: center;
-            color: white;
-            min-width: 50px;
-        }
-
-        @media (min-width: 1024px) {
-            .trapezoid-tab {
-                padding: 8px 20px 6px;
-                min-width: 60px;
-            }
-        }
-
-        /* Ẩn thanh cuộn ngang trên mobile nhưng vẫn cho vuốt */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes counter-spin {
-            from {
-                transform: rotate(360deg);
-            }
-
-            to {
-                transform: rotate(0deg);
-            }
-        }
-
-        .trapezoid-tab::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-color: #be976d;
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
-            transform: perspective(40px) rotateX(10deg);
-            transform-origin: bottom;
-            z-index: -1;
-            box-shadow: inset 0 -4px 0 #956f48;
-        }
-
-        /* --- Breathing Effect for Image (No Glow) --- */
-        @keyframes breathingImage {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .animate-breathing {
-            animation: breathingImage 4s ease-in-out infinite;
-            will-change: transform;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="min-h-screen bg-[#0e1e2e]">
@@ -140,108 +32,7 @@
     </div>
     <!-- Hero Carousel Section -->
     <section class="w-full h-screen relative group">
-        <style>
-            .swiper-pagination-bullet {
-                background: white;
-                opacity: 0.5;
-                width: 10px;
-                height: 10px;
-                transition: all 0.3s;
-                margin: 0 !important;
-            }
-
-            .swiper-pagination-bullet-active {
-                opacity: 1;
-                background: #d4ae6f;
-                height: 30px !important;
-                width: 10px !important;
-                border-radius: 5px;
-            }
-
-            /* Vertical pagination centered on the right */
-            .swiper-pagination {
-                top: 50% !important;
-                right: 5% !important;
-                left: auto !important;
-                bottom: auto !important;
-                transform: translateY(-50%) !important;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-                width: auto !important;
-            }
-
-            /* Custom Navigation Buttons - Glassmorphism, near bottom */
-            .hero-swiper-btn {
-                top: auto !important;
-                bottom: 40px !important;
-                width: 50px !important;
-                height: 50px !important;
-                background: rgba(255, 255, 255, 0.1) !important;
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 50% !important;
-                color: white !important;
-                transition: all 0.3s ease !important;
-                margin: 0 !important;
-                opacity: 0;
-                /* Hidden until hover on desktop */
-            }
-
-            .group:hover .hero-swiper-btn {
-                opacity: 0.8;
-            }
-
-            .hero-swiper-btn:hover {
-                background: #d4ae6f !important;
-                border-color: transparent !important;
-                transform: scale(1.1);
-                opacity: 1;
-            }
-
-            .swiper-button-next.hero-swiper-btn {
-                right: 5% !important;
-            }
-
-            .swiper-button-prev.hero-swiper-btn {
-                left: auto !important;
-                right: calc(5% + 60px) !important;
-            }
-
-            .hero-swiper-btn::after {
-                font-size: 18px !important;
-                font-weight: bold;
-            }
-
-            /* Responsive Adjustments for Mobile & Tablet */
-            @media (hover: none) {
-
-                /* Hide arrows on touch devices (phones/tablets) as users can naturally swipe */
-                .hero-swiper-btn {
-                    display: none !important;
-                }
-            }
-
-            @media (max-width: 768px) {
-
-                /* Scale down pagination slightly on mobile */
-                .swiper-pagination {
-                    right: 3% !important;
-                    gap: 8px;
-                }
-
-                .swiper-pagination-bullet {
-                    width: 8px;
-                    height: 8px;
-                }
-
-                .swiper-pagination-bullet-active {
-                    height: 24px !important;
-                    width: 8px !important;
-                }
-            }
-        </style>
-        <div class="swiper heroSwiper w-full h-full">
+<div class="swiper heroSwiper w-full h-full">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
                 <div class="swiper-slide relative">
@@ -308,30 +99,34 @@
                     class="overview-text-left flex flex-col gap-2 md:gap-4 lg:gap-8 text-center lg:text-right order-2 lg:order-1 relative z-20">
                     <div class="overview-item group">
                         <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Vị trí</h4>
-                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                        <p
+                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
                             Đường Trần Quang Diệu, Phường Tân Đông Hiệp, Thành phố Hồ Chí Minh</p>
                     </div>
                     <div class="overview-item group">
                         <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Tổng diện tích
                         </h4>
-                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                        <p
+                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
                             5.537 m²</p>
                     </div>
                     <div class="overview-item group">
                         <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Quy mô</h4>
-                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                        <p
+                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
                             2 block, 2 tầng hầm & 2 tầng TTTM</p>
                     </div>
                     <div class="overview-item group">
                         <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Chiều cao</h4>
-                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                        <p
+                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
                             22 tầng</p>
                     </div>
                 </div>
 
                 <!-- Center Image -->
                 <div
-                    class="order-1 lg:order-2 px-8 md:px-16 lg:px-4 flex justify-center items-center lg:col-span-4 relative">
+                    class="order-1 lg:order-2 px-0 md:px-16 lg:px-4 flex justify-center items-center lg:col-span-4 relative">
                     <div class="overview-img relative w-full group z-10 flex justify-center">
                         <img src="assets/images/toa-nha-fenica.png"
                             class="w-full max-w-[90%] lg:max-w-[85%] h-auto animate-golden-breathing cursor-pointer"
@@ -344,13 +139,15 @@
                     class="overview-text-right flex flex-col gap-2 md:gap-4 lg:gap-8 text-center lg:text-left order-3 relative z-20">
                     <div class="overview-item group">
                         <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Nhà thầu</h4>
-                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                        <p
+                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
                             Liên danh Phước Thành & CCcons</p>
                     </div>
                     <div class="overview-item group">
                         <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Pháp lý sở hữu
                         </h4>
-                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                        <p
+                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
                             Sở hữu lâu dài</p>
                     </div>
                     <div class="overview-item group">
@@ -404,7 +201,8 @@
     <section class="w-full h-full">
         <div class="grid grid-cols-1 md:grid-cols-3">
             <div class="w-full h-full flex items-center justify-center">
-                <div class="px-4 lg:px-0 flex flex-col justify-center gap-2 cursor-pointer relative">
+                <div class="px-4 lg:px-0 flex flex-col justify-center gap-2 cursor-pointer relative"
+                    data-aos="fade-right" data-aos-duration="1000">
                     <div>
                         <div class="flex flex-col group">
                             <div class="text-3xl md:text-5xl max-w-lg w-full playfair">
@@ -417,7 +215,7 @@
                     <div class="w-1/2 h-[1px] bg-white group-hover:w-3/4 transition-all duration-200"></div>
                     <div>
                         <div>
-                            <p class="text-base text-white font-light leading-snug">
+                            <p class="text-sm md:text-base text-white font-light leading-snug">
                                 Tọa lạc tại vị trí quỹ đất hiếm hoi bên sông Sài Gòn,<br> ngay tại trung
                                 tâm Đông Bắc TP.HCM,<br> nằm giữa 2 tuyến đường huyết mạch:<br> con
                                 đường
@@ -427,7 +225,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-2">
+            <div class="col-span-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                 <img src="assets/images/map.png" class="w-full h-full" alt="Map">
             </div>
         </div>
@@ -448,7 +246,7 @@
             <div class="w-1/2 h-[1px] bg-white group-hover:w-3/4 transition-all duration-200"></div>
             <div>
                 <div>
-                    <p class="text-base text-white">
+                    <p class="text-sm md:text-base text-white font-light leading-snug">
                         Tọa lạc tại vị trí quỹ đất hiếm hoi bên sông Sài Gòn,<br> ngay tại trung
                         tâm Đông Bắc TP.HCM,<br> nằm giữa 2 tuyến đường huyết mạch:<br> con
                         đường
@@ -502,7 +300,8 @@
                         <h3 class="text-3xl md:text-5xl font-bold text-white playfair uppercase tracking-wide">
                             Mặt bằng Tầng 1</h3>
                         <div class="w-24 h-1.5 bg-white mt-6 mx-auto lg:mx-0"></div>
-                        <p class="mt-8 text-white text-base max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                        <p
+                            class="mt-8 text-white text-sm md:text-base font-light max-w-lg mx-auto lg:mx-0 leading-relaxed">
                             Không gian thiết kế mở, tối ưu hóa công năng sử dụng và tận dụng tối đa ánh sáng tự nhiên.
                         </p>
                     </div>
@@ -513,7 +312,9 @@
                         <h3 class="text-3xl md:text-5xl font-bold text-white playfair uppercase tracking-wide">
                             Mặt bằng Tầng 2</h3>
                         <div class="w-24 h-1.5 bg-white mt-6 mx-auto lg:mx-0"></div>
-                        <p class="mt-8 text-white text-base max-w-lg mx-auto lg:mx-0 leading-relaxed">Khu
+                        <p
+                            class="mt-8 text-white text-sm md:text-base font-light max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                            Khu
                             vực riêng tư được bố trí khéo léo, mang lại sự yên tĩnh và thoải mái tuyệt đối cho gia chủ.
                         </p>
                     </div>
@@ -738,22 +539,27 @@
             <div class="grid grid-cols-1 md:grid-cols-5 gap-y-2 md:gap-x-4">
                 <div class="md:col-span-3">
                     <div class="grid grid-cols-2 md:grid-cols-1 gap-2 px-4 md:px-8">
-                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover" data-aos="zoom-out-right"
+                            data-aos-duration="800"
                             style="background-image: url(https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/student.jpg); background-position: 100% 33%;">
                         </div>
-                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover" data-aos="zoom-out-right"
+                            data-aos-duration="800" data-aos-delay="100"
                             style="background-image: url(https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/shopping.jpg); background-position: 100% 33%;">
                         </div>
-                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover" data-aos="zoom-out-right"
+                            data-aos-duration="800" data-aos-delay="200"
                             style="background-image: url(https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/car.jpg); background-position: 100% 33%;">
                         </div>
-                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover" data-aos="zoom-out-right"
+                            data-aos-duration="800" data-aos-delay="300"
                             style="background-image: url(https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/doctor.jpg); background-position: 100% 10%;">
                         </div>
                     </div>
                 </div>
                 <div class="px-4 md:px-8 md:col-span-2">
-                    <div class="h-full flex flex-col justify-center item-center">
+                    <div class="h-full flex flex-col justify-center item-center" data-aos="fade-up"
+                        data-aos-duration="1000">
                         <div>
                             <h2 class="text-3xl md:text-5xl font-medium text-gradient pb-4 playfair"> Tiện ích ngoại
                                 khu</h2>
@@ -769,17 +575,9 @@
                         <div class="mt-6 grid grid-cols-1 gap-4">
                             <div>
                                 <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
-                                        <div class="w-6 h-6">
-                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
-                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
-                                                loading="lazy">
-                                        </div>
-                                    </div>
                                     <h2 class="text-sm font-bold uppercase leading-tight">TIỆN ÍCH GIÁO DỤC</h2>
                                 </div>
-                                <p class="text-sm">
+                                <p class="text-sm md:text-base text-gray-300 font-light">
                                     Mầm non Hoa Cúc 6, Mầm non Bầu Trời Xanh, Mầm non Ngọc Hà, Trường Tiểu học Vĩnh Phú,
                                     THCS Châu Văn Liêm, THCS Phú Long, THPT Tú Thục Bách Việt, THPT Bình Chiểu, THPT
                                     Nguyễn Trãi, Đại học Luật TPHCM cơ sở 2, Đại học Văn Lang, Trường Đại học KT – KT –
@@ -787,52 +585,28 @@
                             </div>
                             <div>
                                 <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
-                                    <div
-                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
-                                        <div class="w-6 h-6">
-                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
-                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
-                                                loading="lazy">
-                                        </div>
-                                    </div>
                                     <h2 class="text-sm font-bold uppercase leading-tight">TIỆN ÍCH THƯƠNG MẠI - GIẢI
                                         TRÍ</h2>
                                 </div>
-                                <p class="text-sm">
+                                <p class="text-sm md:text-base text-gray-300 font-light">
                                     Lotte Mart, Aeon Mall, Vincom Plaza, Golf Sông Bé, Co.opmart Tam Bình, Siêu thị
                                     Emart, MM Mega Market, GiGaMall, Lanmark 81, Chợ đầu mối Thủ Đức, Chợ Vĩnh Phú, Chợ
                                     Lái Thiêu</p>
                             </div>
                             <div>
                                 <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
-                                    <div
-                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
-                                        <div class="w-6 h-6">
-                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
-                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
-                                                loading="lazy">
-                                        </div>
-                                    </div>
                                     <h2 class="text-sm font-bold uppercase leading-tight">TIỆN ÍCH GIAO THÔNG</h2>
                                 </div>
-                                <p class="text-sm">
+                                <p class="text-sm md:text-base text-gray-300 font-light">
                                     Sân bay Tân Sơn Nhất, Vành đai 2, Vành đai 3, Cao tốc TP.HCM – Long Thành – Dầu Giây
                                 </p>
                             </div>
                             <div>
                                 <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
-                                    <div
-                                        class="p-1 h-full flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
-                                        <div class="w-6 h-6">
-                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
-                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
-                                                loading="lazy">
-                                        </div>
-                                    </div>
                                     <h2 class="text-sm font-bold uppercase leading-tight">TIỆN ÍCH CHĂM SÓC SỨC KHỎE
                                     </h2>
                                 </div>
-                                <p class="text-sm">
+                                <p class="text-sm md:text-base text-gray-300 font-light">
                                     BVQT Hạnh Phúc, BVQT Becamex, BVQT Columbia Asia</p>
                             </div>
                         </div>
@@ -845,7 +619,7 @@
         <div class="py-12 md:py-20">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-y-4 md:gap-x-4">
                 <div class="px-4 md:px-8 md:col-span-2">
-                    <div class="flex flex-col justify-center py-8 h-full">
+                    <div class="flex flex-col justify-center py-8 h-full" data-aos="fade-up" data-aos-duration="1000">
                         <div>
                             <h2 class="text-3xl md:text-5xl font-medium text-gradient pb-4 playfair"> Sống nghỉ dưỡng
                             </h2>
@@ -857,54 +631,22 @@
                         <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
                             <div>
                                 <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
-                                    <div
-                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
-                                        <div class="w-6 h-6">
-                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
-                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
-                                                loading="lazy">
-                                        </div>
-                                    </div>
                                     <h2 class="text-sm font-bold uppercase leading-tight">50+ tiện ích nội khu</h2>
                                 </div>
                             </div>
                             <div>
                                 <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
-                                    <div
-                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
-                                        <div class="w-6 h-6">
-                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
-                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
-                                                loading="lazy">
-                                        </div>
-                                    </div>
                                     <h2 class="text-sm font-bold uppercase leading-tight">8 tầng tiện ích</h2>
                                 </div>
                             </div>
                             <div>
                                 <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
-                                    <div
-                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
-                                        <div class="w-6 h-6">
-                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
-                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
-                                                loading="lazy">
-                                        </div>
-                                    </div>
                                     <h2 class="text-sm font-bold uppercase leading-tight">4 tầng đỗ xe (2 tầng hầm,
                                         2 tầng nổi)</h2>
                                 </div>
                             </div>
                             <div>
                                 <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
-                                    <div
-                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
-                                        <div class="w-6 h-6">
-                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
-                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
-                                                loading="lazy">
-                                        </div>
-                                    </div>
                                     <h2 class="text-sm font-bold uppercase leading-tight">1 khu để xe ngoài trời (5
                                         tầng)</h2>
                                 </div>
@@ -915,450 +657,145 @@
                 <div class="md:col-span-3">
                     <div class="grid grid-cols-2 md:grid-cols-2 gap-2 px-4 md:px-8">
                         <div class="flex flex-col gap-2">
-                            <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                            <div class="h-[20vh] md:h-[25vh] bg-center bg-cover" data-aos="fade-down"
+                                data-aos-duration="800"
                                 style="background-image: url(&quot;https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/gym.jpg&quot;);">
                             </div>
-                            <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                            <div class="h-[20vh] md:h-[25vh] bg-center bg-cover" data-aos="fade-right"
+                                data-aos-duration="800" data-aos-delay="100"
                                 style="background-image: url(&quot;https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/bida.jpg&quot;);">
                             </div>
-                            <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                            <div class="h-[20vh] md:h-[25vh] bg-center bg-cover" data-aos="fade-up"
+                                data-aos-duration="800" data-aos-delay="200"
                                 style="background-image: url(&quot;https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/coffee.jpg&quot;);">
                             </div>
                         </div>
-                        <div class="w-full h-full bg-center bg-cover"
+                        <div class="w-full h-full bg-center bg-cover" data-aos="fade-left" data-aos-duration="1000"
                             style="background-image: url(&quot;https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/tree.jpg&quot;);">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
-    <script>
-        // Data Structure for the Map
-        const mapData = [
-            {
-                id: "30",
-                title: "30 Phút",
-                radius: 350, // Smallest radius (inner arc)
-                color: "#c29b6f",
-                nodes: [
-                    { id: "01", name: "Trung tâm hành chính TP.HCM", img: "https://images.unsplash.com/photo-1596522354195-e84ae3c98731?w=150&h=150&fit=crop&q=80" },
-                    { id: "02", name: "Trung tâm tài chính Thủ Thiêm", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?w=150&h=150&fit=crop&q=80" },
-                    { id: "03", name: "Chợ Bến Thành", img: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=150&h=150&fit=crop&q=80" },
-                    { id: "04", name: "Sân bay Quốc tế Long Thành", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=150&h=150&fit=crop&q=80" }
-                ]
-            },
-            {
-                id: "20-25",
-                title: "20 - 25 Phút",
-                radius: 520,
-                color: "#c29b6f",
-                nodes: [
-                    { id: "01", name: "Sân bay Tân Sơn Nhất", img: "https://images.unsplash.com/photo-1542296332-2e4473faf563?w=150&h=150&fit=crop&q=80" },
-                    { id: "02", name: "Ngã tư Hàng Xanh", img: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=150&h=150&fit=crop&q=80" },
-                    { id: "03", name: "Làng Đại học TP.HCM", img: "https://images.unsplash.com/photo-1562774053-701939374585?w=150&h=150&fit=crop&q=80" },
-                    { id: "04", name: "Bến xe Miền Đông mới", img: "https://images.unsplash.com/photo-1530685932526-48ec92998eaa?w=150&h=150&fit=crop&q=80" },
-                    { id: "05", name: "KCX Linh Trung 1", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=150&fit=crop&q=80" },
-                    { id: "06", name: "KCN Công nghệ cao TP.HCM", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&q=80" },
-                    { id: "07", name: "Phường Trấn Biên", img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=150&h=150&fit=crop&q=80" }
-                ]
-            },
-            {
-                id: "10-15",
-                title: "10 - 15 Phút",
-                radius: 700,
-                color: "#c29b6f",
-                nodes: [
-                    { id: "01", name: "Aeon Mall", img: "https://images.unsplash.com/photo-1519567281027-d00b8c62b2e5?w=150&h=150&fit=crop&q=80" },
-                    { id: "02", name: "Sân Golf Sông Bé", img: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=150&h=150&fit=crop&q=80" },
-                    { id: "03", name: "BVQT Columbia Asia", img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=150&h=150&fit=crop&q=80" },
-                    { id: "04", name: "BVQT Becamex", img: "https://images.unsplash.com/photo-1538108149393-cebb47cbdceb?w=150&h=150&fit=crop&q=80" },
-                    { id: "05", name: "KCN Việt Hương", img: "https://images.unsplash.com/photo-1504307651254-35680f356f12?w=150&h=150&fit=crop&q=80" },
-                    { id: "06", name: "KCN Sóng Thần 1", img: "https://images.unsplash.com/photo-1551281048-735f49df425f?w=150&h=150&fit=crop&q=80" },
-                    { id: "07", name: "KCN Đồng An", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=150&h=150&fit=crop&q=80" },
-                    { id: "08", name: "KCX Linh Trung 2", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=150&fit=crop&q=80" },
-                    { id: "09", name: "Phường Thủ Dầu Một", img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=150&h=150&fit=crop&q=80" }
-                ]
-            },
-            {
-                id: "5-7",
-                title: "5 - 7 Phút",
-                radius: 880,
-                color: "#c29b6f",
-                nodes: [
-                    { id: "01", name: "Vincom Plaza", img: "https://images.unsplash.com/photo-1519567281027-d00b8c62b2e5?w=150&h=150&fit=crop&q=80" },
-                    { id: "02", name: "KCN Sóng Thần 2", img: "https://images.unsplash.com/photo-1551281048-735f49df425f?w=150&h=150&fit=crop&q=80" },
-                    { id: "03", name: "ICD Tân Cảng Sóng Thần", img: "https://images.unsplash.com/photo-1586528116311-ad8ed7e66a65?w=150&h=150&fit=crop&q=80" },
-                    { id: "04", name: "Trường THPT Nguyễn Thị Minh Khai", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&h=150&fit=crop&q=80" },
-                    { id: "05", name: "Trường THPT Lý Thái Tổ", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=150&h=150&fit=crop&q=80" },
-                    { id: "06", name: "THPT Trần Văn Ơn", img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=150&h=150&fit=crop&q=80" },
-                    { id: "07", name: "Trường THCS Tân Đông Hiệp B", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=150&h=150&fit=crop&q=80" },
-                    { id: "08", name: "Trường Tiểu học Tân Đông Hiệp C", img: "https://images.unsplash.com/photo-1503676382389-4809596d5290?w=150&h=150&fit=crop&q=80" }
-                ]
-            },
-            {
-                id: "3-5",
-                title: "3 - 5 Phút",
-                radius: 1080, // Largest radius (outer arc)
-                color: "#c29b6f",
-                nodes: [
-                    { id: "01", name: "Ga S12 & Ga S11", img: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=150&h=150&fit=crop&q=80" },
-                    { id: "02", name: "Trường Mầm Non Hoa Cúc 2", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=150&h=150&fit=crop&q=80" },
-                    { id: "03", name: "Trường tiểu học An Phú 3", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=150&h=150&fit=crop&q=80" },
-                    { id: "04", name: "Trường tiểu học Bùi Thị Xuân", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&h=150&fit=crop&q=80" },
-                    { id: "05", name: "Chợ Tân Bình", img: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=150&h=150&fit=crop&q=80" },
-                    { id: "06", name: "Chợ Phú Phong", img: "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=150&h=150&fit=crop&q=80" },
-                    { id: "07", name: "Khu di tích - du lịch Hồ Lang", img: "https://images.unsplash.com/photo-1542361345-89ce1dd9144d?w=150&h=150&fit=crop&q=80" }
-                ]
-            }
-        ];
 
-        const mapOrigin = document.getElementById('map-origin');
-        const legendContainer = document.getElementById('legend-container');
+    <!-- Footer Section -->
+    <footer class="w-full py-16 relative z-10 border-t border-white/20 bg-transparent text-white" data-aos="fade-up"
+        data-aos-duration="1000">
+        <div class="max-w-[1200px] mx-auto px-4 md:px-8">
+            <!-- 3 Columns -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mb-20 text-center md:text-left">
 
-        const mapFragment = document.createDocumentFragment();
-        const legendFragment = document.createDocumentFragment();
+                <!-- Col 1: Thông tin liên hệ -->
+                <div class="flex flex-col gap-5 items-center md:items-start">
+                    <h3 class="text-xl md:text-2xl font-bold uppercase playfair tracking-widest mb-2 text-white">Thông
+                        tin liên hệ</h3>
 
-        // Tính toán tỷ lệ khoảng cách riêng cho mobile (thu nhỏ tối đa để vừa trọn màn hình dọc)
-        const isMobile = window.innerWidth < 1024;
-        const radiusMultiplier = isMobile ? 0.17 : 1;
-
-        // Render Arcs, Nodes, and Legend
-        mapData.forEach((ring, ringIndex) => {
-            const currentRadius = ring.radius * radiusMultiplier;
-
-            // --- Ring Wrapper (orbits on mobile, static on desktop) ---
-            const ringWrapper = document.createElement('div');
-            ringWrapper.className = `absolute top-0 left-0 w-0 h-0 ring-wrapper-${ringIndex}`;
-
-            let orbitDuration = 0;
-            if (isMobile) {
-                // Inner rings spin faster, outer rings spin slower
-                orbitDuration = 40 + ringIndex * 15;
-                ringWrapper.style.animation = `spin ${orbitDuration}s linear infinite`;
-            }
-
-            // --- 1. Draw Dashed Arc ---
-            const arc = document.createElement('div');
-            arc.className = `ring-arc-${ringIndex} absolute rounded-full border-[1.5px] border-dashed border-white pointer-events-none`;
-            arc.style.width = `${currentRadius * 2}px`;
-            arc.style.height = `${currentRadius * 2}px`;
-            arc.style.left = '0';
-            arc.style.top = '0';
-            arc.style.transform = 'translate(-50%, -50%)';
-            ringWrapper.appendChild(arc);
-
-            // --- 2. Draw Label Tab ---
-            const tab = document.createElement('div');
-            if (isMobile) {
-                // Tem tròn nhỏ gắn ở viền dưới mỗi vòng tròn
-                tab.className = `tab-item-${ringIndex} absolute flex flex-col items-center justify-center z-20 bg-[#ba936a] text-white rounded-full border-[1.5px] border-white shadow-sm`;
-                tab.style.top = `${currentRadius}px`;
-                tab.style.left = `0px`;
-                tab.style.transform = `translate(-50%, -50%)`;
-                // tab.innerHTML = `
-                //     <div class="px-1.5 py-0.5 text-center flex items-center gap-0.5">
-                //         <span class="font-black text-[9px] leading-none">${ring.id}</span>
-                //         <span class="text-[7px] font-bold opacity-90 uppercase">P</span>
-                //     </div>
-                // `;
-            } else {
-                tab.className = `tab-item-${ringIndex} absolute bottom-[10px] -translate-x-1/2 flex flex-col items-center z-20 hover:-translate-y-2 transition-transform cursor-pointer`;
-                tab.style.left = `-${currentRadius}px`;
-                tab.innerHTML = `
-                    <div class="trapezoid-tab">
-                        <div class="font-black leading-none tracking-wide text-lg">${ring.id}</div>
-                        <div class="text-[10px] font-bold tracking-widest opacity-90 uppercase mt-0">Phút</div>
+                    <div class="flex items-start gap-4">
+                        <svg class="w-6 h-6 mt-0.5 shrink-0 text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                            </path>
+                        </svg>
+                        <p class="text-sm md:text-base font-light text-gray-200 leading-relaxed text-left">
+                            Trụ sở chính: 88/10 Đại Lộ Bình Dương, Phường Lái Thiêu, TP.Thuận An, Tỉnh Bình Dương<br>
+                            Mã số thuế: 3702773486
+                        </p>
                     </div>
-                `;
-            }
-            mapFragment.appendChild(tab);
 
-            // --- 3. Draw Nodes on the Arc ---
-            const nodesCount = ring.nodes.length;
-
-            let startAngle, angleStep, copies;
-            if (isMobile) {
-                // Full 360-degree circle distribution
-                angleStep = 360 / nodesCount;
-                // Offset startAngle so that 270 degrees (bottom) is exactly halfway between two nodes.
-                // This ensures the maximum possible gap for the tabs at the bottom, and distributes nodes evenly.
-                startAngle = 270 + (angleStep / 2);
-            } else {
-                // Trải đều các node ra toàn bộ góc vuông 90 độ
-                // Bắt đầu từ 15 độ để không đè lên các Tab số phút ở dưới cùng
-                // Kết thúc ở 85 độ để tooltip không bị cắt ở cạnh phải
-                startAngle = 15;
-                const endAngle = 85;
-                angleStep = nodesCount > 1 ? (endAngle - startAngle) / (nodesCount - 1) : 0;
-            }
-            copies = 1; // Removed cloning for desktop as per user request (static flashing instead)
-
-            for (let c = 0; c < copies; c++) {
-                const copyOffset = c * (360 / copies);
-
-                ring.nodes.forEach((node, nodeIndex) => {
-                    const angle = startAngle + (angleStep * nodeIndex) + copyOffset;
-
-                    const nodeEl = document.createElement('div');
-                    nodeEl.className = 'absolute top-0 left-0 w-0 h-0';
-                    nodeEl.style.transform = `rotate(${angle}deg)`;
-
-                    const nodeSizeClass = isMobile ? "w-7 h-7 border-2" : "w-14 h-14 border-[3px]";
-                    const badgeClass = isMobile ? "text-[7px] px-1 py-[1px] -bottom-1" : "text-[11px] px-2 py-0.5 -bottom-2";
-                    const nodeSizePx = isMobile ? 28 : 56;
-
-                    const inner = document.createElement('div');
-                    inner.className = `node-item-${ringIndex} absolute flex flex-col items-center justify-center cursor-pointer group`;
-                    inner.style.width = `${nodeSizePx}px`;
-                    inner.style.height = `${nodeSizePx}px`;
-                    inner.style.left = `-${nodeSizePx / 2}px`;
-                    inner.style.top = `-${nodeSizePx / 2}px`;
-                    inner.style.transform = `translateX(-${currentRadius}px) rotate(-${angle}deg)`;
-
-                    // Counter-spin wrapper keeps the image and text perfectly upright while orbiting
-                    const contentWrapper = document.createElement('div');
-                    contentWrapper.className = 'relative flex flex-col items-center justify-center w-full h-full';
-                    if (isMobile) {
-                        contentWrapper.style.animation = `counter-spin ${orbitDuration}s linear infinite`;
-                    }
-
-                    contentWrapper.innerHTML = `
-                    <div class="node-visual relative ${nodeSizeClass} rounded-full border-white overflow-hidden shadow-lg group-hover:scale-110 group-hover:border-white transition-all duration-300 z-10 bg-[#0e1e2e]">
-                        <img src="${node.img}" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=150&fit=crop&q=80'" loading="lazy" class="w-full h-full object-cover">
+                    <div class="flex items-center gap-4">
+                        <svg class="w-6 h-6 shrink-0 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                            </path>
+                        </svg>
+                        <p class="text-sm md:text-base font-light text-gray-200 text-left">Hotline: 0965.355.355</p>
                     </div>
-                    <!-- Number Badge -->
-                    <div class="absolute ${badgeClass} bg-[#8b6135] text-white font-bold rounded-full z-20 shadow-md border-2 border-white group-hover:bg-[#dcb88e] transition-colors">
-                        ${node.id}
+
+                    <div class="flex items-center gap-4">
+                        <svg class="w-6 h-6 shrink-0 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        <p class="text-sm md:text-base font-light text-gray-200 text-left">Email: info@dxmdvietnam.vn
+                        </p>
                     </div>
-                    
-                    <!-- Hover Tooltip -->
-                    <div class="absolute bottom-full mb-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#1e2e3e] text-white text-sm px-4 py-2.5 rounded-xl shadow-2xl whitespace-nowrap pointer-events-none z-30 font-bold border border-white flex items-center gap-2">
-                        <span class="bg-[#2a3b4c] text-white px-1.5 py-0.5 rounded-md text-xs">${node.id}</span>
-                        ${node.name}
-                    </div>
-                `;
-
-                    inner.appendChild(contentWrapper);
-                    nodeEl.appendChild(inner);
-                    ringWrapper.appendChild(nodeEl);
-                });
-            }
-
-            mapFragment.appendChild(ringWrapper);
-
-            // --- 4. Populate Legend Sidebar ---
-            const legendSection = document.createElement('div');
-            legendSection.className = `mb-6 legend-item-${ringIndex}`;
-            legendSection.innerHTML = `
-                <div class="flex items-center gap-2 mb-3">
-                    <div class="w-0 h-0 border-t-[6px] border-b-[6px] border-l-[8px] border-transparent border-l-white"></div>
-                    <h3 class="text-xl font-black text-white">${ring.title}</h3>
                 </div>
-                <ul class="space-y-2 pl-4 border-l-2 border-white ml-1">
-                    ${ring.nodes.map(n => `
-                        <li class="text-[13px] text-white font-medium hover:text-white hover:translate-x-1 transition-transform cursor-pointer flex gap-2">
-                            <span class="font-bold text-white">${n.id}.</span> 
-                            <span>${n.name}</span>
-                        </li>
-                    `).join('')}
-                </ul>
-            `;
-            legendFragment.appendChild(legendSection);
-        });
 
-        mapOrigin.appendChild(mapFragment);
-        legendContainer.appendChild(legendFragment);
+                <!-- Col 2: Info -->
+                <div class="flex flex-col gap-5 items-center md:items-start md:mt-12">
+                    <div class="flex items-center gap-4">
+                        <svg class="w-6 h-6 shrink-0 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        <p class="text-sm md:text-base font-light text-gray-200 text-left">Email:
+                            info@atsaigonriverside.vn</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <svg class="w-6 h-6 shrink-0 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                            </path>
+                        </svg>
+                        <p class="text-sm md:text-base font-light text-gray-200 text-left">Hotline: 0965 355 355</p>
+                    </div>
+                </div>
 
-        // Turn on GSAP force3D for maximum mobile performance
-        gsap.config({ force3D: true });
+                <!-- Col 3: Kết nối -->
+                <div class="flex flex-col gap-5 items-center md:items-start">
+                    <h3 class="text-xl md:text-2xl font-bold uppercase playfair tracking-widest mb-2 text-white">Kết nối
+                        với chúng tôi</h3>
+                    <div class="flex items-center gap-4">
+                        <a href="#"
+                            class="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                            <svg class="w-7 h-7 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                            <svg class="w-7 h-7 text-[#FF0000]" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-        // --- High-Performance GSAP Entrance Animations ---
-        // Increase delay to ensure the DOM is fully painted and stable before animating
-        const tl = gsap.timeline({ delay: 0.5 });
+            </div>
 
-        // 1. Fade in the FENICA title smoothly
-        tl.fromTo(".fenica-title",
-            { y: 50, autoAlpha: 0 },
-            { y: 0, autoAlpha: 1, duration: 1.2, ease: "expo.out" }
-        );
+            <!-- Bottom Dev & Links -->
+            <div class="flex flex-col items-center justify-center pt-8 text-center mt-12 border-t border-white/20">
+                <h3 class="text-xl md:text-2xl font-bold uppercase playfair tracking-widest mb-6 text-white">Nhà phát
+                    triển dự án</h3>
 
-        // 2. Animate rings sequentially from inner to outer
-        mapData.forEach((_, i) => {
-            const ringTl = gsap.timeline();
+                <div class="flex flex-col items-center justify-center mb-10 group">
+                    <svg class="w-16 h-16 mb-3 group-hover:scale-110 transition-transform duration-500"
+                        viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 10 L10 80 L90 80 Z" fill="#2563eb" />
+                        <path d="M50 40 L30 80 L70 80 Z" fill="#f97316" />
+                        <path d="M50 60 L40 80 L60 80 Z" fill="#ffffff" />
+                    </svg>
+                    <h4 class="text-white font-bold text-xl md:text-2xl tracking-[0.15em] m-0">DATXANH SERVICES</h4>
+                    <p class="text-white text-[10px] md:text-xs tracking-[0.2em] mt-1.5 opacity-90">CÔNG TY CỔ PHẦN DXMD
+                        VIỆT NAM</p>
+                </div>
 
-            // Draw arc
-            ringTl.fromTo(`.ring-arc-${i}`,
-                { scale: 0.6, autoAlpha: 0 },
-                { scale: 1, autoAlpha: 1, duration: 1.2, ease: "expo.out" },
-                0
-            )
-                // Pop up the bottom tab
-                .fromTo(`.tab-item-${i}`,
-                    { y: 40, autoAlpha: 0 },
-                    { y: 0, autoAlpha: 1, duration: 0.8, ease: "back.out(1.7)" },
-                    0.15
-                )
-                // Pop in nodes radially
-                .fromTo(`.node-item-${i}`,
-                    { scale: 0, autoAlpha: 0 },
-                    { scale: 1, autoAlpha: 1, duration: 0.7, stagger: 0.08, ease: "back.out(1.5)" },
-                    0.2
-                )
-                // Slide in legend item
-                .fromTo(`.legend-item-${i}`,
-                    { x: 30, autoAlpha: 0 },
-                    { x: 0, autoAlpha: 1, duration: 0.8, ease: "expo.out" },
-                    0.25
-                );
-
-            if (!isMobile) {
-                // Desktop: Continuous sequential flashing/pulsing effect after entrance
-                ringTl.to(`.ring-arc-${i}, .node-item-${i} .node-visual`, {
-                    opacity: 0.4,
-                    duration: 1.2,
-                    yoyo: true,
-                    repeat: -1,
-                    ease: "sine.inOut"
-                }, 1.5); // Start after entrance animation finishes
-            }
-
-            // Stagger each ring's timeline to create a beautiful ripple effect
-            tl.add(ringTl, i * 0.15);
-        });
-
-        // --- Floor Plan Scroll Animations (Pinned) ---
-        gsap.registerPlugin(ScrollTrigger);
-
-        const floorSection = document.getElementById('floor-plans-section');
-
-        ScrollTrigger.create({
-            trigger: floorSection,
-            start: "top top", // Pin exactly when the section hits the top of the viewport
-            end: "+=150%",    // Keep it pinned for 1.5 times the viewport height while scrolling
-            pin: true,
-            scrub: 1,         // Smooth scrubbing
-            animation: gsap.timeline()
-                // Fade out Tầng 1 Text, move it up slightly
-                .to("#floor-text-1", { opacity: 0, y: -30, duration: 1 }, 0)
-                // Fade in Tầng 2 Text, move it to natural position
-                .to("#floor-text-2", { opacity: 1, y: 0, duration: 1 }, 0)
-
-                // Fade out Image 1 completely to prevent overlap
-                .to("#floor-img-1", { opacity: 0, duration: 1 }, 0)
-                // Wipe reveal Image 2 from bottom to top
-                .to("#floor-img-2-wrapper", { clipPath: "inset(0% 0 0 0)", duration: 1, ease: "power2.inOut" }, 0)
-                // Scale Image 2 down to normal size to create a slight zoom-out effect as it wipes in
-                .to("#floor-img-2", { scale: 1, duration: 1, ease: "power1.out" }, 0)
-        });
-
-        // --- Gallery Marquee Animations ---
-        // Track 1: Moves Left (-50%)
-        const marquee1 = gsap.to("#marquee-1", {
-            xPercent: -50,
-            ease: "none",
-            duration: 35,
-            repeat: -1
-        });
-
-        // Track 2: Moves Right
-        // To move right seamlessly, start at -50% and move to 0%
-        gsap.set("#marquee-2", { xPercent: -50 });
-        const marquee2 = gsap.to("#marquee-2", {
-            xPercent: 0,
-            ease: "none",
-            duration: 35,
-            repeat: -1
-        });
-
-        // Pause animations on hover for better UX
-        const m1 = document.getElementById('marquee-1');
-        const m2 = document.getElementById('marquee-2');
-        if (m1) {
-            m1.addEventListener('mouseenter', () => marquee1.pause());
-            m1.addEventListener('mouseleave', () => marquee1.play());
-        }
-        if (m2) {
-            m2.addEventListener('mouseenter', () => marquee2.pause());
-            m2.addEventListener('mouseleave', () => marquee2.play());
-        }
-
-        // --- Overview Section Animations ---
-        const overviewTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#overview-section",
-                start: "top 75%", // Trigger when top of section hits 75% down the viewport
-                toggleActions: "play none none reverse" // Play when entering, reverse when leaving
-            }
-        });
-
-        if (document.getElementById('overview-section')) {
-            overviewTl
-                // Image scales up from small and fades in
-                .fromTo(".overview-img",
-                    { scale: 0.8, opacity: 0, clipPath: "inset(100% 0 0 0)" },
-                    { scale: 1, opacity: 1, clipPath: "inset(0% 0 0 0)", duration: 1.2, ease: "power3.out" }
-                )
-                // Left text items slide in from left
-                .fromTo(".overview-text-left .overview-item",
-                    { x: -50, opacity: 0 },
-                    { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out" },
-                    "-=0.6"
-                )
-                // Right text items slide in from right
-                .fromTo(".overview-text-right .overview-item",
-                    { x: 50, opacity: 0 },
-                    { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out" },
-                    "-=0.8" // Start slightly before left text finishes
-                );
-        }
-
-        // --- Hero Carousel Initialization ---
-        if (typeof Swiper !== 'undefined') {
-            const heroSwiper = new Swiper('.heroSwiper', {
-                effect: 'fade', // Smooth fade effect between slides
-                loop: true,
-                speed: 1500,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                on: {
-                    init: function () {
-                        animateSlide(this.slides[this.activeIndex]);
-                    },
-                    slideChangeTransitionStart: function () {
-                        // Reset all animations
-                        document.querySelectorAll('.slide-anim').forEach(el => {
-                            el.classList.remove('opacity-100', 'translate-y-0');
-                            el.classList.add('opacity-0', 'translate-y-8');
-                        });
-                        // Animate current
-                        animateSlide(this.slides[this.activeIndex]);
-                    }
-                }
-            });
-
-            function animateSlide(slide) {
-                const anims = slide.querySelectorAll('.slide-anim');
-                anims.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.classList.remove('opacity-0', 'translate-y-8');
-                        el.classList.add('opacity-100', 'translate-y-0');
-                    }, 100 + (index * 300)); // Staggered delay for each element
-                });
-            }
-        }
-
-    </script>
+                <h3 class="text-lg md:text-xl font-bold uppercase playfair tracking-widest mb-4 text-white">Liên kết
+                </h3>
+                <p
+                    class="text-xs md:text-sm font-light text-gray-300 tracking-wide hover:text-white transition-colors cursor-pointer">
+                    Chính sách bảo mật <span class="mx-2 text-white/50">|</span> Điều khoản sử dụng <span
+                        class="mx-2 text-white/50">|</span> Quy chế hoạt động
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,209 @@
+body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom scrollbar for legend */
+        .legend-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .legend-scroll::-webkit-scrollbar-track {
+            background: #1e2e3e;
+            border-radius: 10px;
+        }
+
+        .legend-scroll::-webkit-scrollbar-thumb {
+            background: #dcb88e;
+            border-radius: 10px;
+        }
+
+        .legend-scroll::-webkit-scrollbar-thumb:hover {
+            background: #c29b6f;
+        }
+
+        /* Tab shape with rounded top corners via 3D transform */
+        .trapezoid-tab {
+            position: relative;
+            padding: 6px 14px 4px;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            min-width: 50px;
+        }
+
+        @media (min-width: 1024px) {
+            .trapezoid-tab {
+                padding: 8px 20px 6px;
+                min-width: 60px;
+            }
+        }
+
+        /* Ẩn thanh cuộn ngang trên mobile nhưng vẫn cho vuốt */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes counter-spin {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        .trapezoid-tab::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: #be976d;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            transform: perspective(40px) rotateX(10deg);
+            transform-origin: bottom;
+            z-index: -1;
+            box-shadow: inset 0 -4px 0 #956f48;
+        }
+
+        /* --- Breathing Effect for Image (No Glow) --- */
+        @keyframes breathingImage {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-breathing {
+            animation: breathingImage 4s ease-in-out infinite;
+            will-change: transform;
+        }
+
+.swiper-pagination-bullet {
+                background: white;
+                opacity: 0.5;
+                width: 10px;
+                height: 10px;
+                transition: all 0.3s;
+                margin: 0 !important;
+            }
+
+            .swiper-pagination-bullet-active {
+                opacity: 1;
+                background: #d4ae6f;
+                height: 30px !important;
+                width: 10px !important;
+                border-radius: 5px;
+            }
+
+            /* Vertical pagination centered on the right */
+            .swiper-pagination {
+                top: 50% !important;
+                right: 5% !important;
+                left: auto !important;
+                bottom: auto !important;
+                transform: translateY(-50%) !important;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                width: auto !important;
+            }
+
+            /* Custom Navigation Buttons - Glassmorphism, near bottom */
+            .hero-swiper-btn {
+                top: auto !important;
+                bottom: 40px !important;
+                width: 50px !important;
+                height: 50px !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 50% !important;
+                color: white !important;
+                transition: all 0.3s ease !important;
+                margin: 0 !important;
+                opacity: 0;
+                /* Hidden until hover on desktop */
+            }
+
+            .group:hover .hero-swiper-btn {
+                opacity: 0.8;
+            }
+
+            .hero-swiper-btn:hover {
+                background: #d4ae6f !important;
+                border-color: transparent !important;
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            .swiper-button-next.hero-swiper-btn {
+                right: 5% !important;
+            }
+
+            .swiper-button-prev.hero-swiper-btn {
+                left: auto !important;
+                right: calc(5% + 60px) !important;
+            }
+
+            .hero-swiper-btn::after {
+                font-size: 18px !important;
+                font-weight: bold;
+            }
+
+            /* Responsive Adjustments for Mobile & Tablet */
+            @media (hover: none) {
+
+                /* Hide arrows on touch devices (phones/tablets) as users can naturally swipe */
+                .hero-swiper-btn {
+                    display: none !important;
+                }
+            }
+
+            @media (max-width: 768px) {
+
+                /* Scale down pagination slightly on mobile */
+                .swiper-pagination {
+                    right: 3% !important;
+                    gap: 8px;
+                }
+
+                .swiper-pagination-bullet {
+                    width: 8px;
+                    height: 8px;
+                }
+
+                .swiper-pagination-bullet-active {
+                    height: 24px !important;
+                    width: 8px !important;
+                }
+            }

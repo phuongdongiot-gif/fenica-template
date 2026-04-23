@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenica Connectivity Map</title>
+    <!-- Include Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Include GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom scrollbar for legend */
+        .legend-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .legend-scroll::-webkit-scrollbar-track {
+            background: #1e2e3e;
+            border-radius: 10px;
+        }
+
+        .legend-scroll::-webkit-scrollbar-thumb {
+            background: #dcb88e;
+            border-radius: 10px;
+        }
+
+        .legend-scroll::-webkit-scrollbar-thumb:hover {
+            background: #c29b6f;
+        }
+
+        /* Tab shape with rounded top corners via 3D transform */
+        .trapezoid-tab {
+            position: relative;
+            padding: 6px 14px 4px;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            min-width: 50px;
+        }
+
+        @media (min-width: 1024px) {
+            .trapezoid-tab {
+                padding: 8px 20px 6px;
+                min-width: 60px;
+            }
+        }
+
+        /* Ẩn thanh cuộn ngang trên mobile nhưng vẫn cho vuốt */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes counter-spin {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        .trapezoid-tab::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: #be976d;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            transform: perspective(40px) rotateX(10deg);
+            transform-origin: bottom;
+            z-index: -1;
+            box-shadow: inset 0 -4px 0 #956f48;
+        }
+
+        /* --- Breathing Effect for Image (No Glow) --- */
+        @keyframes breathingImage {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-breathing {
+            animation: breathingImage 4s ease-in-out infinite;
+            will-change: transform;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#0e1e2e]">
+    <div class="video-bg fixed w-screen h-screen -z-10 opacity-50">
+        <video src="assets/videos/video-bg-fenica.mp4" class="opacity-20 w-full h-full object-cover" autoplay loop
+            muted></video>
+    </div>
+    <!-- Hero Carousel Section -->
+    <section class="w-full h-screen relative group">
+        <style>
+            .swiper-pagination-bullet {
+                background: white;
+                opacity: 0.5;
+                width: 10px;
+                height: 10px;
+                transition: all 0.3s;
+                margin: 0 !important;
+            }
+
+            .swiper-pagination-bullet-active {
+                opacity: 1;
+                background: #d4ae6f;
+                height: 30px !important;
+                width: 10px !important;
+                border-radius: 5px;
+            }
+
+            /* Vertical pagination centered on the right */
+            .swiper-pagination {
+                top: 50% !important;
+                right: 5% !important;
+                left: auto !important;
+                bottom: auto !important;
+                transform: translateY(-50%) !important;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                width: auto !important;
+            }
+
+            /* Custom Navigation Buttons - Glassmorphism, near bottom */
+            .hero-swiper-btn {
+                top: auto !important;
+                bottom: 40px !important;
+                width: 50px !important;
+                height: 50px !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 50% !important;
+                color: white !important;
+                transition: all 0.3s ease !important;
+                margin: 0 !important;
+                opacity: 0;
+                /* Hidden until hover on desktop */
+            }
+
+            .group:hover .hero-swiper-btn {
+                opacity: 0.8;
+            }
+
+            .hero-swiper-btn:hover {
+                background: #d4ae6f !important;
+                border-color: transparent !important;
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            .swiper-button-next.hero-swiper-btn {
+                right: 5% !important;
+            }
+
+            .swiper-button-prev.hero-swiper-btn {
+                left: auto !important;
+                right: calc(5% + 60px) !important;
+            }
+
+            .hero-swiper-btn::after {
+                font-size: 18px !important;
+                font-weight: bold;
+            }
+
+            /* Responsive Adjustments for Mobile & Tablet */
+            @media (hover: none) {
+
+                /* Hide arrows on touch devices (phones/tablets) as users can naturally swipe */
+                .hero-swiper-btn {
+                    display: none !important;
+                }
+            }
+
+            @media (max-width: 768px) {
+
+                /* Scale down pagination slightly on mobile */
+                .swiper-pagination {
+                    right: 3% !important;
+                    gap: 8px;
+                }
+
+                .swiper-pagination-bullet {
+                    width: 8px;
+                    height: 8px;
+                }
+
+                .swiper-pagination-bullet-active {
+                    height: 24px !important;
+                    width: 8px !important;
+                }
+            }
+        </style>
+        <div class="swiper heroSwiper w-full h-full">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-black/40 z-10"></div>
+                    <img src="assets/images/bg-fenica.jpg" class="w-full h-full object-cover" alt="Fenica">
+                    <div
+                        class="absolute inset-0 z-20 flex flex-col items-start justify-end pb-16 md:pb-24 px-6 md:px-16 text-left">
+                        <h1
+                            class="text-3xl md:text-5xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
+                            A&amp;T Saigon Riverside</h1>
+                        <p
+                            class="text-base md:text-lg text-gray-200 font-light max-w-2xl slide-anim opacity-0 translate-y-8 transition-all duration-1000 delay-300">
+                            Biểu tượng sống thượng lưu bên dòng sông Sài Gòn</p>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-black/40 z-10"></div>
+                    <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/walls/at-saigonriverside-2.jpg"
+                        class="w-full h-full object-cover" alt="View">
+                    <div
+                        class="absolute inset-0 z-20 flex flex-col items-start justify-end pb-16 md:pb-24 px-6 md:px-16 text-left">
+                        <h1
+                            class="text-3xl md:text-5xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
+                            Kiến Trúc Tinh Tế</h1>
+                        <p
+                            class="text-base md:text-lg text-gray-200 font-light max-w-2xl slide-anim opacity-0 translate-y-8 transition-all duration-1000 delay-300">
+                            Không gian mở đón nắng gió tự nhiên, thiết kế hiện đại sang trọng</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-black/40 z-10"></div>
+                    <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/tree.jpg"
+                        class="w-full h-full object-cover" alt="Nature">
+                    <div
+                        class="absolute inset-0 z-20 flex flex-col items-start justify-end pb-16 md:pb-24 px-6 md:px-16 text-left">
+                        <h1
+                            class="text-3xl md:text-5xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
+                            Tiện Ích Đặc Quyền</h1>
+                        <p
+                            class="text-base md:text-lg text-gray-200 font-light max-w-2xl slide-anim opacity-0 translate-y-8 transition-all duration-1000 delay-300">
+                            Hơn 50 tiện ích nghỉ dưỡng đẳng cấp dành riêng cho cộng đồng tinh hoa</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination mb-4"></div>
+            <div class="swiper-button-next hero-swiper-btn mr-4"></div>
+            <div class="swiper-button-prev hero-swiper-btn ml-4"></div>
+        </div>
+    </section>
+    <!-- Overview Section -->
+    <section id="overview-section" class="w-full py-12 relative overflow-hidden border-t border-white/10">
+        <div class="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold text-white playfair uppercase tracking-wide">Tổng Quan Dự Án
+                </h2>
+                <div class="w-24 h-1.5 bg-white mt-6 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-6 gap-12 lg:gap-8 md:items-center">
+                <!-- Left Info -->
+                <div
+                    class="overview-text-left flex flex-col gap-2 md:gap-4 lg:gap-8 text-center lg:text-right order-2 lg:order-1 relative z-20">
+                    <div class="overview-item group">
+                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Vị trí</h4>
+                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                            Đường Trần Quang Diệu, Phường Tân Đông Hiệp, Thành phố Hồ Chí Minh</p>
+                    </div>
+                    <div class="overview-item group">
+                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Tổng diện tích
+                        </h4>
+                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                            5.537 m²</p>
+                    </div>
+                    <div class="overview-item group">
+                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Quy mô</h4>
+                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                            2 block, 2 tầng hầm & 2 tầng TTTM</p>
+                    </div>
+                    <div class="overview-item group">
+                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Chiều cao</h4>
+                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                            22 tầng</p>
+                    </div>
+                </div>
+
+                <!-- Center Image -->
+                <div
+                    class="order-1 lg:order-2 px-8 md:px-16 lg:px-4 flex justify-center items-center lg:col-span-4 relative">
+                    <div class="overview-img relative w-full group z-10 flex justify-center">
+                        <img src="assets/images/toa-nha-fenica.png"
+                            class="w-full max-w-[90%] lg:max-w-[85%] h-auto animate-golden-breathing cursor-pointer"
+                            alt="Tổng quan dự án">
+                    </div>
+                </div>
+
+                <!-- Right Info -->
+                <div
+                    class="overview-text-right flex flex-col gap-2 md:gap-4 lg:gap-8 text-center lg:text-left order-3 relative z-20">
+                    <div class="overview-item group">
+                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Nhà thầu</h4>
+                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                            Liên danh Phước Thành & CCcons</p>
+                    </div>
+                    <div class="overview-item group">
+                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Pháp lý sở hữu
+                        </h4>
+                        <p class="text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                            Sở hữu lâu dài</p>
+                    </div>
+                    <div class="overview-item group">
+                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Tổng số Căn hộ
+                        </h4>
+                        <p class="text-white text-3xl lg:text-4xl font-bold playfair mb-5 tracking-wide drop-shadow-lg">
+                            579 <span class="text-xl font-light tracking-normal uppercase text-gray-300">căn</span></p>
+
+                        <!-- Modern Glassmorphism Cards for Bullet Points -->
+                        <div
+                            class="flex flex-col gap-3 lg:border-l border-white/10 lg:pl-6 w-full max-w-[280px] mx-auto lg:mx-0">
+                            <!-- Card 1 -->
+                            <div
+                                class="flex items-center justify-between bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-amber-200 shadow-[0_0_10px_rgba(253,230,138,0.5)]">
+                                    </div>
+                                    <p class="text-white/80 text-sm font-medium">1 Phòng ngủ</p>
+                                </div>
+                                <span class="font-bold text-lg text-white">39</span>
+                            </div>
+                            <!-- Card 2 -->
+                            <div
+                                class="flex items-center justify-between bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-blue-200 shadow-[0_0_10px_rgba(191,219,254,0.5)]">
+                                    </div>
+                                    <p class="text-white/80 text-sm font-medium">1 Phòng ngủ + 1</p>
+                                </div>
+                                <span class="font-bold text-lg text-white">462</span>
+                            </div>
+                            <!-- Card 3 -->
+                            <div
+                                class="flex items-center justify-between bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-emerald-200 shadow-[0_0_10px_rgba(167,243,208,0.5)]">
+                                    </div>
+                                    <p class="text-white/80 text-sm font-medium">2 Phòng ngủ</p>
+                                </div>
+                                <span class="font-bold text-lg text-white">77</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="w-full h-full">
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <div class="w-full h-full flex items-center justify-center">
+                <div class="px-4 lg:px-0 flex flex-col justify-center gap-2 cursor-pointer relative">
+                    <div>
+                        <div class="flex flex-col group">
+                            <div class="text-3xl md:text-5xl max-w-lg w-full playfair">
+                                <h2 class="text-white font-medium text-left py-2 uppercase tracking-wider">
+                                    Sống dẫn đầu</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-1/3 h-[1px] bg-white group-hover:w-1/2 transition-all duration-200"></div>
+                    <div class="w-1/2 h-[1px] bg-white group-hover:w-3/4 transition-all duration-200"></div>
+                    <div>
+                        <div>
+                            <p class="text-base text-white font-light leading-snug">
+                                Tọa lạc tại vị trí quỹ đất hiếm hoi bên sông Sài Gòn,<br> ngay tại trung
+                                tâm Đông Bắc TP.HCM,<br> nằm giữa 2 tuyến đường huyết mạch:<br> con
+                                đường
+                                ven sông Sài Gòn rộng 32 m<br> và Quốc lộ 13 rộng 64m – nơi hội tụ nhịp
+                                sống trung tâm,<br> tầm nhìn giá trị và kết nối giao thương.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-2">
+                <img src="assets/images/map.png" class="w-full h-full" alt="Map">
+            </div>
+        </div>
+    </section>
+
+    <section class="relative">
+        <div
+            class="flex flex-col justify-center gap-2 cursor-pointer relative relative md:absolute md:top-36 md:left-20 px-4 md:px-0">
+            <div>
+                <div class="flex flex-col group">
+                    <div class="text-3xl md:text-5xl max-w-lg w-full playfair">
+                        <h2 class="text-white font-medium text-left py-2 uppercase tracking-wider">
+                            Sống dẫn đầu</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/3 h-[1px] bg-white group-hover:w-1/2 transition-all duration-200"></div>
+            <div class="w-1/2 h-[1px] bg-white group-hover:w-3/4 transition-all duration-200"></div>
+            <div>
+                <div>
+                    <p class="text-base text-white">
+                        Tọa lạc tại vị trí quỹ đất hiếm hoi bên sông Sài Gòn,<br> ngay tại trung
+                        tâm Đông Bắc TP.HCM,<br> nằm giữa 2 tuyến đường huyết mạch:<br> con
+                        đường
+                        ven sông Sài Gòn rộng 32 m<br> và Quốc lộ 13 rộng 64m – nơi hội tụ nhịp
+                        sống trung tâm,<br> tầm nhìn giá trị và kết nối giao thương.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div
+        class="w-full max-w-full h-[120dvh] lg:h-[100vh] min-h-[700px] flex flex-col lg:flex-row overflow-hidden relative">
+
+        <!-- Left Map Area -->
+        <div
+            class="w-full h-[65vh] lg:h-auto lg:flex-1 relative overflow-hidden flex items-center justify-center lg:block">
+            <!-- Origin Point for Arcs -->
+            <!-- Mobile: Center, Desktop: Bottom Right Corner -->
+            <div id="map-origin"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:top-auto lg:left-auto lg:bottom-0 lg:right-0 lg:translate-x-0 lg:translate-y-0 w-0 h-0 z-10 origin-center lg:origin-bottom-right">
+                <!-- Generated by JS -->
+            </div>
+            <!-- Fading gradient overlay to soften edges if needed -->
+            <div class="absolute inset-0 pointer-events-none z-30"></div>
+
+        </div>
+
+        <!-- Right Legend Sidebar -->
+        <div
+            class="w-full lg:w-[320px] xl:w-[400px] h-[55vh] lg:h-auto bg-transparent border-t-2 lg:border-t-0 lg:border-l-2 border-white flex flex-col z-40 shadow-[0_-10px_30px_rgba(0,0,0,0.2)] lg:shadow-[-10px_0_30px_rgba(0,0,0,0.2)]">
+            <div class="p-4 lg:p-6 lg:pb-2 border-b border-white shrink-0">
+                <h2 class="text-2xl font-black text-white uppercase tracking-wider">Bản Đồ kết Nối</h2>
+            </div>
+
+            <div id="legend-container" class="flex-1 overflow-y-auto p-6 pt-4 legend-scroll">
+                <!-- Generated by JS -->
+            </div>
+        </div>
+
+    </div>
+    </section>
+    <section id="floor-plans-section" class="w-full h-screen bg-transparent relative flex items-center overflow-hidden">
+        <div class="w-full grid grid-cols-1 lg:grid-cols-3 px-4 lg:px-8 max-w-[1800px] mx-auto h-full lg:h-[85vh]">
+
+            <!-- Fixed Text Container -->
+            <div class="col-span-1 flex items-center justify-center relative h-[50vh] lg:h-full z-20">
+                <div class="w-full relative h-full flex items-center justify-center lg:justify-start">
+
+                    <!-- Tầng 1 Text -->
+                    <div id="floor-text-1"
+                        class="absolute flex flex-col justify-center text-center lg:text-left px-4 lg:px-16 w-full transition-transform">
+                        <h3 class="text-3xl md:text-5xl font-bold text-white playfair uppercase tracking-wide">
+                            Mặt bằng Tầng 1</h3>
+                        <div class="w-24 h-1.5 bg-white mt-6 mx-auto lg:mx-0"></div>
+                        <p class="mt-8 text-white text-base max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                            Không gian thiết kế mở, tối ưu hóa công năng sử dụng và tận dụng tối đa ánh sáng tự nhiên.
+                        </p>
+                    </div>
+
+                    <!-- Tầng 2 Text -->
+                    <div id="floor-text-2"
+                        class="absolute flex flex-col justify-center text-center lg:text-left px-4 lg:px-16 w-full opacity-0 translate-y-8 transition-transform">
+                        <h3 class="text-3xl md:text-5xl font-bold text-white playfair uppercase tracking-wide">
+                            Mặt bằng Tầng 2</h3>
+                        <div class="w-24 h-1.5 bg-white mt-6 mx-auto lg:mx-0"></div>
+                        <p class="mt-8 text-white text-base max-w-lg mx-auto lg:mx-0 leading-relaxed">Khu
+                            vực riêng tư được bố trí khéo léo, mang lại sự yên tĩnh và thoải mái tuyệt đối cho gia chủ.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Fixed Image Container -->
+            <div
+                class="col-span-1 lg:col-span-2 relative h-[40vh] lg:h-full z-10 flex items-center justify-center p-0 lg:p-8">
+                <div class="relative w-full max-w-[1400px] aspect-[4/3] xl:aspect-[3/2] overflow-hidden lg:mr-8">
+
+                    <!-- Tầng 1 Image -->
+                    <img id="floor-img-1" src="assets/images/mau-mat-bang-tang-1.png"
+                        class="absolute inset-0 w-full h-full object-contain bg-transparent origin-bottom"
+                        alt="Mặt bằng tầng 1">
+
+                    <!-- Tầng 2 Image Wrapper (for clip-path wipe effect) -->
+                    <div id="floor-img-2-wrapper" class="absolute inset-0 w-full h-full"
+                        style="clip-path: inset(100% 0 0 0);">
+                        <img id="floor-img-2" src="assets/images/mau-mat-bang-tang-2.png"
+                            class="absolute inset-0 w-full h-full object-contain bg-transparent origin-bottom"
+                            alt="Mặt bằng tầng 2">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="py-8 bg-transparent overflow-hidden">
+
+        <div class="w-full flex flex-col gap-6 relative">
+
+            <!-- Shadow Gradients for fading edges -->
+            <div
+                class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0e1e2e] to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0e1e2e] to-transparent z-10 pointer-events-none">
+            </div>
+
+            <!-- Track 1: Scrolls Left -->
+            <div id="marquee-1" class="flex gap-2 md:gap-4 w-max hover:!duration-1000">
+                <!-- Group 1 -->
+                <div class="flex gap-2 md:gap-4 items-center shrink-0">
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-afternoon.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-afternoon.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-facade.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-facade.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-sky.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-sky.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-bbq.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-bbq.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-swinning.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-swinning.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-restaurant.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-restaurant.jpg');">
+                        </div>
+                    </a>
+                </div>
+                <!-- Group 2 (Clone) -->
+                <div class="flex gap-2 md:gap-4 items-center shrink-0">
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-afternoon.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-afternoon.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-facade.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-facade.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-sky.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-sky.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-bbq.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-bbq.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-swinning.png"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-swinning.png');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-restaurant.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/mains/atsaigonriverside-restaurant.jpg');">
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Track 2: Scrolls Right -->
+            <div id="marquee-2" class="flex gap-2 md:gap-4 w-max">
+                <!-- Group 1 -->
+                <div class="flex gap-2 md:gap-4 items-center shrink-0">
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/bar.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/bar.jpg');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/gym.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/gym.jpg');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/bida.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/bida.jpg');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/chill.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/chill.jpg');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/coffee.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/coffee.jpg');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/walls/at-saigonriverside-2.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[350px] md:w-[700px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/walls/at-saigonriverside-2.jpg');">
+                        </div>
+                    </a>
+                </div>
+                <!-- Group 2 (Clone) -->
+                <div class="flex gap-2 md:gap-4 items-center shrink-0">
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/bar.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/bar.jpg');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/gym.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/gym.jpg');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/bida.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/bida.jpg');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/chill.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/chill.jpg');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/coffee.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/coffee.jpg');">
+                        </div>
+                    </a>
+                    <a href="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/walls/at-saigonriverside-2.jpg"
+                        data-lightbox="gallery">
+                        <div class="w-[350px] md:w-[700px] h-[25vh] md:h-[35vh] bg-center bg-cover hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                            style="background-image: url('https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/walls/at-saigonriverside-2.jpg');">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="py-8 md:py-20">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-y-2 md:gap-x-4">
+                <div class="md:col-span-3">
+                    <div class="grid grid-cols-2 md:grid-cols-1 gap-2 px-4 md:px-8">
+                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                            style="background-image: url(https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/student.jpg); background-position: 100% 33%;">
+                        </div>
+                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                            style="background-image: url(https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/shopping.jpg); background-position: 100% 33%;">
+                        </div>
+                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                            style="background-image: url(https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/car.jpg); background-position: 100% 33%;">
+                        </div>
+                        <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                            style="background-image: url(https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/doctor.jpg); background-position: 100% 10%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="px-4 md:px-8 md:col-span-2">
+                    <div class="h-full flex flex-col justify-center item-center">
+                        <div>
+                            <h2 class="text-3xl md:text-5xl font-medium text-gradient pb-4 playfair"> Tiện ích ngoại
+                                khu</h2>
+                            <p class="text-sm md:text-base text-gray-300">
+                                A&amp;T Saigon
+                                Riverside thể hiện trọn vẹn tinh thần của một nơi chốn
+                                hiện đại nhưng thư
+                                thái, tiện nghi nhưng vẫn đậm chất nghỉ dưỡng, giữa dòng chảy tất bật của đô
+                                thị,
+                                nơi đây mở ra một miền sống mới – chậm rãi, yên bình, đầy cảm hứng như những khu
+                                resort bên sông mà chúng ta luôn mơ ước.</p>
+                        </div>
+                        <div class="mt-6 grid grid-cols-1 gap-4">
+                            <div>
+                                <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
+                                    <div
+                                        class="flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
+                                        <div class="w-6 h-6">
+                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
+                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
+                                                loading="lazy">
+                                        </div>
+                                    </div>
+                                    <h2 class="text-sm font-bold uppercase leading-tight">TIỆN ÍCH GIÁO DỤC</h2>
+                                </div>
+                                <p class="text-sm">
+                                    Mầm non Hoa Cúc 6, Mầm non Bầu Trời Xanh, Mầm non Ngọc Hà, Trường Tiểu học Vĩnh Phú,
+                                    THCS Châu Văn Liêm, THCS Phú Long, THPT Tú Thục Bách Việt, THPT Bình Chiểu, THPT
+                                    Nguyễn Trãi, Đại học Luật TPHCM cơ sở 2, Đại học Văn Lang, Trường Đại học KT – KT –
+                                    Bình Dương</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
+                                    <div
+                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
+                                        <div class="w-6 h-6">
+                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
+                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
+                                                loading="lazy">
+                                        </div>
+                                    </div>
+                                    <h2 class="text-sm font-bold uppercase leading-tight">TIỆN ÍCH THƯƠNG MẠI - GIẢI
+                                        TRÍ</h2>
+                                </div>
+                                <p class="text-sm">
+                                    Lotte Mart, Aeon Mall, Vincom Plaza, Golf Sông Bé, Co.opmart Tam Bình, Siêu thị
+                                    Emart, MM Mega Market, GiGaMall, Lanmark 81, Chợ đầu mối Thủ Đức, Chợ Vĩnh Phú, Chợ
+                                    Lái Thiêu</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
+                                    <div
+                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
+                                        <div class="w-6 h-6">
+                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
+                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
+                                                loading="lazy">
+                                        </div>
+                                    </div>
+                                    <h2 class="text-sm font-bold uppercase leading-tight">TIỆN ÍCH GIAO THÔNG</h2>
+                                </div>
+                                <p class="text-sm">
+                                    Sân bay Tân Sơn Nhất, Vành đai 2, Vành đai 3, Cao tốc TP.HCM – Long Thành – Dầu Giây
+                                </p>
+                            </div>
+                            <div>
+                                <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
+                                    <div
+                                        class="p-1 h-full flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
+                                        <div class="w-6 h-6">
+                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
+                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
+                                                loading="lazy">
+                                        </div>
+                                    </div>
+                                    <h2 class="text-sm font-bold uppercase leading-tight">TIỆN ÍCH CHĂM SÓC SỨC KHỎE
+                                    </h2>
+                                </div>
+                                <p class="text-sm">
+                                    BVQT Hạnh Phúc, BVQT Becamex, BVQT Columbia Asia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="py-12 md:py-20">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-y-4 md:gap-x-4">
+                <div class="px-4 md:px-8 md:col-span-2">
+                    <div class="flex flex-col justify-center py-8 h-full">
+                        <div>
+                            <h2 class="text-3xl md:text-5xl font-medium text-gradient pb-4 playfair"> Sống nghỉ dưỡng
+                            </h2>
+                            <p class="text-sm md:text-base text-gray-300">Tại A&amp;T Saigon Riverside mỗi tiện ích nơi
+                                đây đều được chăm
+                                chút như một khu nghỉ dưỡng thực thụ, nơi từng chi tiết nhỏ đều mang giá trị tận
+                                hưởng, để mỗi ngày trôi qua đều là một kỳ nghỉ ngay tại chính ngôi nhà của mình.</p>
+                        </div>
+                        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
+                            <div>
+                                <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
+                                    <div
+                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
+                                        <div class="w-6 h-6">
+                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
+                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
+                                                loading="lazy">
+                                        </div>
+                                    </div>
+                                    <h2 class="text-sm font-bold uppercase leading-tight">50+ tiện ích nội khu</h2>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
+                                    <div
+                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
+                                        <div class="w-6 h-6">
+                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
+                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
+                                                loading="lazy">
+                                        </div>
+                                    </div>
+                                    <h2 class="text-sm font-bold uppercase leading-tight">8 tầng tiện ích</h2>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
+                                    <div
+                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
+                                        <div class="w-6 h-6">
+                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
+                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
+                                                loading="lazy">
+                                        </div>
+                                    </div>
+                                    <h2 class="text-sm font-bold uppercase leading-tight">4 tầng đỗ xe (2 tầng hầm,
+                                        2 tầng nổi)</h2>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center text-[#d4ae6f] mb-1 md:mb-2">
+                                    <div
+                                        class="p-1 flex items-center justify-center w-8 h-8 border-[#d4ae6f] bg-[#d4ae6f] border-[1px] rounded-full mr-2">
+                                        <div class="w-6 h-6">
+                                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/icons/at-flower.svg"
+                                                alt="Health icon" class="w-full h-full object-cover text-[#fffbea]"
+                                                loading="lazy">
+                                        </div>
+                                    </div>
+                                    <h2 class="text-sm font-bold uppercase leading-tight">1 khu để xe ngoài trời (5
+                                        tầng)</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-3">
+                    <div class="grid grid-cols-2 md:grid-cols-2 gap-2 px-4 md:px-8">
+                        <div class="flex flex-col gap-2">
+                            <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                                style="background-image: url(&quot;https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/gym.jpg&quot;);">
+                            </div>
+                            <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                                style="background-image: url(&quot;https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/bida.jpg&quot;);">
+                            </div>
+                            <div class="h-[20vh] md:h-[25vh] bg-center bg-cover"
+                                style="background-image: url(&quot;https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/utility/coffee.jpg&quot;);">
+                            </div>
+                        </div>
+                        <div class="w-full h-full bg-center bg-cover"
+                            style="background-image: url(&quot;https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/naturals/tree.jpg&quot;);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Data Structure for the Map
+        const mapData = [
+            {
+                id: "30",
+                title: "30 Phút",
+                radius: 350, // Smallest radius (inner arc)
+                color: "#c29b6f",
+                nodes: [
+                    { id: "01", name: "Trung tâm hành chính TP.HCM", img: "https://images.unsplash.com/photo-1596522354195-e84ae3c98731?w=150&h=150&fit=crop&q=80" },
+                    { id: "02", name: "Trung tâm tài chính Thủ Thiêm", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?w=150&h=150&fit=crop&q=80" },
+                    { id: "03", name: "Chợ Bến Thành", img: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=150&h=150&fit=crop&q=80" },
+                    { id: "04", name: "Sân bay Quốc tế Long Thành", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=150&h=150&fit=crop&q=80" }
+                ]
+            },
+            {
+                id: "20-25",
+                title: "20 - 25 Phút",
+                radius: 520,
+                color: "#c29b6f",
+                nodes: [
+                    { id: "01", name: "Sân bay Tân Sơn Nhất", img: "https://images.unsplash.com/photo-1542296332-2e4473faf563?w=150&h=150&fit=crop&q=80" },
+                    { id: "02", name: "Ngã tư Hàng Xanh", img: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=150&h=150&fit=crop&q=80" },
+                    { id: "03", name: "Làng Đại học TP.HCM", img: "https://images.unsplash.com/photo-1562774053-701939374585?w=150&h=150&fit=crop&q=80" },
+                    { id: "04", name: "Bến xe Miền Đông mới", img: "https://images.unsplash.com/photo-1530685932526-48ec92998eaa?w=150&h=150&fit=crop&q=80" },
+                    { id: "05", name: "KCX Linh Trung 1", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=150&fit=crop&q=80" },
+                    { id: "06", name: "KCN Công nghệ cao TP.HCM", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&q=80" },
+                    { id: "07", name: "Phường Trấn Biên", img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=150&h=150&fit=crop&q=80" }
+                ]
+            },
+            {
+                id: "10-15",
+                title: "10 - 15 Phút",
+                radius: 700,
+                color: "#c29b6f",
+                nodes: [
+                    { id: "01", name: "Aeon Mall", img: "https://images.unsplash.com/photo-1519567281027-d00b8c62b2e5?w=150&h=150&fit=crop&q=80" },
+                    { id: "02", name: "Sân Golf Sông Bé", img: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=150&h=150&fit=crop&q=80" },
+                    { id: "03", name: "BVQT Columbia Asia", img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=150&h=150&fit=crop&q=80" },
+                    { id: "04", name: "BVQT Becamex", img: "https://images.unsplash.com/photo-1538108149393-cebb47cbdceb?w=150&h=150&fit=crop&q=80" },
+                    { id: "05", name: "KCN Việt Hương", img: "https://images.unsplash.com/photo-1504307651254-35680f356f12?w=150&h=150&fit=crop&q=80" },
+                    { id: "06", name: "KCN Sóng Thần 1", img: "https://images.unsplash.com/photo-1551281048-735f49df425f?w=150&h=150&fit=crop&q=80" },
+                    { id: "07", name: "KCN Đồng An", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=150&h=150&fit=crop&q=80" },
+                    { id: "08", name: "KCX Linh Trung 2", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=150&fit=crop&q=80" },
+                    { id: "09", name: "Phường Thủ Dầu Một", img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=150&h=150&fit=crop&q=80" }
+                ]
+            },
+            {
+                id: "5-7",
+                title: "5 - 7 Phút",
+                radius: 880,
+                color: "#c29b6f",
+                nodes: [
+                    { id: "01", name: "Vincom Plaza", img: "https://images.unsplash.com/photo-1519567281027-d00b8c62b2e5?w=150&h=150&fit=crop&q=80" },
+                    { id: "02", name: "KCN Sóng Thần 2", img: "https://images.unsplash.com/photo-1551281048-735f49df425f?w=150&h=150&fit=crop&q=80" },
+                    { id: "03", name: "ICD Tân Cảng Sóng Thần", img: "https://images.unsplash.com/photo-1586528116311-ad8ed7e66a65?w=150&h=150&fit=crop&q=80" },
+                    { id: "04", name: "Trường THPT Nguyễn Thị Minh Khai", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&h=150&fit=crop&q=80" },
+                    { id: "05", name: "Trường THPT Lý Thái Tổ", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=150&h=150&fit=crop&q=80" },
+                    { id: "06", name: "THPT Trần Văn Ơn", img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=150&h=150&fit=crop&q=80" },
+                    { id: "07", name: "Trường THCS Tân Đông Hiệp B", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=150&h=150&fit=crop&q=80" },
+                    { id: "08", name: "Trường Tiểu học Tân Đông Hiệp C", img: "https://images.unsplash.com/photo-1503676382389-4809596d5290?w=150&h=150&fit=crop&q=80" }
+                ]
+            },
+            {
+                id: "3-5",
+                title: "3 - 5 Phút",
+                radius: 1080, // Largest radius (outer arc)
+                color: "#c29b6f",
+                nodes: [
+                    { id: "01", name: "Ga S12 & Ga S11", img: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=150&h=150&fit=crop&q=80" },
+                    { id: "02", name: "Trường Mầm Non Hoa Cúc 2", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=150&h=150&fit=crop&q=80" },
+                    { id: "03", name: "Trường tiểu học An Phú 3", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=150&h=150&fit=crop&q=80" },
+                    { id: "04", name: "Trường tiểu học Bùi Thị Xuân", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&h=150&fit=crop&q=80" },
+                    { id: "05", name: "Chợ Tân Bình", img: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=150&h=150&fit=crop&q=80" },
+                    { id: "06", name: "Chợ Phú Phong", img: "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=150&h=150&fit=crop&q=80" },
+                    { id: "07", name: "Khu di tích - du lịch Hồ Lang", img: "https://images.unsplash.com/photo-1542361345-89ce1dd9144d?w=150&h=150&fit=crop&q=80" }
+                ]
+            }
+        ];
+
+        const mapOrigin = document.getElementById('map-origin');
+        const legendContainer = document.getElementById('legend-container');
+
+        const mapFragment = document.createDocumentFragment();
+        const legendFragment = document.createDocumentFragment();
+
+        // Tính toán tỷ lệ khoảng cách riêng cho mobile (thu nhỏ tối đa để vừa trọn màn hình dọc)
+        const isMobile = window.innerWidth < 1024;
+        const radiusMultiplier = isMobile ? 0.17 : 1;
+
+        // Render Arcs, Nodes, and Legend
+        mapData.forEach((ring, ringIndex) => {
+            const currentRadius = ring.radius * radiusMultiplier;
+
+            // --- Ring Wrapper (orbits on mobile, static on desktop) ---
+            const ringWrapper = document.createElement('div');
+            ringWrapper.className = `absolute top-0 left-0 w-0 h-0 ring-wrapper-${ringIndex}`;
+
+            let orbitDuration = 0;
+            if (isMobile) {
+                // Inner rings spin faster, outer rings spin slower
+                orbitDuration = 40 + ringIndex * 15;
+                ringWrapper.style.animation = `spin ${orbitDuration}s linear infinite`;
+            }
+
+            // --- 1. Draw Dashed Arc ---
+            const arc = document.createElement('div');
+            arc.className = `ring-arc-${ringIndex} absolute rounded-full border-[1.5px] border-dashed border-white pointer-events-none`;
+            arc.style.width = `${currentRadius * 2}px`;
+            arc.style.height = `${currentRadius * 2}px`;
+            arc.style.left = '0';
+            arc.style.top = '0';
+            arc.style.transform = 'translate(-50%, -50%)';
+            ringWrapper.appendChild(arc);
+
+            // --- 2. Draw Label Tab ---
+            const tab = document.createElement('div');
+            if (isMobile) {
+                // Tem tròn nhỏ gắn ở viền dưới mỗi vòng tròn
+                tab.className = `tab-item-${ringIndex} absolute flex flex-col items-center justify-center z-20 bg-[#ba936a] text-white rounded-full border-[1.5px] border-white shadow-sm`;
+                tab.style.top = `${currentRadius}px`;
+                tab.style.left = `0px`;
+                tab.style.transform = `translate(-50%, -50%)`;
+                // tab.innerHTML = `
+                //     <div class="px-1.5 py-0.5 text-center flex items-center gap-0.5">
+                //         <span class="font-black text-[9px] leading-none">${ring.id}</span>
+                //         <span class="text-[7px] font-bold opacity-90 uppercase">P</span>
+                //     </div>
+                // `;
+            } else {
+                tab.className = `tab-item-${ringIndex} absolute bottom-[10px] -translate-x-1/2 flex flex-col items-center z-20 hover:-translate-y-2 transition-transform cursor-pointer`;
+                tab.style.left = `-${currentRadius}px`;
+                tab.innerHTML = `
+                    <div class="trapezoid-tab">
+                        <div class="font-black leading-none tracking-wide text-lg">${ring.id}</div>
+                        <div class="text-[10px] font-bold tracking-widest opacity-90 uppercase mt-0">Phút</div>
+                    </div>
+                `;
+            }
+            mapFragment.appendChild(tab);
+
+            // --- 3. Draw Nodes on the Arc ---
+            const nodesCount = ring.nodes.length;
+
+            let startAngle, angleStep, copies;
+            if (isMobile) {
+                // Full 360-degree circle distribution
+                angleStep = 360 / nodesCount;
+                // Offset startAngle so that 270 degrees (bottom) is exactly halfway between two nodes.
+                // This ensures the maximum possible gap for the tabs at the bottom, and distributes nodes evenly.
+                startAngle = 270 + (angleStep / 2);
+            } else {
+                // Trải đều các node ra toàn bộ góc vuông 90 độ
+                // Bắt đầu từ 15 độ để không đè lên các Tab số phút ở dưới cùng
+                // Kết thúc ở 85 độ để tooltip không bị cắt ở cạnh phải
+                startAngle = 15;
+                const endAngle = 85;
+                angleStep = nodesCount > 1 ? (endAngle - startAngle) / (nodesCount - 1) : 0;
+            }
+            copies = 1; // Removed cloning for desktop as per user request (static flashing instead)
+
+            for (let c = 0; c < copies; c++) {
+                const copyOffset = c * (360 / copies);
+
+                ring.nodes.forEach((node, nodeIndex) => {
+                    const angle = startAngle + (angleStep * nodeIndex) + copyOffset;
+
+                    const nodeEl = document.createElement('div');
+                    nodeEl.className = 'absolute top-0 left-0 w-0 h-0';
+                    nodeEl.style.transform = `rotate(${angle}deg)`;
+
+                    const nodeSizeClass = isMobile ? "w-7 h-7 border-2" : "w-14 h-14 border-[3px]";
+                    const badgeClass = isMobile ? "text-[7px] px-1 py-[1px] -bottom-1" : "text-[11px] px-2 py-0.5 -bottom-2";
+                    const nodeSizePx = isMobile ? 28 : 56;
+
+                    const inner = document.createElement('div');
+                    inner.className = `node-item-${ringIndex} absolute flex flex-col items-center justify-center cursor-pointer group`;
+                    inner.style.width = `${nodeSizePx}px`;
+                    inner.style.height = `${nodeSizePx}px`;
+                    inner.style.left = `-${nodeSizePx / 2}px`;
+                    inner.style.top = `-${nodeSizePx / 2}px`;
+                    inner.style.transform = `translateX(-${currentRadius}px) rotate(-${angle}deg)`;
+
+                    // Counter-spin wrapper keeps the image and text perfectly upright while orbiting
+                    const contentWrapper = document.createElement('div');
+                    contentWrapper.className = 'relative flex flex-col items-center justify-center w-full h-full';
+                    if (isMobile) {
+                        contentWrapper.style.animation = `counter-spin ${orbitDuration}s linear infinite`;
+                    }
+
+                    contentWrapper.innerHTML = `
+                    <div class="node-visual relative ${nodeSizeClass} rounded-full border-white overflow-hidden shadow-lg group-hover:scale-110 group-hover:border-white transition-all duration-300 z-10 bg-[#0e1e2e]">
+                        <img src="${node.img}" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=150&fit=crop&q=80'" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Number Badge -->
+                    <div class="absolute ${badgeClass} bg-[#8b6135] text-white font-bold rounded-full z-20 shadow-md border-2 border-white group-hover:bg-[#dcb88e] transition-colors">
+                        ${node.id}
+                    </div>
+                    
+                    <!-- Hover Tooltip -->
+                    <div class="absolute bottom-full mb-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#1e2e3e] text-white text-sm px-4 py-2.5 rounded-xl shadow-2xl whitespace-nowrap pointer-events-none z-30 font-bold border border-white flex items-center gap-2">
+                        <span class="bg-[#2a3b4c] text-white px-1.5 py-0.5 rounded-md text-xs">${node.id}</span>
+                        ${node.name}
+                    </div>
+                `;
+
+                    inner.appendChild(contentWrapper);
+                    nodeEl.appendChild(inner);
+                    ringWrapper.appendChild(nodeEl);
+                });
+            }
+
+            mapFragment.appendChild(ringWrapper);
+
+            // --- 4. Populate Legend Sidebar ---
+            const legendSection = document.createElement('div');
+            legendSection.className = `mb-6 legend-item-${ringIndex}`;
+            legendSection.innerHTML = `
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="w-0 h-0 border-t-[6px] border-b-[6px] border-l-[8px] border-transparent border-l-white"></div>
+                    <h3 class="text-xl font-black text-white">${ring.title}</h3>
+                </div>
+                <ul class="space-y-2 pl-4 border-l-2 border-white ml-1">
+                    ${ring.nodes.map(n => `
+                        <li class="text-[13px] text-white font-medium hover:text-white hover:translate-x-1 transition-transform cursor-pointer flex gap-2">
+                            <span class="font-bold text-white">${n.id}.</span> 
+                            <span>${n.name}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+            legendFragment.appendChild(legendSection);
+        });
+
+        mapOrigin.appendChild(mapFragment);
+        legendContainer.appendChild(legendFragment);
+
+        // Turn on GSAP force3D for maximum mobile performance
+        gsap.config({ force3D: true });
+
+        // --- High-Performance GSAP Entrance Animations ---
+        // Increase delay to ensure the DOM is fully painted and stable before animating
+        const tl = gsap.timeline({ delay: 0.5 });
+
+        // 1. Fade in the FENICA title smoothly
+        tl.fromTo(".fenica-title",
+            { y: 50, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 1.2, ease: "expo.out" }
+        );
+
+        // 2. Animate rings sequentially from inner to outer
+        mapData.forEach((_, i) => {
+            const ringTl = gsap.timeline();
+
+            // Draw arc
+            ringTl.fromTo(`.ring-arc-${i}`,
+                { scale: 0.6, autoAlpha: 0 },
+                { scale: 1, autoAlpha: 1, duration: 1.2, ease: "expo.out" },
+                0
+            )
+                // Pop up the bottom tab
+                .fromTo(`.tab-item-${i}`,
+                    { y: 40, autoAlpha: 0 },
+                    { y: 0, autoAlpha: 1, duration: 0.8, ease: "back.out(1.7)" },
+                    0.15
+                )
+                // Pop in nodes radially
+                .fromTo(`.node-item-${i}`,
+                    { scale: 0, autoAlpha: 0 },
+                    { scale: 1, autoAlpha: 1, duration: 0.7, stagger: 0.08, ease: "back.out(1.5)" },
+                    0.2
+                )
+                // Slide in legend item
+                .fromTo(`.legend-item-${i}`,
+                    { x: 30, autoAlpha: 0 },
+                    { x: 0, autoAlpha: 1, duration: 0.8, ease: "expo.out" },
+                    0.25
+                );
+
+            if (!isMobile) {
+                // Desktop: Continuous sequential flashing/pulsing effect after entrance
+                ringTl.to(`.ring-arc-${i}, .node-item-${i} .node-visual`, {
+                    opacity: 0.4,
+                    duration: 1.2,
+                    yoyo: true,
+                    repeat: -1,
+                    ease: "sine.inOut"
+                }, 1.5); // Start after entrance animation finishes
+            }
+
+            // Stagger each ring's timeline to create a beautiful ripple effect
+            tl.add(ringTl, i * 0.15);
+        });
+
+        // --- Floor Plan Scroll Animations (Pinned) ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        const floorSection = document.getElementById('floor-plans-section');
+
+        ScrollTrigger.create({
+            trigger: floorSection,
+            start: "top top", // Pin exactly when the section hits the top of the viewport
+            end: "+=150%",    // Keep it pinned for 1.5 times the viewport height while scrolling
+            pin: true,
+            scrub: 1,         // Smooth scrubbing
+            animation: gsap.timeline()
+                // Fade out Tầng 1 Text, move it up slightly
+                .to("#floor-text-1", { opacity: 0, y: -30, duration: 1 }, 0)
+                // Fade in Tầng 2 Text, move it to natural position
+                .to("#floor-text-2", { opacity: 1, y: 0, duration: 1 }, 0)
+
+                // Fade out Image 1 completely to prevent overlap
+                .to("#floor-img-1", { opacity: 0, duration: 1 }, 0)
+                // Wipe reveal Image 2 from bottom to top
+                .to("#floor-img-2-wrapper", { clipPath: "inset(0% 0 0 0)", duration: 1, ease: "power2.inOut" }, 0)
+                // Scale Image 2 down to normal size to create a slight zoom-out effect as it wipes in
+                .to("#floor-img-2", { scale: 1, duration: 1, ease: "power1.out" }, 0)
+        });
+
+        // --- Gallery Marquee Animations ---
+        // Track 1: Moves Left (-50%)
+        const marquee1 = gsap.to("#marquee-1", {
+            xPercent: -50,
+            ease: "none",
+            duration: 35,
+            repeat: -1
+        });
+
+        // Track 2: Moves Right
+        // To move right seamlessly, start at -50% and move to 0%
+        gsap.set("#marquee-2", { xPercent: -50 });
+        const marquee2 = gsap.to("#marquee-2", {
+            xPercent: 0,
+            ease: "none",
+            duration: 35,
+            repeat: -1
+        });
+
+        // Pause animations on hover for better UX
+        const m1 = document.getElementById('marquee-1');
+        const m2 = document.getElementById('marquee-2');
+        if (m1) {
+            m1.addEventListener('mouseenter', () => marquee1.pause());
+            m1.addEventListener('mouseleave', () => marquee1.play());
+        }
+        if (m2) {
+            m2.addEventListener('mouseenter', () => marquee2.pause());
+            m2.addEventListener('mouseleave', () => marquee2.play());
+        }
+
+        // --- Overview Section Animations ---
+        const overviewTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#overview-section",
+                start: "top 75%", // Trigger when top of section hits 75% down the viewport
+                toggleActions: "play none none reverse" // Play when entering, reverse when leaving
+            }
+        });
+
+        if (document.getElementById('overview-section')) {
+            overviewTl
+                // Image scales up from small and fades in
+                .fromTo(".overview-img",
+                    { scale: 0.8, opacity: 0, clipPath: "inset(100% 0 0 0)" },
+                    { scale: 1, opacity: 1, clipPath: "inset(0% 0 0 0)", duration: 1.2, ease: "power3.out" }
+                )
+                // Left text items slide in from left
+                .fromTo(".overview-text-left .overview-item",
+                    { x: -50, opacity: 0 },
+                    { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out" },
+                    "-=0.6"
+                )
+                // Right text items slide in from right
+                .fromTo(".overview-text-right .overview-item",
+                    { x: 50, opacity: 0 },
+                    { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out" },
+                    "-=0.8" // Start slightly before left text finishes
+                );
+        }
+
+        // --- Hero Carousel Initialization ---
+        if (typeof Swiper !== 'undefined') {
+            const heroSwiper = new Swiper('.heroSwiper', {
+                effect: 'fade', // Smooth fade effect between slides
+                loop: true,
+                speed: 1500,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                on: {
+                    init: function () {
+                        animateSlide(this.slides[this.activeIndex]);
+                    },
+                    slideChangeTransitionStart: function () {
+                        // Reset all animations
+                        document.querySelectorAll('.slide-anim').forEach(el => {
+                            el.classList.remove('opacity-100', 'translate-y-0');
+                            el.classList.add('opacity-0', 'translate-y-8');
+                        });
+                        // Animate current
+                        animateSlide(this.slides[this.activeIndex]);
+                    }
+                }
+            });
+
+            function animateSlide(slide) {
+                const anims = slide.querySelectorAll('.slide-anim');
+                anims.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.remove('opacity-0', 'translate-y-8');
+                        el.classList.add('opacity-100', 'translate-y-0');
+                    }, 100 + (index * 300)); // Staggered delay for each element
+                });
+            }
+        }
+
+    </script>
+</body>
+
+</html>

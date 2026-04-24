@@ -107,76 +107,155 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 1. --- Map Initialization ---
-    // 1. --- Legend Initialization ---
+    // 1. --- Legend Initialization (Tabs Version) ---
     const legendContainer = document.getElementById('legend-container');
+    const legendTabs = document.getElementById('legend-tabs');
 
-    // Only run legend logic if container exists
-    if (legendContainer) {
-        const legendFragment = document.createDocumentFragment();
+    // Only run legend logic if containers exist
+    if (legendContainer && legendTabs) {
+        // --- Populate Tabs ---
+        mapData.forEach((ring, index) => {
+            const tabBtn = document.createElement('button');
+            const isActive = index === 0;
+            // Glassmorphism tab buttons
+            tabBtn.className = `legend-tab-btn whitespace-nowrap px-5 py-2 rounded-full border text-[12px] md:text-[13px] font-bold uppercase tracking-wider transition-all duration-300 ${isActive ? 'bg-[#d4ae6f]/20 border-[#d4ae6f] text-[#d4ae6f] shadow-[0_0_15px_rgba(212,174,111,0.3)]' : 'bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5'}`;
+            tabBtn.textContent = ring.title;
+            tabBtn.dataset.index = index;
+            legendTabs.appendChild(tabBtn);
+        });
 
-        // Render Legend
-        mapData.forEach((ring, ringIndex) => {
-            // --- Populate Legend Sidebar ---
+        // --- Render Content Pane ---
+        const renderPane = (index) => {
+            const ring = mapData[index];
+            legendContainer.innerHTML = ''; // Clear old content
+            
             const legendSection = document.createElement('div');
-            legendSection.className = `mb-6 legend-item-${ringIndex}`;
+            legendSection.className = `legend-pane`;
+            
             legendSection.innerHTML = `
-                <div class="flex items-center gap-2 mb-3">
-                    <div class="w-0 h-0 border-t-[6px] border-b-[6px] border-l-[8px] border-transparent border-l-white"></div>
-                    <h3 class="text-xl font-black text-white">${ring.title}</h3>
+                <div class="flex items-center gap-3 mb-6">
+                    <!-- Glow Dot -->
+                    <div class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-[#f0e0ca] to-[#d4ae6f] shadow-[0_0_10px_rgba(212,174,111,0.8)]"></div>
+                    <!-- Gradient Text Title -->
+                    <h3 class="text-xl font-bold playfair bg-gradient-to-r from-[#f0e0ca] to-[#d4ae6f] bg-clip-text text-transparent uppercase tracking-wider">${ring.title}</h3>
                 </div>
-                <ul class="space-y-2 pl-4 border-l-2 border-white ml-1">
+                <!-- Dashed Vertical Line -->
+                <ul class="space-y-4 pl-[5px] border-l border-dashed border-[#d4ae6f]/40 ml-1 pb-4">
                     ${ring.nodes.map(n => `
-                        <li class="text-[13px] text-white font-medium hover:text-white hover:translate-x-1 transition-transform cursor-pointer flex gap-2">
-                            <span class="font-bold text-white">${n.id}.</span> 
-                            <span>${n.name}</span>
+                        <li class="legend-item group text-[14px] text-gray-200 font-medium hover:text-[#f0e0ca] transition-all cursor-pointer flex gap-4 items-center relative">
+                            <!-- Node Dot on Dashed Line -->
+                            <div class="absolute -left-[20.5px] w-2 h-2 rounded-full bg-[#d4ae6f]/30 group-hover:bg-[#d4ae6f] group-hover:shadow-[0_0_8px_rgba(212,174,111,0.8)] transition-all"></div>
+                            
+                            <!-- Premium SVG Map Pin Icon -->
+                            <svg class="w-4 h-4 text-[#d4ae6f] opacity-70 group-hover:opacity-100 transition-opacity shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            
+                            <span class="leading-snug tracking-wide">${n.name}</span>
                         </li>
                     `).join('')}
                 </ul>`;
-            legendFragment.appendChild(legendSection);
-        });
+            legendContainer.appendChild(legendSection);
 
-        legendContainer.appendChild(legendFragment);
+            // GSAP Animate In
+            if (typeof gsap !== 'undefined') {
+                gsap.fromTo(legendSection.querySelector('h3').parentElement, 
+                    { opacity: 0, x: -10 }, 
+                    { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }
+                );
+                gsap.fromTo(legendSection.querySelectorAll('.legend-item'), 
+                    { opacity: 0, x: -15 }, 
+                    { opacity: 1, x: 0, duration: 0.4, stagger: 0.05, ease: "power2.out", delay: 0.1 }
+                );
+            }
+        };
+
+        // Render first pane initially
+        renderPane(0);
+
+        // --- Tab Click Logic ---
+        const tabs = legendTabs.querySelectorAll('.legend-tab-btn');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab styles
+                tabs.forEach(t => {
+                    t.className = 'legend-tab-btn whitespace-nowrap px-5 py-2 rounded-full border text-[12px] md:text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5';
+                });
+                tab.className = 'legend-tab-btn whitespace-nowrap px-5 py-2 rounded-full border text-[12px] md:text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-[#d4ae6f]/20 border-[#d4ae6f] text-[#d4ae6f] shadow-[0_0_15px_rgba(212,174,111,0.3)]';
+                
+                // Render new pane
+                renderPane(parseInt(tab.dataset.index));
+            });
+        });
 
         // Turn on GSAP force3D for maximum mobile performance
         if (typeof gsap !== 'undefined') {
             gsap.config({ force3D: true });
-
+            
+            // Only animate fenica-title on load if it exists
             const tl = gsap.timeline({ delay: preloaderDelay });
-
-            // Kiểm tra xem class .fenica-title có tồn tại trên DOM không để tránh warning GSAP target not found
             if (document.querySelector(".fenica-title")) {
                 tl.fromTo(".fenica-title",
                     { y: 50, autoAlpha: 0 },
                     { y: 0, autoAlpha: 1, duration: 1.2, ease: "expo.out" }
                 );
             }
-
-            mapData.forEach((_, i) => {
-                tl.fromTo(`.legend-item-${i}`,
-                    { x: 30, autoAlpha: 0 },
-                    { x: 0, autoAlpha: 1, duration: 0.8, ease: "expo.out" }, 
-                    0.25 + (i * 0.15)
-                );
-            });
+            
+            // Initial animation for the tabs container coming in
+            tl.fromTo("#legend-tabs",
+                { opacity: 0, y: 10 },
+                { opacity: 1, y: 0, duration: 0.8, ease: "expo.out" },
+                "-=0.5"
+            );
         }
     }
 
-    // 2. --- Floor Plan Scroll Animations (Pinned) ---
-    const floorSection = document.getElementById('floor-plans-section');
-    if (floorSection && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-        ScrollTrigger.create({
-            trigger: floorSection,
-            start: "top top", // Pin exactly when the section hits the top of the viewport
-            end: "+=150%",    // Keep it pinned for 1.5 times the viewport height while scrolling
-            pin: true,
-            scrub: 1,         // Smooth scrubbing
-            animation: gsap.timeline()
-                .to("#floor-text-1", { opacity: 0, y: -30, duration: 1 }, 0)
-                .to("#floor-text-2", { opacity: 1, y: 0, duration: 1 }, 0)
-                .to("#floor-img-1", { opacity: 0, duration: 1 }, 0)
-                .to("#floor-img-2-wrapper", { clipPath: "inset(0% 0 0 0)", duration: 1, ease: "power2.inOut" }, 0)
-                .to("#floor-img-2", { scale: 1, duration: 1, ease: "power1.out" }, 0)
+    // 2. --- Floor Plan Tab Logic ---
+    const floorTabs = document.querySelectorAll('.floor-tab-btn');
+    const floorTitle = document.getElementById('floor-main-title');
+    const floorDesc = document.getElementById('floor-desc');
+    const floorImages = document.querySelectorAll('.floor-img');
+
+    const floorData = {
+        '1': { title: 'Mặt bằng Tầng 1', desc: 'Không gian thiết kế mở, tối ưu hóa công năng sử dụng và tận dụng tối đa ánh sáng tự nhiên.' },
+        '2': { title: 'Mặt bằng Tầng 2-20', desc: 'Khu vực căn hộ tiêu chuẩn, được bố trí khéo léo mang lại sự yên tĩnh và thoải mái tuyệt đối cho gia chủ.' },
+        '3': { title: 'Mặt bằng Tầng 39-40', desc: 'Tầng cao cấp với tầm nhìn panorama tuyệt đẹp ôm trọn dòng sông Sài Gòn.' }
+    };
+
+    if (floorTabs.length > 0) {
+        floorTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active from all
+                floorTabs.forEach(t => {
+                    t.className = 'floor-tab-btn px-6 py-2.5 rounded-full border text-[13px] md:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5 whitespace-nowrap';
+                });
+                
+                // Add active to clicked
+                tab.className = 'floor-tab-btn active px-6 py-2.5 rounded-full border text-[13px] md:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 bg-[#d4ae6f]/20 border-[#d4ae6f] text-[#d4ae6f] shadow-[0_0_15px_rgba(212,174,111,0.3)] whitespace-nowrap';
+                
+                const floor = tab.dataset.floor;
+                
+                // Animate text change
+                if (typeof gsap !== 'undefined') {
+                    gsap.to([floorTitle, floorDesc], {
+                        opacity: 0,
+                        y: -10,
+                        duration: 0.2,
+                        onComplete: () => {
+                            floorTitle.textContent = floorData[floor].title;
+                            floorDesc.textContent = floorData[floor].desc;
+                            gsap.to([floorTitle, floorDesc], { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" });
+                        }
+                    });
+
+                    // Crossfade images
+                    floorImages.forEach(img => {
+                        if (img.id === 'floor-img-' + floor) {
+                            gsap.to(img, { opacity: 1, scale: 1, zIndex: 10, duration: 0.6, ease: "power2.out" });
+                        } else {
+                            gsap.to(img, { opacity: 0, scale: 0.95, zIndex: 0, duration: 0.6, ease: "power2.inOut" });
+                        }
+                    });
+                }
+            });
         });
     }
 

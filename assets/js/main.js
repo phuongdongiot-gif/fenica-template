@@ -78,6 +78,30 @@ const mapData = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Smooth Scrolling with Lenis ---
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            smooth: true,
+        });
+
+        // Tích hợp với GSAP ScrollTrigger
+        if (typeof ScrollTrigger !== 'undefined') {
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        } else {
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+        }
+    }
+
     // 0. --- Preloader Animation ---
     const preloader = document.getElementById('preloader');
     // Global delay for other animations so they don't play behind the preloader
@@ -118,10 +142,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const tabBtn = document.createElement('button');
             const isActive = index === 0;
             // Glassmorphism tab buttons
-            tabBtn.className = `legend-tab-btn whitespace-nowrap px-5 py-2 rounded-full border text-[12px] md:text-[13px] font-bold uppercase tracking-wider transition-all duration-300 ${isActive ? 'bg-[#d4ae6f]/20 border-[#d4ae6f] text-[#d4ae6f] shadow-[0_0_15px_rgba(212,174,111,0.3)]' : 'bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5'}`;
+            tabBtn.className = `swiper-slide w-auto legend-tab-btn whitespace-nowrap px-5 py-2 rounded-full border text-[12px] md:text-[13px] font-bold uppercase tracking-wider transition-all duration-300 ${isActive ? 'bg-[#d4ae6f]/20 border-[#d4ae6f] text-[#d4ae6f] shadow-[0_0_15px_rgba(212,174,111,0.3)]' : 'bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5'}`;
             tabBtn.textContent = ring.title;
             tabBtn.dataset.index = index;
             legendTabs.appendChild(tabBtn);
+        });
+
+        // Initialize Legend Swiper
+        const legendSwiper = new Swiper('.legend-swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 8,
+            grabCursor: true,
+            navigation: {
+                nextEl: '#legend-next',
+                prevEl: '#legend-prev',
+            },
         });
 
         // --- Render Content Pane ---
@@ -603,16 +638,19 @@ document.addEventListener('DOMContentLoaded', () => {
             );
 
             // Parallax Background Effect
-            gsap.to('#overview-bg img', {
-                yPercent: 15,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: overviewSection,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
-                }
-            });
+            const overviewBgImg = document.querySelector('#overview-bg img');
+            if (overviewBgImg) {
+                gsap.to(overviewBgImg, {
+                    yPercent: 15,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: overviewSection,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
+            }
 
             // Hover interactions for Apartment Buttons
             const aptBtns = document.querySelectorAll('.apt-btn');

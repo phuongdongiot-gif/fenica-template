@@ -16,6 +16,8 @@
     <!-- Include AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Include Lenis for Smooth Scrolling -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,9 +29,14 @@
 
 <body class="min-h-screen bg-[#0e1e2e] overflow-hidden">
     <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 z-[9999] bg-[#0e1e2e] flex flex-col items-center justify-center px-6">
-        <svg class="h-8 sm:h-10 md:h-14 max-w-[85vw] w-auto mb-6 md:mb-8 preloader-logo" id="fenica-logo-svg"
-            xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1156.33 208.54">
+    <div id="preloader"
+        class="fixed inset-0 z-[9999] bg-[#0e1e2e] flex flex-col items-center justify-center px-6 overflow-hidden">
+        <!-- Faded Background Image -->
+        <div class="absolute inset-0 z-0 opacity-15 bg-center bg-cover"
+            style="background-image: url('assets/images/bg-fenica.jpg');"></div>
+
+        <svg class="relative z-10 h-8 sm:h-10 md:h-14 max-w-[85vw] w-auto mb-6 md:mb-8 preloader-logo"
+            id="fenica-logo-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1156.33 208.54">
             <defs>
                 <style>
                     .st0 {
@@ -53,15 +60,269 @@
             <path class="st0"
                 d="M555.3,2.61h-11.41c-.73,0-1.32.59-1.32,1.32v82.92c-.02.97-1.08,1.56-1.91,1.05L404.38,3.93c-.88-.44-1.32,0-1.32.88v25.88c0,9.21,5.7,19.3,14.04,24.57l161.36,95.87c.83.49,1.88-.11,1.88-1.07l-.04-119.37c0-16.67-10.53-28.08-25.01-28.08ZM430.7,203.55h10.6c.69,0,1.24-.56,1.24-1.24v-75.53c0-1.32.88-1.75,2.63-.88l132.93,82.48c1.32.44,2.19,0,2.19-1.32v-25.45c0-10.09-5.7-20.18-13.6-24.57l-161.76-95.31c-.83-.49-1.88.11-1.88,1.07v112.66c0,16.67,11.41,28.08,27.64,28.08Z" />
         </svg>
-        <div class="w-[80vw] max-w-[12rem] md:max-w-[16rem] h-[2px] bg-white/20 rounded overflow-hidden">
+        <div class="relative z-10 w-[80vw] max-w-[12rem] md:max-w-[16rem] h-[2px] bg-white/20 rounded overflow-hidden">
             <div class="h-full bg-[#d4ae6f] w-0 preloader-progress"></div>
         </div>
     </div>
-
     <div class="video-bg fixed w-screen h-screen -z-10 opacity-50">
         <video src="assets/videos/video-bg-fenica.mp4" class="opacity-20 w-full h-full object-cover" autoplay loop
             muted></video>
     </div>
+
+    <!-- Header Section -->
+    <header class="relative z-[999]">
+        <section id="header"
+            class="fixed top-0 left-0 w-full z-[499] shadow-md bg-[#0e1e2e]/80 backdrop-blur-md border-b border-[#d4ae6f]/20 transition-all duration-300">
+            <!-- Logos Container -->
+            <div id="headerContainer"
+                class="mx-auto max-w-7xl flex justify-between items-center px-4 py-3 md:py-4 space-x-4 transition-all duration-300">
+                <div class="logo-wrap shrink-0">
+                    <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Logo trái" class="logo-img w-20 md:w-32 object-contain transition-all duration-300">
+                </div>
+                <div class="logo-wrap shrink-0">
+                    <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Logo phải" class="logo-img w-20 md:w-32 object-contain transition-all duration-300">
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="border-t border-[#d4ae6f]/20 text-xs">
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex justify-center space-x-8 relative z-20 text-white">
+                    <li class="contents"><a href="/"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TRANG
+                            CHỦ</a></li>
+                    <li class="contents relative group">
+                        <a href="/tong-quan"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TỔNG
+                            QUAN</a>
+                        <div id="submenu"
+                            class="w-56 z-50 absolute left-1/2 -translate-x-1/2 top-full bg-[#0e1e2e]/95 backdrop-blur-xl border border-[#d4ae6f]/30 text-white shadow-xl flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible pointer-events-auto transition-all duration-300">
+                            <a href="/tong-quan"
+                                class="block px-6 py-3 border-b border-[#d4ae6f]/10 hover:text-[#0e1e2e] hover:bg-[#d4ae6f] hover:font-bold tracking-wide transition-colors">GIỚI
+                                THIỆU DỰ ÁN</a>
+                            <a href="/mat-bang-toa-nha"
+                                class="block px-6 py-3 border-b border-[#d4ae6f]/10 hover:text-[#0e1e2e] hover:bg-[#d4ae6f] hover:font-bold tracking-wide transition-colors">MẶT
+                                BẰNG TẦNG</a>
+                            <a href="/mat-bang-tien-ich"
+                                class="block px-6 py-3 border-b border-[#d4ae6f]/10 hover:text-[#0e1e2e] hover:bg-[#d4ae6f] hover:font-bold tracking-wide transition-colors">MẶT
+                                BẰNG TIỆN ÍCH</a>
+                            <a href="/can-ho"
+                                class="block px-6 py-3 border-b border-[#d4ae6f]/10 hover:text-[#0e1e2e] hover:bg-[#d4ae6f] hover:font-bold tracking-wide transition-colors">CĂN
+                                HỘ</a>
+                            <a href="/phap-ly"
+                                class="block px-6 py-3 hover:text-[#0e1e2e] hover:bg-[#d4ae6f] hover:font-bold tracking-wide transition-colors">PHÁP
+                                LÝ</a>
+                        </div>
+                    </li>
+                    <li class="contents"><a href="/vi-tri"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">VỊ
+                            TRÍ</a></li>
+                    <li class="contents relative group"><a href="/mat-bang"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">MẶT
+                            BẰNG</a></li>
+                    <li class="contents"><a href="/tien-ich"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TIỆN
+                            ÍCH</a></li>
+                    <li class="contents"><a href="/thu-vien"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">THƯ
+                            VIỆN</a></li>
+                    <li class="contents"><a href="/tin-tuc"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TIN
+                            TỨC</a></li>
+                    <li class="contents"><a href="/lien-he"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">LIÊN
+                            HỆ</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden w-full flex justify-center relative z-50 bg-transparent">
+                    <button id="mobile-menu-button"
+                        class="text-white hover:text-[#d4ae6f] transition-colors px-4 py-2 mx-auto">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path id="menu-icon-path" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Content -->
+                <div id="mobile-menu"
+                    class="hidden absolute top-full left-0 w-full bg-[#0e1e2e]/95 backdrop-blur-xl text-white md:hidden text-lg text-left z-[490] border-t border-[#d4ae6f]/20 shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden max-h-[75vh] opacity-0 transition-opacity duration-300 relative">
+
+                    <style>
+                        @keyframes menuBgAnim {
+
+                            0%,
+                            100% {
+                                transform: translateY(0) scale(1) rotate(0deg);
+                                opacity: 0.05;
+                            }
+
+                            50% {
+                                transform: translateY(-15px) scale(1.05) rotate(2deg);
+                                opacity: 0.15;
+                            }
+                        }
+
+                        .menu-bg-svg {
+                            animation: menuBgAnim 10s ease-in-out infinite;
+                            fill: #d4ae6f;
+                            /* Change to gold to match theme */
+                        }
+                    </style>
+
+                    <!-- Background SVG -->
+                    <div
+                        class="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080"
+                            class="w-[200%] h-auto md:w-full max-w-none opacity-50 menu-bg-svg origin-center">
+                            <path
+                                d="M1138.1,203.26h-35.36c-2.25,0-4.08,1.83-4.08,4.08v252.98l-.03,4.09c-.02,3.01-3.32,4.84-5.88,3.26l-422.52-260.33c-2.72-1.36-4.08,0-4.08,2.72v80.25c0,28.56,17.68,59.84,43.52,76.17l500.24,297.23c2.57,1.53,5.83-.33,5.83-3.32l-.11-370.08c0-51.68-32.64-87.05-77.53-87.05ZM751.83,826.2h32.86c2.13,0,3.86-1.73,3.86-3.86v-234.16c0-4.08,2.72-5.44,8.16-2.72l412.11,255.7c4.08,1.36,6.8,0,6.8-4.08v-78.89c0-31.28-17.68-62.57-42.16-76.17l-501.5-295.48c-2.57-1.52-5.82.34-5.82,3.32v349.28c0,51.68,35.36,87.05,85.69,87.05Z" />
+                        </svg>
+                    </div>
+
+                    <!-- Scrollable Content -->
+                    <div
+                        class="relative z-10 mx-auto max-w-sm w-full px-4 py-6 flex flex-col gap-4 h-full overflow-y-auto max-h-[75vh]">
+                        <a href="/"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TRANG
+                            CHỦ</a>
+                        <div>
+                            <div class="tracking-wider border-l-2 border-[#d4ae6f]/30 pl-3 cursor-pointer flex justify-between items-center hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300"
+                                id="toggle-project">
+                                TỔNG QUAN
+                                <svg id="toggle-project-icon" class="w-4 h-4 transform transition-transform" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                            <div id="project-submenu"
+                                class="pl-5 mt-2 space-y-2 text-sm text-gray-300 hidden flex-col border-l border-white/10 ml-3">
+                                <a href="/tong-quan" class="block hover:text-[#d4ae6f] transition-colors py-1">GIỚI
+                                    THIỆU DỰ ÁN</a>
+                                <a href="/mat-bang-toa-nha"
+                                    class="block hover:text-[#d4ae6f] transition-colors py-1">MẶT BẰNG TẦNG</a>
+                                <a href="/mat-bang-tien-ich"
+                                    class="block hover:text-[#d4ae6f] transition-colors py-1">MẶT BẰNG TIỆN ÍCH</a>
+                                <a href="/can-ho" class="block hover:text-[#d4ae6f] transition-colors py-1">CĂN HỘ</a>
+                                <a href="/phap-ly" class="block hover:text-[#d4ae6f] transition-colors py-1">PHÁP LÝ</a>
+                            </div>
+                        </div>
+                        <a href="/vi-tri"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">VỊ
+                            TRÍ</a>
+                        <a href="/mat-bang"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">MẶT
+                            BẰNG</a>
+                        <a href="/tien-ich"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TIỆN
+                            ÍCH</a>
+                        <a href="/thu-vien"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">THƯ
+                            VIỆN</a>
+                        <a href="/tin-tuc"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TIN
+                            TỨC</a>
+                        <a href="/lien-he"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">LIÊN
+                            HỆ</a>
+                    </div>
+                </div>
+            </nav>
+        </section>
+    </header>
+
+    <script>
+        // JS để điều khiển logic mở/đóng mobile menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconPath = document.getElementById('menu-icon-path');
+
+            const toggleProject = document.getElementById('toggle-project');
+            const projectSubmenu = document.getElementById('project-submenu');
+            const toggleProjectIcon = document.getElementById('toggle-project-icon');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                        menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Change to X
+                    } else {
+                        mobileMenu.classList.add('opacity-0');
+                        setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+                        menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Change to Hamburger
+                    }
+                });
+            }
+
+            if (toggleProject && projectSubmenu) {
+                toggleProject.addEventListener('click', () => {
+                    const isHidden = projectSubmenu.classList.contains('hidden');
+                    if (isHidden) {
+                        projectSubmenu.classList.remove('hidden');
+                        projectSubmenu.classList.add('flex');
+                        toggleProjectIcon.classList.add('rotate-180');
+                    } else {
+                        projectSubmenu.classList.add('hidden');
+                        projectSubmenu.classList.remove('flex');
+                        toggleProjectIcon.classList.remove('rotate-180');
+                    }
+                });
+            }
+
+            // Logic Header thu nhỏ khi scroll
+            const headerContainer = document.getElementById('headerContainer');
+            const header = document.getElementById('header');
+            const logos = document.querySelectorAll('.logo-img');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    // Thu nhỏ container padding
+                    if (headerContainer) {
+                        headerContainer.classList.remove('py-3', 'md:py-4');
+                        headerContainer.classList.add('py-1', 'md:py-2');
+                    }
+                    // Đổi màu nền Header đậm hơn
+                    if (header) {
+                        header.classList.remove('bg-[#0e1e2e]/80');
+                        header.classList.add('bg-[#0e1e2e]/95', 'shadow-lg');
+                    }
+                    // Thu nhỏ logo
+                    logos.forEach(logo => {
+                        logo.classList.remove('w-20', 'w-24', 'md:w-32');
+                        logo.classList.add('w-16', 'md:w-24');
+                    });
+                } else {
+                    // Phục hồi container padding
+                    if (headerContainer) {
+                        headerContainer.classList.add('py-3', 'md:py-4');
+                        headerContainer.classList.remove('py-1', 'md:py-2');
+                    }
+                    // Phục hồi màu nền
+                    if (header) {
+                        header.classList.add('bg-[#0e1e2e]/80');
+                        header.classList.remove('bg-[#0e1e2e]/95', 'shadow-lg');
+                    }
+                    // Phục hồi logo
+                    logos.forEach((logo, index) => {
+                        logo.classList.remove('w-16', 'md:w-24');
+                        if (index === 1) { // Logo giữa
+                            logo.classList.add('w-24', 'md:w-32');
+                        } else { // Logo trái, phải
+                            logo.classList.add('w-20', 'md:w-32');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
     <!-- Hero Carousel Section -->
     <section class="w-full h-screen relative group rounded-b-3xl overflow-hidden">
         <div class="swiper heroSwiper w-full h-full">
@@ -393,21 +654,41 @@
         <div
             class="w-full h-[65vh] md:h-[80vh] lg:h-auto lg:flex-1 relative overflow-hidden flex items-center justify-center p-4 lg:p-0">
             <!-- Tích hợp hình ảnh bản đồ tĩnh -->
-            <img src="assets/images/map.png" alt="Bản đồ kết nối" class="w-full h-full object-contain relative z-10"
+            <img src="assets/images/connect.png" alt="Bản đồ kết nối" class="w-full h-full object-contain relative z-10"
                 data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
         </div>
 
         <!-- Right Legend Sidebar -->
         <div
-            class="w-full lg:w-[320px] xl:w-[450px] h-[55vh] lg:h-auto lg:bg-[#0e1e2e]/80 backdrop-blur-xl border-t border-white/10 lg:border-t-0 lg:border-l flex flex-col z-40 shadow-[-20px_0_50px_rgba(0,0,0,0.5)]">
+            class="w-full lg:w-[320px] xl:w-[450px] h-[55vh] lg:h-auto border-t border-white/10 lg:border-t-0 lg:border-l flex flex-col z-40 shadow-[-20px_0_50px_rgba(0,0,0,0.5)]">
             <div class="p-4 lg:p-6 lg:pb-4 border-b border-white/10 shrink-0">
                 <h2
                     class="text-2xl font-bold playfair uppercase tracking-wider mb-4 bg-gradient-to-r from-[#f0e0ca] to-[#d4ae6f] bg-clip-text text-transparent">
                     Bản Đồ kết Nối</h2>
 
                 <!-- Tabs Container -->
-                <div id="legend-tabs" class="flex items-center gap-2 overflow-x-auto legend-scroll pb-2">
-                    <!-- Generated by JS -->
+                <div class="relative w-full group py-1">
+                    <button id="legend-prev"
+                        class="absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#0e1e2e]/95 text-[#d4ae6f] items-center justify-center backdrop-blur shadow-[0_0_10px_rgba(212,174,111,0.3)] border border-[#d4ae6f]/30 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 hidden md:flex">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <div class="swiper legend-swiper px-1">
+                        <div id="legend-tabs" class="swiper-wrapper items-center pb-2">
+                            <!-- Generated by JS -->
+                        </div>
+                    </div>
+
+                    <button id="legend-next"
+                        class="absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#0e1e2e]/95 text-[#d4ae6f] items-center justify-center backdrop-blur shadow-[0_0_10px_rgba(212,174,111,0.3)] border border-[#d4ae6f]/30 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 hidden md:flex">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
                 </div>
             </div>
 
@@ -417,7 +698,7 @@
         </div>
     </section>
     <section id="floor-plans-section"
-        class="w-full min-h-[90vh] bg-transparent relative flex flex-col justify-center overflow-hidden py-16 lg:py-24">
+        class="w-full min-h-[90vh] bg-transparent relative flex flex-col justify-center overflow-hidden py-8 lg:py-24">
         <!-- Radial Glow Background (Cinematic Lighting) -->
         <div
             class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] bg-[radial-gradient(circle_at_center,rgba(212,174,111,0.12)_0%,transparent_60%)] pointer-events-none z-0">
@@ -461,7 +742,7 @@
             <div class="w-full relative flex items-center justify-center p-0" data-aos="zoom-in"
                 data-aos-duration="1200" data-aos-delay="200">
                 <div
-                    class="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[2/1] bg-[#0e1e2e]/40 backdrop-blur-xl border border-[#d4ae6f]/40 rounded-2xl md:rounded-[2rem] shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden flex items-center justify-center group">
+                    class="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[2/1] border border-[#d4ae6f]/40 rounded-2xl md:rounded-[2rem] shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden flex items-center justify-center group">
 
                     <!-- Inner Cinematic Glow -->
                     <div
@@ -1421,17 +1702,6 @@
                 <h3 class="text-xl md:text-2xl font-bold uppercase playfair tracking-widest mb-6 text-white">Nhà phát
                     triển dự án</h3>
 
-                <div class="flex flex-col items-center justify-center mb-10 group">
-                    <svg class="w-16 h-16 mb-3 group-hover:scale-110 transition-transform duration-500"
-                        viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 10 L10 80 L90 80 Z" fill="#2563eb" />
-                        <path d="M50 40 L30 80 L70 80 Z" fill="#f97316" />
-                        <path d="M50 60 L40 80 L60 80 Z" fill="#ffffff" />
-                    </svg>
-                    <h4 class="text-white font-bold text-xl md:text-2xl tracking-[0.15em] m-0">DATXANH SERVICES</h4>
-                    <p class="text-white text-[10px] md:text-xs tracking-[0.2em] mt-1.5 opacity-90">CÔNG TY CỔ PHẦN DXMD
-                        VIỆT NAM</p>
-                </div>
 
                 <h3 class="text-lg md:text-xl font-bold uppercase playfair tracking-widest mb-4 text-white">Liên kết
                 </h3>

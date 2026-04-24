@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof Lenis !== 'undefined') {
         const lenis = new Lenis({
             duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smooth: true,
         });
 
@@ -163,10 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const renderPane = (index) => {
             const ring = mapData[index];
             legendContainer.innerHTML = ''; // Clear old content
-            
+
             const legendSection = document.createElement('div');
             legendSection.className = `legend-pane`;
-            
+
             legendSection.innerHTML = `
                 <div class="flex items-center gap-3 mb-6">
                     <!-- Glow Dot -->
@@ -192,12 +192,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // GSAP Animate In
             if (typeof gsap !== 'undefined') {
-                gsap.fromTo(legendSection.querySelector('h3').parentElement, 
-                    { opacity: 0, x: -10 }, 
+                gsap.fromTo(legendSection.querySelector('h3').parentElement,
+                    { opacity: 0, x: -10 },
                     { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }
                 );
-                gsap.fromTo(legendSection.querySelectorAll('.legend-item'), 
-                    { opacity: 0, x: -15 }, 
+                gsap.fromTo(legendSection.querySelectorAll('.legend-item'),
+                    { opacity: 0, x: -15 },
                     { opacity: 1, x: 0, duration: 0.4, stagger: 0.05, ease: "power2.out", delay: 0.1 }
                 );
             }
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     t.className = 'legend-tab-btn whitespace-nowrap px-5 py-2 rounded-full border text-[12px] md:text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5';
                 });
                 tab.className = 'legend-tab-btn whitespace-nowrap px-5 py-2 rounded-full border text-[12px] md:text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-[#d4ae6f]/20 border-[#d4ae6f] text-[#d4ae6f] shadow-[0_0_15px_rgba(212,174,111,0.3)]';
-                
+
                 // Render new pane
                 renderPane(parseInt(tab.dataset.index));
             });
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Turn on GSAP force3D for maximum mobile performance
         if (typeof gsap !== 'undefined') {
             gsap.config({ force3D: true });
-            
+
             // Only animate fenica-title on load if it exists
             const tl = gsap.timeline({ delay: preloaderDelay });
             if (document.querySelector(".fenica-title")) {
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     { y: 0, autoAlpha: 1, duration: 1.2, ease: "expo.out" }
                 );
             }
-            
+
             // Initial animation for the tabs container coming in
             tl.fromTo("#legend-tabs",
                 { opacity: 0, y: 10 },
@@ -262,12 +262,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 floorTabs.forEach(t => {
                     t.className = 'floor-tab-btn px-6 py-2.5 rounded-full border text-[13px] md:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5 whitespace-nowrap';
                 });
-                
+
                 // Add active to clicked
                 tab.className = 'floor-tab-btn active px-6 py-2.5 rounded-full border text-[13px] md:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 bg-[#d4ae6f]/20 border-[#d4ae6f] text-[#d4ae6f] shadow-[0_0_15px_rgba(212,174,111,0.3)] whitespace-nowrap';
-                
+
                 const floor = tab.dataset.floor;
-                
+
                 // Animate text change
                 if (typeof gsap !== 'undefined') {
                     gsap.to([floorTitle, floorDesc], {
@@ -276,8 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         duration: 0.2,
                         onComplete: () => {
                             floorTitle.textContent = floorData[floor].title;
-                            floorDesc.textContent = floorData[floor].desc;
-                            gsap.to([floorTitle, floorDesc], { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" });
+                            // floorDesc.textContent = floorData[floor].desc;
+                            gsap.to([floorTitle], { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" });
                         }
                     });
 
@@ -654,13 +654,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Hover interactions for Apartment Buttons
             const aptBtns = document.querySelectorAll('.apt-btn');
-            
+
             aptBtns.forEach(btn => {
                 btn.addEventListener('mouseenter', () => {
                     // Toà nhà hơi zoom nhẹ
                     gsap.to('#overview-building', { scale: 1.03, duration: 0.4, ease: "power2.out" });
                 });
-                
+
                 btn.addEventListener('mouseleave', () => {
                     // Trả về trạng thái cũ
                     gsap.to('#overview-building', { scale: 1, duration: 0.8, ease: "power2.out" });

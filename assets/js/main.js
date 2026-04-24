@@ -102,6 +102,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- Lightbox Popup (GLightbox) ---
+    if (typeof GLightbox !== 'undefined') {
+        const lightbox = GLightbox({
+            selector: '.glightbox, [data-lightbox="gallery"]',
+            touchNavigation: true,
+            loop: true,
+            zoomable: true,
+            autoplayVideos: true
+        });
+    }
+
     // 0. --- Preloader Animation ---
     const preloader = document.getElementById('preloader');
     // Global delay for other animations so they don't play behind the preloader
@@ -284,8 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Crossfade images
                     floorImages.forEach(img => {
                         if (img.id === 'floor-img-' + floor) {
+                            img.style.pointerEvents = "auto";
                             gsap.to(img, { opacity: 1, scale: 1, zIndex: 10, duration: 0.6, ease: "power2.out" });
                         } else {
+                            img.style.pointerEvents = "none";
                             gsap.to(img, { opacity: 0, scale: 0.95, zIndex: 0, duration: 0.6, ease: "power2.inOut" });
                         }
                     });

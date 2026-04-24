@@ -18,6 +18,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Include Lenis for Smooth Scrolling -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <!-- Include GLightbox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -464,9 +467,11 @@
                     <!-- Backlight Flare (Removed per request) -->
 
                     <div class="overview-img relative w-full h-full group z-10 flex justify-center items-end">
-                        <img id="overview-building" src="assets/images/toa-nha-fenica.png"
-                            class="h-full w-auto object-contain transition-all duration-700 relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-                            alt="Tổng quan dự án Fenica">
+                        <a href="assets/images/toa-nha-fenica.png" class="glightbox h-full" data-title="Tổng quan dự án Fenica">
+                            <img id="overview-building" src="assets/images/toa-nha-fenica.png"
+                                class="h-full w-auto object-contain transition-all duration-700 relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-zoom-in"
+                                alt="Tổng quan dự án Fenica">
+                        </a>
                     </div>
                 </div>
 
@@ -654,8 +659,10 @@
         <div
             class="w-full h-[65vh] md:h-[80vh] lg:h-auto lg:flex-1 relative overflow-hidden flex items-center justify-center p-4 lg:p-0">
             <!-- Tích hợp hình ảnh bản đồ tĩnh -->
-            <img src="assets/images/connect.png" alt="Bản đồ kết nối" class="w-full h-full object-contain relative z-10"
-                data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+            <a href="assets/images/connect.png" class="glightbox w-full h-full flex items-center justify-center relative z-10 block cursor-zoom-in" data-title="Bản đồ kết nối">
+                <img src="assets/images/connect.png" alt="Bản đồ kết nối" class="w-full h-full object-contain hover:scale-[1.02] transition-transform duration-500"
+                    data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+            </a>
         </div>
 
         <!-- Right Legend Sidebar -->
@@ -750,15 +757,24 @@
                     </div>
 
                     <!-- Images -->
-                    <img id="floor-img-1" src="assets/images/mau-mat-bang-tang-1.png"
-                        class="floor-img absolute inset-0 w-full h-full object-contain p-4 md:p-8 transition-all duration-700 opacity-100 scale-100 z-10"
-                        alt="Mặt bằng tầng 1">
-                    <img id="floor-img-2" src="assets/images/mau-mat-bang-tang-2.png"
-                        class="floor-img absolute inset-0 w-full h-full object-contain p-4 md:p-8 transition-all duration-700 opacity-0 scale-95 z-0"
-                        alt="Mặt bằng tầng 2-20">
-                    <img id="floor-img-3" src="assets/images/mau-mat-bang-tang-2.png"
-                        class="floor-img absolute inset-0 w-full h-full object-contain p-4 md:p-8 transition-all duration-700 opacity-0 scale-95 z-0"
-                        alt="Mặt bằng tầng 39-40">
+                    <a id="floor-img-1" href="assets/images/mau-mat-bang-tang-1.png" data-title="Mặt bằng tầng 1"
+                        class="glightbox floor-img absolute inset-0 w-full h-full z-10 opacity-100 scale-100">
+                        <img src="assets/images/mau-mat-bang-tang-1.png"
+                            class="w-full h-full object-contain p-4 md:p-8 hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in"
+                            alt="Mặt bằng tầng 1">
+                    </a>
+                    <a id="floor-img-2" href="assets/images/mau-mat-bang-tang-2.png" data-title="Mặt bằng tầng 2-20"
+                        class="glightbox floor-img absolute inset-0 w-full h-full z-0 opacity-0 scale-95 pointer-events-none">
+                        <img src="assets/images/mau-mat-bang-tang-2.png"
+                            class="w-full h-full object-contain p-4 md:p-8 hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in"
+                            alt="Mặt bằng tầng 2-20">
+                    </a>
+                    <a id="floor-img-3" href="assets/images/mau-mat-bang-tang-2.png" data-title="Mặt bằng tầng 39-40"
+                        class="glightbox floor-img absolute inset-0 w-full h-full z-0 opacity-0 scale-95 pointer-events-none">
+                        <img src="assets/images/mau-mat-bang-tang-2.png"
+                            class="w-full h-full object-contain p-4 md:p-8 hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in"
+                            alt="Mặt bằng tầng 39-40">
+                    </a>
 
                 </div>
             </div>

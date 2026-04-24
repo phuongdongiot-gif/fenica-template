@@ -27,9 +27,9 @@
 
 <body class="min-h-screen bg-[#0e1e2e] overflow-hidden">
     <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 z-[9999] bg-[#0e1e2e] flex flex-col items-center justify-center">
-        <svg class="h-10 md:h-14 w-auto mb-8 preloader-logo" id="fenica-logo-svg" xmlns="http://www.w3.org/2000/svg"
-            version="1.1" viewBox="0 0 1156.33 208.54">
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-[#0e1e2e] flex flex-col items-center justify-center px-6">
+        <svg class="h-8 sm:h-10 md:h-14 max-w-[85vw] w-auto mb-6 md:mb-8 preloader-logo" id="fenica-logo-svg"
+            xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1156.33 208.54">
             <defs>
                 <style>
                     .st0 {
@@ -53,7 +53,7 @@
             <path class="st0"
                 d="M555.3,2.61h-11.41c-.73,0-1.32.59-1.32,1.32v82.92c-.02.97-1.08,1.56-1.91,1.05L404.38,3.93c-.88-.44-1.32,0-1.32.88v25.88c0,9.21,5.7,19.3,14.04,24.57l161.36,95.87c.83.49,1.88-.11,1.88-1.07l-.04-119.37c0-16.67-10.53-28.08-25.01-28.08ZM430.7,203.55h10.6c.69,0,1.24-.56,1.24-1.24v-75.53c0-1.32.88-1.75,2.63-.88l132.93,82.48c1.32.44,2.19,0,2.19-1.32v-25.45c0-10.09-5.7-20.18-13.6-24.57l-161.76-95.31c-.83-.49-1.88.11-1.88,1.07v112.66c0,16.67,11.41,28.08,27.64,28.08Z" />
         </svg>
-        <div class="w-48 md:w-64 h-[2px] bg-white/20 rounded overflow-hidden">
+        <div class="w-[80vw] max-w-[12rem] md:max-w-[16rem] h-[2px] bg-white/20 rounded overflow-hidden">
             <div class="h-full bg-[#d4ae6f] w-0 preloader-progress"></div>
         </div>
     </div>
@@ -73,7 +73,7 @@
                     <div
                         class="absolute inset-0 z-20 flex flex-col items-start justify-end pb-16 md:pb-24 px-6 md:px-16 text-left">
                         <h1
-                            class="text-3xl md:text-5xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
+                            class="text-3xl md:text-4xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
                             A&amp;T Saigon Riverside</h1>
                         <p
                             class="text-base md:text-lg text-gray-200 font-light max-w-2xl slide-anim opacity-0 translate-y-8 transition-all duration-1000 delay-300">
@@ -88,7 +88,7 @@
                     <div
                         class="absolute inset-0 z-20 flex flex-col items-start justify-end pb-16 md:pb-24 px-6 md:px-16 text-left">
                         <h1
-                            class="text-3xl md:text-5xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
+                            class="text-3xl md:text-4xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
                             Kiến Trúc Tinh Tế</h1>
                         <p
                             class="text-base md:text-lg text-gray-200 font-light max-w-2xl slide-anim opacity-0 translate-y-8 transition-all duration-1000 delay-300">
@@ -103,7 +103,7 @@
                     <div
                         class="absolute inset-0 z-20 flex flex-col items-start justify-end pb-16 md:pb-24 px-6 md:px-16 text-left">
                         <h1
-                            class="text-3xl md:text-5xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
+                            class="text-3xl md:text-4xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
                             Tiện Ích Đặc Quyền</h1>
                         <p
                             class="text-base md:text-lg text-gray-200 font-light max-w-2xl slide-anim opacity-0 translate-y-8 transition-all duration-1000 delay-300">
@@ -117,112 +117,168 @@
         </div>
     </section>
     <!-- Overview Section -->
-    <section id="overview-section" class="w-full py-12 relative overflow-hidden border-t border-white/10">
-        <div class="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
-            <div class="text-center mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold text-white playfair uppercase tracking-wide">Tổng Quan Dự Án
+    <section id="overview-section" class="w-full py-8 lg:py-12 relative overflow-hidden">
+        <!-- Parallax Blurred Background -->
+
+
+        <div class="max-w-full mx-auto px-4 md:px-8 relative z-10">
+            <div class="text-center mb-4 lg:mb-8 overview-title-container">
+                <h2 class="text-3xl md:text-4xl font-bold playfair uppercase tracking-wide animate-gradient-text">Tổng
+                    Quan Dự Án
                 </h2>
-                <div class="w-24 h-1.5 bg-white mt-6 mx-auto"></div>
+                <div class="flex items-center justify-center gap-3 mt-6">
+                    <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#d4ae6f]"></div>
+                    <div
+                        class="w-2.5 h-2.5 rotate-45 bg-gradient-to-br from-[#f0e0ca] to-[#d4ae6f] shadow-[0_0_10px_rgba(212,174,111,0.8)]">
+                    </div>
+                    <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#d4ae6f]"></div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-6 gap-12 lg:gap-8 md:items-center">
-                <!-- Left Info -->
+            <div class="grid grid-cols-1 lg:grid-cols-8 gap-6 lg:gap-12 md:items-center">
+                <!-- Left Info (Glassmorphism) -->
                 <div
-                    class="overview-text-left flex flex-col gap-2 md:gap-4 lg:gap-8 text-center lg:text-right order-2 lg:order-1 relative z-20">
-                    <div class="overview-item group">
-                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Vị trí</h4>
-                        <p
-                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
-                            Đường Trần Quang Diệu, Phường Tân Đông Hiệp, Thành phố Hồ Chí Minh</p>
+                    class="overview-text-left flex flex-col gap-4 lg:gap-6 order-2 lg:order-1 relative z-20 lg:col-span-1 xl:col-span-2">
+                    <div
+                        class="overview-item bg-white/[0.03] backdrop-blur-md border border-[#d4ae6f]/30 rounded-2xl p-5 lg:p-6 hover:bg-white/10 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] group">
+                        <h4
+                            class="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-2 group-hover:text-white/80 transition-colors">
+                            Vị trí</h4>
+                        <p class="text-sm md:text-base text-gray-100 font-light leading-snug">Đường Trần Quang Diệu,
+                            Phường Tân Đông Hiệp, Thành phố Hồ Chí Minh</p>
                     </div>
-                    <div class="overview-item group">
-                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Tổng diện tích
-                        </h4>
+                    <div
+                        class="overview-item bg-white/[0.03] backdrop-blur-md border border-[#d4ae6f]/30 rounded-2xl p-5 lg:p-6 hover:bg-white/10 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] group">
+                        <h4
+                            class="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-2 group-hover:text-white/80 transition-colors">
+                            Tổng diện tích</h4>
                         <p
-                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
-                            5.537 m²</p>
+                            class="text-4xl lg:text-5xl font-bold playfair bg-gradient-to-r from-[#f0e0ca] to-[#d4ae6f] bg-clip-text text-transparent drop-shadow-md">
+                            5.537 <span class="text-lg lg:text-xl font-light text-white/70 tracking-normal">m²</span>
+                        </p>
                     </div>
-                    <div class="overview-item group">
-                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Quy mô</h4>
-                        <p
-                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
-                            2 block, 2 tầng hầm & 2 tầng TTTM</p>
+                    <div
+                        class="overview-item bg-white/[0.03] backdrop-blur-md border border-[#d4ae6f]/30 rounded-2xl p-5 lg:p-6 hover:bg-white/10 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] group">
+                        <h4
+                            class="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-2 group-hover:text-white/80 transition-colors">
+                            Quy mô</h4>
+                        <p class="text-sm md:text-base text-gray-100 font-light leading-snug">2 block, 2 tầng hầm & 2
+                            tầng TTTM</p>
                     </div>
-                    <div class="overview-item group">
-                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Chiều cao</h4>
+                    <div
+                        class="overview-item bg-white/[0.03] backdrop-blur-md border border-[#d4ae6f]/30 rounded-2xl p-5 lg:p-6 hover:bg-white/10 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] group">
+                        <h4
+                            class="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-2 group-hover:text-white/80 transition-colors">
+                            Chiều cao</h4>
                         <p
-                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
-                            22 tầng</p>
+                            class="text-4xl lg:text-5xl font-bold playfair bg-gradient-to-r from-[#f0e0ca] to-[#d4ae6f] bg-clip-text text-transparent drop-shadow-md">
+                            22 <span class="text-lg lg:text-xl font-light text-white/70 tracking-normal">tầng</span></p>
                     </div>
                 </div>
 
-                <!-- Center Image -->
+                <!-- Center Image (Building with Flare) -->
                 <div
-                    class="order-1 lg:order-2 px-0 md:px-16 lg:px-4 flex justify-center items-center lg:col-span-4 relative">
-                    <div class="overview-img relative w-full group z-10 flex justify-center">
-                        <img src="assets/images/toa-nha-fenica.png"
-                            class="w-full max-w-[90%] lg:max-w-[85%] h-auto animate-golden-breathing cursor-pointer"
-                            alt="Tổng quan dự án">
+                    class="order-1 lg:order-2 flex justify-center items-center lg:col-span-4 xl:col-span-4 relative h-[45vh] md:h-[60vh] lg:h-[75vh]">
+                    <!-- Backlight Flare (Removed per request) -->
+
+                    <div class="overview-img relative w-full h-full group z-10 flex justify-center items-end">
+                        <img id="overview-building" src="assets/images/toa-nha-fenica.png"
+                            class="h-full w-auto object-contain transition-all duration-700 relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                            alt="Tổng quan dự án Fenica">
                     </div>
                 </div>
 
                 <!-- Right Info -->
                 <div
-                    class="overview-text-right flex flex-col gap-2 md:gap-4 lg:gap-8 text-center lg:text-left order-3 relative z-20">
-                    <div class="overview-item group">
-                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Nhà thầu</h4>
-                        <p
-                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
-                            Liên danh Phước Thành & CCcons</p>
+                    class="overview-text-right flex flex-col gap-4 lg:gap-6 order-3 relative z-20 lg:col-span-1 xl:col-span-2">
+                    <div
+                        class="overview-item bg-white/[0.03] backdrop-blur-md border border-[#d4ae6f]/30 rounded-2xl p-5 lg:p-6 hover:bg-white/10 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] group">
+                        <h4
+                            class="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-2 group-hover:text-white/80 transition-colors">
+                            Nhà thầu</h4>
+                        <p class="text-sm md:text-base text-gray-100 font-light leading-snug">Liên danh Phước Thành &
+                            CCcons</p>
                     </div>
-                    <div class="overview-item group">
-                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Pháp lý sở hữu
-                        </h4>
-                        <p
-                            class="text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
-                            Sở hữu lâu dài</p>
+                    <div
+                        class="overview-item bg-white/[0.03] backdrop-blur-md border border-[#d4ae6f]/30 rounded-2xl p-5 lg:p-6 hover:bg-white/10 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] group">
+                        <h4
+                            class="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-2 group-hover:text-white/80 transition-colors">
+                            Pháp lý sở hữu</h4>
+                        <p class="text-sm md:text-base text-gray-100 font-light leading-snug">Sở hữu lâu dài</p>
                     </div>
-                    <div class="overview-item group">
-                        <h4 class="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1.5">Tổng số Căn hộ
-                        </h4>
-                        <p class="text-white text-3xl lg:text-4xl font-bold playfair mb-5 tracking-wide drop-shadow-lg">
-                            579 <span class="text-xl font-light tracking-normal uppercase text-gray-300">căn</span></p>
 
-                        <!-- Modern Glassmorphism Cards for Bullet Points -->
+                    <!-- Tổng số căn hộ Card -->
+                    <div
+                        class="overview-item bg-white/[0.03] backdrop-blur-md border border-[#d4ae6f]/50 rounded-2xl p-6 lg:p-8 shadow-[0_10px_40px_rgba(212,174,111,0.15)] relative overflow-hidden group/main">
+                        <!-- Subtle corner glow -->
                         <div
-                            class="flex flex-col gap-3 lg:border-l border-white/10 lg:pl-6 w-full max-w-[280px] mx-auto lg:mx-0">
-                            <!-- Card 1 -->
-                            <div
-                                class="flex items-center justify-between bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                            class="absolute -top-10 -right-10 w-40 h-40 bg-[#d4ae6f]/20 rounded-full blur-3xl opacity-50 group-hover/main:opacity-100 transition-opacity duration-500">
+                        </div>
+
+                        <h4 class="text-[#d4ae6f] text-[10px] font-bold uppercase tracking-[0.2em] mb-2 relative z-10">
+                            Tổng số Căn hộ</h4>
+                        <p
+                            class="text-5xl lg:text-6xl font-bold playfair mb-6 tracking-wide drop-shadow-lg bg-gradient-to-r from-[#f0e0ca] to-[#d4ae6f] bg-clip-text text-transparent relative z-10">
+                            579 <span
+                                class="text-lg lg:text-xl font-light tracking-normal uppercase text-white/70">căn</span>
+                        </p>
+
+                        <!-- Interactive Apartment Types -->
+                        <div class="flex flex-col gap-3 w-full relative z-10">
+                            <!-- Card 1PN -->
+                            <div class="apt-btn flex items-center justify-between bg-black/20 border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md hover:bg-[#d4ae6f]/20 hover:border-[#d4ae6f]/50 hover:shadow-[0_0_15px_rgba(212,174,111,0.3)] transition-all duration-300 cursor-pointer group/btn"
+                                data-target="1pn">
                                 <div class="flex items-center gap-3">
-                                    <div
-                                        class="w-2 h-2 rounded-full bg-amber-200 shadow-[0_0_10px_rgba(253,230,138,0.5)]">
-                                    </div>
-                                    <p class="text-white/80 text-sm font-medium">1 Phòng ngủ</p>
+                                    <!-- Line-art Bed Icon -->
+                                    <svg class="w-5 h-5 text-[#d4ae6f] group-hover/btn:scale-110 transition-transform"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                        </path>
+                                    </svg>
+                                    <p
+                                        class="text-white/80 text-sm font-medium group-hover/btn:text-[#f0e0ca] transition-colors">
+                                        1 Phòng ngủ</p>
                                 </div>
-                                <span class="font-bold text-lg text-white">39</span>
+                                <span
+                                    class="font-bold text-lg text-white group-hover/btn:text-[#d4ae6f] transition-colors">39</span>
                             </div>
-                            <!-- Card 2 -->
-                            <div
-                                class="flex items-center justify-between bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                            <!-- Card 1PN+1 -->
+                            <div class="apt-btn flex items-center justify-between bg-black/20 border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md hover:bg-[#d4ae6f]/20 hover:border-[#d4ae6f]/50 hover:shadow-[0_0_15px_rgba(212,174,111,0.3)] transition-all duration-300 cursor-pointer group/btn"
+                                data-target="1pn-plus">
                                 <div class="flex items-center gap-3">
-                                    <div
-                                        class="w-2 h-2 rounded-full bg-blue-200 shadow-[0_0_10px_rgba(191,219,254,0.5)]">
-                                    </div>
-                                    <p class="text-white/80 text-sm font-medium">1 Phòng ngủ + 1</p>
+                                    <svg class="w-5 h-5 text-[#d4ae6f] group-hover/btn:scale-110 transition-transform"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                    <p
+                                        class="text-white/80 text-sm font-medium group-hover/btn:text-[#f0e0ca] transition-colors">
+                                        1 Phòng ngủ + 1</p>
                                 </div>
-                                <span class="font-bold text-lg text-white">462</span>
+                                <span
+                                    class="font-bold text-lg text-white group-hover/btn:text-[#d4ae6f] transition-colors">462</span>
                             </div>
-                            <!-- Card 3 -->
-                            <div
-                                class="flex items-center justify-between bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                            <!-- Card 2PN -->
+                            <div class="apt-btn flex items-center justify-between bg-black/20 border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md hover:bg-[#d4ae6f]/20 hover:border-[#d4ae6f]/50 hover:shadow-[0_0_15px_rgba(212,174,111,0.3)] transition-all duration-300 cursor-pointer group/btn"
+                                data-target="2pn">
                                 <div class="flex items-center gap-3">
-                                    <div
-                                        class="w-2 h-2 rounded-full bg-emerald-200 shadow-[0_0_10px_rgba(167,243,208,0.5)]">
-                                    </div>
-                                    <p class="text-white/80 text-sm font-medium">2 Phòng ngủ</p>
+                                    <!-- Double Bed Icon -->
+                                    <svg class="w-5 h-5 text-[#d4ae6f] group-hover/btn:scale-110 transition-transform"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M20 12V8H6a2 2 0 00-2 2v2m4 0h12M4 12v4m16-4v4m-4-8v-2a2 2 0 00-2-2H10a2 2 0 00-2 2v2">
+                                        </path>
+                                    </svg>
+                                    <p
+                                        class="text-white/80 text-sm font-medium group-hover/btn:text-[#f0e0ca] transition-colors">
+                                        2 Phòng ngủ</p>
                                 </div>
-                                <span class="font-bold text-lg text-white">77</span>
+                                <span
+                                    class="font-bold text-lg text-white group-hover/btn:text-[#d4ae6f] transition-colors">77</span>
                             </div>
                         </div>
                     </div>
@@ -230,106 +286,119 @@
             </div>
         </div>
     </section>
-    <section class="w-full h-full">
-        <div class="grid grid-cols-1 md:grid-cols-3">
-            <div class="w-full h-full flex items-center justify-center">
-                <div class="px-4 lg:px-0 flex flex-col justify-center gap-2 cursor-pointer relative"
+    <section class="w-full py-10 relative overflow-hidden">
+        <!-- Đèn chiếu (Glow) phía sau khối text -->
+        <div
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-[radial-gradient(circle_at_center,rgba(212,174,111,0.15)_0%,transparent_60%)] pointer-events-none z-0">
+        </div>
+
+        <div
+            class="grid grid-cols-1 lg:grid-cols-7 gap-8 items-center max-w-[1800px] mx-auto px-4 md:px-8 relative z-10">
+
+            <!-- Cột Trái: Glassmorphism Text Block -->
+            <div class="lg:col-span-2 w-full h-full flex items-center justify-center">
+                <div class="bg-[#0e1e2e]/50 backdrop-blur-xl border border-white/10 rounded-3xl p-6 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col gap-6 relative"
                     data-aos="fade-right" data-aos-duration="1000">
-                    <div>
-                        <div class="flex flex-col group">
-                            <div class="text-3xl md:text-5xl max-w-lg w-full playfair">
-                                <h2 class="text-white font-medium text-left py-2 uppercase tracking-wider">
-                                    Sống dẫn đầu</h2>
+
+                    <!-- Title & Divider -->
+                    <div class="overview-title-container">
+                        <h2
+                            class="text-3xl md:text-4xl font-bold playfair uppercase tracking-wide animate-gradient-text drop-shadow-[0_2px_15px_rgba(212,174,111,0.4)]">
+                            Tổng Quan Dự Án
+                        </h2>
+                        <!-- Họa tiết Divider: đường kẻ chẻ tia hình thoi -->
+                        <div class="flex items-center justify-center gap-3 mt-6">
+                            <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#d4ae6f]"></div>
+                            <div
+                                class="w-2.5 h-2.5 rotate-45 bg-gradient-to-br from-[#f0e0ca] to-[#d4ae6f] shadow-[0_0_10px_rgba(212,174,111,0.8)]">
                             </div>
+                            <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#d4ae6f]"></div>
                         </div>
                     </div>
-                    <div class="w-1/3 h-[1px] bg-white group-hover:w-1/2 transition-all duration-200"></div>
-                    <div class="w-1/2 h-[1px] bg-white group-hover:w-3/4 transition-all duration-200"></div>
+
+                    <!-- Highlighted Text -->
                     <div>
-                        <div>
-                            <p class="text-sm md:text-base text-white font-light leading-snug">
-                                Tọa lạc tại vị trí quỹ đất hiếm hoi bên sông Sài Gòn,<br> ngay tại trung
-                                tâm Đông Bắc TP.HCM,<br> nằm giữa 2 tuyến đường huyết mạch:<br> con
-                                đường
-                                ven sông Sài Gòn rộng 32 m<br> và Quốc lộ 13 rộng 64m – nơi hội tụ nhịp
-                                sống trung tâm,<br> tầm nhìn giá trị và kết nối giao thương.</p>
-                        </div>
+                        <p class="text-base md:text-lg text-gray-200 font-light leading-relaxed">
+                            Tọa lạc tại vị trí quỹ đất hiếm hoi bên <span
+                                class="font-bold text-[#d4ae6f] drop-shadow-sm">sông Sài Gòn</span>,<br>
+                            ngay tại trung tâm Đông Bắc TP.HCM,<br>
+                            nằm giữa 2 tuyến đường huyết mạch:<br>
+                            con đường ven <span class="font-bold text-[#d4ae6f] drop-shadow-sm">sông Sài Gòn</span> rộng
+                            <span class="font-bold text-[#d4ae6f] drop-shadow-sm">32m</span><br>
+                            và <span class="font-bold text-[#d4ae6f] drop-shadow-sm">Quốc lộ 13</span> rộng <span
+                                class="font-bold text-[#d4ae6f] drop-shadow-sm">64m</span> <br>
+                            – Nơi hội tụ nhịp sống trung tâm, tầm nhìn giá trị và kết nối giao thương.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="col-span-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <img src="assets/images/map.png" class="w-full h-full" alt="Map">
+
+            <!-- Cột Phải: Hình ảnh Bản đồ -->
+            <div class="lg:col-span-5 overflow-hidden relative group" data-aos="fade-left" data-aos-duration="1000"
+                data-aos-delay="200">
+                <img src="assets/images/map.png"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    alt="Bản đồ Vị trí">
             </div>
         </div>
     </section>
 
-    <section class="relative">
-        <div
-            class="flex flex-col justify-center gap-2 cursor-pointer relative relative md:absolute md:top-36 md:left-20 px-4 md:px-0">
-            <div>
-                <div class="flex flex-col group">
-                    <div class="text-3xl md:text-5xl max-w-lg w-full playfair">
-                        <h2 class="text-white font-medium text-left py-2 uppercase tracking-wider">
-                            Sống dẫn đầu</h2>
+    <!-- Connectivity Map Section -->
+    <section>
+        <div class="mx-auto container">
+            <div class="text-center w-full flex flex-col justify-center gap-2">
+                <div class="mb-16 lg:mb-20 overview-title-container"
+                    style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                    <h2 class="text-3xl md:text-4xl font-bold playfair uppercase tracking-wide animate-gradient-text">
+                        Tổng
+                        Quan Dự Án
+                    </h2>
+                    <div class="w-full flex items-center justify-center gap-3 mt-6">
+                        <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#d4ae6f]"></div>
+                        <div
+                            class="w-2.5 h-2.5 rotate-45 bg-gradient-to-br from-[#f0e0ca] to-[#d4ae6f] shadow-[0_0_10px_rgba(212,174,111,0.8)]">
+                        </div>
+                        <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#d4ae6f]"></div>
                     </div>
-                </div>
-            </div>
-            <div class="w-1/3 h-[1px] bg-white group-hover:w-1/2 transition-all duration-200"></div>
-            <div class="w-1/2 h-[1px] bg-white group-hover:w-3/4 transition-all duration-200"></div>
-            <div>
-                <div>
-                    <p class="text-sm md:text-base text-white font-light leading-snug">
-                        Tọa lạc tại vị trí quỹ đất hiếm hoi bên sông Sài Gòn,<br> ngay tại trung
-                        tâm Đông Bắc TP.HCM,<br> nằm giữa 2 tuyến đường huyết mạch:<br> con
-                        đường
-                        ven sông Sài Gòn rộng 32 m<br> và Quốc lộ 13 rộng 64m – nơi hội tụ nhịp
-                        sống trung tâm,<br> tầm nhìn giá trị và kết nối giao thương.</p>
                 </div>
             </div>
         </div>
     </section>
-    <div
+    <section
         class="w-full max-w-full h-[120dvh] lg:h-[100vh] min-h-[700px] flex flex-col lg:flex-row overflow-hidden relative">
+        <!-- Text overlay for the map -->
 
         <!-- Left Map Area -->
         <div
-            class="w-full h-[65vh] lg:h-auto lg:flex-1 relative overflow-hidden flex items-center justify-center lg:block">
-            <!-- Origin Point for Arcs -->
-            <!-- Mobile: Center, Desktop: Bottom Right Corner -->
-            <div id="map-origin"
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:top-auto lg:left-auto lg:bottom-0 lg:right-0 lg:translate-x-0 lg:translate-y-0 w-0 h-0 z-10 origin-center lg:origin-bottom-right">
-                <!-- Generated by JS -->
-            </div>
-            <!-- Fading gradient overlay to soften edges if needed -->
-            <div class="absolute inset-0 pointer-events-none z-30"></div>
-
+            class="w-full h-[65vh] md:h-[80vh] lg:h-auto lg:flex-1 relative overflow-hidden flex items-center justify-center p-4 lg:p-0">
+            <!-- Tích hợp hình ảnh bản đồ tĩnh -->
+            <img src="assets/images/map.png" alt="Bản đồ kết nối" class="w-full h-full object-contain relative z-10"
+                data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
         </div>
 
         <!-- Right Legend Sidebar -->
         <div
-            class="w-full lg:w-[320px] xl:w-[400px] h-[55vh] lg:h-auto bg-transparent border-t-2 lg:border-t-0 lg:border-l-2 border-white flex flex-col z-40 shadow-[0_-10px_30px_rgba(0,0,0,0.2)] lg:shadow-[-10px_0_30px_rgba(0,0,0,0.2)]">
+            class="w-full lg:w-[320px] xl:w-[400px] h-[55vh] lg:h-auto lg:bg-transparent border-t-2 lg:border-t-0 lg:border-l-2 border-white flex flex-col z-40 shadow-[0_-10px_30px_rgba(0,0,0,0.2)] lg:shadow-[-10px_0_30px_rgba(0,0,0,0.2)]">
             <div class="p-4 lg:p-6 lg:pb-2 border-b border-white shrink-0">
-                <h2 class="text-2xl font-black text-white uppercase tracking-wider">Bản Đồ kết Nối</h2>
+                <h2 class="px-4 text-2xl font-black text-white uppercase tracking-wider">Bản Đồ kết Nối</h2>
             </div>
 
-            <div id="legend-container" class="flex-1 overflow-y-auto p-6 pt-4 legend-scroll">
+            <div id="legend-container" class="flex-1 overflow-y-auto p-6 pt-4 legend-scroll overflow-x-hidden">
                 <!-- Generated by JS -->
             </div>
         </div>
-
-    </div>
     </section>
     <section id="floor-plans-section" class="w-full h-screen bg-transparent relative flex items-center overflow-hidden">
-        <div class="w-full grid grid-cols-1 lg:grid-cols-3 px-4 lg:px-8 max-w-[1800px] mx-auto h-full lg:h-[85vh]">
+        <div class="w-full grid grid-cols-1 lg:grid-cols-7 px-4 lg:px-0 max-w-[1800px] mx-auto h-full lg:h-[85vh]">
 
             <!-- Fixed Text Container -->
-            <div class="col-span-1 flex items-center justify-center relative h-[50vh] lg:h-full z-20">
+            <div class="col-span-2 flex items-center justify-center relative h-[50vh] lg:h-full z-20">
                 <div class="w-full relative h-full flex items-center justify-center lg:justify-start">
 
                     <!-- Tầng 1 Text -->
                     <div id="floor-text-1"
-                        class="absolute flex flex-col justify-center text-center lg:text-left px-4 lg:px-16 w-full transition-transform">
-                        <h3 class="text-3xl md:text-5xl font-bold text-white playfair uppercase tracking-wide">
+                        class="absolute flex flex-col justify-center text-center lg:text-left px-4 w-full transition-transform">
+                        <h3 class="text-3xl md:text-4xl font-bold text-white playfair uppercase tracking-wide">
                             Mặt bằng Tầng 1</h3>
                         <div class="w-24 h-1.5 bg-white mt-6 mx-auto lg:mx-0"></div>
                         <p
@@ -340,8 +409,8 @@
 
                     <!-- Tầng 2 Text -->
                     <div id="floor-text-2"
-                        class="absolute flex flex-col justify-center text-center lg:text-left px-4 lg:px-16 w-full opacity-0 translate-y-8 transition-transform">
-                        <h3 class="text-3xl md:text-5xl font-bold text-white playfair uppercase tracking-wide">
+                        class="absolute flex flex-col justify-center text-center lg:text-left px-4 lg:px-8 w-full opacity-0 translate-y-8 transition-transform">
+                        <h3 class="text-3xl md:text-4xl font-bold text-white playfair uppercase tracking-wide">
                             Mặt bằng Tầng 2</h3>
                         <div class="w-24 h-1.5 bg-white mt-6 mx-auto lg:mx-0"></div>
                         <p
@@ -356,7 +425,7 @@
 
             <!-- Fixed Image Container -->
             <div
-                class="col-span-1 lg:col-span-2 relative h-[40vh] lg:h-full z-10 flex items-center justify-center p-0 lg:p-8">
+                class="col-span-1 lg:col-span-5 relative h-[40vh] lg:h-full z-10 flex items-center justify-center p-0 lg:py-8 lg:px-4">
                 <div class="relative w-full max-w-[1400px] aspect-[4/3] xl:aspect-[3/2] overflow-hidden lg:mr-8">
 
                     <!-- Tầng 1 Image -->
@@ -589,7 +658,7 @@
                     <div class="h-full flex flex-col justify-center item-center" data-aos="fade-up"
                         data-aos-duration="1000">
                         <div>
-                            <h2 class="text-3xl md:text-5xl font-medium text-gradient pb-4 playfair"> Tiện ích ngoại
+                            <h2 class="text-3xl md:text-4xl font-medium text-gradient pb-4 playfair"> Tiện ích ngoại
                                 khu</h2>
                             <p class="text-sm md:text-base text-gray-300">
                                 A&amp;T Saigon
@@ -649,7 +718,7 @@
                 <div class="px-4 md:px-8 md:col-span-2">
                     <div class="flex flex-col justify-center py-8 h-full" data-aos="fade-up" data-aos-duration="1000">
                         <div>
-                            <h2 class="text-3xl md:text-5xl font-medium text-gradient pb-4 playfair"> Sống nghỉ dưỡng
+                            <h2 class="text-3xl md:text-4xl font-medium text-gradient pb-4 playfair"> Sống nghỉ dưỡng
                             </h2>
                             <p class="text-sm md:text-base text-gray-300">Tại A&amp;T Saigon Riverside mỗi tiện ích nơi
                                 đây đều được chăm

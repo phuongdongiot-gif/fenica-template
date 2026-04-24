@@ -97,150 +97,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 1. Animate drawing the strokes of each letter with a stagger
         preTl.to('#fenica-logo-svg .st0', { strokeDashoffset: 0, duration: 1.5, stagger: 0.15, ease: "power2.inOut" })
-             // 2. Fill the logo with color
-             .to('#fenica-logo-svg .st0', { fill: "#f0e0ca", duration: 0.5, ease: "power2.out" }, "-=0.5")
-             // 3. Animate the progress bar
-             .to('.preloader-progress', { width: '100%', duration: 1.0, ease: "power2.inOut" }, "-=0.5")
-             // 4. Massive scale up (zoom out effect) and fade out
-             .to('.preloader-logo', { scale: 8, opacity: 0, duration: 0.8, ease: "power3.in" })
-             .to(preloader, { yPercent: -100, duration: 0.8, ease: "power4.inOut" }, "-=0.5");
+            // 2. Fill the logo with color
+            .to('#fenica-logo-svg .st0', { fill: "#f0e0ca", duration: 0.5, ease: "power2.out" }, "-=0.5")
+            // 3. Animate the progress bar
+            .to('.preloader-progress', { width: '100%', duration: 1.0, ease: "power2.inOut" }, "-=0.5")
+            // 4. Massive scale up (zoom out effect) and fade out
+            .to('.preloader-logo', { scale: 8, opacity: 0, duration: 0.8, ease: "power3.in" })
+            .to(preloader, { yPercent: -100, duration: 0.8, ease: "power4.inOut" }, "-=0.5");
     }
 
     // 1. --- Map Initialization ---
-    const mapOrigin = document.getElementById('map-origin');
+    // 1. --- Legend Initialization ---
     const legendContainer = document.getElementById('legend-container');
 
-    // Only run map logic if map container exists
-    if (mapOrigin && legendContainer) {
-        const mapFragment = document.createDocumentFragment();
+    // Only run legend logic if container exists
+    if (legendContainer) {
         const legendFragment = document.createDocumentFragment();
 
-        // Tính toán tỷ lệ khoảng cách riêng cho mobile (thu nhỏ tối đa để vừa trọn màn hình dọc)
-        const isMobile = window.innerWidth < 1024;
-        const radiusMultiplier = isMobile ? 0.17 : 1;
-
-        // Render Arcs, Nodes, and Legend
+        // Render Legend
         mapData.forEach((ring, ringIndex) => {
-            const currentRadius = ring.radius * radiusMultiplier;
-
-            // --- Ring Wrapper (orbits on mobile, static on desktop) ---
-            const ringWrapper = document.createElement('div');
-            ringWrapper.className = `absolute top-0 left-0 w-0 h-0 ring-wrapper-${ringIndex}`;
-
-            let orbitDuration = 0;
-            if (isMobile) {
-                // Inner rings spin faster, outer rings spin slower
-                orbitDuration = 40 + ringIndex * 15;
-                ringWrapper.style.animation = `spin ${orbitDuration}s linear infinite`;
-            }
-
-            // --- Draw Dashed Arc ---
-            const arc = document.createElement('div');
-            arc.className = `ring-arc-${ringIndex} absolute rounded-full border-[1.5px] border-dashed border-white pointer-events-none`;
-            arc.style.width = `${currentRadius * 2}px`;
-            arc.style.height = `${currentRadius * 2}px`;
-            arc.style.left = '0';
-            arc.style.top = '0';
-            arc.style.transform = 'translate(-50%, -50%)';
-            ringWrapper.appendChild(arc);
-
-            // --- Draw Label Tab ---
-            const tab = document.createElement('div');
-            if (isMobile) {
-                tab.className = `tab-item-${ringIndex} absolute flex flex-col items-center justify-center z-20 bg-[#ba936a] text-white rounded-full border-[1.5px] border-white shadow-sm`;
-                tab.style.top = `${currentRadius}px`;
-                tab.style.left = `0px`;
-                tab.style.transform = `translate(-50%, -50%)`;
-            } else {
-                tab.className = `tab-item-${ringIndex} absolute bottom-[10px] -translate-x-1/2 flex flex-col items-center z-20 hover:-translate-y-2 transition-transform cursor-pointer`;
-                tab.style.left = `-${currentRadius}px`;
-                tab.innerHTML = `
-                <div class="trapezoid-tab">
-                    <div class="font-black leading-none tracking-wide text-lg">${ring.id}</div>
-                    <div class="text-[10px] font-bold tracking-widest opacity-90 uppercase mt-0">Phút</div>
-                </div>`;
-            }
-            mapFragment.appendChild(tab);
-
-            // --- Draw Nodes on the Arc ---
-            const nodesCount = ring.nodes.length;
-            let startAngle, angleStep;
-            if (isMobile) {
-                angleStep = 360 / nodesCount;
-                startAngle = 270 + (angleStep / 2);
-            } else {
-                startAngle = 15;
-                const endAngle = 85;
-                angleStep = nodesCount > 1 ? (endAngle - startAngle) / (nodesCount - 1) : 0;
-            }
-
-            ring.nodes.forEach((node, nodeIndex) => {
-                const angle = startAngle + (angleStep * nodeIndex);
-
-                const nodeEl = document.createElement('div');
-                nodeEl.className = 'absolute top-0 left-0 w-0 h-0';
-                nodeEl.style.transform = `rotate(${angle}deg)`;
-
-                const nodeSizeClass = isMobile ? "w-7 h-7 border-2" : "w-14 h-14 border-[3px]";
-                const badgeClass = isMobile ? "text-[7px] px-1 py-[1px] -bottom-1" : "text-[11px] px-2 py-0.5 -bottom-2";
-                const nodeSizePx = isMobile ? 28 : 56;
-
-                const inner = document.createElement('div');
-                inner.className = `node-item-${ringIndex} absolute flex flex-col items-center justify-center cursor-pointer group`;
-                inner.style.width = `${nodeSizePx}px`;
-                inner.style.height = `${nodeSizePx}px`;
-                inner.style.left = `-${nodeSizePx / 2}px`;
-                inner.style.top = `-${nodeSizePx / 2}px`;
-                inner.style.transform = `translateX(-${currentRadius}px) rotate(-${angle}deg)`;
-
-                const contentWrapper = document.createElement('div');
-                contentWrapper.className = 'relative flex flex-col items-center justify-center w-full h-full';
-                if (isMobile) {
-                    contentWrapper.style.animation = `counter-spin ${orbitDuration}s linear infinite`;
-                }
-
-                contentWrapper.innerHTML = `
-                <div class="node-visual relative ${nodeSizeClass} rounded-full border-white overflow-hidden shadow-lg group-hover:scale-110 group-hover:border-white transition-all duration-300 z-10 bg-[#0e1e2e]">
-                    <img src="${node.img}" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=150&fit=crop&q=80'" loading="lazy" class="w-full h-full object-cover">
-                </div>
-                <!-- Number Badge -->
-                <div class="absolute ${badgeClass} bg-[#8b6135] text-white font-bold rounded-full z-20 shadow-md border-2 border-white group-hover:bg-[#dcb88e] transition-colors">
-                    ${node.id}
-                </div>
-                
-                <!-- Hover Tooltip -->
-                <div class="absolute bottom-full mb-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#1e2e3e] text-white text-sm px-4 py-2.5 rounded-xl shadow-2xl whitespace-nowrap pointer-events-none z-30 font-bold border border-white flex items-center gap-2">
-                    <span class="bg-[#2a3b4c] text-white px-1.5 py-0.5 rounded-md text-xs">${node.id}</span>
-                    ${node.name}
-                </div>`;
-
-                inner.appendChild(contentWrapper);
-                nodeEl.appendChild(inner);
-                ringWrapper.appendChild(nodeEl);
-            });
-
-            mapFragment.appendChild(ringWrapper);
-
             // --- Populate Legend Sidebar ---
             const legendSection = document.createElement('div');
             legendSection.className = `mb-6 legend-item-${ringIndex}`;
             legendSection.innerHTML = `
-            <div class="flex items-center gap-2 mb-3">
-                <div class="w-0 h-0 border-t-[6px] border-b-[6px] border-l-[8px] border-transparent border-l-white"></div>
-                <h3 class="text-xl font-black text-white">${ring.title}</h3>
-            </div>
-            <ul class="space-y-2 pl-4 border-l-2 border-white ml-1">
-                ${ring.nodes.map(n => `
-                    <li class="text-[13px] text-white font-medium hover:text-white hover:translate-x-1 transition-transform cursor-pointer flex gap-2">
-                        <span class="font-bold text-white">${n.id}.</span> 
-                        <span>${n.name}</span>
-                    </li>
-                `).join('')}
-            </ul>`;
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="w-0 h-0 border-t-[6px] border-b-[6px] border-l-[8px] border-transparent border-l-white"></div>
+                    <h3 class="text-xl font-black text-white">${ring.title}</h3>
+                </div>
+                <ul class="space-y-2 pl-4 border-l-2 border-white ml-1">
+                    ${ring.nodes.map(n => `
+                        <li class="text-[13px] text-white font-medium hover:text-white hover:translate-x-1 transition-transform cursor-pointer flex gap-2">
+                            <span class="font-bold text-white">${n.id}.</span> 
+                            <span>${n.name}</span>
+                        </li>
+                    `).join('')}
+                </ul>`;
             legendFragment.appendChild(legendSection);
         });
 
-        mapOrigin.appendChild(mapFragment);
         legendContainer.appendChild(legendFragment);
 
         // Turn on GSAP force3D for maximum mobile performance
@@ -248,36 +142,21 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.config({ force3D: true });
 
             const tl = gsap.timeline({ delay: preloaderDelay });
-            tl.fromTo(".fenica-title",
-                { y: 50, autoAlpha: 0 },
-                { y: 0, autoAlpha: 1, duration: 1.2, ease: "expo.out" }
-            );
+
+            // Kiểm tra xem class .fenica-title có tồn tại trên DOM không để tránh warning GSAP target not found
+            if (document.querySelector(".fenica-title")) {
+                tl.fromTo(".fenica-title",
+                    { y: 50, autoAlpha: 0 },
+                    { y: 0, autoAlpha: 1, duration: 1.2, ease: "expo.out" }
+                );
+            }
 
             mapData.forEach((_, i) => {
-                const ringTl = gsap.timeline();
-                ringTl.fromTo(`.ring-arc-${i}`,
-                    { scale: 0.6, autoAlpha: 0 },
-                    { scale: 1, autoAlpha: 1, duration: 1.2, ease: "expo.out" }, 0)
-                    .fromTo(`.tab-item-${i}`,
-                        { y: 40, autoAlpha: 0 },
-                        { y: 0, autoAlpha: 1, duration: 0.8, ease: "back.out(1.7)" }, 0.15)
-                    .fromTo(`.node-item-${i}`,
-                        { scale: 0, autoAlpha: 0 },
-                        { scale: 1, autoAlpha: 1, duration: 0.7, stagger: 0.08, ease: "back.out(1.5)" }, 0.2)
-                    .fromTo(`.legend-item-${i}`,
-                        { x: 30, autoAlpha: 0 },
-                        { x: 0, autoAlpha: 1, duration: 0.8, ease: "expo.out" }, 0.25);
-
-                if (!isMobile) {
-                    ringTl.to(`.ring-arc-${i}, .node-item-${i} .node-visual`, {
-                        opacity: 0.4,
-                        duration: 1.2,
-                        yoyo: true,
-                        repeat: -1,
-                        ease: "sine.inOut"
-                    }, 1.5);
-                }
-                tl.add(ringTl, i * 0.15);
+                tl.fromTo(`.legend-item-${i}`,
+                    { x: 30, autoAlpha: 0 },
+                    { x: 0, autoAlpha: 1, duration: 0.8, ease: "expo.out" }, 
+                    0.25 + (i * 0.15)
+                );
             });
         }
     }
@@ -428,11 +307,248 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof ScrollTrigger !== 'undefined') {
             // Cập nhật AOS mỗi khi ScrollTrigger tính toán lại (khi load hoặc resize)
             ScrollTrigger.addEventListener('refresh', () => AOS.refresh());
-            
+
             // Ép làm mới AOS sau 500ms để đảm bảo mọi DOM và ảnh đã load xong
             setTimeout(() => {
                 AOS.refresh();
             }, 500);
+        }
+    }
+
+    // 8. --- GSAP + WebGL Ripple Touch Effect (Nhỏ & Mềm Mại) ---
+    if (typeof gsap !== 'undefined') {
+        const canvas = document.createElement('canvas');
+        canvas.id = 'webgl-ripple-canvas';
+        canvas.style.position = 'fixed';
+        canvas.style.inset = '0';
+        canvas.style.width = '100vw';
+        canvas.style.height = '100vh';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '9999';
+        document.body.appendChild(canvas);
+
+        const gl = canvas.getContext('webgl', { premultipliedAlpha: true, alpha: true });
+
+        // Vertex Shader: full screen quad
+        const vsSource = `
+            attribute vec2 a_position;
+            void main() {
+                gl_Position = vec4(a_position, 0.0, 1.0);
+            }
+        `;
+
+        // Fragment Shader: vẽ nhiều gợn sóng mềm mại
+        const fsSource = `
+            precision mediump float;
+            uniform vec2 u_resolution;
+            uniform vec3 u_ripples[10]; // x, y, progress (0 -> 1)
+            
+            void main() {
+                vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+                uv.y = 1.0 - uv.y; // Lật trục Y vì WebGL ngược với DOM
+                
+                // Cân bằng tỷ lệ khung hình (Aspect Ratio)
+                float aspect = u_resolution.x / u_resolution.y;
+                uv.x *= aspect;
+                
+                vec3 finalColor = vec3(0.0);
+                float finalAlpha = 0.0;
+                
+                for(int i=0; i<10; i++) {
+                    float p = u_ripples[i].z;
+                    if(p > 0.0 && p < 1.0) {
+                        vec2 center = u_ripples[i].xy / u_resolution.xy;
+                        center.x *= aspect;
+                        
+                        float dist = distance(uv, center);
+                        
+                        // Kích thước nhỏ gọn (Max 8% chiều cao màn hình)
+                        float maxRadius = 0.08; 
+                        float radius = p * maxRadius;
+                        
+                        // Độ dày gợn sóng (tăng dần mờ ảo theo thời gian)
+                        float thickness = 0.015 + p * 0.02;
+                        
+                        // Tạo đường viền mềm (feather edge) bằng smoothstep
+                        float ring = smoothstep(radius - thickness, radius, dist) - smoothstep(radius, radius + thickness, dist);
+                        
+                        // Mờ dần theo progress (tạo độ tan biến)
+                        float alpha = (1.0 - p) * ring * 0.5; // Giảm opacity một chút cho giống nước trong
+                        
+                        // Màu xanh nước biển nhạt, trong trẻo và thanh khiết
+                        vec3 waterColor = vec3(0.5, 0.8, 1.0); 
+                        
+                        // Premultiplied alpha blending
+                        finalColor += waterColor * alpha;
+                        finalAlpha += alpha;
+                    }
+                }
+                
+                gl_FragColor = vec4(finalColor, finalAlpha);
+            }
+        `;
+
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            return shader;
+        }
+
+        const vs = createShader(gl, gl.VERTEX_SHADER, vsSource);
+        const fs = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+        const program = gl.createProgram();
+        gl.attachShader(program, vs);
+        gl.attachShader(program, fs);
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        // Tạo Buffer
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+            -1.0, -1.0, 1.0, -1.0, -1.0, 1.0,
+            -1.0, 1.0, 1.0, -1.0, 1.0, 1.0
+        ]), gl.STATIC_DRAW);
+
+        const positionLocation = gl.getAttribLocation(program, "a_position");
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+        const resLocation = gl.getUniformLocation(program, "u_resolution");
+        const ripplesLocation = gl.getUniformLocation(program, "u_ripples");
+
+        // Xử lý Resize
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+            gl.uniform2f(resLocation, canvas.width, canvas.height);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Quản lý trạng thái Ripples (Tối đa 10 cái cùng lúc)
+        const MAX_RIPPLES = 10;
+        let ripples = Array(MAX_RIPPLES).fill().map(() => ({ x: 0, y: 0, p: 0, active: false }));
+        let currentIndex = 0;
+
+        window.addEventListener('pointerdown', (e) => {
+            const ripple = ripples[currentIndex];
+            ripple.x = e.clientX;
+            ripple.y = e.clientY;
+            ripple.p = 0.001;
+            ripple.active = true;
+
+            // Dùng GSAP để animate uniform `progress` của Shader
+            gsap.to(ripple, {
+                p: 1.0,
+                duration: 1.2,
+                ease: "sine.out",
+                onComplete: () => {
+                    ripple.active = false;
+                    ripple.p = 0;
+                }
+            });
+
+            currentIndex = (currentIndex + 1) % MAX_RIPPLES;
+        });
+
+        // Render Loop
+        function render() {
+            gl.clearColor(0, 0, 0, 0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+
+            let hasActive = false;
+            const ripplesData = new Float32Array(MAX_RIPPLES * 3);
+
+            for (let i = 0; i < MAX_RIPPLES; i++) {
+                ripplesData[i * 3] = ripples[i].x;
+                ripplesData[i * 3 + 1] = ripples[i].y;
+                ripplesData[i * 3 + 2] = ripples[i].p;
+                if (ripples[i].active) hasActive = true;
+            }
+
+            // Chỉ render và tính toán khi có gợn sóng đang hoạt động để tiết kiệm pin/GPU
+            if (hasActive) {
+                gl.uniform3fv(ripplesLocation, ripplesData);
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+            }
+
+            requestAnimationFrame(render);
+        }
+        render();
+    }
+
+    // 9. --- Overview Section GSAP Animations ---
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const overviewSection = document.getElementById('overview-section');
+        if (overviewSection) {
+            // Entrance Animation
+            const tlOverview = gsap.timeline({
+                scrollTrigger: {
+                    trigger: overviewSection,
+                    start: "top 75%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            // Title
+            tlOverview.fromTo('.overview-title-container',
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+            );
+
+            // Building slide up
+            tlOverview.fromTo('#overview-building',
+                { y: 150, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.2, ease: "expo.out" },
+                "-=0.5"
+            );
+
+            // Left items slide in
+            tlOverview.fromTo('.overview-text-left .overview-item',
+                { x: -50, opacity: 0 },
+                { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "back.out(1.2)" },
+                "-=1.0"
+            );
+
+            // Right items slide in
+            tlOverview.fromTo('.overview-text-right .overview-item',
+                { x: 50, opacity: 0 },
+                { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "back.out(1.2)" },
+                "-=0.8"
+            );
+
+            // Parallax Background Effect
+            gsap.to('#overview-bg img', {
+                yPercent: 15,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: overviewSection,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+
+            // Hover interactions for Apartment Buttons
+            const aptBtns = document.querySelectorAll('.apt-btn');
+            
+            aptBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', () => {
+                    // Toà nhà hơi zoom nhẹ
+                    gsap.to('#overview-building', { scale: 1.03, duration: 0.4, ease: "power2.out" });
+                });
+                
+                btn.addEventListener('mouseleave', () => {
+                    // Trả về trạng thái cũ
+                    gsap.to('#overview-building', { scale: 1, duration: 0.8, ease: "power2.out" });
+                });
+            });
         }
     }
 });

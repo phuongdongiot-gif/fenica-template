@@ -75,7 +75,7 @@ body {
     scrollbar-width: none;
 }
 
-@keyframes spin {
+@keyframes orbit-spin {
     from {
         transform: rotate(0deg);
     }
@@ -85,7 +85,7 @@ body {
     }
 }
 
-@keyframes counter-spin {
+@keyframes orbit-counter-spin {
     from {
         transform: rotate(360deg);
     }
@@ -225,5 +225,35 @@ body {
     .swiper-pagination-bullet-active {
         height: 24px !important;
         width: 8px !important;
+    }
+}
+
+/* --- Touch Ripple Effect --- */
+.ripple-effect {
+    position: fixed;
+    border-radius: 50%;
+    /* Sử dụng radial-gradient để tạo độ mềm mại ở viền thay vì màu đặc và border cứng */
+    background: radial-gradient(circle, rgba(212, 174, 111, 0.3) 0%, rgba(212, 174, 111, 0.1) 50%, rgba(212, 174, 111, 0) 80%);
+    border: none;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Ignore clicks */
+    z-index: 9999;
+    width: 150px;
+    height: 150px;
+}
+
+/* --- Animated Gradient Text --- */
+.animate-gradient-text {
+    background: linear-gradient(90deg, #d4ae6f, #f0e0ca, #ffffff, #f0e0ca, #d4ae6f);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: text-shine 3s linear infinite;
+}
+
+@keyframes text-shine {
+    to {
+        background-position: -200% center;
     }
 }

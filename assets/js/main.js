@@ -681,4 +681,46 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // 10. --- Floating Contact Modal Logic ---
+    const floatBtn = document.getElementById('floating-contact-btn');
+    const contactModal = document.getElementById('contact-modal');
+    const modalBackdrop = document.getElementById('contact-modal-backdrop');
+    const modalContent = document.getElementById('contact-modal-content');
+    const closeBtn = document.getElementById('close-contact-modal');
+
+    if (floatBtn && contactModal && modalBackdrop && modalContent && closeBtn) {
+        const openModal = () => {
+            contactModal.classList.remove('hidden');
+            contactModal.classList.add('flex');
+            
+            // Allow display:flex to apply before animating opacity
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    modalBackdrop.classList.remove('opacity-0');
+                    modalBackdrop.classList.add('opacity-100');
+                    modalContent.classList.remove('opacity-0', 'scale-95');
+                    modalContent.classList.add('opacity-100', 'scale-100');
+                });
+            });
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeModal = () => {
+            modalBackdrop.classList.remove('opacity-100');
+            modalBackdrop.classList.add('opacity-0');
+            modalContent.classList.remove('opacity-100', 'scale-100');
+            modalContent.classList.add('opacity-0', 'scale-95');
+            
+            setTimeout(() => {
+                contactModal.classList.add('hidden');
+                contactModal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }, 300);
+        };
+
+        floatBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', closeModal);
+    }
 });

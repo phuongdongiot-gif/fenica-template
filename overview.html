@@ -30,43 +30,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="min-h-screen bg-[#0e1e2e] overflow-hidden">
-    <!-- Preloader -->
-    <div id="preloader"
-        class="fixed inset-0 z-[9999] bg-[#0e1e2e] flex flex-col items-center justify-center px-6 overflow-hidden">
-        <!-- Faded Background Image -->
-        <div class="absolute inset-0 z-0 opacity-15 bg-center bg-cover"
-            style="background-image: url('assets/images/bg-fenica.jpg');"></div>
-
-        <svg class="relative z-10 h-8 sm:h-10 md:h-14 max-w-[85vw] w-auto mb-6 md:mb-8 preloader-logo"
-            id="fenica-logo-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1156.33 208.54">
-            <defs>
-                <style>
-                    .st0 {
-                        fill: transparent;
-                        stroke: #f0e0ca;
-                        stroke-width: 3px;
-                        stroke-dasharray: 3000;
-                        stroke-dashoffset: 3000;
-                    }
-                </style>
-            </defs>
-            <polygon class="st0"
-                points="147.09 40.49 147.09 3.71 0 3.71 0 204.03 39.91 204.03 39.91 122.91 140.36 122.91 140.36 86.13 39.91 86.13 39.91 40.49 147.09 40.49" />
-            <polygon class="st0"
-                points="237.94 167.4 237.94 121.33 341.53 121.33 341.53 84.71 237.94 84.71 237.94 40.35 346.54 40.35 346.54 3.71 198.01 3.71 198.01 204.03 347.68 204.03 347.68 167.4 237.94 167.4" />
-            <rect class="st0" x="642.4" y="3.71" width="39.93" height="200.31" />
-            <path class="st0"
-                d="M837.71,169.41c-35.34,0-63.1-25.33-63.25-65.54,0-38.92,26.9-65.53,63.25-65.53,22.31,0,40.49,10.31,51.79,27.62l34.34-21.04c-16.31-28.03-48.93-44.92-85.85-44.92-61.67,0-105.17,43.64-105.17,103.87s43.5,103.88,105.17,103.88c36.63,0,66.83-16.31,84.57-42.35l-32.63-23.47c-12.02,17.47-30.05,27.48-52.22,27.48Z" />
-            <path class="st0"
-                d="M1077.93,3.71h-48.66l-77.97,200.31h41.64l17.45-46.64h85.42l17.45,46.64h42.64L1077.93,3.71ZM1024.13,120.62l29.04-77.41,28.9,77.41h-57.94Z" />
-            <path class="st0"
-                d="M555.3,2.61h-11.41c-.73,0-1.32.59-1.32,1.32v82.92c-.02.97-1.08,1.56-1.91,1.05L404.38,3.93c-.88-.44-1.32,0-1.32.88v25.88c0,9.21,5.7,19.3,14.04,24.57l161.36,95.87c.83.49,1.88-.11,1.88-1.07l-.04-119.37c0-16.67-10.53-28.08-25.01-28.08ZM430.7,203.55h10.6c.69,0,1.24-.56,1.24-1.24v-75.53c0-1.32.88-1.75,2.63-.88l132.93,82.48c1.32.44,2.19,0,2.19-1.32v-25.45c0-10.09-5.7-20.18-13.6-24.57l-161.76-95.31c-.83-.49-1.88.11-1.88,1.07v112.66c0,16.67,11.41,28.08,27.64,28.08Z" />
-        </svg>
-        <div class="relative z-10 w-[80vw] max-w-[12rem] md:max-w-[16rem] h-[2px] bg-white/20 rounded overflow-hidden">
-            <div class="h-full bg-[#d4ae6f] w-0 preloader-progress"></div>
-        </div>
-    </div>
+<body class="min-h-screen bg-[#0e1e2e] ">
+    
     <div class="video-bg fixed w-screen h-screen -z-10 opacity-50">
         <video src="assets/videos/video-bg-fenica.mp4" class="opacity-20 w-full h-full object-cover" autoplay loop
             muted></video>
@@ -987,6 +952,102 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Floating Contact Button -->
+    <button id="floating-contact-btn" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[990] w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r from-[#d4ae6f] to-[#b38e55] rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(212,174,111,0.5)] hover:scale-110 hover:-translate-y-2 transition-all duration-300 group">
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-[#0e1e2e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+        <span class="absolute right-full mr-4 bg-[#0e1e2e] text-white text-sm font-bold px-4 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 hidden md:block">
+            Liên hệ tư vấn
+        </span>
+    </button>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center">
+        <div id="contact-modal-backdrop" class="absolute inset-0 bg-[#0e1e2e]/80 backdrop-blur-md opacity-0 transition-opacity duration-300"></div>
+        
+        <div id="contact-modal-content" class="relative w-full max-w-[1200px] max-h-[95vh] overflow-y-auto custom-scrollbar mx-4 scale-95 opacity-0 transition-all duration-300 rounded-[2.5rem] bg-white shadow-2xl">
+            <button id="close-contact-modal" class="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 bg-black/5 hover:bg-black/10 backdrop-blur-md rounded-full flex items-center justify-center text-gray-500 hover:text-[#0e1e2e] transition-all">
+                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="flex flex-col lg:flex-row bg-transparent w-full">
+                <!-- Right: Visual & Testimonial -->
+                <div class="w-full lg:w-5/12 min-h-[250px] lg:min-h-[500px] bg-[#1a2b3c] lg:rounded-l-[2.5rem] relative overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80" alt="Fenica Interior" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+                    <div class="absolute inset-0 pointer-events-none mix-blend-overlay opacity-40 z-10" style="background-image: linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 40px 40px;"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-[#0e1e2e]/50 to-[#0e1e2e]/20 z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 z-20">
+                        <p class="text-white text-sm md:text-base font-light leading-relaxed mb-4 md:mb-6">"Fenica mang đến một tiêu chuẩn sống hoàn toàn mới. Đội ngũ chuyên viên vô cùng nhiệt tình và chuyên nghiệp."</p>
+                        <div class="flex items-end justify-between">
+                            <div>
+                                <p class="text-white font-bold text-sm md:text-base">— Trần Thanh Sơn</p>
+                                <p class="text-white/60 text-xs md:text-sm">Cư dân tại Fenica</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left: Form Card -->
+                <div class="w-full lg:w-7/12 bg-white lg:rounded-r-[2.5rem] p-6 md:p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-[#f0e0ca]/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                    <div class="relative z-10">
+                        <h2 class="text-2xl md:text-3xl font-bold text-[#0e1e2e] mb-2">Chúng tôi luôn sẵn sàng hỗ trợ</h2>
+                        <p class="text-gray-500 mb-6 text-sm md:text-base font-light leading-relaxed">Đội ngũ chuyên viên tư vấn của Fenica luôn túc trực để giải đáp mọi thắc mắc. Chúng tôi sẽ liên hệ lại trong vòng 24 giờ.</p>
+
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-1">
+                                    <label class="text-sm font-bold text-[#0e1e2e]">Họ</label>
+                                    <input type="text" placeholder="Họ của bạn" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-sm font-bold text-[#0e1e2e]">Tên</label>
+                                    <input type="text" placeholder="Tên của bạn" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent">
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-bold text-[#0e1e2e]">Email</label>
+                                <input type="email" placeholder="you@company.com" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-bold text-[#0e1e2e]">Số điện thoại</label>
+                                <div class="flex border border-gray-200 rounded-xl focus-within:border-[#0e1e2e] focus-within:ring-2 focus-within:ring-[#0e1e2e]/10 transition-all bg-transparent overflow-hidden">
+                                    <div class="relative flex items-center border-r border-gray-200">
+                                        <select class="h-full py-2.5 pl-4 pr-8 text-sm font-medium text-gray-700 bg-transparent border-none focus:ring-0 outline-none appearance-none cursor-pointer">
+                                            <option>US</option>
+                                            <option selected>VN</option>
+                                        </select>
+                                        <div class="absolute right-2 flex items-center pointer-events-none">
+                                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                        </div>
+                                    </div>
+                                    <input type="tel" placeholder="+84 (090) 123-4567" class="w-full px-4 py-2.5 border-none focus:ring-0 outline-none text-[#0e1e2e] bg-transparent">
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-sm font-bold text-[#0e1e2e]">Lời nhắn</label>
+                                <textarea rows="3" placeholder="Nhập nội dung cần tư vấn..." class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent resize-none"></textarea>
+                            </div>
+                            <div class="flex items-start gap-3 pt-1">
+                                <div class="flex items-center h-5 mt-0.5">
+                                    <input type="checkbox" id="modal-privacy" class="w-4 h-4 border border-gray-300 rounded text-[#0e1e2e] focus:ring-[#0e1e2e] cursor-pointer">
+                                </div>
+                                <label for="modal-privacy" class="text-xs md:text-sm text-gray-500 cursor-pointer">
+                                    Bạn đồng ý với <a href="#" class="text-[#0e1e2e] font-bold hover:text-[#d4ae6f] underline decoration-gray-300 underline-offset-4 transition-colors">chính sách bảo mật</a> của chúng tôi.
+                                </label>
+                            </div>
+                            <button type="button" class="w-full py-3.5 px-6 bg-[#0e1e2e] hover:bg-[#d4ae6f] text-white hover:text-[#0e1e2e] font-bold rounded-xl transition-all duration-300 shadow-[0_10px_20px_rgba(14,30,46,0.15)] hover:shadow-[0_10px_25px_rgba(212,174,111,0.3)] mt-2">
+                                Gửi thông tin
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/js/main.js"></script>
 </body>
 

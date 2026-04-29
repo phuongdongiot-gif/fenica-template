@@ -116,9 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 0. --- Preloader Animation ---
     const preloader = document.getElementById('preloader');
     // Global delay for other animations so they don't play behind the preloader
-    const preloaderDelay = preloader ? 3.8 : 0.5;
+    const preloaderDelay = preloader ? 2.0 : 0.5;
 
-    if (preloader && typeof gsap !== 'undefined') {
+    if (preloader && document.getElementById('fenica-logo-svg') && typeof gsap !== 'undefined') {
         const preTl = gsap.timeline({
             onComplete: () => {
                 document.body.classList.remove('overflow-hidden');
@@ -131,14 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // 1. Animate drawing the strokes of each letter with a stagger
-        preTl.to('#fenica-logo-svg .st0', { strokeDashoffset: 0, duration: 1.5, stagger: 0.15, ease: "power2.inOut" })
+        preTl.to('#fenica-logo-svg .st0', { strokeDashoffset: 0, duration: 0.8, stagger: 0.1, ease: "power2.inOut" })
             // 2. Fill the logo with color
-            .to('#fenica-logo-svg .st0', { fill: "#f0e0ca", duration: 0.5, ease: "power2.out" }, "-=0.5")
+            .to('#fenica-logo-svg .st0', { fill: "#f0e0ca", duration: 0.3, ease: "power2.out" }, "-=0.3")
             // 3. Animate the progress bar
-            .to('.preloader-progress', { width: '100%', duration: 1.0, ease: "power2.inOut" }, "-=0.5")
+            .to('.preloader-progress', { width: '100%', duration: 0.6, ease: "power2.inOut" }, "-=0.3")
             // 4. Massive scale up (zoom out effect) and fade out
-            .to('.preloader-logo', { scale: 8, opacity: 0, duration: 0.8, ease: "power3.in" })
-            .to(preloader, { yPercent: -100, duration: 0.8, ease: "power4.inOut" }, "-=0.5");
+            .to('.preloader-logo', { scale: 8, opacity: 0, duration: 0.5, ease: "power3.in" })
+            .to(preloader, { yPercent: -100, duration: 0.5, ease: "power4.inOut" }, "-=0.4");
     }
 
     // 1. --- Map Initialization ---
@@ -723,4 +723,52 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.addEventListener('click', closeModal);
         modalBackdrop.addEventListener('click', closeModal);
     }
+
+    // 11. --- Smooth Page Transitions (Exit Animation) ---
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            const target = this.getAttribute('target');
+            
+            // Bỏ qua nếu: không có href, là hash link, link email/call/js, mở tab mới, hoặc có thuộc tính download
+            if (!href || 
+                href.startsWith('#') || 
+                href.startsWith('mailto:') || 
+                href.startsWith('tel:') || 
+                href.startsWith('javascript:') || 
+                target === '_blank' || 
+                this.hasAttribute('download')) {
+                return;
+            }
+
+            e.preventDefault();
+            
+            // Tạo một overlay màu #09121d (khớp với màu nền preloader) để tạo cảm giác nối tiếp
+            const exitOverlay = document.createElement('div');
+            exitOverlay.style.position = 'fixed';
+            exitOverlay.style.top = '0';
+            exitOverlay.style.left = '0';
+            exitOverlay.style.width = '100vw';
+            exitOverlay.style.height = '100vh';
+            exitOverlay.style.backgroundColor = '#09121d'; // Khớp với màu sóng 3D
+            exitOverlay.style.zIndex = '99999';
+            exitOverlay.style.opacity = '0';
+            exitOverlay.style.transition = 'opacity 0.4s ease-in-out';
+            exitOverlay.style.pointerEvents = 'none'; // Không chặn click thêm
+            
+            document.body.appendChild(exitOverlay);
+            
+            // Kích hoạt transition
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    exitOverlay.style.opacity = '1';
+                });
+            });
+            
+            // Đợi hiệu ứng xong thì chuyển trang
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400);
+        });
+    });
 });

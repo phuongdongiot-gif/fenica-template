@@ -28,10 +28,38 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #09121d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+        }
+
+        #canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 
-<body class="min-h-screen bg-[#0e1e2e] ">
+<body class="min-h-screen bg-[#0e1e2e] overflow-hidden">
     
+    <!-- Chỉ có Canvas 3D, loại bỏ hoàn toàn chữ và phần trăm -->
+    <div id="preloader">
+        <div id="canvas-container"></div>
+    </div>
+
     <div class="video-bg fixed w-screen h-screen -z-10 opacity-50">
         <video src="assets/videos/video-bg-fenica.mp4" class="opacity-20 w-full h-full object-cover" autoplay loop
             muted></video>
@@ -65,25 +93,7 @@
                         <a href="overview.html"
                             class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TỔNG
                             QUAN</a>
-                        <div id="submenu"
-                            class="w-56 z-50 absolute left-1/2 -translate-x-1/2 top-full bg-[#0e1e2e]/95 backdrop-blur-xl border border-[#d4ae6f]/30 text-white shadow-xl flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible pointer-events-auto transition-all duration-300">
-                            <a href="overview.html"
-                                class="block px-6 py-3 border-b border-[#d4ae6f]/10 hover:text-[#0e1e2e] hover:bg-[#d4ae6f] hover:font-bold tracking-wide transition-colors">GIỚI
-                                THIỆU DỰ ÁN</a>
-                            <a href="plans.html"
-                                class="block px-6 py-3 border-b border-[#d4ae6f]/10 hover:text-[#0e1e2e] hover:bg-[#d4ae6f] hover:font-bold tracking-wide transition-colors">MẶT
-                                BẰNG TẦNG</a>
-                            <a href="plans-ults.html"
-                                class="block px-6 py-3 border-b border-[#d4ae6f]/10 hover:text-[#0e1e2e] hover:bg-[#d4ae6f] hover:font-bold tracking-wide transition-colors">MẶT
-                                BẰNG TIỆN ÍCH</a>
-                            <a href="#"
-                                class="block px-6 py-3 border-b border-[#d4ae6f]/10 hover:text-[#0e1e2e] hover:bg-[#d4ae6f] hover:font-bold tracking-wide transition-colors">CĂN
-                                HỘ</a>
-                            <a href="#"
-                                class="block px-6 py-3 hover:text-[#0e1e2e] hover:bg-[#d4ae6f] hover:font-bold tracking-wide transition-colors">PHÁP
-                                LÝ</a>
-                        </div>
-                    </li>
+                        </li>
                     <li class="contents"><a href="location.html"
                             class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">VỊ
                             TRÍ</a></li>
@@ -157,28 +167,9 @@
                         <a href="index.html"
                             class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TRANG
                             CHỦ</a>
-                        <div>
-                            <div class="tracking-wider border-l-2 border-[#d4ae6f]/30 pl-3 cursor-pointer flex justify-between items-center hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300"
-                                id="toggle-project">
-                                TỔNG QUAN
-                                <svg id="toggle-project-icon" class="w-4 h-4 transform transition-transform" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
-                            <div id="project-submenu"
-                                class="pl-5 mt-2 space-y-2 text-sm text-gray-300 hidden flex-col border-l border-white/10 ml-3">
-                                <a href="overview.html" class="block hover:text-[#d4ae6f] transition-colors py-1">GIỚI
-                                    THIỆU DỰ ÁN</a>
-                                <a href="plans.html"
-                                    class="block hover:text-[#d4ae6f] transition-colors py-1">MẶT BẰNG TẦNG</a>
-                                <a href="plans-ults.html"
-                                    class="block hover:text-[#d4ae6f] transition-colors py-1">MẶT BẰNG TIỆN ÍCH</a>
-                                <a href="#" class="block hover:text-[#d4ae6f] transition-colors py-1">CĂN HỘ</a>
-                                <a href="#" class="block hover:text-[#d4ae6f] transition-colors py-1">PHÁP LÝ</a>
-                            </div>
-                        </div>
+                        <a href="overview.html"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TỔNG
+                            QUAN</a>
                         <a href="location.html"
                             class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">VỊ
                             TRÍ</a>
@@ -1049,6 +1040,144 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+    
+    <!-- Gọi thư viện Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        // 1. Khởi tạo Scene
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        
+        // 2. Camera - Đặt góc nhìn chéo từ trên xuống để thấy rõ sự nhấp nhô
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 3000);
+        camera.position.set(0, 350, 800);
+        camera.lookAt(0, 0, 0);
+
+        // 3. Renderer
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        // 4. Cấu hình Lưới Sóng (Wave Grid)
+        const lineCount = 80;        // Số lượng dải sóng (trục Z)
+        const pointsCount = 200;     // Độ mịn của mỗi dải sóng (trục X)
+        const separation = 12;       // Khoảng cách giữa các điểm
+        
+        const lines = []; // Mảng chứa các đường (Lines)
+        
+        // Vật liệu cho các đường vân (mờ mờ ảo ảo)
+        const lineMaterial = new THREE.LineBasicMaterial({
+            color: 0x4aa3df, // Màu xanh cyan/bạc giống ảnh
+            transparent: true,
+            opacity: 0.15,
+            blending: THREE.AdditiveBlending // Chế độ hòa trộn tạo độ sáng chói khi đè lên nhau
+        });
+
+        // Vật liệu cho các điểm hạt (bụi sáng li ti bám theo đường vân)
+        const pointsMaterial = new THREE.PointsMaterial({
+            color: 0xffffff,
+            size: 1.5,
+            transparent: true,
+            opacity: 0.4,
+            blending: THREE.AdditiveBlending
+        });
+
+        // Khởi tạo các đường và điểm
+        for (let i = 0; i < lineCount; i++) {
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(pointsCount * 3);
+
+            // Gán tọa độ mặc định ban đầu
+            for (let j = 0; j < pointsCount; j++) {
+                const x = (j - pointsCount / 2) * separation;
+                const z = (i - lineCount / 2) * separation;
+                
+                positions[j * 3] = x;
+                positions[j * 3 + 1] = 0; // Trục Y sẽ được tính toán lại trong hàm animate
+                positions[j * 3 + 2] = z;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+            // Thêm đường vân (Line)
+            const line = new THREE.Line(geometry, lineMaterial);
+            scene.add(line);
+            lines.push(line);
+
+            // Thêm các hạt sáng (Points) dùng chung hình học với line
+            // Để tối ưu, ta không cần hạt ở mọi dòng, có thể xen kẽ
+            if (i % 2 === 0) {
+                const points = new THREE.Points(geometry, pointsMaterial);
+                scene.add(points);
+            }
+        }
+
+        // 5. Vòng lặp Animation - Tạo độ nhấp nhô phức tạp
+        const clock = new THREE.Clock();
+        let animationId;
+
+        function animate() {
+            animationId = requestAnimationFrame(animate);
+            
+            // Lấy thời gian để làm biến chạy cho phương trình sóng
+            const time = clock.getElapsedTime() * 0.6; 
+
+            for (let i = 0; i < lineCount; i++) {
+                const positions = lines[i].geometry.attributes.position.array;
+                const z = (i - lineCount / 2) * separation;
+
+                for (let j = 0; j < pointsCount; j++) {
+                    const x = (j - pointsCount / 2) * separation;
+                    const index = j * 3;
+
+                    // Phương trình sóng kết hợp nhiều hàm Sin/Cos để tạo ra 
+                    // sự nhấp nhô gồ ghề, có đỉnh cao, có rãnh sâu như trong ảnh
+                    const wave1 = Math.sin(x * 0.008 + time) * 80;
+                    const wave2 = Math.sin(z * 0.01 + time * 0.8) * 60;
+                    const wave3 = Math.cos((x * 0.02) + (z * 0.015) - time) * 35;
+                    
+                    const y = wave1 + wave2 + wave3;
+
+                    positions[index + 1] = y; // Cập nhật trục Y
+                }
+                
+                // Cập nhật lại khung hình
+                lines[i].geometry.attributes.position.needsUpdate = true;
+            }
+
+            // Xoay nhẹ toàn bộ trục để có góc nhìn động
+            scene.rotation.y += 0.001;
+
+            renderer.render(scene, camera);
+        }
+        
+        animate();
+
+        // 6. Responsive khi đổi kích thước màn hình
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // 7. Logic ẩn Preloader mượt mà
+        setTimeout(() => {
+            const preloaderEl = document.getElementById('preloader');
+
+            if (preloaderEl) {
+                preloaderEl.style.opacity = '0';
+                preloaderEl.style.visibility = 'hidden';
+            }
+
+            setTimeout(() => {
+                document.body.classList.remove('overflow-hidden');
+                if (animationId) cancelAnimationFrame(animationId);
+            }, 800); 
+        }, 1500); 
+
+    </script>
 </body>
 
 </html>

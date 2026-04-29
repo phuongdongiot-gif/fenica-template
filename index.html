@@ -31,6 +31,9 @@
 </head>
 
 <body class="min-h-screen bg-[#0e1e2e] overflow-hidden">
+        <!-- 3D Wave Persistent Background -->
+    <div id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -10; background-color: #09121d;"></div>
+
     <!-- Preloader -->
     <div id="preloader"
         class="fixed inset-0 z-[9999] bg-[#0e1e2e] flex flex-col items-center justify-center px-6 overflow-hidden">
@@ -67,12 +70,7 @@
             <div class="h-full bg-[#d4ae6f] w-0 preloader-progress"></div>
         </div>
     </div>
-    <div class="video-bg fixed w-screen h-screen -z-10 opacity-50">
-        <video src="assets/videos/video-bg-fenica.mp4" class="opacity-20 w-full h-full object-cover" autoplay loop
-            muted></video>
-    </div>
-
-    <!-- Header Section -->
+<!-- Header Section -->
     <header class="relative z-[999]">
         <section id="header"
             class="fixed top-0 left-0 w-full z-[499] shadow-md bg-[#0e1e2e]/10 backdrop-blur-md border-b border-[#d4ae6f]/20 transition-all duration-300">
@@ -1819,6 +1817,9 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+    <!-- Gọi thư viện Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="assets/js/wave-preloader.js"></script>
 </body>
 
 </html>

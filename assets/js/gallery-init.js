@@ -1,10 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Xử lý nút Play cho Video (Facade)
+    // Xử lý nút Play cho Video và TikTok (Facade Lazy Load)
+    let tiktokScriptLoaded = false;
     document.querySelectorAll('.video-overlay').forEach(overlay => {
         overlay.addEventListener('click', function () {
             const media = this.previousElementSibling;
+            
             if (media && media.tagName === 'IFRAME' && media.hasAttribute('data-src')) {
+                // Load Youtube iframe
                 media.src = media.getAttribute('data-src');
+            } else if (media && media.tagName === 'BLOCKQUOTE' && media.classList.contains('tiktok-embed')) {
+                // Load Tiktok script dynamically only on first interaction
+                if (!tiktokScriptLoaded) {
+                    const script = document.createElement('script');
+                    script.async = true;
+                    script.src = 'https://www.tiktok.com/embed.js';
+                    document.body.appendChild(script);
+                    tiktokScriptLoaded = true;
+                }
             }
             this.style.display = 'none';
         });

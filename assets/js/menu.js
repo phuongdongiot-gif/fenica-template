@@ -38,48 +38,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Logic Header thu nhỏ khi scroll
+    // Logic Header thu nhỏ khi scroll (Đã Tối Ưu Hiệu Suất)
     const headerContainer = document.getElementById('headerContainer');
     const header = document.getElementById('header');
     const logos = document.querySelectorAll('.logo-img');
+    let isScrolled = false; // Theo dõi trạng thái để không cập nhật DOM thừa mốc 50px
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            // Thu nhỏ container padding
-            if (headerContainer) {
-                headerContainer.classList.remove('py-3', 'md:py-4');
-                headerContainer.classList.add('py-1', 'md:py-2');
-            }
-            // Đổi màu nền Header đậm hơn
-            if (header) {
-                header.classList.remove('bg-[#0e1e2e]/80');
-                header.classList.add('bg-[#0e1e2e]/95', 'shadow-lg');
-            }
-            // Thu nhỏ logo
-            logos.forEach(logo => {
-                logo.classList.remove('w-20', 'w-24', 'md:w-32');
-                logo.classList.add('w-16', 'md:w-24');
-            });
-        } else {
-            // Phục hồi container padding
-            if (headerContainer) {
-                headerContainer.classList.add('py-3', 'md:py-4');
-                headerContainer.classList.remove('py-1', 'md:py-2');
-            }
-            // Phục hồi màu nền
-            if (header) {
-                header.classList.add('bg-[#0e1e2e]/80');
-                header.classList.remove('bg-[#0e1e2e]/95', 'shadow-lg');
-            }
-            // Phục hồi logo
-            logos.forEach((logo, index) => {
-                logo.classList.remove('w-16', 'md:w-24');
-                if (index === 1) { // Logo giữa
-                    logo.classList.add('w-24', 'md:w-32');
-                } else { // Logo trái, phải
-                    logo.classList.add('w-20', 'md:w-32');
+            if (!isScrolled) {
+                isScrolled = true;
+                // Thu nhỏ container padding
+                if (headerContainer) {
+                    headerContainer.classList.remove('py-3', 'md:py-4');
+                    headerContainer.classList.add('py-1', 'md:py-2');
                 }
-            });
+                // Đổi màu nền Header đậm hơn
+                if (header) {
+                    header.classList.remove('bg-[#0e1e2e]/80');
+                    header.classList.add('bg-[#0e1e2e]/95', 'shadow-lg');
+                }
+                // Thu nhỏ logo
+                logos.forEach(logo => {
+                    logo.classList.remove('w-20', 'w-24', 'md:w-32');
+                    logo.classList.add('w-16', 'md:w-24');
+                });
+            }
+        } else {
+            if (isScrolled) {
+                isScrolled = false;
+                // Phục hồi container padding
+                if (headerContainer) {
+                    headerContainer.classList.add('py-3', 'md:py-4');
+                    headerContainer.classList.remove('py-1', 'md:py-2');
+                }
+                // Phục hồi màu nền
+                if (header) {
+                    header.classList.add('bg-[#0e1e2e]/80');
+                    header.classList.remove('bg-[#0e1e2e]/95', 'shadow-lg');
+                }
+                // Phục hồi logo
+                logos.forEach((logo, index) => {
+                    logo.classList.remove('w-16', 'md:w-24');
+                    if (index === 1) { // Logo giữa
+                        logo.classList.add('w-24', 'md:w-32');
+                    } else { // Logo trái, phải
+                        logo.classList.add('w-20', 'md:w-32');
+                    }
+                });
+            }
         }
-    });
+    }, { passive: true }); // Tối ưu hóa scroll performance
 });

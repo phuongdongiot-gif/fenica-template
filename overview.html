@@ -31,16 +31,19 @@
 </head>
 
 <body class="min-h-screen bg-[#0e1e2e] overflow-hidden">
-    
+
 
     <!-- 3D Wave Persistent Background -->
-    <div id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -10; background-color: #09121d;"></div>
+    <div id="bg-canvas"
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -10; background-color: #09121d;">
+    </div>
 
     <!-- Solid Overlay for Preloading Effect -->
-    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background-color: #09121d; transition: opacity 0.8s ease-out, visibility 0.8s ease-out; pointer-events: none;">
+    <div id="preloader"
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background-color: #09121d; transition: opacity 0.8s ease-out, visibility 0.8s ease-out; pointer-events: none;">
         <div id="preloader-canvas" style="width: 100%; height: 100%;"></div>
     </div>
-<!-- Header Section -->
+    <!-- Header Section -->
     <header class="relative z-[999]">
         <section id="header"
             class="fixed top-0 left-0 w-full z-[499] shadow-md bg-[#0e1e2e]/10 backdrop-blur-md border-b border-[#d4ae6f]/20 transition-all duration-300">
@@ -68,7 +71,7 @@
                         <a href="overview.html"
                             class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TỔNG
                             QUAN</a>
-                        </li>
+                    </li>
                     <li class="contents"><a href="location.html"
                             class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">VỊ
                             TRÍ</a></li>
@@ -424,12 +427,15 @@
     <section id="investor-section" class="w-full py-12 lg:py-20 relative overflow-hidden z-10">
         <div class="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
             <div class="text-center mb-10 lg:mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold playfair uppercase tracking-wide animate-gradient-text" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold playfair uppercase tracking-wide animate-gradient-text"
+                    data-aos="fade-up">
                     Chủ Đầu Tư
                 </h2>
                 <div class="flex items-center justify-center gap-3 mt-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#d4ae6f]"></div>
-                    <div class="w-2.5 h-2.5 rotate-45 bg-gradient-to-br from-[#f0e0ca] to-[#d4ae6f] shadow-[0_0_10px_rgba(212,174,111,0.8)]"></div>
+                    <div
+                        class="w-2.5 h-2.5 rotate-45 bg-gradient-to-br from-[#f0e0ca] to-[#d4ae6f] shadow-[0_0_10px_rgba(212,174,111,0.8)]">
+                    </div>
                     <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#d4ae6f]"></div>
                 </div>
             </div>
@@ -439,41 +445,36 @@
                 <div class="w-full lg:w-2/5 flex justify-center" data-aos="fade-right" data-aos-duration="1000">
                     <div class="relative w-full max-w-sm group">
                         <!-- Glow effect -->
-                        <div class="absolute -inset-1 bg-gradient-to-r from-[#d4ae6f]/50 to-[#f0e0ca]/50 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-                        <div class="relative bg-white/[0.03] backdrop-blur-md border border-[#d4ae6f]/30 rounded-2xl p-10 lg:p-14 flex items-center justify-center hover:bg-white/10 transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
-                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="A&T Group Logo" class="w-full h-auto object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-[#d4ae6f]/50 to-[#f0e0ca]/50 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000">
+                        </div>
+                        <div
+                            class="relative bg-white/[0.03] backdrop-blur-md border border-[#d4ae6f]/30 rounded-2xl p-10 lg:p-14 flex items-center justify-center hover:bg-white/10 transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+                            <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                                alt="A&T Group Logo"
+                                class="w-full h-auto object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500">
                         </div>
                     </div>
                 </div>
 
                 <!-- Text side -->
-                <div class="w-full lg:w-3/5 flex flex-col gap-6 text-center lg:text-left" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="w-full lg:w-3/5 flex flex-col gap-6 text-center lg:text-left" data-aos="fade-left"
+                    data-aos-duration="1000" data-aos-delay="200">
                     <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">
                         A&amp;T Group
                     </h3>
                     <p class="text-[#d4ae6f] font-light tracking-[0.1em] uppercase text-sm md:text-base">
                         Kiến tạo giá trị thực - Phát triển bền vững
                     </p>
-                    <div class="h-[1px] w-full max-w-xs bg-gradient-to-r from-[#d4ae6f]/50 to-transparent mx-auto lg:mx-0"></div>
-                    <p class="text-gray-300 font-light leading-relaxed text-sm md:text-base text-justify lg:text-left">
-                        Với bề dày kinh nghiệm trong lĩnh vực bất động sản, A&amp;T Group luôn đặt trọn tâm huyết vào từng dự án. A&amp;T Saigon Riverside là minh chứng rõ nét cho khát vọng kiến tạo một biểu tượng sống thượng lưu, mang lại không gian sống đẳng cấp, tiện nghi và trọn vẹn giá trị tinh hoa cho cộng đồng cư dân tương lai.
-                    </p>
-                    
-                    <!-- Stats / Mini facts -->
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-                        <div class="bg-white/[0.02] border border-white/10 rounded-xl p-4 hover:border-[#d4ae6f]/50 transition-colors duration-300 text-center lg:text-left">
-                            <h4 class="text-2xl font-bold text-[#d4ae6f] playfair mb-1">15+</h4>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider">Năm kinh nghiệm</p>
-                        </div>
-                        <div class="bg-white/[0.02] border border-white/10 rounded-xl p-4 hover:border-[#d4ae6f]/50 transition-colors duration-300 text-center lg:text-left">
-                            <h4 class="text-2xl font-bold text-[#d4ae6f] playfair mb-1">Top 10</h4>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider">Thương hiệu BĐS</p>
-                        </div>
-                        <div class="bg-white/[0.02] border border-white/10 rounded-xl p-4 hover:border-[#d4ae6f]/50 transition-colors duration-300 text-center lg:text-left col-span-2 md:col-span-1">
-                            <h4 class="text-2xl font-bold text-[#d4ae6f] playfair mb-1">100%</h4>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider">Cam kết tiến độ</p>
-                        </div>
+                    <div
+                        class="h-[1px] w-full max-w-xs bg-gradient-to-r from-[#d4ae6f]/50 to-transparent mx-auto lg:mx-0">
                     </div>
+                    <p class="text-gray-300 font-light leading-relaxed text-sm md:text-base text-justify lg:text-left">
+                        Với bề dày kinh nghiệm trong lĩnh vực bất động sản, A&amp;T Group luôn đặt trọn tâm huyết vào
+                        từng dự án. A&amp;T Saigon Riverside là minh chứng rõ nét cho khát vọng kiến tạo một biểu tượng
+                        sống thượng lưu, mang lại không gian sống đẳng cấp, tiện nghi và trọn vẹn giá trị tinh hoa cho
+                        cộng đồng cư dân tương lai.
+                    </p>
                 </div>
             </div>
         </div>
@@ -482,19 +483,33 @@
 
     <style>
         @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
+
         @keyframes scroll-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
         }
+
         .animate-scroll-left {
             animation: scroll-left 30s linear infinite;
         }
+
         .animate-scroll-right {
             animation: scroll-right 30s linear infinite;
         }
+
         .partner-card {
             width: 220px;
             height: 110px;
@@ -509,12 +524,14 @@
             padding: 1.5rem;
             flex-shrink: 0;
         }
+
         .partner-card:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(212, 174, 111, 0.6);
             transform: scale(1.05) translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(212, 174, 111, 0.1);
         }
+
         .partner-card img {
             max-width: 100%;
             max-height: 100%;
@@ -522,8 +539,9 @@
             filter: grayscale(100%) opacity(0.5);
             transition: all 0.4s ease;
         }
+
         .partner-card:hover img {
-            filter: grayscale(0%) opacity(1) drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            filter: grayscale(0%) opacity(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
         }
     </style>
 
@@ -531,12 +549,15 @@
     <section id="partners-section" class="w-full py-12 lg:py-20 relative overflow-hidden z-10 border-t border-white/10">
         <div class="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10 mb-10 lg:mb-16">
             <div class="text-center">
-                <h2 class="text-3xl md:text-4xl font-bold playfair uppercase tracking-wide animate-gradient-text" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold playfair uppercase tracking-wide animate-gradient-text"
+                    data-aos="fade-up">
                     Đối Tác Phát Triển
                 </h2>
                 <div class="flex items-center justify-center gap-3 mt-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#d4ae6f]"></div>
-                    <div class="w-2.5 h-2.5 rotate-45 bg-gradient-to-br from-[#f0e0ca] to-[#d4ae6f] shadow-[0_0_10px_rgba(212,174,111,0.8)]"></div>
+                    <div
+                        class="w-2.5 h-2.5 rotate-45 bg-gradient-to-br from-[#f0e0ca] to-[#d4ae6f] shadow-[0_0_10px_rgba(212,174,111,0.8)]">
+                    </div>
                     <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#d4ae6f]"></div>
                 </div>
             </div>
@@ -544,71 +565,149 @@
 
         <div class="w-full flex flex-col gap-6 md:gap-8 relative group">
             <!-- Shadow Gradients for fading edges -->
-            <div class="absolute inset-y-0 left-0 w-32 md:w-64 bg-gradient-to-r from-[#0e1e2e] to-transparent z-20 pointer-events-none"></div>
-            <div class="absolute inset-y-0 right-0 w-32 md:w-64 bg-gradient-to-l from-[#0e1e2e] to-transparent z-20 pointer-events-none"></div>
+            <div
+                class="absolute inset-y-0 left-0 w-32 md:w-64 bg-gradient-to-r from-[#0e1e2e] to-transparent z-20 pointer-events-none">
+            </div>
+            <div
+                class="absolute inset-y-0 right-0 w-32 md:w-64 bg-gradient-to-l from-[#0e1e2e] to-transparent z-20 pointer-events-none">
+            </div>
 
             <!-- Track 1: Scrolls Left -->
             <div class="flex gap-4 md:gap-6 w-max animate-scroll-left hover:[animation-play-state:paused]"">
-                <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                </div>
-                <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
-                    <!-- Duplicate -->
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                </div>
+                <div class=" flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
             </div>
+            <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
+                <!-- Duplicate -->
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+            </div>
+        </div>
 
-            <!-- Track 2: Scrolls Right -->
-            <div class="flex gap-4 md:gap-6 w-max animate-scroll-right hover:[animation-play-state:paused]"" style="animation-duration: 35s;">
-                <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                </div>
-                <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
-                    <!-- Duplicate -->
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                </div>
+        <!-- Track 2: Scrolls Right -->
+        <div class="flex gap-4 md:gap-6 w-max animate-scroll-right hover:[animation-play-state:paused]"" style="
+            animation-duration: 35s;">
+            <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
             </div>
+            <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
+                <!-- Duplicate -->
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+            </div>
+        </div>
 
-            <!-- Track 3: Scrolls Left -->
-            <div class="flex gap-4 md:gap-6 w-max animate-scroll-left hover:[animation-play-state:paused]"" style="animation-duration: 40s;">
-                <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                </div>
-                <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
-                    <!-- Duplicate -->
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png" alt="Partner"></div>
-                    <div class="partner-card"><img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png" alt="Partner"></div>
-                </div>
+        <!-- Track 3: Scrolls Left -->
+        <div class="flex gap-4 md:gap-6 w-max animate-scroll-left hover:[animation-play-state:paused]"" style="
+            animation-duration: 40s;">
+            <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
             </div>
+            <div class="flex gap-4 md:gap-6 items-center shrink-0 px-2 md:px-3">
+                <!-- Duplicate -->
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-at.png"
+                        alt="Partner"></div>
+                <div class="partner-card"><img
+                        src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
+                        alt="Partner"></div>
+            </div>
+        </div>
 
         </div>
     </section>
@@ -1025,34 +1124,52 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- Floating Contact Button -->
-    <button id="floating-contact-btn" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[990] w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r from-[#d4ae6f] to-[#b38e55] rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(212,174,111,0.5)] hover:scale-110 hover:-translate-y-2 transition-all duration-300 group">
+    <button id="floating-contact-btn"
+        class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[990] w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r from-[#d4ae6f] to-[#b38e55] rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(212,174,111,0.5)] hover:scale-110 hover:-translate-y-2 transition-all duration-300 group">
         <svg class="w-6 h-6 md:w-8 md:h-8 text-[#0e1e2e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+            </path>
         </svg>
-        <span class="absolute right-full mr-4 bg-[#0e1e2e] text-white text-sm font-bold px-4 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 hidden md:block">
+        <span
+            class="absolute right-full mr-4 bg-[#0e1e2e] text-white text-sm font-bold px-4 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 hidden md:block">
             Liên hệ tư vấn
         </span>
     </button>
 
     <!-- Contact Modal -->
     <div id="contact-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center">
-        <div id="contact-modal-backdrop" class="absolute inset-0 bg-[#0e1e2e]/80 backdrop-blur-md opacity-0 transition-opacity duration-300"></div>
-        
-        <div id="contact-modal-content" class="relative w-full max-w-[1200px] max-h-[95vh] overflow-y-auto custom-scrollbar mx-4 scale-95 opacity-0 transition-all duration-300 rounded-[2.5rem] bg-white shadow-2xl">
-            <button id="close-contact-modal" class="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 bg-black/5 hover:bg-black/10 backdrop-blur-md rounded-full flex items-center justify-center text-gray-500 hover:text-[#0e1e2e] transition-all">
-                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        <div id="contact-modal-backdrop"
+            class="absolute inset-0 bg-[#0e1e2e]/80 backdrop-blur-md opacity-0 transition-opacity duration-300"></div>
+
+        <div id="contact-modal-content"
+            class="relative w-full max-w-[1200px] max-h-[95vh] overflow-y-auto custom-scrollbar mx-4 scale-95 opacity-0 transition-all duration-300 rounded-[2.5rem] bg-white shadow-2xl">
+            <button id="close-contact-modal"
+                class="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 bg-black/5 hover:bg-black/10 backdrop-blur-md rounded-full flex items-center justify-center text-gray-500 hover:text-[#0e1e2e] transition-all">
+                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
             </button>
 
             <div class="flex flex-col lg:flex-row bg-transparent w-full">
                 <!-- Right: Visual & Testimonial -->
-                <div class="w-full lg:w-5/12 min-h-[250px] lg:min-h-[500px] bg-[#1a2b3c] lg:rounded-l-[2.5rem] relative overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80" alt="Fenica Interior" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
-                    <div class="absolute inset-0 pointer-events-none mix-blend-overlay opacity-40 z-10" style="background-image: linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 40px 40px;"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-[#0e1e2e]/50 to-[#0e1e2e]/20 z-10"></div>
+                <div
+                    class="w-full lg:w-5/12 min-h-[250px] lg:min-h-[500px] bg-[#1a2b3c] lg:rounded-l-[2.5rem] relative overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80"
+                        alt="Fenica Interior"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+                    <div class="absolute inset-0 pointer-events-none mix-blend-overlay opacity-40 z-10"
+                        style="background-image: linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 40px 40px;">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-[#0e1e2e]/50 to-[#0e1e2e]/20 z-10">
+                    </div>
                     <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 z-20">
-                        <p class="text-white text-sm md:text-base font-light leading-relaxed mb-4 md:mb-6">"Fenica mang đến một tiêu chuẩn sống hoàn toàn mới. Đội ngũ chuyên viên vô cùng nhiệt tình và chuyên nghiệp."</p>
+                        <p class="text-white text-sm md:text-base font-light leading-relaxed mb-4 md:mb-6">"Fenica mang
+                            đến một tiêu chuẩn sống hoàn toàn mới. Đội ngũ chuyên viên vô cùng nhiệt tình và chuyên
+                            nghiệp."</p>
                         <div class="flex items-end justify-between">
                             <div>
                                 <p class="text-white font-bold text-sm md:text-base">— Trần Thanh Sơn</p>
@@ -1064,54 +1181,74 @@
 
                 <!-- Left: Form Card -->
                 <div class="w-full lg:w-7/12 bg-white lg:rounded-r-[2.5rem] p-6 md:p-10 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-[#f0e0ca]/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-[#f0e0ca]/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none">
+                    </div>
                     <div class="relative z-10">
-                        <h2 class="text-2xl md:text-3xl font-bold text-[#0e1e2e] mb-2">Chúng tôi luôn sẵn sàng hỗ trợ</h2>
-                        <p class="text-gray-500 mb-6 text-sm md:text-base font-light leading-relaxed">Đội ngũ chuyên viên tư vấn của Fenica luôn túc trực để giải đáp mọi thắc mắc. Chúng tôi sẽ liên hệ lại trong vòng 24 giờ.</p>
+                        <h2 class="text-2xl md:text-3xl font-bold text-[#0e1e2e] mb-2">Chúng tôi luôn sẵn sàng hỗ trợ
+                        </h2>
+                        <p class="text-gray-500 mb-6 text-sm md:text-base font-light leading-relaxed">Đội ngũ chuyên
+                            viên tư vấn của Fenica luôn túc trực để giải đáp mọi thắc mắc. Chúng tôi sẽ liên hệ lại
+                            trong vòng 24 giờ.</p>
 
                         <form class="space-y-4">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="space-y-1">
                                     <label class="text-sm font-bold text-[#0e1e2e]">Họ</label>
-                                    <input type="text" placeholder="Họ của bạn" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent">
+                                    <input type="text" placeholder="Họ của bạn"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent">
                                 </div>
                                 <div class="space-y-1">
                                     <label class="text-sm font-bold text-[#0e1e2e]">Tên</label>
-                                    <input type="text" placeholder="Tên của bạn" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent">
+                                    <input type="text" placeholder="Tên của bạn"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent">
                                 </div>
                             </div>
                             <div class="space-y-1">
                                 <label class="text-sm font-bold text-[#0e1e2e]">Email</label>
-                                <input type="email" placeholder="you@company.com" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent">
+                                <input type="email" placeholder="you@company.com"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent">
                             </div>
                             <div class="space-y-1">
                                 <label class="text-sm font-bold text-[#0e1e2e]">Số điện thoại</label>
-                                <div class="flex border border-gray-200 rounded-xl focus-within:border-[#0e1e2e] focus-within:ring-2 focus-within:ring-[#0e1e2e]/10 transition-all bg-transparent overflow-hidden">
+                                <div
+                                    class="flex border border-gray-200 rounded-xl focus-within:border-[#0e1e2e] focus-within:ring-2 focus-within:ring-[#0e1e2e]/10 transition-all bg-transparent overflow-hidden">
                                     <div class="relative flex items-center border-r border-gray-200">
-                                        <select class="h-full py-2.5 pl-4 pr-8 text-sm font-medium text-gray-700 bg-transparent border-none focus:ring-0 outline-none appearance-none cursor-pointer">
+                                        <select
+                                            class="h-full py-2.5 pl-4 pr-8 text-sm font-medium text-gray-700 bg-transparent border-none focus:ring-0 outline-none appearance-none cursor-pointer">
                                             <option>US</option>
                                             <option selected>VN</option>
                                         </select>
                                         <div class="absolute right-2 flex items-center pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7"></path>
+                                            </svg>
                                         </div>
                                     </div>
-                                    <input type="tel" placeholder="+84 (090) 123-4567" class="w-full px-4 py-2.5 border-none focus:ring-0 outline-none text-[#0e1e2e] bg-transparent">
+                                    <input type="tel" placeholder="+84 (090) 123-4567"
+                                        class="w-full px-4 py-2.5 border-none focus:ring-0 outline-none text-[#0e1e2e] bg-transparent">
                                 </div>
                             </div>
                             <div class="space-y-1">
                                 <label class="text-sm font-bold text-[#0e1e2e]">Lời nhắn</label>
-                                <textarea rows="3" placeholder="Nhập nội dung cần tư vấn..." class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent resize-none"></textarea>
+                                <textarea rows="3" placeholder="Nhập nội dung cần tư vấn..."
+                                    class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0e1e2e] focus:ring-2 focus:ring-[#0e1e2e]/10 outline-none transition-all text-[#0e1e2e] bg-transparent resize-none"></textarea>
                             </div>
                             <div class="flex items-start gap-3 pt-1">
                                 <div class="flex items-center h-5 mt-0.5">
-                                    <input type="checkbox" id="modal-privacy" class="w-4 h-4 border border-gray-300 rounded text-[#0e1e2e] focus:ring-[#0e1e2e] cursor-pointer">
+                                    <input type="checkbox" id="modal-privacy"
+                                        class="w-4 h-4 border border-gray-300 rounded text-[#0e1e2e] focus:ring-[#0e1e2e] cursor-pointer">
                                 </div>
                                 <label for="modal-privacy" class="text-xs md:text-sm text-gray-500 cursor-pointer">
-                                    Bạn đồng ý với <a href="#" class="text-[#0e1e2e] font-bold hover:text-[#d4ae6f] underline decoration-gray-300 underline-offset-4 transition-colors">chính sách bảo mật</a> của chúng tôi.
+                                    Bạn đồng ý với <a href="#"
+                                        class="text-[#0e1e2e] font-bold hover:text-[#d4ae6f] underline decoration-gray-300 underline-offset-4 transition-colors">chính
+                                        sách bảo mật</a> của chúng tôi.
                                 </label>
                             </div>
-                            <button type="button" class="w-full py-3.5 px-6 bg-[#0e1e2e] hover:bg-[#d4ae6f] text-white hover:text-[#0e1e2e] font-bold rounded-xl transition-all duration-300 shadow-[0_10px_20px_rgba(14,30,46,0.15)] hover:shadow-[0_10px_25px_rgba(212,174,111,0.3)] mt-2">
+                            <button type="button"
+                                class="w-full py-3.5 px-6 bg-[#0e1e2e] hover:bg-[#d4ae6f] text-white hover:text-[#0e1e2e] font-bold rounded-xl transition-all duration-300 shadow-[0_10px_20px_rgba(14,30,46,0.15)] hover:shadow-[0_10px_25px_rgba(212,174,111,0.3)] mt-2">
                                 Gửi thông tin
                             </button>
                         </form>
@@ -1122,7 +1259,7 @@
     </div>
 
     <script src="assets/js/main.js"></script>
-    
+
     <!-- Gọi thư viện Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 

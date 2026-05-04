@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
+
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    
+
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class('min-h-screen bg-[#0e1e2e] overflow-hidden'); ?>>
-<?php wp_body_open(); ?>
+    <?php wp_body_open(); ?>
     <h1 class="sr-only"><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></h1>
-    
+
     <!-- 3D Wave Persistent Background -->
     <div id="bg-canvas"
         style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -10; background-color: #09121d;">
@@ -22,7 +23,8 @@
         class="fixed inset-0 z-[9999] bg-[#0e1e2e] flex flex-col items-center justify-center px-6 overflow-hidden">
         <!-- Faded Background Image -->
         <div class="absolute inset-0 z-0 opacity-15 bg-center bg-cover"
-            style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg');"></div>
+            style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg');">
+        </div>
 
         <svg class="relative z-10 h-8 sm:h-10 md:h-14 max-w-[85vw] w-auto mb-6 md:mb-8 preloader-logo"
             id="fenica-logo-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1156.33 208.54">
@@ -62,8 +64,10 @@
                 class="mx-auto max-w-7xl flex justify-between items-center px-4 py-3 md:py-4 space-x-4 transition-all duration-300">
                 <div class="logo-wrap shrink-0">
                     <a href="<?php echo home_url('/'); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-fenica.png" alt="<?php bloginfo('name'); ?>"
-                            class="logo-img w-20 md:w-32 object-contain transition-all duration-300" title="<?php bloginfo('name'); ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-fenica.png"
+                            alt="<?php bloginfo('name'); ?>"
+                            class="logo-img w-20 md:w-32 object-contain transition-all duration-300"
+                            title="<?php bloginfo('name'); ?>">
                     </a>
                 </div>
                 <div class="logo-wrap shrink-0">
@@ -77,14 +81,30 @@
             <nav class="border-t border-[#d4ae6f]/20 text-xs">
                 <!-- Desktop Menu -->
                 <ul class="hidden md:flex justify-center space-x-8 relative z-20 text-white">
-                    <li class="contents"><a href="<?php echo home_url('/'); ?>" class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TRANG CHỦ</a></li>
-                    <li class="contents relative group"><a href="<?php echo home_url('/tong-quan'); ?>" class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TỔNG QUAN</a></li>
-                    <li class="contents"><a href="<?php echo home_url('/vi-tri'); ?>" class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">VỊ TRÍ</a></li>
-                    <li class="contents"><a href="<?php echo home_url('/tien-ich'); ?>" class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TIỆN ÍCH</a></li>
-                    <li class="contents relative group"><a href="<?php echo home_url('/mat-bang'); ?>" class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">MẶT BẰNG</a></li>
-                    <li class="contents"><a href="<?php echo home_url('/thu-vien'); ?>" class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">THƯ VIỆN</a></li>
-                    <li class="contents"><a href="<?php echo home_url('/tin-tuc'); ?>" class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TIN TỨC</a></li>
-                    <li class="contents"><a href="<?php echo home_url('/lien-he'); ?>" class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">LIÊN HỆ</a></li>
+                    <li class="contents"><a href="<?php echo home_url('/'); ?>"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TRANG
+                            CHỦ</a></li>
+                    <li class="contents relative group"><a href="<?php echo home_url('/tong-quan'); ?>"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TỔNG
+                            QUAN</a></li>
+                    <li class="contents"><a href="<?php echo home_url('/vi-tri'); ?>"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">VỊ
+                            TRÍ</a></li>
+                    <li class="contents"><a href="<?php echo home_url('/tien-ich'); ?>"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TIỆN
+                            ÍCH</a></li>
+                    <li class="contents relative group"><a href="<?php echo home_url('/mat-bang'); ?>"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">MẶT
+                            BẰNG</a></li>
+                    <li class="contents"><a href="<?php echo home_url('/thu-vien'); ?>"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">THƯ
+                            VIỆN</a></li>
+                    <li class="contents"><a href="<?php echo home_url('/tin-tuc'); ?>"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TIN
+                            TỨC</a></li>
+                    <li class="contents"><a href="<?php echo home_url('/lien-he'); ?>"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">LIÊN
+                            HỆ</a></li>
                 </ul>
 
                 <!-- Mobile Menu Button -->
@@ -101,12 +121,22 @@
                 <!-- Mobile Menu Content -->
                 <div id="mobile-menu"
                     class="hidden absolute top-full left-0 w-full bg-[#0e1e2e]/95 backdrop-blur-xl text-white md:hidden text-lg text-left z-[490] border-t border-[#d4ae6f]/20 shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden max-h-[75vh] opacity-0 transition-opacity duration-300 relative">
-                    
+
                     <style>
                         @keyframes menuBgAnim {
-                            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.05; }
-                            50% { transform: translateY(-15px) scale(1.05) rotate(2deg); opacity: 0.15; }
+
+                            0%,
+                            100% {
+                                transform: translateY(0) scale(1) rotate(0deg);
+                                opacity: 0.05;
+                            }
+
+                            50% {
+                                transform: translateY(-15px) scale(1.05) rotate(2deg);
+                                opacity: 0.15;
+                            }
                         }
+
                         .menu-bg-svg {
                             animation: menuBgAnim 10s ease-in-out infinite;
                             fill: #d4ae6f;
@@ -114,7 +144,8 @@
                     </style>
 
                     <!-- Background SVG -->
-                    <div class="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
+                    <div
+                        class="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080"
                             class="w-[200%] h-auto md:w-full max-w-none opacity-50 menu-bg-svg origin-center">
                             <path
@@ -123,15 +154,32 @@
                     </div>
 
                     <!-- Scrollable Content -->
-                    <div class="relative z-10 mx-auto max-w-sm w-full px-4 py-6 flex flex-col gap-4 h-full overflow-y-auto max-h-[75vh]">
-                        <a href="<?php echo home_url('/'); ?>" class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TRANG CHỦ</a>
-                        <a href="<?php echo home_url('/tong-quan'); ?>" class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TỔNG QUAN</a>
-                        <a href="<?php echo home_url('/vi-tri'); ?>" class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">VỊ TRÍ</a>
-                        <a href="<?php echo home_url('/tien-ich'); ?>" class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TIỆN ÍCH</a>
-                        <a href="<?php echo home_url('/mat-bang'); ?>" class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">MẶT BẰNG</a>
-                        <a href="<?php echo home_url('/thu-vien'); ?>" class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">THƯ VIỆN</a>
-                        <a href="<?php echo home_url('/tin-tuc'); ?>" class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TIN TỨC</a>
-                        <a href="<?php echo home_url('/lien-he'); ?>" class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">LIÊN HỆ</a>
+                    <div
+                        class="relative z-10 mx-auto max-w-lg w-full px-4 py-6 flex flex-col gap-4 h-full overflow-y-auto max-h-[75vh]">
+                        <a href="<?php echo home_url('/'); ?>"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TRANG
+                            CHỦ</a>
+                        <a href="<?php echo home_url('/tong-quan'); ?>"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TỔNG
+                            QUAN</a>
+                        <a href="<?php echo home_url('/vi-tri'); ?>"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">VỊ
+                            TRÍ</a>
+                        <a href="<?php echo home_url('/tien-ich'); ?>"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TIỆN
+                            ÍCH</a>
+                        <a href="<?php echo home_url('/mat-bang'); ?>"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">MẶT
+                            BẰNG</a>
+                        <a href="<?php echo home_url('/thu-vien'); ?>"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">THƯ
+                            VIỆN</a>
+                        <a href="<?php echo home_url('/tin-tuc'); ?>"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TIN
+                            TỨC</a>
+                        <a href="<?php echo home_url('/lien-he'); ?>"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">LIÊN
+                            HỆ</a>
                     </div>
                 </div>
             </nav>

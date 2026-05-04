@@ -6,7 +6,7 @@
 get_header(); ?>
 
 <main id="primary" class="site-main">
-        <style>
+    <style>
         :root {
             --primary-color: #d4ae6f;
             /* Gold */
@@ -21,7 +21,7 @@ get_header(); ?>
         }
 
         .faq-container {
-            max-width: 1000px;
+            max-width: 1800px;
             margin: 120px auto 60px auto;
             padding: 40px;
             border-radius: 2rem;

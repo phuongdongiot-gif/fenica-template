@@ -67,6 +67,17 @@
                             viên tư vấn của Fenica luôn túc trực để giải đáp mọi thắc mắc của bạn. Chúng tôi sẽ liên hệ
                             lại trong vòng 24 giờ.</p>
 
+                                                <!-- Contact Form 7 Auto Generated Form -->
+                        <?php 
+                        $cf7_id = get_option('fenica_contact_form_id');
+                        if ( $cf7_id && shortcode_exists('contact-form-7') ) {
+                            echo do_shortcode('[contact-form-7 id="' . esc_attr($cf7_id) . '" title="Form đăng ký tư vấn Fenica"]');
+                        } else if ( shortcode_exists('contact-form-7') ) {
+                            echo do_shortcode('[contact-form-7 title="Form đăng ký tư vấn"]');
+                        }
+                        ?>
+
+                        <?php if ( ! shortcode_exists('contact-form-7') ) : ?>
                         <form class="space-y-6">
                             <!-- Name Row -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -139,6 +150,7 @@
                                 Gửi thông tin
                             </button>
                         </form>
+                        <?php endif; ?>
                     </div>
                 </div>
 

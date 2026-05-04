@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // Đổi màu nền Header đậm hơn
                 if (header) {
-                    header.classList.remove('bg-[#0e1e2e]/80');
+                    header.classList.remove('bg-[#0e1e2e]/5');
                     header.classList.add('bg-[#0e1e2e]/95', 'shadow-lg');
                 }
                 // Thu nhỏ logo
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // Phục hồi màu nền
                 if (header) {
-                    header.classList.add('bg-[#0e1e2e]/80');
+                    header.classList.add('bg-[#0e1e2e]/5');
                     header.classList.remove('bg-[#0e1e2e]/95', 'shadow-lg');
                 }
                 // Phục hồi logo

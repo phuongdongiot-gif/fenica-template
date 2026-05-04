@@ -95,11 +95,58 @@
 
                 <h3 class="text-lg md:text-xl font-bold uppercase playfair tracking-widest mb-4 text-white">Liên kết
                 </h3>
-                <p
-                    class="text-xs md:text-sm font-light text-gray-300 tracking-wide hover:text-white transition-colors cursor-pointer">
-                    Chính sách bảo mật <span class="mx-2 text-white/50">|</span> Điều khoản sử dụng <span
-                        class="mx-2 text-white/50">|</span> Quy chế hoạt động
-                </p>
+                <style>
+                .footer-links-menu ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+                    row-gap: 0.5rem;
+                    column-gap: 1rem;
+                    font-size: 0.75rem;
+                    font-weight: 300;
+                    color: #d1d5db;
+                    letter-spacing: 0.025em;
+                }
+                @media (min-width: 768px) {
+                    .footer-links-menu ul {
+                        font-size: 0.875rem;
+                    }
+                }
+                .footer-links-menu ul li {
+                    display: flex;
+                    align-items: center;
+                }
+                .footer-links-menu ul li + li::before {
+                    content: "|";
+                    color: rgba(255, 255, 255, 0.5);
+                    margin-right: 1rem;
+                }
+                .footer-links-menu ul li a {
+                    transition: color 0.3s;
+                }
+                .footer-links-menu ul li a:hover {
+                    color: #ffffff;
+                }
+                </style>
+                <?php
+                if ( has_nav_menu( 'footer_menu' ) ) {
+                    wp_nav_menu( array(
+                        'theme_location' => 'footer_menu',
+                        'container'      => 'nav',
+                        'container_class'=> 'footer-links-menu',
+                        'depth'          => 1,
+                    ) );
+                } else {
+                ?>
+                <nav class="footer-links-menu">
+                    <ul>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Quy chế hoạt động</a></li>
+                    </ul>
+                </nav>
+                <?php } ?>
             </div>
         </div>
     </footer>

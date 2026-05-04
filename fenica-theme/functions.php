@@ -316,3 +316,14 @@ function fenica_create_cf7_form() {
     }
     return false;
 }
+
+
+/**
+ * Register Navigation Menus
+ */
+function fenica_register_menus() {
+    register_nav_menus( array(
+        'footer_menu' => 'Footer Links Menu',
+    ) );
+}
+add_action( 'init', 'fenica_register_menus' );

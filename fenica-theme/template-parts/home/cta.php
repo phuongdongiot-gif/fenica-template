@@ -65,14 +65,14 @@
             <div class="h-[50vh] md:h-[70vh] grid grid-cols-1 md:grid-cols-2 gap-4 order-1 lg:order-2">
                 <!-- Two Small Images (Left column of the right side) -->
                 <div class="grid grid-rows-2 gap-4 h-full">
-                    <div class="bg-center bg-cover rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
+                    <div class="bg-center bg-cover rounded-md lg:rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
                         data-aos="zoom-in-left" data-aos-duration="1000"
                         style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80');">
                         <div
                             class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500">
                         </div>
                     </div>
-                    <div class="bg-center bg-cover rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
+                    <div class="bg-center bg-cover rounded-md lg:rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
                         data-aos="zoom-in-left" data-aos-duration="1000" data-aos-delay="100"
                         style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80');">
                         <div

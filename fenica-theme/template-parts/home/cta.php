@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <!-- Large Main Image (Right column of the right side) -->
-                <div class="h-full bg-center bg-cover rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
+                <div class="h-full bg-center bg-cover rounded-md lg:rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
                     data-aos="zoom-in-left" data-aos-duration="1000" data-aos-delay="200"
                     style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80');">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500">

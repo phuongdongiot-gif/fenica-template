@@ -5,7 +5,7 @@
             <!-- Left: Bento Grid Images -->
             <div class="h-[50vh] md:h-[70vh] grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Large Main Image -->
-                <div class="h-full bg-center bg-cover rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
+                <div class="h-full bg-center bg-cover rounded-md lg:rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
                     data-aos="zoom-out-right" data-aos-duration="1000"
                     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp');">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500">

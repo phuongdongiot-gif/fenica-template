@@ -83,8 +83,8 @@
                             <!-- Card 3 -->
                             <div
                                 class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp"
-                                    class="w-full h-full object-cover" alt="Gallery 3" loading="lazy" title="Gallery 3">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp" class="w-full h-full object-cover"
+                                    alt="Gallery 3" loading="lazy" title="Gallery 3">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
                                     <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">Không

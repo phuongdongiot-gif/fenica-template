@@ -12,7 +12,8 @@ pages_to_process = [
     'page-gallery.php',
     'page-utilities.php',
     'page-contact.php',
-    'home.php'
+    'home.php',
+    'page-faq.php'
 ]
 
 for page in pages_to_process:

@@ -46,33 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Setup Swiper TikTok Carousel
-    if (typeof Swiper !== 'undefined') {
-        const tiktokSwiper = new Swiper('.tiktok-swiper', {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
-            centeredSlides: true,
-            loop: false,
-            pagination: {
-                el: '.tiktok-swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2.2,
-                    spaceBetween: 25,
-                },
-                1024: {
-                    slidesPerView: 3.2,
-                    spaceBetween: 30,
-                },
-                1280: {
-                    slidesPerView: 3.5,
-                    spaceBetween: 40,
-                }
-            }
-        });
-    }
+
 
     // Setup GLightbox cho Video và Hình ảnh
     if (typeof GLightbox !== 'undefined') {

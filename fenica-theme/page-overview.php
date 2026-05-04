@@ -8,7 +8,7 @@ get_header(); ?>
 <main id="primary" class="site-main">
     <!-- Hero Carousel Section -->
     
-    <?php get_template_part('template-parts/overview/group'); ?>
+    <?php get_template_part('template-parts/overview/h-500px'); ?>
 
     <?php get_template_part('template-parts/overview/overview'); ?>
 

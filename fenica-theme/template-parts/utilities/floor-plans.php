@@ -35,7 +35,7 @@
                                         1</a>
                                     <a href="#tang-2-20"
                                         class="floor-nav-link text-left px-4 py-3.5 rounded-xl text-[14px] xl:text-[15px] font-bold uppercase tracking-wider transition-all duration-300 text-white/60 hover:text-white hover:bg-white/5">Tầng
-                                        2-20</a>
+                                        2</a>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,8 @@
                                 data-img-3d="<?php echo get_template_directory_uri(); ?>/assets/images/can-ho/mau-can-ho-fenica.jpg"
                                 data-img-pos="<?php echo get_template_directory_uri(); ?>/assets/images/can-ho/mau-vi-tri-mat-bang-can-ho.png">
 
-                                <title>Tiện Ích Dự Án | Fenica - Căn hộ TOD, ngay metro số 1, liền kề khu công nghiệp</title>
+                                <title>Tiện Ích Dự Án | Fenica - Căn hộ TOD, ngay metro số 1, liền kề khu công nghiệp
+                                </title>
 
                                 <!-- Reusable 3-Ring Animation. Chỉ cần đổi x, y cho mỗi điểm -->
                                 <use href="#pulse-3-rings" x="6760" y="1620"

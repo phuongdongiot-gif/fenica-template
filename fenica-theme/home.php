@@ -8,7 +8,7 @@ get_header(); ?>
 <main id="primary" class="site-main">
     <!-- News Section -->
     
-    <?php get_template_part('template-parts/home/news-grid'); ?>
+    <?php get_template_part('template-parts/home/md-py-28'); ?>
 </main>
 
 <?php

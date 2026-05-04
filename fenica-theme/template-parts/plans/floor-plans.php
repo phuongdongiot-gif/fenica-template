@@ -99,7 +99,8 @@
                                 data-img-3d="<?php echo get_template_directory_uri(); ?>/assets/images/can-ho/mau-can-ho-fenica.jpg"
                                 data-img-pos="<?php echo get_template_directory_uri(); ?>/assets/images/can-ho/mau-vi-tri-mat-bang-can-ho.png">
 
-                                <title>Mặt Bằng Căn Hộ | Fenica - Căn hộ TOD, ngay metro số 1, liền kề khu công nghiệp</title>
+                                <title>Mặt Bằng Căn Hộ | Fenica - Căn hộ TOD, ngay metro số 1, liền kề khu công nghiệp
+                                </title>
 
                                 <!-- Reusable 3-Ring Animation. Chỉ cần đổi x, y cho mỗi điểm -->
                                 <use href="#pulse-3-rings" x="6760" y="1620"
@@ -141,7 +142,7 @@
                     class="w-full h-[100svh] z-10 flex items-center justify-center p-4 pt-24 pb-12 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png"
                         class="w-full h-full object-contain max-w-[1400px]  transition-transform duration-700"
-                        alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 39-40">
+                        alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 22">
                 </div>
             </div>
 

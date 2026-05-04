@@ -19,6 +19,7 @@
     </div>
 
     <!-- Preloader -->
+    <?php if ( is_front_page() || is_page_template('front-page.php') ) : ?>
     <div id="preloader"
         class="fixed inset-0 z-[9999] bg-[#0e1e2e] flex flex-col items-center justify-center px-6 overflow-hidden">
         <!-- Faded Background Image -->
@@ -55,6 +56,13 @@
             <div class="h-full bg-[#d4ae6f] w-0 preloader-progress"></div>
         </div>
     </div>
+    <?php else : ?>
+    <!-- Solid Overlay for Preloading Effect on Subpages -->
+    <div id="preloader"
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background-color: #09121d; transition: opacity 0.8s ease-out, visibility 0.8s ease-out; pointer-events: none;">
+        <div id="preloader-canvas" style="width: 100%; height: 100%;"></div>
+    </div>
+    <?php endif; ?>
     <!-- Header Section -->
     <header class="relative z-[999]">
         <section id="header"
@@ -102,6 +110,8 @@
                     <li class="contents"><a href="<?php echo home_url('/tin-tuc'); ?>"
                             class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TIN
                             TỨC</a></li>
+                    <li class="contents"><a href="<?php echo home_url('/faq'); ?>"
+                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">FAQ</a></li>
                     <li class="contents"><a href="<?php echo home_url('/lien-he'); ?>"
                             class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">LIÊN
                             HỆ</a></li>
@@ -177,6 +187,8 @@
                         <a href="<?php echo home_url('/tin-tuc'); ?>"
                             class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TIN
                             TỨC</a>
+                        <a href="<?php echo home_url('/faq'); ?>"
+                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">FAQ</a>
                         <a href="<?php echo home_url('/lien-he'); ?>"
                             class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">LIÊN
                             HỆ</a>

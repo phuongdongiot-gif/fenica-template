@@ -11,7 +11,8 @@ pages = {
     'gallary.html': ('page-gallery.php', 'Gallery Page'),
     'ults.html': ('page-utilities.php', 'Utilities Page'),
     'contact.html': ('page-contact.php', 'Contact Page'),
-    'news.html': ('home.php', 'News Page')
+    'news.html': ('home.php', 'News Page'),
+    'faq.html': ('page-faq.php', 'FAQ Page')
 }
 
 for html_file, (php_file, template_name) in pages.items():

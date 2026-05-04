@@ -70,11 +70,21 @@ function fenica_scripts() {
     wp_enqueue_script( 'fenica-menu', get_template_directory_uri() . '/assets/js/menu.js', array(), filemtime( get_template_directory() . '/assets/js/menu.js' ), true );
     wp_enqueue_script( 'fenica-wave', get_template_directory_uri() . '/assets/js/wave-preloader.js', array('three-js'), filemtime( get_template_directory() . '/assets/js/wave-preloader.js' ), true );
     wp_enqueue_script( 'fenica-main', get_template_directory_uri() . '/assets/js/main.js', array('gsap-js', 'swiper-js', 'aos-js', 'lenis-js'), filemtime( get_template_directory() . '/assets/js/main.js' ), true );
+
+    // Enqueue subpage specific JS only if files exist
+    if ( file_exists( get_template_directory() . '/assets/js/gallery-init.js' ) ) {
+        wp_enqueue_script( 'fenica-gallery', get_template_directory_uri() . '/assets/js/gallery-init.js', array('gsap-js', 'swiper-js'), filemtime( get_template_directory() . '/assets/js/gallery-init.js' ), true );
+    }
+    if ( file_exists( get_template_directory() . '/assets/js/plans.js' ) ) {
+        wp_enqueue_script( 'fenica-plans', get_template_directory_uri() . '/assets/js/plans.js', array(), filemtime( get_template_directory() . '/assets/js/plans.js' ), true );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'fenica_scripts' );
 
 /**
  * Configure Contact Form 7
  */
-define('WPCF7_AUTOP', false); // Disable CF7 auto paragraph
+if ( ! defined( 'WPCF7_AUTOP' ) ) {
+    define('WPCF7_AUTOP', false); // Disable CF7 auto paragraph
+}
 add_filter( 'wpcf7_load_css', '__return_false' ); // Disable CF7 default CSS

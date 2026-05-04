@@ -1,52 +1,12 @@
-<!DOCTYPE html>
-<html lang="vi">
+<?php
+/**
+ * Template Name: FAQ Page
+ */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fenica - Căn hộ TOD, ngay metro số 1, liền kề khu công nghiệp</title>
-    <!-- AIO SEO -->
-    <meta name="description"
-        content="Căn hộ TOD Fenica nằm ngay mặt tiền đường Trần Quang Diệu, ngay Vành Đai 3 và tuyến metro số 1 tại khu Đông Bắc Sài Gòn">
-    <meta name="keywords"
-        content="Fenica Dĩ An, Căn hộ Fenica, Dự án Fenica, Bất động sản Dĩ An, Căn hộ Bình Dương, Căn hộ TOD">
-    <meta name="robots" content="index, follow">
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Fenica - Căn hộ TOD, ngay metro số 1, liền kề khu công nghiệp">
-    <meta property="og:description"
-        content="Căn hộ TOD Fenica nằm ngay mặt tiền đường Trần Quang Diệu, ngay Vành Đai 3 và tuyến metro số 1 tại khu Đông Bắc Sài Gòn">
-    <meta property="og:image" content="assets/images/dinh-thap-fenica.webp">
-    <meta property="og:url" content="https://fenica.vn/">
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Fenica - Căn hộ TOD, ngay metro số 1, liền kề khu công nghiệp">
-    <meta name="twitter:description"
-        content="Căn hộ TOD Fenica nằm ngay mặt tiền đường Trần Quang Diệu, ngay Vành Đai 3 và tuyến metro số 1 tại khu Đông Bắc Sài Gòn">
-    <!-- Include Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Include Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- Include GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- Include AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Include Lenis for Smooth Scrolling -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <!-- Include GLightbox -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
+get_header(); ?>
+
+<main id="primary" class="site-main">
+        <style>
         :root {
             --primary-color: #d4ae6f;
             /* Gold */
@@ -60,7 +20,7 @@
             /* Inherit from global style.css */
         }
 
-        .container {
+        .faq-container {
             max-width: 1000px;
             margin: 120px auto 60px auto;
             padding: 40px;
@@ -324,7 +284,7 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
+            .faq-container {
                 margin: 100px 15px 40px 15px;
                 padding: 20px 15px;
             }
@@ -341,157 +301,7 @@
             }
         }
     </style>
-</head>
-
-<body class="min-h-screen bg-[#0e1e2e] overflow-hidden">
-    <h1 class="sr-only">Dự Án Căn Hộ Cao Cấp Fenica Tại Dĩ An, Bình Dương</h1>
-    <!-- 3D Wave Persistent Background -->
-    <div id="bg-canvas"
-        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -10; background-color: #09121d;">
-    </div>
-
-    <!-- Solid Overlay for Preloading Effect -->
-    <div id="preloader"
-        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background-color: #09121d; transition: opacity 0.8s ease-out, visibility 0.8s ease-out; pointer-events: none;">
-        <div id="preloader-canvas" style="width: 100%; height: 100%;"></div>
-    </div>
-    <!-- Header Section -->
-    <header class="relative z-[999]">
-        <section id="header"
-            class="fixed top-0 left-0 w-full z-[499] shadow-md bg-[#0e1e2e]/5 backdrop-blur-md border-b border-[#d4ae6f]/20 transition-all duration-300">
-            <!-- Logos Container -->
-            <div id="headerContainer"
-                class="mx-auto max-w-7xl flex justify-between items-center px-4 py-3 md:py-4 space-x-4 transition-all duration-300">
-                <div class="logo-wrap shrink-0">
-                    <img src="assets/images/logo-fenica.png" alt="Logo trái"
-                        class="logo-img w-20 md:w-32 object-contain transition-all duration-300" title="Logo trái">
-                </div>
-                <div class="logo-wrap shrink-0">
-                    <img src="https://atsaigonriverside.vn/wp-content/themes/dxmd/assets/images/logos/logo-connect.png"
-                        alt="Logo phải" class="logo-img w-20 md:w-32 object-contain transition-all duration-300"
-                        title="Logo phải">
-                </div>
-            </div>
-
-            <!-- Navigation -->
-            <nav class="border-t border-[#d4ae6f]/20 text-xs">
-                <!-- Desktop Menu -->
-                <ul class="hidden md:flex justify-center space-x-8 relative z-20 text-white">
-                    <li class="contents"><a href="index.html"
-                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TRANG
-                            CHỦ</a></li>
-                    <li class="contents relative group">
-                        <a href="overview.html"
-                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TỔNG
-                            QUAN</a>
-                    </li>
-                    <li class="contents"><a href="location.html"
-                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">VỊ
-                            TRÍ</a></li>
-                    <li class="contents"><a href="ults.html"
-                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TIỆN
-                            ÍCH</a></li>
-                    <li class="contents relative group"><a href="plans.html"
-                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">MẶT
-                            BẰNG</a></li>
-                    <li class="contents"><a href="gallary.html"
-                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">THƯ
-                            VIỆN</a></li>
-                    <li class="contents"><a href="news.html"
-                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">TIN
-                            TỨC</a></li>
-                    <li class="contents"><a href="faq.html"
-                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">FAQ</a></li>
-                    <li class="contents"><a href="contact.html"
-                            class="py-3 px-2 tracking-wider hover:text-[#d4ae6f] hover:font-bold hover:text-sm transition-all duration-300">LIÊN
-                            HỆ</a></li>
-                </ul>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden w-full flex justify-center relative z-50 bg-transparent">
-                    <button id="mobile-menu-button"
-                        class="text-white hover:text-[#d4ae6f] transition-colors px-4 py-2 mx-auto">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path id="menu-icon-path" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Mobile Menu Content -->
-                <div id="mobile-menu"
-                    class="hidden absolute top-full left-0 w-full bg-[#0e1e2e]/95 backdrop-blur-xl text-white md:hidden text-lg text-left z-[490] border-t border-[#d4ae6f]/20 shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden max-h-[75vh] opacity-0 transition-opacity duration-300 relative">
-
-                    <style>
-                        @keyframes menuBgAnim {
-
-                            0%,
-                            100% {
-                                transform: translateY(0) scale(1) rotate(0deg);
-                                opacity: 0.05;
-                            }
-
-                            50% {
-                                transform: translateY(-15px) scale(1.05) rotate(2deg);
-                                opacity: 0.15;
-                            }
-                        }
-
-                        .menu-bg-svg {
-                            animation: menuBgAnim 10s ease-in-out infinite;
-                            fill: #d4ae6f;
-                            /* Change to gold to match theme */
-                        }
-                    </style>
-
-                    <!-- Background SVG -->
-                    <div
-                        class="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080"
-                            class="w-[200%] h-auto md:w-full max-w-none opacity-50 menu-bg-svg origin-center">
-                            <path
-                                d="M1138.1,203.26h-35.36c-2.25,0-4.08,1.83-4.08,4.08v252.98l-.03,4.09c-.02,3.01-3.32,4.84-5.88,3.26l-422.52-260.33c-2.72-1.36-4.08,0-4.08,2.72v80.25c0,28.56,17.68,59.84,43.52,76.17l500.24,297.23c2.57,1.53,5.83-.33,5.83-3.32l-.11-370.08c0-51.68-32.64-87.05-77.53-87.05ZM751.83,826.2h32.86c2.13,0,3.86-1.73,3.86-3.86v-234.16c0-4.08,2.72-5.44,8.16-2.72l412.11,255.7c4.08,1.36,6.8,0,6.8-4.08v-78.89c0-31.28-17.68-62.57-42.16-76.17l-501.5-295.48c-2.57-1.52-5.82.34-5.82,3.32v349.28c0,51.68,35.36,87.05,85.69,87.05Z" />
-                        </svg>
-                    </div>
-
-                    <!-- Scrollable Content -->
-                    <div
-                        class="relative z-10 mx-auto max-w-lg w-full px-4 py-6 flex flex-col gap-4 h-full overflow-y-auto max-h-[75vh]">
-                        <a href="index.html"
-                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TRANG
-                            CHỦ</a>
-                        <a href="overview.html"
-                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TỔNG
-                            QUAN</a>
-                        <a href="location.html"
-                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">VỊ
-                            TRÍ</a>
-                        <a href="ults.html"
-                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TIỆN
-                            ÍCH</a>
-                        <a href="plans.html"
-                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">MẶT
-                            BẰNG</a>
-                        <a href="gallary.html"
-                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">THƯ
-                            VIỆN</a>
-                        <a href="news.html"
-                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">TIN
-                            TỨC</a>
-                        <a href="faq.html"
-                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">FAQ</a>
-                        <a href="contact.html"
-                            class="border-l-2 border-[#d4ae6f]/30 pl-3 block tracking-wider hover:text-[#d4ae6f] hover:border-[#d4ae6f] transition-all duration-300">LIÊN
-                            HỆ</a>
-                    </div>
-                </div>
-            </nav>
-        </section>
-    </header>
-
-    <script src="assets/js/menu.js"></script>
-
-    <div class="container">
+    <div class="faq-container">
         <h1
             class="py-4 text-2xl lg:text-4xl font-bold playfair uppercase tracking-wide animate-gradient-text drop-shadow-[0_2px_15px_rgba(212,174,111,0.4)]">
             Dự án Fenica - FAQ</h1>
@@ -1133,13 +943,8 @@
                 }
             });
         </script>
+</main>
 
+<?php
+get_footer();
 
-        <!-- Footer Section -->
-        <script src="assets/js/main.js"></script>
-        <!-- Gọi thư viện Three.js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-        <script src="assets/js/wave-preloader.js"></script>
-</body>
-
-</html>

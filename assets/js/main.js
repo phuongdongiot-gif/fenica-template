@@ -745,10 +745,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Tạo một overlay màu #09121d (khớp với màu nền preloader) để tạo cảm giác nối tiếp
             const exitOverlay = document.createElement('div');
+            exitOverlay.id = 'page-exit-overlay';
             exitOverlay.style.position = 'fixed';
             exitOverlay.style.top = '0';
             exitOverlay.style.left = '0';
-            exitOverlay.style.width = '100vw';
+            exitOverlay.style.width = '100%';
             exitOverlay.style.height = '100vh';
             exitOverlay.style.backgroundColor = '#09121d'; // Khớp với màu sóng 3D
             exitOverlay.style.zIndex = '99999';

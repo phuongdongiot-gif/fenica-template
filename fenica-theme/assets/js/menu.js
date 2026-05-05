@@ -89,4 +89,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }, { passive: true }); // Tối ưu hóa scroll performance
+
+    // Magic Line cho Desktop Menu
+    const desktopMenu = document.getElementById('desktop-menu');
+    const magicLine = document.getElementById('magic-line');
+    const menuLinks = document.querySelectorAll('#desktop-menu a');
+
+    if (desktopMenu && magicLine) {
+        menuLinks.forEach(link => {
+            link.addEventListener('mouseenter', (e) => {
+                const linkRect = link.getBoundingClientRect();
+                const menuRect = desktopMenu.getBoundingClientRect();
+                
+                // Cập nhật vị trí và kích thước của hai gạch dưới
+                magicLine.style.width = `${linkRect.width}px`;
+                magicLine.style.transform = `translateX(${linkRect.left - menuRect.left}px)`;
+                magicLine.classList.remove('opacity-0');
+            });
+        });
+
+        desktopMenu.addEventListener('mouseleave', () => {
+            magicLine.classList.add('opacity-0');
+        });
+    }
 });

@@ -24,7 +24,7 @@ get_header(); ?>
     <?php get_template_part('template-parts/home/news'); ?>
 
     <?php get_template_part('template-parts/home/cta'); ?>
-    <section class="py-16 md:py-24 relative z-10 bg-transparent">
+<section class="py-16 md:py-24 relative z-10 bg-transparent">
         <div class="max-w-[1600px] mx-auto px-4 md:px-8">
             <!-- Header -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
@@ -46,7 +46,7 @@ get_header(); ?>
                             class="text-[#d4ae6f] font-bold">Fenica</span>.
                     </p>
                 </div>
-                <a href="<?php echo home_url('/tin-tuc/'); ?>"
+                <a href="#"
                     class="inline-flex items-center gap-2 bg-[#d4ae6f]/10 border border-[#d4ae6f]/30 hover:bg-[#d4ae6f] text-[#d4ae6f] hover:text-[#0e1e2e] font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(212,174,111,0.2)] hover:shadow-[0_4px_25px_rgba(212,174,111,0.4)] shrink-0"
                     data-aos="fade-left" data-aos-delay="200">
                     Xem tất cả bài viết
@@ -66,83 +66,251 @@ get_header(); ?>
             <div class="swiper newsSwiper w-full news-ticker overflow-visible" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper flex items-stretch">
 
-                    <?php
-                    $args = array(
-                        'post_type' => 'post',
-                        'posts_per_page' => -1,
-                        'post_status' => 'publish',
-                    );
-                    $news_query = new WP_Query($args);
-
-                    if ($news_query->have_posts()):
-                        while ($news_query->have_posts()):
-                            $news_query->the_post();
-                            ?>
-                            <!-- Card -->
-                            <div class="swiper-slide w-[320px] md:w-[420px] shrink-0 h-auto flex">
+                    <!-- Card 1 -->
+                    <div class="swiper-slide w-[320px] md:w-[420px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-hidden transition-all duration-500 bg-white/[0.02] border border-[#d4ae6f]/20 rounded-[2rem] p-4 md:p-5 hover:bg-white/[0.05] hover:border-[#d4ae6f]/40 shadow-lg hover:shadow-[0_10px_30px_rgba(212,174,111,0.15)] hover:-translate-y-2">
+                            <div
+                                class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden rounded-[1.5rem]">
+                                <img src="https://images.unsplash.com/photo-1541888081664-073c68ff8ce9?w=800&h=600&fit=crop"
+                                    alt="Tiến độ thi công Fenica tháng 4/2026"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                    loading="lazy" title="Tiến độ thi công Fenica tháng 4/2026">
                                 <div
-                                    class="group cursor-pointer flex flex-col h-full overflow-hidden transition-all duration-500 bg-white/[0.02] border border-[#d4ae6f]/20 rounded-[2rem] p-4 md:p-5 hover:bg-white/[0.05] hover:border-[#d4ae6f]/40 shadow-lg hover:shadow-[0_10px_30px_rgba(212,174,111,0.15)] hover:-translate-y-2 relative">
-                                    <!-- Link Wrapper for Clickability -->
-                                    <a href="<?php the_permalink(); ?>" class="absolute inset-0 z-10"
-                                        title="<?php the_title_attribute(); ?>"></a>
-
-                                    <div
-                                        class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden rounded-[1.5rem]">
-                                        <?php if (has_post_thumbnail()): ?>
-                                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>"
-                                                alt="<?php the_title_attribute(); ?>"
-                                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                                                loading="lazy" title="<?php the_title_attribute(); ?>">
-                                        <?php else: ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-moi-nhat.jpg"
-                                                alt="<?php the_title_attribute(); ?>"
-                                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                                                loading="lazy" title="<?php the_title_attribute(); ?>">
-                                        <?php endif; ?>
-                                        <div
-                                            class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-transparent to-transparent opacity-60 pointer-events-none">
-                                        </div>
-                                    </div>
-                                    <div class="pt-6 flex flex-col flex-1 pb-2">
-                                        <div
-                                            class="flex items-center gap-2 text-[#d4ae6f] text-xs font-bold uppercase tracking-wider mb-3">
-                                            <span
-                                                class="w-2 h-2 rounded-full bg-[#d4ae6f] opacity-50 group-hover:animate-pulse"></span>
-                                            <?php
-                                            $categories = get_the_category();
-                                            if (!empty($categories)) {
-                                                echo esc_html($categories[0]->name);
-                                            } else {
-                                                echo 'Tin tức';
-                                            }
-                                            ?>
-                                        </div>
-                                        <h3
-                                            class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
-                                            <?php the_title(); ?>
-                                        </h3>
-                                        <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
-                                            <?php echo wp_trim_words(get_the_excerpt(), 25, '...'); ?>
-                                        </p>
-                                        <div
-                                            class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold text-sm uppercase tracking-wide relative z-20">
-                                            Đọc tiếp
-                                            <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
-                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-transparent to-transparent opacity-60 pointer-events-none">
                                 </div>
                             </div>
-                        <?php
-                        endwhile;
-                        wp_reset_postdata();
-                    else:
-                        ?>
-                        <div class="text-white opacity-50 p-4">Chưa có bài viết nào được đăng.</div>
-                    <?php endif; ?>
+                            <div class="pt-6 flex flex-col flex-1 pb-2">
+                                <div
+                                    class="flex items-center gap-2 text-[#d4ae6f] text-xs font-bold uppercase tracking-wider mb-3">
+                                    <span class="w-2 h-2 rounded-full bg-[#d4ae6f] animate-pulse"></span>
+                                    Tiến độ dự án
+                                </div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    Tiến độ thi công Fenica tháng 4/2026
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Cập nhật tiến độ xây dựng mới nhất của dự án. Hiện tại, công trường đang thi công
+                                    phần móng và hầm theo đúng tiến độ đề ra, đảm bảo chất lượng và an toàn tuyệt đối...
+                                </p>
+                                <div
+                                    class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold text-sm uppercase tracking-wide">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="swiper-slide w-[320px] md:w-[420px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-hidden transition-all duration-500 bg-white/[0.02] border border-[#d4ae6f]/20 rounded-[2rem] p-4 md:p-5 hover:bg-white/[0.05] hover:border-[#d4ae6f]/40 shadow-lg hover:shadow-[0_10px_30px_rgba(212,174,111,0.15)] hover:-translate-y-2">
+                            <div
+                                class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden rounded-[1.5rem]">
+                                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop"
+                                    alt="5 lý do nên đầu tư vào Fenica ngay hôm nay"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                    loading="lazy" title="5 lý do nên đầu tư vào Fenica ngay hôm nay">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-transparent to-transparent opacity-60 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-2">
+                                <div
+                                    class="flex items-center gap-2 text-[#d4ae6f] text-xs font-bold uppercase tracking-wider mb-3">
+                                    <span class="w-2 h-2 rounded-full bg-[#d4ae6f] opacity-50"></span>
+                                    Góc nhìn đầu tư
+                                </div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    5 lý do nên đầu tư vào Fenica ngay hôm nay
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Khám phá những ưu thế vượt trội về vị trí đắc địa, hệ tiện ích đẳng cấp và tiềm năng
+                                    tăng giá bền vững trong tương lai...
+                                </p>
+                                <div
+                                    class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold text-sm uppercase tracking-wide">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="swiper-slide w-[320px] md:w-[420px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-hidden transition-all duration-500 bg-white/[0.02] border border-[#d4ae6f]/20 rounded-[2rem] p-4 md:p-5 hover:bg-white/[0.05] hover:border-[#d4ae6f]/40 shadow-lg hover:shadow-[0_10px_30px_rgba(212,174,111,0.15)] hover:-translate-y-2">
+                            <div
+                                class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden rounded-[1.5rem]">
+                                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=600&fit=crop"
+                                    alt="Lễ ra quân dự án thu hút hàng ngàn chuyên viên tư vấn"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                    loading="lazy" title="Lễ ra quân dự án thu hút hàng ngàn chuyên viên tư vấn">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-transparent to-transparent opacity-60 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-2">
+                                <div
+                                    class="flex items-center gap-2 text-[#d4ae6f] text-xs font-bold uppercase tracking-wider mb-3">
+                                    <span class="w-2 h-2 rounded-full bg-[#d4ae6f] opacity-50"></span>
+                                    Sự kiện
+                                </div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    Lễ ra quân dự án thu hút hàng ngàn chuyên viên tư vấn
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Sự kiện kickoff hoành tráng đánh dấu bước khởi đầu mạnh mẽ của dự án trên thị trường
+                                    bất động sản khu vực phía Nam...
+                                </p>
+                                <div
+                                    class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold text-sm uppercase tracking-wide">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="swiper-slide w-[320px] md:w-[420px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-hidden transition-all duration-500 bg-white/[0.02] border border-[#d4ae6f]/20 rounded-[2rem] p-4 md:p-5 hover:bg-white/[0.05] hover:border-[#d4ae6f]/40 shadow-lg hover:shadow-[0_10px_30px_rgba(212,174,111,0.15)] hover:-translate-y-2">
+                            <div
+                                class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden rounded-[1.5rem]">
+                                <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&h=600&fit=crop"
+                                    alt="Phân tích tiềm năng tăng giá từ hạ tầng giao thông"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                    loading="lazy" title="Phân tích tiềm năng tăng giá từ hạ tầng giao thông">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-transparent to-transparent opacity-60 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-2">
+                                <div
+                                    class="flex items-center gap-2 text-[#d4ae6f] text-xs font-bold uppercase tracking-wider mb-3">
+                                    <span class="w-2 h-2 rounded-full bg-[#d4ae6f] opacity-50"></span>
+                                    Thị trường
+                                </div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    Phân tích tiềm năng tăng giá từ hạ tầng giao thông khu vực
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Với hàng loạt dự án hạ tầng trọng điểm đang triển khai, Fenica đón đầu cơ hội tăng
+                                    trưởng bứt phá trong thập kỷ tới...
+                                </p>
+                                <div
+                                    class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold text-sm uppercase tracking-wide">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="swiper-slide w-[320px] md:w-[420px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-hidden transition-all duration-500 bg-white/[0.02] border border-[#d4ae6f]/20 rounded-[2rem] p-4 md:p-5 hover:bg-white/[0.05] hover:border-[#d4ae6f]/40 shadow-lg hover:shadow-[0_10px_30px_rgba(212,174,111,0.15)] hover:-translate-y-2">
+                            <div
+                                class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden rounded-[1.5rem]">
+                                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop"
+                                    alt="Ra mắt bộ sưu tập căn hộ mẫu mang hơi thở thiên nhiên"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                    loading="lazy" title="Ra mắt bộ sưu tập căn hộ mẫu mang hơi thở thiên nhiên">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-transparent to-transparent opacity-60 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-2">
+                                <div
+                                    class="flex items-center gap-2 text-[#d4ae6f] text-xs font-bold uppercase tracking-wider mb-3">
+                                    <span class="w-2 h-2 rounded-full bg-[#d4ae6f] opacity-50"></span>
+                                    Trải nghiệm
+                                </div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    Ra mắt bộ sưu tập căn hộ mẫu mang hơi thở thiên nhiên
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Chiêm ngưỡng không gian sống đẳng cấp với thiết kế tối ưu hóa ánh sáng và gió tự
+                                    nhiên, mang lại cuộc sống trọn vẹn mỗi ngày...
+                                </p>
+                                <div
+                                    class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold text-sm uppercase tracking-wide">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="swiper-slide w-[320px] md:w-[420px] shrink-0 h-auto flex">
+                        <div
+                            class="group cursor-pointer flex flex-col h-full overflow-hidden transition-all duration-500 bg-white/[0.02] border border-[#d4ae6f]/20 rounded-[2rem] p-4 md:p-5 hover:bg-white/[0.05] hover:border-[#d4ae6f]/40 shadow-lg hover:shadow-[0_10px_30px_rgba(212,174,111,0.15)] hover:-translate-y-2">
+                            <div
+                                class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden rounded-[1.5rem]">
+                                <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=800&h=600&fit=crop"
+                                    alt="Chính sách bán hàng đột phá"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                    loading="lazy" title="Chính sách bán hàng đột phá">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-transparent to-transparent opacity-60 pointer-events-none">
+                                </div>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1 pb-2">
+                                <div
+                                    class="flex items-center gap-2 text-[#d4ae6f] text-xs font-bold uppercase tracking-wider mb-3">
+                                    <span class="w-2 h-2 rounded-full bg-[#d4ae6f] opacity-50"></span>
+                                    Chính sách
+                                </div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                    Chính sách bán hàng đột phá: Thanh toán 20% nhận nhà
+                                </h3>
+                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                    Cơ hội sở hữu căn hộ ven sông dễ dàng hơn bao giờ hết với phương thức thanh toán
+                                    linh hoạt và hỗ trợ lãi suất 0% từ ngân hàng...
+                                </p>
+                                <div
+                                    class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold text-sm uppercase tracking-wide">
+                                    Đọc tiếp
+                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -157,8 +325,7 @@ get_header(); ?>
             class="group relative border-b border-white/20 cursor-pointer overflow-hidden transition-all duration-500 hover:bg-white/5">
             <!-- Background Image on Hover -->
             <div class="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-30 transition-opacity duration-700 z-0"
-                style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg');">
-            </div>
+                style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg');"></div>
             <!-- Overlay to darken background image -->
             <div
                 class="absolute inset-0 bg-gradient-to-r from-[#0e1e2e] via-[#0e1e2e]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0">

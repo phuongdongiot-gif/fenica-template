@@ -67,7 +67,7 @@
                         <a href="<?php echo get_template_directory_uri(); ?>/assets/images/toa-nha-fenica.png" class="glightbox h-full"
                             data-title="Tổng quan dự án Fenica">
                             <img id="overview-building" src="<?php echo get_template_directory_uri(); ?>/assets/images/toa-nha-fenica.png"
-                                class="h-full w-auto object-contain transition-all duration-700 relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-zoom-in"
+                                class="h-full w-auto object-contain transition-all duration-700 relative z-10  cursor-zoom-in"
                                 alt="Tổng quan dự án Fenica" loading="lazy" title="Tổng quan dự án Fenica">
                         </a>
                     </div>

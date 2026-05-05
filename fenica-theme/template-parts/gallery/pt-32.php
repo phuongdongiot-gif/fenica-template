@@ -103,4 +103,4 @@
         </div>
     </section>
 
-    <!-- TikTok Carousel Section -->
+    <!-- Gallery Stacked Cards Section -->

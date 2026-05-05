@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                // Determine header offset (if fixed header exists)
-                const headerOffset = 100;
+                // Determine header offset (account for mobile top sticky nav)
+                const headerOffset = 130;
                 
                 // If Lenis (smooth scroll library) is used on window, use it
                 if (window.lenis) {

@@ -29,13 +29,19 @@
                     class="flex items-center gap-3 md:gap-4 overflow-x-auto max-w-full pb-4 px-2 scrollbar-hide justify-start md:justify-center">
                     <button
                         class="floor-tab-btn active px-6 py-2.5 rounded-full border text-[13px] md:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 bg-[#d4ae6f]/20 border-[#d4ae6f] text-[#d4ae6f] shadow-[0_0_15px_rgba(212,174,111,0.3)] whitespace-nowrap"
-                        data-floor="1">Tầng 3-13</button>
+                        data-floor="1">Tầng 3-3A</button>
                     <button
                         class="floor-tab-btn px-6 py-2.5 rounded-full border text-[13px] md:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5 whitespace-nowrap"
-                        data-floor="2">Tầng 14-21</button>
+                        data-floor="2">Tầng 5-7</button>
                     <button
                         class="floor-tab-btn px-6 py-2.5 rounded-full border text-[13px] md:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5 whitespace-nowrap"
-                        data-floor="3">Tầng 22</button>
+                        data-floor="3">Tầng</button>
+                    <button
+                        class="floor-tab-btn px-6 py-2.5 rounded-full border text-[13px] md:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5 whitespace-nowrap"
+                        data-floor="4">Tầng 8-13</button>
+                    <button
+                        class="floor-tab-btn px-6 py-2.5 rounded-full border text-[13px] md:text-[14px] font-bold uppercase tracking-wider transition-all duration-300 bg-black/20 border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5 whitespace-nowrap"
+                        data-floor="5">Tầng 14-21</button>
                 </div>
             </div>
 
@@ -69,7 +75,18 @@
                             class="w-full h-full object-contain p-4 md:p-8 hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in"
                             alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 22">
                     </a>
-
+                    <a id="floor-img-4" href="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-06.png" data-title="Mặt bằng tầng 22"
+                        class="glightbox floor-img absolute inset-0 w-full h-full z-0 opacity-0 scale-95 pointer-events-none">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-06.png"
+                            class="w-full h-full object-contain p-4 md:p-8 hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in"
+                            alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 22">
+                    </a>
+                    <a id="floor-img-5" href="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png" data-title="Mặt bằng tầng 22"
+                        class="glightbox floor-img absolute inset-0 w-full h-full z-0 opacity-0 scale-95 pointer-events-none">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-07.png"
+                            class="w-full h-full object-contain p-4 md:p-8 hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in"
+                            alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 07">
+                    </a>
                 </div>
             </div>
         </div>

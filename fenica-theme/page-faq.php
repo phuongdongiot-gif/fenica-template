@@ -287,7 +287,7 @@ get_header(); ?>
         /* Responsive */
         @media (max-width: 768px) {
             .container {
-                margin: 100px 15px 40px 15px;
+
                 padding: 20px 15px;
             }
 

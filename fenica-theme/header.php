@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="overflow-x-hidden">
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -9,13 +9,13 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('min-h-screen bg-[#0e1e2e] overflow-hidden'); ?>>
+<body <?php body_class('min-h-screen bg-[#0e1e2e] overflow-hidden overflow-x-hidden'); ?>>
     <?php wp_body_open(); ?>
     <h1 class="sr-only"><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></h1>
 
     <!-- 3D Wave Persistent Background -->
     <div id="bg-canvas"
-        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -10; background-color: #09121d;">
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -10; background-color: #09121d;">
     </div>
 
     <!-- Preloader -->
@@ -59,7 +59,7 @@
     <?php else: ?>
         <!-- Solid Overlay for Preloading Effect on Subpages -->
         <div id="preloader"
-            style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background-color: #09121d; transition: opacity 0.8s ease-out, visibility 0.8s ease-out; pointer-events: none;">
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 9999; background-color: #09121d; transition: opacity 0.8s ease-out, visibility 0.8s ease-out; pointer-events: none;">
             <div id="preloader-canvas" style="width: 100%; height: 100%;"></div>
         </div>
     <?php endif; ?>

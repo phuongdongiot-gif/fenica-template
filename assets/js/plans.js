@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Custom Pan/Zoom Modal Logic ---
     let currentScale = 1;
-    let minScale = 0.5;
+    let minScale = 0.2;
     let maxScale = 5;
     let translateX = 0;
     let translateY = 0;
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.resetZoom = function() {
         // Adjust default scale for mobile so it fits the width perfectly
         if (window.innerWidth < 768) {
-            currentScale = 1.2; // Start slightly zoomed on mobile
+            currentScale = 1; // Start perfectly fitted on mobile
         } else {
             currentScale = 1;
         }

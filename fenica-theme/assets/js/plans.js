@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                // Determine header offset (if fixed header exists)
-                const headerOffset = 100;
+                // Determine header offset (account for mobile top sticky nav)
+                const headerOffset = 130;
                 
                 // If Lenis (smooth scroll library) is used on window, use it
                 if (window.lenis) {
@@ -91,4 +91,152 @@ document.addEventListener('DOMContentLoaded', () => {
             updateIndicator(current);
         }
     }, 100);
+
+    // --- Custom Pan/Zoom Modal Logic ---
+    let currentScale = 1;
+    let minScale = 0.2;
+    let maxScale = 5;
+    let translateX = 0;
+    let translateY = 0;
+    let isDragging = false;
+    let startX, startY;
+    let initialDistance = null;
+    let initialScale = 1;
+
+    const panZoomModal = document.getElementById('pan-zoom-modal');
+    const panZoomImg = document.getElementById('pan-zoom-image');
+    const panZoomContainer = document.getElementById('pan-zoom-container');
+    const zoomLevelText = document.getElementById('zoom-level');
+    const panZoomTitle = document.getElementById('pan-zoom-title');
+
+    window.openPanZoomModal = function(src, title) {
+        if (!panZoomModal || !panZoomImg) return;
+        panZoomImg.src = src;
+        if (title && panZoomTitle) panZoomTitle.innerText = title;
+        
+        panZoomModal.classList.remove('hidden');
+        // Trigger reflow
+        void panZoomModal.offsetWidth;
+        panZoomModal.classList.remove('opacity-0');
+        document.body.style.overflow = 'hidden';
+        
+        // Setup initial dimensions properly based on screen ratio
+        window.resetZoom();
+    }
+
+    window.closePanZoomModal = function() {
+        if (!panZoomModal) return;
+        panZoomModal.classList.add('opacity-0');
+        setTimeout(() => {
+            panZoomModal.classList.add('hidden');
+            document.body.style.overflow = '';
+            panZoomImg.src = '';
+        }, 300);
+    }
+
+    window.updateTransform = function() {
+        if (!panZoomImg) return;
+        panZoomImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+        if (zoomLevelText) zoomLevelText.innerText = Math.round(currentScale * 100) + '%';
+    }
+
+    window.zoomIn = function() {
+        currentScale = Math.min(maxScale, currentScale + 0.25);
+        updateTransform();
+    }
+
+    window.zoomOut = function() {
+        currentScale = Math.max(minScale, currentScale - 0.25);
+        updateTransform();
+    }
+
+    window.resetZoom = function() {
+        // Adjust default scale for mobile so it fits the width perfectly
+        if (window.innerWidth < 768) {
+            currentScale = 1; // Start perfectly fitted on mobile
+        } else {
+            currentScale = 1;
+        }
+        translateX = 0;
+        translateY = 0;
+        updateTransform();
+    }
+
+    // Mouse events for pan and zoom
+    if (panZoomContainer) {
+        panZoomContainer.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const zoomDelta = e.deltaY > 0 ? -0.1 : 0.1;
+            currentScale = Math.min(Math.max(minScale, currentScale + zoomDelta), maxScale);
+            updateTransform();
+        }, { passive: false });
+
+        panZoomContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
+            panZoomContainer.style.cursor = 'grabbing';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
+            updateTransform();
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isDragging && panZoomContainer) {
+                isDragging = false;
+                panZoomContainer.style.cursor = 'grab';
+            }
+        });
+
+        // Touch events for pinch to zoom and pan
+        panZoomContainer.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                isDragging = true;
+                startX = e.touches[0].clientX - translateX;
+                startY = e.touches[0].clientY - translateY;
+            } else if (e.touches.length === 2) {
+                isDragging = false;
+                initialDistance = Math.hypot(
+                    e.touches[0].clientX - e.touches[1].clientX,
+                    e.touches[0].clientY - e.touches[1].clientY
+                );
+                initialScale = currentScale;
+            }
+        }, { passive: false });
+
+        panZoomContainer.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevent scrolling
+            if (isDragging && e.touches.length === 1) {
+                translateX = e.touches[0].clientX - startX;
+                translateY = e.touches[0].clientY - startY;
+                updateTransform();
+            } else if (e.touches.length === 2 && initialDistance) {
+                const currentDistance = Math.hypot(
+                    e.touches[0].clientX - e.touches[1].clientX,
+                    e.touches[0].clientY - e.touches[1].clientY
+                );
+                const scaleChange = currentDistance / initialDistance;
+                currentScale = Math.min(Math.max(minScale, initialScale * scaleChange), maxScale);
+                updateTransform();
+            }
+        }, { passive: false });
+
+        panZoomContainer.addEventListener('touchend', (e) => {
+            if (e.touches.length < 2) {
+                initialDistance = null;
+            }
+            if (e.touches.length === 0) {
+                isDragging = false;
+            } else if (e.touches.length === 1) {
+                // Restore dragging state for remaining finger
+                isDragging = true;
+                startX = e.touches[0].clientX - translateX;
+                startY = e.touches[0].clientY - translateY;
+            }
+        });
+    }
 });

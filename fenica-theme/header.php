@@ -79,8 +79,9 @@
                     </a>
                 </div>
                 <div class="logo-wrap shrink-0">
-                    <img src="assets/images/logo-cdt-dxmd-fenica.png"src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-cdt-dxmd-fenica.png" alt="Logo đối tác"
-                        class="logo-img w-20 md:w-32 object-contain transition-all duration-300" title="Logo đối tác">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-cdt-dxmd-fenica.png"
+                        alt="Logo đối tác" class="logo-img w-20 md:w-32 object-contain transition-all duration-300"
+                        title="Logo đối tác">
                 </div>
             </div>
 

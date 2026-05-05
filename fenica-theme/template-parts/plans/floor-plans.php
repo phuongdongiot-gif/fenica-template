@@ -67,16 +67,20 @@
 
                 <!-- Image Container -->
                 <div
-                    class="w-full h-[40svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 lg:pt-24 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
+                    class="w-full h-[60svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 pt-32 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
                     <div class="relative w-full h-full flex items-center justify-center group/floor">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-03.png"
                             class="w-full h-auto lg:h-full max-h-[40svh] lg:max-h-none object-contain max-w-[1400px] transition-transform duration-700"
                             alt="Mặt bằng tầng 1" loading="lazy" title="Mặt bằng tầng 1">
-                        
+
                         <!-- Custom Expand Button -->
-                        <button onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-03.png', 'Mặt Bằng Tầng 3-3A')" class="absolute top-0 right-0 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
+                        <button
+                            onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-03.png', 'Mặt Bằng Tầng 3-3A')"
+                            class="absolute top-2 right-2 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
                             <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4">
+                                </path>
                             </svg>
                         </button>
 
@@ -139,14 +143,18 @@
                     Tầng 5-7</h3>
 
                 <div
-                    class="w-full h-[40svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 lg:pt-24 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
+                    class="w-full h-[60svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 pt-32 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
                     <div class="relative w-full h-full flex items-center justify-center group/floor">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-04.png"
                             class="w-full h-auto lg:h-full max-h-[40svh] lg:max-h-none object-contain max-w-[1400px] transition-transform duration-700"
                             alt="Mặt bằng tầng 2-20" loading="lazy" title="Mặt bằng tầng 2-20">
-                        <button onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-04.png', 'Mặt Bằng Tầng 5-7')" class="absolute top-0 right-0 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
+                        <button
+                            onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-04.png', 'Mặt Bằng Tầng 5-7')"
+                            class="absolute top-2 right-2 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
                             <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4">
+                                </path>
                             </svg>
                         </button>
                     </div>
@@ -161,14 +169,17 @@
                     Tầng</h3>
 
                 <div
-                    class="w-full h-[40svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 lg:pt-24 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
+                    class="w-full h-[60svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 pt-32 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
                     <div class="relative w-full h-full flex items-center justify-center group/floor">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png"
                             class="w-full h-auto lg:h-full max-h-[40svh] lg:max-h-none object-contain max-w-[1400px] transition-transform duration-700"
                             alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 22">
-                        <button onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png', 'Mặt Bằng Căn Hộ')" class="absolute top-0 right-0 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
+                        <button onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png', 'Mặt Bằng Căn Hộ')"
+                            class="absolute top-2 right-2 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
                             <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4">
+                                </path>
                             </svg>
                         </button>
                     </div>
@@ -183,14 +194,17 @@
                     Tầng 8-13</h3>
 
                 <div
-                    class="w-full h-[40svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 lg:pt-24 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
+                    class="w-full h-[60svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 pt-32 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
                     <div class="relative w-full h-full flex items-center justify-center group/floor">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png"
                             class="w-full h-auto lg:h-full max-h-[40svh] lg:max-h-none object-contain max-w-[1400px] transition-transform duration-700"
                             alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 22">
-                        <button onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png', 'Mặt Bằng Căn Hộ')" class="absolute top-0 right-0 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
+                        <button onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png', 'Mặt Bằng Căn Hộ')"
+                            class="absolute top-2 right-2 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
                             <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4">
+                                </path>
                             </svg>
                         </button>
                     </div>
@@ -204,14 +218,17 @@
                     Tầng 14-21</h3>
 
                 <div
-                    class="w-full h-[40svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 lg:pt-24 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
+                    class="w-full h-[60svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 pt-32 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
                     <div class="relative w-full h-full flex items-center justify-center group/floor">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png"
                             class="w-full h-auto lg:h-full max-h-[40svh] lg:max-h-none object-contain max-w-[1400px] transition-transform duration-700"
                             alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 22">
-                        <button onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png', 'Mặt Bằng Căn Hộ')" class="absolute top-0 right-0 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
+                        <button onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png', 'Mặt Bằng Căn Hộ')"
+                            class="absolute top-2 right-2 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
                             <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4">
+                                </path>
                             </svg>
                         </button>
                     </div>

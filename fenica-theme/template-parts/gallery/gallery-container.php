@@ -95,8 +95,9 @@
                             <!-- Card 4 -->
                             <div
                                 class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/toa-nha-fenica.png" class="w-full h-full object-cover p-8"
-                                    alt="Gallery 4" loading="lazy" title="Gallery 4">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp"
+                                    class="w-full h-full object-cover p-8" alt="Gallery 4" loading="lazy"
+                                    title="Gallery 4">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
                                     <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">Tổng
@@ -120,7 +121,7 @@
                             <!-- Card 6 -->
                             <div
                                 class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tien-ich-2.png"
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/goc-nhin-hoan-hon-fenica.webp"
                                     class="w-full h-full object-cover p-4" alt="Gallery 6" loading="lazy"
                                     title="Gallery 6">
                                 <div

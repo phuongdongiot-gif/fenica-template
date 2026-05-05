@@ -1,3 +1,10 @@
+<?php
+/*
+ * LUU Y QUAN TRONG:
+ * File nay chua code PHP de goi Contact Form 7.
+ * KHONG ghi de file nay bang HTML tinh!
+ */
+?>
 <section class="py-24 md:py-32 relative z-10 pt-32">
         <div class="max-w-[1400px] mx-auto px-4 md:px-8">
             <div class="flex flex-col lg:flex-row bg-transparent">
@@ -67,6 +74,11 @@
                             viên tư vấn của Fenica luôn túc trực để giải đáp mọi thắc mắc của bạn. Chúng tôi sẽ liên hệ
                             lại trong vòng 24 giờ.</p>
 
+                        <!-- Contact Form 7 Placeholder -->
+                    <?php echo do_shortcode('[contact-form-7 id="YOUR_FORM_ID" title="Form dang ky tu van"]'); ?>
+
+                    <!-- Fallback static form if CF7 is not active -->
+                    <?php if (!shortcode_exists('contact-form-7')): ?>
                         <form class="space-y-6">
                             <!-- Name Row -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -139,6 +151,7 @@
                                 Gửi thông tin
                             </button>
                         </form>
+                    <?php endif; ?>
                     </div>
                 </div>
 

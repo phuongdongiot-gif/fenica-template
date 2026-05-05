@@ -11,7 +11,7 @@ pages_to_process = [
     'page-plans.php',
     'page-gallery.php',
     'page-utilities.php',
-    'page-contact.php',
+    # 'page-contact.php', # Bỏ qua để không ghi đè form liên hệ
     # 'home.php', # Bỏ qua để không ghi đè file template-parts có code WP_Query động
     'page-faq.php'
 ]

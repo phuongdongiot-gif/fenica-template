@@ -4,8 +4,8 @@
  * File nay chua code PHP (WP_Query) goi du lieu DONG tu co so du lieu WordPress (phan Tin tuc).
  * KHONG ghi de file nay bang HTML tinh (static) tu ban thiet ke, neu khong se mat tinh nang lay bai tu dong!
  *//**
- * Template Name: Home Page
- */
+  * Template Name: Home Page
+  */
 
 get_header(); ?>
 
@@ -28,7 +28,7 @@ get_header(); ?>
     <?php get_template_part('template-parts/home/news'); ?>
 
     <?php get_template_part('template-parts/home/cta'); ?>
-<section class="py-16 md:py-24 relative z-10 bg-transparent">
+    <section class="py-16 md:py-24 relative z-10 bg-transparent">
         <div class="max-w-[1600px] mx-auto px-4 md:px-8">
             <!-- Header -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
@@ -50,7 +50,7 @@ get_header(); ?>
                             class="text-[#d4ae6f] font-bold">Fenica</span>.
                     </p>
                 </div>
-                <a href="#"
+                <a href="/tin-tuc"
                     class="inline-flex items-center gap-2 bg-[#d4ae6f]/10 border border-[#d4ae6f]/30 hover:bg-[#d4ae6f] text-[#d4ae6f] hover:text-[#0e1e2e] font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(212,174,111,0.2)] hover:shadow-[0_4px_25px_rgba(212,174,111,0.4)] shrink-0"
                     data-aos="fade-left" data-aos-delay="200">
                     Xem tất cả bài viết
@@ -75,43 +75,56 @@ get_header(); ?>
                         'posts_per_page' => 6,
                         'post_status' => 'publish'
                     ));
-                    if ($news_query->have_posts()) :
-                        while ($news_query->have_posts()) : $news_query->the_post();
+                    if ($news_query->have_posts()):
+                        while ($news_query->have_posts()):
+                            $news_query->the_post();
                             $categories = get_the_category();
                             $cat_name = !empty($categories) ? esc_html($categories[0]->name) : 'Tin tức';
                             $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'large');
-                            if (!$thumbnail) $thumbnail = get_template_directory_uri() . '/assets/images/fenica-goc-nhin-thu-ba.webp';
-                    ?>
-                    <div class="swiper-slide w-[320px] md:w-[420px] shrink-0 h-auto flex">
-                        <div onclick="window.location.href='<?php the_permalink(); ?>';" class="group cursor-pointer flex flex-col h-full overflow-hidden transition-all duration-500 bg-white/[0.02] border border-[#d4ae6f]/20 rounded-[2rem] p-4 md:p-5 hover:bg-white/[0.05] hover:border-[#d4ae6f]/40 shadow-lg hover:shadow-[0_10px_30px_rgba(212,174,111,0.15)] hover:-translate-y-2">
-                            <div class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden rounded-[1.5rem]">
-                                <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php the_title_attribute(); ?>" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-transparent to-transparent opacity-60 pointer-events-none"></div>
-                            </div>
-                            <div class="pt-6 flex flex-col flex-1 pb-2">
-                                <div class="flex items-center gap-2 text-[#d4ae6f] text-xs font-bold uppercase tracking-wider mb-3">
-                                    <span class="w-2 h-2 rounded-full bg-[#d4ae6f] animate-pulse"></span>
-                                    <?php echo $cat_name; ?>
+                            if (!$thumbnail)
+                                $thumbnail = get_template_directory_uri() . '/assets/images/fenica-goc-nhin-thu-ba.webp';
+                            ?>
+                            <div class="swiper-slide w-[320px] md:w-[420px] shrink-0 h-auto flex">
+                                <div onclick="window.location.href='<?php the_permalink(); ?>';"
+                                    class="group cursor-pointer flex flex-col h-full overflow-hidden transition-all duration-500 bg-white/[0.02] border border-[#d4ae6f]/20 rounded-[2rem] p-4 md:p-5 hover:bg-white/[0.05] hover:border-[#d4ae6f]/40 shadow-lg hover:shadow-[0_10px_30px_rgba(212,174,111,0.15)] hover:-translate-y-2">
+                                    <div
+                                        class="relative w-full h-[250px] md:h-[300px] shrink-0 overflow-hidden rounded-[1.5rem]">
+                                        <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php the_title_attribute(); ?>"
+                                            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                            loading="lazy">
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-transparent to-transparent opacity-60 pointer-events-none">
+                                        </div>
+                                    </div>
+                                    <div class="pt-6 flex flex-col flex-1 pb-2">
+                                        <div
+                                            class="flex items-center gap-2 text-[#d4ae6f] text-xs font-bold uppercase tracking-wider mb-3">
+                                            <span class="w-2 h-2 rounded-full bg-[#d4ae6f] animate-pulse"></span>
+                                            <?php echo $cat_name; ?>
+                                        </div>
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
+                                            <?php the_title(); ?>
+                                        </h3>
+                                        <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
+                                            <?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?>
+                                        </p>
+                                        <a href="<?php the_permalink(); ?>"
+                                            class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold text-sm uppercase tracking-wide">
+                                            Đọc tiếp
+                                            <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </div>
-                                <h3 class="text-xl md:text-2xl font-bold text-white playfair mb-4 group-hover:text-[#d4ae6f] transition-colors leading-tight">
-                                    <?php the_title(); ?>
-                                </h3>
-                                <p class="text-gray-300 font-light text-sm md:text-base mb-6 line-clamp-3">
-                                    <?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?>
-                                </p>
-                                <a href="<?php the_permalink(); ?>" class="mt-auto flex items-center gap-2 text-[#d4ae6f] font-bold text-sm uppercase tracking-wide">
-                                    Đọc tiếp
-                                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                    </svg>
-                                </a>
                             </div>
-                        </div>
-                    </div>
-                    <?php
+                            <?php
                         endwhile;
                         wp_reset_postdata();
-                    else :
+                    else:
                         echo '<p class="text-white">Chưa có bài viết nào.</p>';
                     endif;
                     ?>
@@ -128,7 +141,8 @@ get_header(); ?>
             class="group relative border-b border-white/20 cursor-pointer overflow-hidden transition-all duration-500 hover:bg-white/5">
             <!-- Background Image on Hover -->
             <div class="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-30 transition-opacity duration-700 z-0"
-                style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg');"></div>
+                style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg');">
+            </div>
             <!-- Overlay to darken background image -->
             <div
                 class="absolute inset-0 bg-gradient-to-r from-[#0e1e2e] via-[#0e1e2e]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0">

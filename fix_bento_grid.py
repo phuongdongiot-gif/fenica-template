@@ -53,7 +53,7 @@ def update_bento(filepath):
                             <p class="text-[#d4ae6f] text-xs md:text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
                                 <?php echo esc_html($b_posts[0]['category']); ?> <span class="text-white/50 font-normal">| <?php echo esc_html($b_posts[0]['date']); ?></span>
                             </p>
-                            <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold playfair text-white leading-tight uppercase line-clamp-2">
+                            <h3 class="p-x-2 py-1 text-2xl md:text-3xl lg:text-4xl font-bold playfair text-white leading-tight uppercase line-clamp-2">
                                 <?php echo esc_html($b_posts[0]['title']); ?></h3>
                         </div>
                         <div class="absolute top-4 left-4 md:top-6 md:left-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 z-10">
@@ -65,9 +65,9 @@ def update_bento(filepath):
                 <!-- Col 2: Middle Column (35%) -->
                 <div class="w-full lg:w-[35%] flex flex-col lg:grid lg:grid-rows-[1.2fr_1fr] gap-4 lg:gap-6 h-auto lg:h-full">
                     <!-- Top: Lime (Gold) Card -->
-                    <div class="relative w-full h-[350px] lg:h-full rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-[#d4ae6f] to-[#f0e0ca] p-6 md:p-8 flex flex-col group overflow-hidden" onclick="window.location.href='<?php echo esc_url($b_posts[1]['permalink']); ?>';" style="cursor:pointer;">
+                    <div class="relative w-full h-[350px] lg:h-full rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-[#d4ae6f] to-[#f0e0ca] p-6 md:p-8 flex flex-col group overflow-visible" onclick="window.location.href='<?php echo esc_url($b_posts[1]['permalink']); ?>';" style="cursor:pointer;">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-white/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-                        <div class="absolute top-0 right-0 bg-[#0e1e2e] rounded-bl-[2rem] pl-3 pb-3 md:pl-4 md:pb-4 z-10 overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-[#0e1e2e] rounded-bl-[2rem] pl-3 pb-3 md:pl-4 md:pb-4 z-10 overflow-hidden rounded-tr-3xl">
                             <div class="absolute top-0 -left-6 w-6 h-6 bg-transparent rounded-tr-[1.5rem] shadow-[12px_-12px_0_0_#0e1e2e]"></div>
                             <div class="absolute -bottom-6 right-0 w-6 h-6 bg-transparent rounded-tr-[1.5rem] shadow-[12px_-12px_0_0_#0e1e2e]"></div>
                             <a href="<?php echo esc_url($b_posts[1]['permalink']); ?>" class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform group/btn">
@@ -115,7 +115,7 @@ def update_bento(filepath):
                     </div>
 
                     <!-- Bottom: Categories Card -->
-                    <div class="relative w-full h-[200px] lg:h-full rounded-[2rem] md:rounded-[2.5rem] bg-[#1a2b3c] p-5 md:p-6 flex flex-col group overflow-hidden border border-white/5">
+                    <div class="relative w-full h-[200px] lg:h-full rounded-[2rem] md:rounded-[2.5rem] bg-[#1a2b3c] p-5 md:p-6 flex flex-col group border border-white/5">
                         <div class="flex flex-wrap gap-2 mb-auto z-10">
                             <?php 
                             $cats = get_categories(array('number' => 4, 'hide_empty' => false));
@@ -124,7 +124,7 @@ def update_bento(filepath):
                             }
                             ?>
                         </div>
-                        <div class="absolute bottom-0 right-0 bg-[#0e1e2e] rounded-tl-[2rem] pt-3 pl-3 md:pt-4 md:pl-4 z-20">
+                        <div class="absolute bottom-0 right-0 bg-[#0e1e2e] rounded-tl-[2rem] pt-3 pl-3 md:pt-4 md:pl-4 z-20 rounded-br-3xl">
                             <div class="absolute top-0 -right-5 md:-right-6 w-5 h-5 md:w-6 md:h-6 bg-transparent rounded-bl-[1.5rem] shadow-[-10px_10px_0_0_#0e1e2e]"></div>
                             <div class="absolute -bottom-5 md:-bottom-6 left-0 w-5 h-5 md:w-6 md:h-6 bg-transparent rounded-bl-[1.5rem] shadow-[-10px_10px_0_0_#0e1e2e]"></div>
                             <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform group/btn">

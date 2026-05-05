@@ -1,6 +1,10 @@
 <?php
 /**
  * Template Name: Contact Page
+ * 
+ * LƯU Ý QUAN TRỌNG: 
+ * Trang Liên Hệ này sử dụng component chứa code PHP để kéo form Contact Form 7.
+ * KHÔNG ghi đè file này hoặc component của nó bằng HTML tĩnh!
  */
 
 get_header(); ?>

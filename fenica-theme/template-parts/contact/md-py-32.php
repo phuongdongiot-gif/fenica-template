@@ -1,8 +1,8 @@
 <?php
 /*
- * LUU Y QUAN TRONG:
- * File nay chua code PHP de goi Contact Form 7.
- * KHONG ghi de file nay bang HTML tinh!
+ * LƯU Ý QUAN TRỌNG:
+ * File này chứa code PHP để gọi Contact Form 7.
+ * KHÔNG ghi đè file này bằng HTML tĩnh!
  */
 ?>
 <section class="py-24 md:py-32 relative z-10 pt-32">
@@ -74,8 +74,15 @@
                             viên tư vấn của Fenica luôn túc trực để giải đáp mọi thắc mắc của bạn. Chúng tôi sẽ liên hệ
                             lại trong vòng 24 giờ.</p>
 
-                        <!-- Contact Form 7 Placeholder -->
-                    <?php echo do_shortcode('[contact-form-7 id="YOUR_FORM_ID" title="Form dang ky tu van"]'); ?>
+                        <!-- Contact Form 7 Auto Generated Form -->
+                        <?php 
+                        $cf7_id = get_option('fenica_contact_form_id');
+                        if ( $cf7_id && shortcode_exists('contact-form-7') ) {
+                            echo do_shortcode('[contact-form-7 id="' . esc_attr($cf7_id) . '" title="Form đăng ký tư vấn Fenica"]');
+                        } else if ( shortcode_exists('contact-form-7') ) {
+                            echo do_shortcode('[contact-form-7 title="Form đăng ký tư vấn"]');
+                        }
+                        ?>
 
                     <!-- Fallback static form if CF7 is not active -->
                     <?php if (!shortcode_exists('contact-form-7')): ?>

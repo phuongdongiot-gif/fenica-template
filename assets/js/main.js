@@ -773,3 +773,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// --- Fix Back Button (bfcache) Black Screen Issue ---
+window.addEventListener('pageshow', function (event) {
+    const overlay = document.getElementById('page-exit-overlay');
+    if (overlay) {
+        overlay.remove();
+    }
+});

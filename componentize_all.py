@@ -12,7 +12,7 @@ pages_to_process = [
     'page-gallery.php',
     'page-utilities.php',
     'page-contact.php',
-    'home.php',
+    # 'home.php', # Bỏ qua để không ghi đè file template-parts có code WP_Query động
     'page-faq.php'
 ]
 

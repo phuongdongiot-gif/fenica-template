@@ -1,5 +1,9 @@
 <?php
-/**
+/*
+ * LUU Y QUAN TRONG:
+ * File nay chua code PHP (WP_Query) goi du lieu DONG tu co so du lieu WordPress (phan Tin tuc).
+ * KHONG ghi de file nay bang HTML tinh (static) tu ban thiet ke, neu khong se mat tinh nang lay bai tu dong!
+ *//**
  * Template Name: Home Page
  */
 

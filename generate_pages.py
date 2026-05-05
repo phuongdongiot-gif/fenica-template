@@ -11,7 +11,7 @@ pages = {
     'gallary.html': ('page-gallery.php', 'Gallery Page'),
     'ults.html': ('page-utilities.php', 'Utilities Page'),
     'contact.html': ('page-contact.php', 'Contact Page'),
-    'news.html': ('home.php', 'News Page'),
+    # 'news.html': ('home.php', 'News Page'), # Bỏ qua để không ghi đè mất code WP_Query động
     'faq.html': ('page-faq.php', 'FAQ Page')
 }
 

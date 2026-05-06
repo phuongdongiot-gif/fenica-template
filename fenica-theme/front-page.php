@@ -50,7 +50,7 @@ get_header(); ?>
                             class="text-[#d4ae6f] font-bold">Fenica</span>.
                     </p>
                 </div>
-                <a href="/tin-tuc"
+                <a href="<?php echo home_url('/tin-tuc'); ?>"
                     class="inline-flex items-center gap-2 bg-[#d4ae6f]/10 border border-[#d4ae6f]/30 hover:bg-[#d4ae6f] text-[#d4ae6f] hover:text-[#0e1e2e] font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(212,174,111,0.2)] hover:shadow-[0_4px_25px_rgba(212,174,111,0.4)] shrink-0"
                     data-aos="fade-left" data-aos-delay="200">
                     Xem tất cả bài viết

@@ -236,3 +236,131 @@
             </div>
         </div>
     </section>
+
+    <!-- Custom Pan/Zoom Modal -->
+    <div id="pan-zoom-modal"
+        class="fixed inset-0 z-[99999] hidden items-center justify-center bg-[#0e1e2e]/95 backdrop-blur-xl transition-opacity duration-300 opacity-0">
+        <!-- Header -->
+        <div class="absolute top-0 left-0 w-full p-4 md:p-6 flex justify-between items-center z-50 pointer-events-none">
+            <h3 id="pan-zoom-title"
+                class="text-white font-bold playfair text-xl md:text-3xl drop-shadow-md pointer-events-auto">Mặt Bằng
+            </h3>
+            <div class="flex items-center gap-4 pointer-events-auto">
+                <div
+                    class="hidden md:flex items-center gap-2 bg-white/10 backdrop-blur rounded-full px-4 py-2 border border-white/20">
+                    <button onclick="zoomIn()" class="text-white hover:text-[#d4ae6f]"><svg class="w-6 h-6" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                        </svg></button>
+                    <span id="zoom-level" class="text-white text-sm w-12 text-center">100%</span>
+                    <button onclick="zoomOut()" class="text-white hover:text-[#d4ae6f]"><svg class="w-6 h-6" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"></path>
+                        </svg></button>
+                    <button onclick="resetZoom()" class="text-white hover:text-[#d4ae6f] ml-2"><svg class="w-5 h-5"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                            </path>
+                        </svg></button>
+                </div>
+                <button onclick="closePanZoomModal()"
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Image Container for Pan/Zoom -->
+        <div id="pan-zoom-container"
+            class="w-full h-full overflow-hidden flex items-center justify-center cursor-grab active:cursor-grabbing touch-none">
+            <img id="pan-zoom-image" src=""
+                class="max-w-none max-h-none object-contain select-none pointer-events-none origin-center transition-transform duration-100 ease-out"
+                alt="Phóng to mặt bằng">
+        </div>
+    </div>
+
+    <!-- Right Detail Sheet Overlay -->
+    <div id="detail-sheet-overlay"
+        class="fixed inset-0 bg-[#0e1e2e]/80 z-[9998] hidden opacity-0 transition-opacity duration-500 backdrop-blur-sm"
+        onclick="closeDetailSheet()"></div>
+
+    <!-- Right Detail Sheet -->
+    <div id="detail-sheet"
+        class="fixed top-0 right-0 h-screen w-full md:w-[800px] xl:w-[1000px] bg-[#0e1e2e]/95 backdrop-blur-2xl border-l border-[#d4ae6f]/20 z-[9999] translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[-20px_0_50px_rgba(0,0,0,0.5)] flex flex-col">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between p-6 md:p-8 border-b border-white/10 shrink-0">
+            <div>
+                <h3 class="text-2xl font-bold playfair text-[#f0e0ca] tracking-wide uppercase" id="sheet-title">Mặt Bằng
+                    Căn Hộ</h3>
+                <p class="text-sm text-[#d4ae6f] mt-1 font-light tracking-widest uppercase" id="sheet-subtitle">1 Phòng
+                    Ngủ +1 (Căn Góc)</p>
+            </div>
+            <button onclick="closeDetailSheet()"
+                class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+
+                <!-- Left Column: 3D Layout -->
+                <div
+                    class="w-full h-fit bg-white/5 rounded-2xl border border-white/5 flex items-center justify-center overflow-hidden relative group shadow-lg">
+                    <div
+                        class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,174,111,0.1)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/can-ho/can-1-phong-ngu-goc.png" alt="Mặt bằng căn hộ 3D" id="sheet-img-3d"
+                        class="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy" title="Mặt bằng căn hộ 3D">
+                </div>
+
+                <!-- Right Column: Stats & Position -->
+                <div class="flex flex-col gap-8 h-fit">
+
+                    <!-- Features Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div
+                            class="bg-white/5 p-5 md:p-6 rounded-2xl border border-[#d4ae6f]/20 hover:border-[#d4ae6f]/50 hover:bg-white/10 transition-colors flex flex-col items-center justify-center text-center shadow-[0_0_15px_rgba(212,174,111,0.1)]">
+                            <p class="text-white/60 text-xs md:text-sm uppercase tracking-widest mb-2 font-light">DTXD
+                            </p>
+                            <p id="sheet-dtxd" class="text-[#f0e0ca] font-bold text-xl md:text-2xl playfair">49.94 -
+                                50.48m²</p>
+                        </div>
+                        <div
+                            class="bg-white/5 p-5 md:p-6 rounded-2xl border border-[#d4ae6f]/20 hover:border-[#d4ae6f]/50 hover:bg-white/10 transition-colors flex flex-col items-center justify-center text-center shadow-[0_0_15px_rgba(212,174,111,0.1)]">
+                            <p class="text-white/60 text-xs md:text-sm uppercase tracking-widest mb-2 font-light">DTSD
+                            </p>
+                            <p id="sheet-dtsd" class="text-[#f0e0ca] font-bold text-xl md:text-2xl playfair">45.21 -
+                                46.02m²</p>
+                        </div>
+                    </div>
+
+                    <!-- Position on Floor Plan -->
+                    <div
+                        class="w-full h-fit bg-white/5 rounded-2xl border flex items-center justify-center overflow-hidden relative group shadow-lg mt-auto">
+                        <div
+                            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,174,111,0.1)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/can-ho/mau-vi-tri-mat-bang-can-ho.jpg" alt="Vị trí mặt bằng"
+                            id="sheet-img-pos"
+                            class="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
+                            loading="lazy" title="Vị trí mặt bằng">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

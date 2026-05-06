@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> class="overflow-x-hidden">
+<html <?php language_attributes(); ?>>
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -9,7 +9,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('min-h-screen bg-[#0e1e2e] overflow-hidden overflow-x-hidden'); ?>>
+<body <?php body_class('min-h-screen bg-[#0e1e2e] overflow-hidden'); ?>>
     <?php wp_body_open(); ?>
     <h1 class="sr-only"><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></h1>
 

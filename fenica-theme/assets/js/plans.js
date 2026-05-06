@@ -240,3 +240,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Detail Sheet Functions
+window.openDetailSheet = function(el) {
+    const sheet = document.getElementById('detail-sheet');
+    const overlay = document.getElementById('detail-sheet-overlay');
+
+    if (!sheet || !overlay) return;
+
+    // Populate data if element is provided
+    if (el && el.dataset) {
+        if (el.dataset.title) document.getElementById('sheet-title').innerText = el.dataset.title;
+        if (el.dataset.subtitle) document.getElementById('sheet-subtitle').innerText = el.dataset.subtitle;
+        if (el.dataset.dtxd) document.getElementById('sheet-dtxd').innerText = el.dataset.dtxd;
+        if (el.dataset.dtsd) document.getElementById('sheet-dtsd').innerText = el.dataset.dtsd;
+        if (el.dataset.img3d) document.getElementById('sheet-img-3d').src = el.dataset.img3d;
+        if (el.dataset.imgPos) document.getElementById('sheet-img-pos').src = el.dataset.imgPos;
+    }
+
+    // Show overlay
+    overlay.classList.remove('hidden');
+    // Trigger reflow for transition
+    void overlay.offsetWidth;
+    overlay.classList.remove('opacity-0');
+
+    // Slide in sheet
+    sheet.classList.remove('translate-x-full');
+
+    // Disable body scroll if needed
+    document.body.style.overflow = 'hidden';
+}
+
+window.closeDetailSheet = function() {
+    const sheet = document.getElementById('detail-sheet');
+    const overlay = document.getElementById('detail-sheet-overlay');
+
+    if (!sheet || !overlay) return;
+
+    // Slide out sheet
+    sheet.classList.add('translate-x-full');
+    // Hide overlay
+    overlay.classList.add('opacity-0');
+
+    // Wait for transition to finish
+    setTimeout(() => {
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+    }, 500);
+}

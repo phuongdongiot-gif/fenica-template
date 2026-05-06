@@ -1,30 +1,34 @@
 // Data Structure for the Map
 const mapData = [
     {
-        id: "30",
-        title: "30 Phút",
-        radius: 350, // Smallest radius (inner arc)
+        id: "3-5",
+        title: "3 - 5 Phút",
+        radius: 1080, // Largest radius (outer arc)
         color: "#c29b6f",
         nodes: [
-            { id: "01", name: "Trung tâm hành chính TP.HCM", img: "https://images.unsplash.com/photo-1596522354195-e84ae3c98731?w=150&h=150&fit=crop&q=80" },
-            { id: "02", name: "Trung tâm tài chính Thủ Thiêm", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?w=150&h=150&fit=crop&q=80" },
-            { id: "03", name: "Chợ Bến Thành", img: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=150&h=150&fit=crop&q=80" },
-            { id: "04", name: "Sân bay Quốc tế Long Thành", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=150&h=150&fit=crop&q=80" }
+            { id: "01", name: "Ga S12 & Ga S11", img: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=150&h=150&fit=crop&q=80" },
+            { id: "02", name: "Trường Mầm Non Hoa Cúc 2", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=150&h=150&fit=crop&q=80" },
+            { id: "03", name: "Trường tiểu học An Phú 3", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=150&h=150&fit=crop&q=80" },
+            { id: "04", name: "Trường tiểu học Bùi Thị Xuân", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&h=150&fit=crop&q=80" },
+            { id: "05", name: "Chợ Tân Bình", img: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=150&h=150&fit=crop&q=80" },
+            { id: "06", name: "Chợ Phú Phong", img: "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=150&h=150&fit=crop&q=80" },
+            { id: "07", name: "Khu di tích - du lịch Hồ Lang", img: "https://images.unsplash.com/photo-1542361345-89ce1dd9144d?w=150&h=150&fit=crop&q=80" }
         ]
     },
     {
-        id: "20-25",
-        title: "20 - 25 Phút",
-        radius: 520,
+        id: "5-7",
+        title: "5 - 7 Phút",
+        radius: 880,
         color: "#c29b6f",
         nodes: [
-            { id: "01", name: "Sân bay Tân Sơn Nhất", img: "https://images.unsplash.com/photo-1542296332-2e4473faf563?w=150&h=150&fit=crop&q=80" },
-            { id: "02", name: "Ngã tư Hàng Xanh", img: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=150&h=150&fit=crop&q=80" },
-            { id: "03", name: "Làng Đại học TP.HCM", img: "https://images.unsplash.com/photo-1562774053-701939374585?w=150&h=150&fit=crop&q=80" },
-            { id: "04", name: "Bến xe Miền Đông mới", img: "https://images.unsplash.com/photo-1530685932526-48ec92998eaa?w=150&h=150&fit=crop&q=80" },
-            { id: "05", name: "KCX Linh Trung 1", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=150&fit=crop&q=80" },
-            { id: "06", name: "KCN Công nghệ cao TP.HCM", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&q=80" },
-            { id: "07", name: "Phường Trấn Biên", img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=150&h=150&fit=crop&q=80" }
+            { id: "01", name: "Vincom Plaza", img: "https://images.unsplash.com/photo-1519567281027-d00b8c62b2e5?w=150&h=150&fit=crop&q=80" },
+            { id: "02", name: "KCN Sóng Thần 2", img: "https://images.unsplash.com/photo-1551281048-735f49df425f?w=150&h=150&fit=crop&q=80" },
+            { id: "03", name: "ICD Tân Cảng Sóng Thần", img: "https://images.unsplash.com/photo-1586528116311-ad8ed7e66a65?w=150&h=150&fit=crop&q=80" },
+            { id: "04", name: "Trường THPT Nguyễn Thị Minh Khai", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&h=150&fit=crop&q=80" },
+            { id: "05", name: "Trường THPT Lý Thái Tổ", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=150&h=150&fit=crop&q=80" },
+            { id: "06", name: "THPT Trần Văn Ơn", img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=150&h=150&fit=crop&q=80" },
+            { id: "07", name: "Trường THCS Tân Đông Hiệp B", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=150&h=150&fit=crop&q=80" },
+            { id: "08", name: "Trường Tiểu học Tân Đông Hiệp C", img: "https://images.unsplash.com/photo-1503676382389-4809596d5290?w=150&h=150&fit=crop&q=80" }
         ]
     },
     {
@@ -45,34 +49,30 @@ const mapData = [
         ]
     },
     {
-        id: "5-7",
-        title: "5 - 7 Phút",
-        radius: 880,
+        id: "20-25",
+        title: "20 - 25 Phút",
+        radius: 520,
         color: "#c29b6f",
         nodes: [
-            { id: "01", name: "Vincom Plaza", img: "https://images.unsplash.com/photo-1519567281027-d00b8c62b2e5?w=150&h=150&fit=crop&q=80" },
-            { id: "02", name: "KCN Sóng Thần 2", img: "https://images.unsplash.com/photo-1551281048-735f49df425f?w=150&h=150&fit=crop&q=80" },
-            { id: "03", name: "ICD Tân Cảng Sóng Thần", img: "https://images.unsplash.com/photo-1586528116311-ad8ed7e66a65?w=150&h=150&fit=crop&q=80" },
-            { id: "04", name: "Trường THPT Nguyễn Thị Minh Khai", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&h=150&fit=crop&q=80" },
-            { id: "05", name: "Trường THPT Lý Thái Tổ", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=150&h=150&fit=crop&q=80" },
-            { id: "06", name: "THPT Trần Văn Ơn", img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=150&h=150&fit=crop&q=80" },
-            { id: "07", name: "Trường THCS Tân Đông Hiệp B", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=150&h=150&fit=crop&q=80" },
-            { id: "08", name: "Trường Tiểu học Tân Đông Hiệp C", img: "https://images.unsplash.com/photo-1503676382389-4809596d5290?w=150&h=150&fit=crop&q=80" }
+            { id: "01", name: "Sân bay Tân Sơn Nhất", img: "https://images.unsplash.com/photo-1542296332-2e4473faf563?w=150&h=150&fit=crop&q=80" },
+            { id: "02", name: "Ngã tư Hàng Xanh", img: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=150&h=150&fit=crop&q=80" },
+            { id: "03", name: "Làng Đại học TP.HCM", img: "https://images.unsplash.com/photo-1562774053-701939374585?w=150&h=150&fit=crop&q=80" },
+            { id: "04", name: "Bến xe Miền Đông mới", img: "https://images.unsplash.com/photo-1530685932526-48ec92998eaa?w=150&h=150&fit=crop&q=80" },
+            { id: "05", name: "KCX Linh Trung 1", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=150&fit=crop&q=80" },
+            { id: "06", name: "KCN Công nghệ cao TP.HCM", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&q=80" },
+            { id: "07", name: "Phường Trấn Biên", img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=150&h=150&fit=crop&q=80" }
         ]
     },
     {
-        id: "3-5",
-        title: "3 - 5 Phút",
-        radius: 1080, // Largest radius (outer arc)
+        id: "30",
+        title: "30 Phút",
+        radius: 350, // Smallest radius (inner arc)
         color: "#c29b6f",
         nodes: [
-            { id: "01", name: "Ga S12 & Ga S11", img: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=150&h=150&fit=crop&q=80" },
-            { id: "02", name: "Trường Mầm Non Hoa Cúc 2", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=150&h=150&fit=crop&q=80" },
-            { id: "03", name: "Trường tiểu học An Phú 3", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=150&h=150&fit=crop&q=80" },
-            { id: "04", name: "Trường tiểu học Bùi Thị Xuân", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&h=150&fit=crop&q=80" },
-            { id: "05", name: "Chợ Tân Bình", img: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=150&h=150&fit=crop&q=80" },
-            { id: "06", name: "Chợ Phú Phong", img: "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=150&h=150&fit=crop&q=80" },
-            { id: "07", name: "Khu di tích - du lịch Hồ Lang", img: "https://images.unsplash.com/photo-1542361345-89ce1dd9144d?w=150&h=150&fit=crop&q=80" }
+            { id: "01", name: "Trung tâm hành chính TP.HCM", img: "https://images.unsplash.com/photo-1596522354195-e84ae3c98731?w=150&h=150&fit=crop&q=80" },
+            { id: "02", name: "Trung tâm tài chính Thủ Thiêm", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?w=150&h=150&fit=crop&q=80" },
+            { id: "03", name: "Chợ Bến Thành", img: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=150&h=150&fit=crop&q=80" },
+            { id: "04", name: "Sân bay Quốc tế Long Thành", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=150&h=150&fit=crop&q=80" }
         ]
     }
 ];
@@ -261,9 +261,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const floorImages = document.querySelectorAll('.floor-img');
 
     const floorData = {
-        '1': { title: 'Mặt bằng Tầng 1', desc: 'Không gian thiết kế mở, tối ưu hóa công năng sử dụng và tận dụng tối đa ánh sáng tự nhiên.' },
-        '2': { title: 'Mặt bằng Tầng 2-20', desc: 'Khu vực căn hộ tiêu chuẩn, được bố trí khéo léo mang lại sự yên tĩnh và thoải mái tuyệt đối cho gia chủ.' },
-        '3': { title: 'Mặt bằng Tầng 39-40', desc: 'Tầng cao cấp với tầm nhìn panorama tuyệt đẹp ôm trọn dòng sông Sài Gòn.' }
+        '1': { title: 'Mặt bằng Tầng 3-3A', desc: 'Không gian thiết kế mở, tối ưu hóa công năng sử dụng và tận dụng tối đa ánh sáng tự nhiên.' },
+        '2': { title: 'Mặt bằng Tầng 5-7', desc: 'Khu vực căn hộ tiêu chuẩn, được bố trí khéo léo mang lại sự yên tĩnh và thoải mái tuyệt đối cho gia chủ.' },
+        '3': { title: 'Mặt bằng Tầng', desc: 'Tầng cao cấp với tầm nhìn panorama tuyệt đẹp ôm trọn dòng sông Sài Gòn.' },
+        '4': { title: 'Mặt bằng Tầng 8-13', desc: 'Tầng cao cấp với tầm nhìn panorama tuyệt đẹp ôm trọn dòng sông Sài Gòn.' },
+        '5': { title: 'Mặt bằng Tầng 14-21', desc: 'Tầng cao cấp với tầm nhìn panorama tuyệt đẹp ôm trọn dòng sông Sài Gòn.' }
     };
 
     if (floorTabs.length > 0) {
@@ -693,7 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const openModal = () => {
             contactModal.classList.remove('hidden');
             contactModal.classList.add('flex');
-            
+
             // Allow display:flex to apply before animating opacity
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
@@ -711,7 +713,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modalBackdrop.classList.add('opacity-0');
             modalContent.classList.remove('opacity-100', 'scale-100');
             modalContent.classList.add('opacity-0', 'scale-95');
-            
+
             setTimeout(() => {
                 contactModal.classList.add('hidden');
                 contactModal.classList.remove('flex');
@@ -726,23 +728,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 11. --- Smooth Page Transitions (Exit Animation) ---
     document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             const target = this.getAttribute('target');
-            
+
             // Bỏ qua nếu: không có href, là hash link, link email/call/js, mở tab mới, hoặc có thuộc tính download
-            if (!href || 
-                href.startsWith('#') || 
-                href.startsWith('mailto:') || 
-                href.startsWith('tel:') || 
-                href.startsWith('javascript:') || 
-                target === '_blank' || 
+            if (!href ||
+                href.startsWith('#') ||
+                href.startsWith('mailto:') ||
+                href.startsWith('tel:') ||
+                href.startsWith('javascript:') ||
+                target === '_blank' ||
                 this.hasAttribute('download')) {
                 return;
             }
 
             e.preventDefault();
-            
+
             // Tạo một overlay màu #09121d (khớp với màu nền preloader) để tạo cảm giác nối tiếp
             const exitOverlay = document.createElement('div');
             exitOverlay.id = 'page-exit-overlay';
@@ -756,16 +758,16 @@ document.addEventListener('DOMContentLoaded', () => {
             exitOverlay.style.opacity = '0';
             exitOverlay.style.transition = 'opacity 0.4s ease-in-out';
             exitOverlay.style.pointerEvents = 'none'; // Không chặn click thêm
-            
+
             document.body.appendChild(exitOverlay);
-            
+
             // Kích hoạt transition
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
                     exitOverlay.style.opacity = '1';
                 });
             });
-            
+
             // Đợi hiệu ứng xong thì chuyển trang
             setTimeout(() => {
                 window.location.href = href;

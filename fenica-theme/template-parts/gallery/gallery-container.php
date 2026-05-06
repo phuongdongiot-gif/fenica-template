@@ -106,13 +106,13 @@
                         <!-- Card 5 -->
                         <div
                             class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-03.png"
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp"
                                 class="w-full h-full object-cover bg-white p-4" alt="Gallery 5" loading="lazy"
                                 title="Gallery 5">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
-                                <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">Mặt
-                                    bằng tầng 3-13</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">Nhà trẻ
+                                </h3>
                             </div>
                         </div>
 

@@ -14,7 +14,7 @@
                 <!-- Title & Divider -->
                 <div class="overview-title-container w-full">
                     <h2
-                        class="py-4 text-2xl lg:text-4xl font-bold playfair uppercase tracking-wide animate-gradient-text drop-shadow-[0_2px_15px_rgba(212,174,111,0.4)]">
+                        class="py-4 py-1 py-1 text-2xl lg:text-4xl font-bold playfair uppercase tracking-wide animate-gradient-text drop-shadow-[0_2px_15px_rgba(212,174,111,0.4)]">
                         Tâm điểm giao thoa giữa dòng chảy tăng trưởng
                     </h2>
                     <!-- Họa tiết Divider: đường kẻ chẻ tia hình thoi -->

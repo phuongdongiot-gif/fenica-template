@@ -33,7 +33,7 @@ get_header(); ?>
             <!-- Header -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
                 <div class="max-w-3xl">
-                    <h2 class="text-4xl md:text-6xl font-bold playfair mb-4 animate-gradient-text drop-shadow-[0_2px_15px_rgba(212,174,111,0.4)]"
+                    <h2 class="text-2xl md:text-xl font-bold playfair mb-4 animate-gradient-text drop-shadow-[0_2px_15px_rgba(212,174,111,0.4)]"
                         data-aos="fade-up">
                         Tin tức & Sự kiện mới nhất
                     </h2>

@@ -221,7 +221,7 @@
             <!-- Right: Visual & Testimonial -->
             <div
                 class="w-full lg:w-5/12 min-h-[250px] lg:min-h-[500px] bg-[#1a2b3c] lg:rounded-l-[2.5rem] relative overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80"
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-moi-nhat.jpg"
                     alt="Fenica Interior"
                     class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                     loading="lazy" title="Fenica Interior">

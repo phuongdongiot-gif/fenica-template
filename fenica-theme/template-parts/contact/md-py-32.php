@@ -6,83 +6,52 @@
  */
 ?>
 <section class="py-24 md:py-32 relative z-10 pt-32">
-        <div class="max-w-[1400px] mx-auto px-4 md:px-8">
-            <div class="flex flex-col lg:flex-row bg-transparent">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+        <div class="flex flex-col lg:flex-row bg-transparent">
 
 
-                <!-- Right: Visual & Testimonial -->
-                <div class="w-full lg:w-1/2 h-[500px] lg:h-auto bg-[#1a2b3c] lg:rounded-l-[2.5rem] relative overflow-hidden group"
-                    data-aos="fade-left" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80"
-                        alt="Fenica Interior"
-                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                        loading="lazy" title="Fenica Interior">
+            <!-- Right: Visual & Testimonial -->
+            <div class="w-full lg:w-1/2 h-[500px] lg:h-auto bg-[#1a2b3c] lg:rounded-l-[2.5rem] relative overflow-hidden group"
+                data-aos="fade-left" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80"
+                    alt="Fenica Interior"
+                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                    loading="lazy" title="Fenica Interior">
 
-                    <!-- Grid Pattern Overlay -->
-                    <div class="absolute inset-0 pointer-events-none mix-blend-overlay opacity-40 z-10"
-                        style="background-image: linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 40px 40px;">
-                    </div>
-
-                    <!-- Gradient Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-[#0e1e2e]/50 to-[#0e1e2e]/20 z-10">
-                    </div>
-
-                    <!-- Testimonial Content -->
-                    <div class="absolute bottom-0 left-0 w-full p-8 md:p-12 z-20">
-                        <p class="text-white text-lg md:text-xl font-light leading-relaxed mb-8">
-                            "Fenica mang đến một tiêu chuẩn sống hoàn toàn mới. Đội ngũ chuyên viên vô cùng nhiệt tình
-                            và chuyên nghiệp. Mọi thắc mắc của tôi đều được giải đáp nhanh chóng và thỏa đáng."
-                        </p>
-
-                        <div class="flex items-end justify-between">
-                            <div>
-                                <p class="text-white font-bold text-lg">— Trần Thanh Sơn</p>
-                                <p class="text-white/60 text-sm">Cư dân tại Fenica</p>
-                            </div>
-
-                            <!-- Arrows -->
-                            <div class="flex gap-3">
-                                <button
-                                    class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#0e1e2e] transition-colors">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M15 19l-7-7 7-7"></path>
-                                    </svg>
-                                </button>
-                                <button
-                                    class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#0e1e2e] transition-colors">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Grid Pattern Overlay -->
+                <div class="absolute inset-0 pointer-events-none mix-blend-overlay opacity-40 z-10"
+                    style="background-image: linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 40px 40px;">
                 </div>
-                <!-- Left: Form Card -->
-                <div class="w-full lg:w-1/2 bg-white lg:rounded-r-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden"
-                    data-aos="fade-right">
-                    <div
-                        class="absolute top-0 right-0 w-64 h-64 bg-[#f0e0ca]/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none">
-                    </div>
 
-                    <div class="relative z-10">
-                        <h2 class="text-2xl lg:text-4xl lg:text-[40px] font-bold text-[#0e1e2e] mb-4">Chúng tôi luôn sẵn
-                            sàng hỗ trợ</h2>
-                        <p class="text-gray-500 mb-10 text-sm md:text-base font-light leading-relaxed">Đội ngũ chuyên
-                            viên tư vấn của Fenica luôn túc trực để giải đáp mọi thắc mắc của bạn. Chúng tôi sẽ liên hệ
-                            lại trong vòng 24 giờ.</p>
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0e1e2e] via-[#0e1e2e]/50 to-[#0e1e2e]/20 z-10">
+                </div>
 
-                        <!-- Contact Form 7 Auto Generated Form -->
-                        <?php 
-                        $cf7_id = get_option('fenica_contact_form_id');
-                        if ( $cf7_id && shortcode_exists('contact-form-7') ) {
-                            echo do_shortcode('[contact-form-7 id="' . esc_attr($cf7_id) . '" title="Form đăng ký tư vấn Fenica"]');
-                        } else if ( shortcode_exists('contact-form-7') ) {
-                            echo do_shortcode('[contact-form-7 title="Form đăng ký tư vấn"]');
-                        }
-                        ?>
+                <!-- Testimonial Content -->
+            </div>
+            <!-- Left: Form Card -->
+            <div class="w-full lg:w-1/2 bg-white lg:rounded-r-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden"
+                data-aos="fade-right">
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-[#f0e0ca]/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none">
+                </div>
+
+                <div class="relative z-10">
+                    <h2 class="text-2xl lg:text-4xl lg:text-[40px] font-bold text-[#0e1e2e] mb-4">Chúng tôi luôn sẵn
+                        sàng hỗ trợ</h2>
+                    <p class="text-gray-500 mb-10 text-sm md:text-base font-light leading-relaxed">Đội ngũ chuyên
+                        viên tư vấn của Fenica luôn túc trực để giải đáp mọi thắc mắc của bạn. Chúng tôi sẽ liên hệ
+                        lại trong vòng 24 giờ.</p>
+
+                    <!-- Contact Form 7 Auto Generated Form -->
+                    <?php
+                    $cf7_id = get_option('fenica_contact_form_id');
+                    if ($cf7_id && shortcode_exists('contact-form-7')) {
+                        echo do_shortcode('[contact-form-7 id="' . esc_attr($cf7_id) . '" title="Form đăng ký tư vấn Fenica"]');
+                    } else if (shortcode_exists('contact-form-7')) {
+                        echo do_shortcode('[contact-form-7 title="Form đăng ký tư vấn"]');
+                    }
+                    ?>
 
                     <!-- Fallback static form if CF7 is not active -->
                     <?php if (!shortcode_exists('contact-form-7')): ?>
@@ -159,9 +128,9 @@
                             </button>
                         </form>
                     <?php endif; ?>
-                    </div>
                 </div>
-
             </div>
+
         </div>
-    </section>
+    </div>
+</section>

@@ -90,7 +90,7 @@
                         alt="Mặt bằng tầng 8-13" loading="lazy" title="Mặt bằng tầng 8-13">
                 </a>
                 <a id="floor-img-5"
-                    href="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png"
+                    href="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-07.png"
                     data-title="Mặt bằng tầng 14-21"
                     class="glightbox floor-img absolute inset-0 w-full h-full z-0 opacity-0 scale-95 pointer-events-none">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-07.png"

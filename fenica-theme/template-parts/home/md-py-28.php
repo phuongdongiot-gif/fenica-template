@@ -121,12 +121,6 @@
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500">
                     </div>
                     <div
-                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform cursor-pointer z-10">
-                        <svg class="w-5 h-5 md:w-6 md:h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"></path>
-                        </svg>
-                    </div>
-                    <div
                         class="absolute bottom-0 left-0 w-full p-5 md:p-6 bg-gradient-to-t from-[#0e1e2e]/90 to-transparent">
                         <div class="flex items-center gap-3 text-white/70 text-[10px] md:text-xs mb-1 md:mb-2">
                             <span><?php echo esc_html($b_posts[2]['date']); ?></span>

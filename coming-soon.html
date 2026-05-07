@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sắp Ra Mắt | Fenica</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .glass-panel {
+            background: rgba(14, 30, 46, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 174, 111, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(212, 174, 111, 0.1);
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(to right, #b38e55, #f9e5b8, #d4ae6f, #f9e5b8, #b38e55);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes y-bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .animate-bounce-slow {
+            animation: y-bounce 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#0e1e2e] text-white flex items-center justify-center relative overflow-hidden">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        <img src="assets/images/bg-fenica.jpg" class="w-full h-full object-cover opacity-20" alt="Background">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0e1e2e]/90 via-[#0e1e2e]/60 to-[#0e1e2e]/90"></div>
+    </div>
+
+    <!-- Animated Glow -->
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[40vw] md:h-[40vw] bg-[#d4ae6f]/20 rounded-full blur-[100px] z-0 animate-pulse pointer-events-none">
+    </div>
+
+    <main
+        class="relative z-10 w-full max-w-5xl mx-auto px-4 py-12 flex flex-col items-center justify-center text-center">
+        <!-- Logo -->
+        <div class="mb-10 animate-bounce-slow">
+            <a href="index.html">
+                <img src="assets/images/logo-fenica.png" alt="Fenica Logo"
+                    class="w-48 md:w-64 h-auto mx-auto drop-shadow-[0_0_20px_rgba(212,174,111,0.5)]">
+            </a>
+        </div>
+
+        <!-- Heading -->
+        <h1
+            class="py-1 text-2xl md:text-5  xl lg:text-6xl font-bold uppercase tracking-widest playfair mb-6 text-gradient-gold">
+            Sắp Ra Mắt
+        </h1>
+
+
+        <!-- Countdown Timer -->
+        <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-16">
+            <div
+                class="glass-panel rounded-2xl p-4 md:p-6 w-24 md:w-32 flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,174,111,0.3)]">
+                <span id="days" class="text-4xl md:text-5xl font-bold text-[#d4ae6f] mb-2 playfair">00</span>
+                <span class="text-xs md:text-sm uppercase tracking-widest text-gray-400 font-semibold">Ngày</span>
+            </div>
+            <div
+                class="glass-panel rounded-2xl p-4 md:p-6 w-24 md:w-32 flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,174,111,0.3)]">
+                <span id="hours" class="text-4xl md:text-5xl font-bold text-[#d4ae6f] mb-2 playfair">00</span>
+                <span class="text-xs md:text-sm uppercase tracking-widest text-gray-400 font-semibold">Giờ</span>
+            </div>
+            <div
+                class="glass-panel rounded-2xl p-4 md:p-6 w-24 md:w-32 flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,174,111,0.3)]">
+                <span id="minutes" class="text-4xl md:text-5xl font-bold text-[#d4ae6f] mb-2 playfair">00</span>
+                <span class="text-xs md:text-sm uppercase tracking-widest text-gray-400 font-semibold">Phút</span>
+            </div>
+            <div
+                class="glass-panel rounded-2xl p-4 md:p-6 w-24 md:w-32 flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,174,111,0.3)]">
+                <span id="seconds" class="text-4xl md:text-5xl font-bold text-[#d4ae6f] mb-2 playfair">00</span>
+                <span class="text-xs md:text-sm uppercase tracking-widest text-gray-400 font-semibold">Giây</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Set the countdown date (e.g., 3 months from now)
+        const now = new Date();
+        const countDownDate = new Date(now.getTime() + 10 * 24 * 60 * 60 * 1000).getTime();
+
+        const x = setInterval(function () {
+            const current = new Date().getTime();
+            const distance = countDownDate - current;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

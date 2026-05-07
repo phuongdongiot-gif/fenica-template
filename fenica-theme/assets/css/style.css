@@ -284,3 +284,15 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #d4ae6f;
 }
+@keyframes childMenuBgAnim {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px rgba(15, 103, 177, 0.6)) drop-shadow(0 0 20px rgba(15, 103, 177, 0.4));
+    }
+    50% {
+        filter: drop-shadow(0 0 15px rgba(15, 103, 177, 1)) drop-shadow(0 0 35px rgba(15, 103, 177, 0.8));
+    }
+}
+.child-menu-bg-svg {
+    animation: childMenuBgAnim 2.5s ease-in-out infinite;
+    will-change: transform, opacity, filter;
+}

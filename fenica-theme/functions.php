@@ -69,6 +69,7 @@ function fenica_scripts() {
     // Theme Custom JS
     wp_enqueue_script( 'fenica-menu', get_template_directory_uri() . '/assets/js/menu.js', array(), filemtime( get_template_directory() . '/assets/js/menu.js' ), true );
     wp_enqueue_script( 'fenica-wave', get_template_directory_uri() . '/assets/js/wave-preloader.js', array('three-js'), filemtime( get_template_directory() . '/assets/js/wave-preloader.js' ), true );
+    wp_enqueue_script( 'fenica-child-preloader', get_template_directory_uri() . '/assets/js/child-preloader.js', array('gsap-js'), filemtime( get_template_directory() . '/assets/js/child-preloader.js' ), true );
     wp_enqueue_script( 'fenica-main', get_template_directory_uri() . '/assets/js/main.js', array('gsap-js', 'swiper-js', 'aos-js', 'lenis-js'), filemtime( get_template_directory() . '/assets/js/main.js' ), true );
 
     // Enqueue subpage specific JS only if files exist

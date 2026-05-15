@@ -33,10 +33,10 @@
                             <div class="hidden lg:block absolute left-[-1px] top-0 w-[2px] h-12 bg-gradient-to-b from-[#f0e0ca] to-[#d4ae6f] shadow-[0_0_10px_rgba(212,174,111,0.8)] transition-all duration-300"
                                 id="active-indicator"></div>
 
-                            <a href="#tang-3-3a"
+                            <a href="#tang-3-7"
                                 class="floor-nav-link text-center lg:text-left px-5 lg:px-4 py-2 lg:py-3.5 rounded-full lg:rounded-xl text-[12px] lg:text-[14px] xl:text-[15px] font-bold uppercase tracking-wider transition-all duration-300 text-white/60 hover:text-white hover:bg-white/10 lg:hover:bg-white/5 active-link whitespace-nowrap shrink-0 snap-center">Tầng
                                 3-3A</a>
-                            <a href="#tang-5-7"
+                            <a href="#tang-8-12a"
                                 class="floor-nav-link text-center lg:text-left px-5 lg:px-4 py-2 lg:py-3.5 rounded-full lg:rounded-xl text-[12px] lg:text-[14px] xl:text-[15px] font-bold uppercase tracking-wider transition-all duration-300 text-white/60 hover:text-white hover:bg-white/10 lg:hover:bg-white/5 whitespace-nowrap shrink-0 snap-center">Tầng
                                 5-7</a>
                             <a href="#tang"
@@ -58,12 +58,12 @@
     <div class="w-full flex flex-col relative z-10">
 
         <!-- Tầng 3-3a -->
-        <div id="tang-3-3a"
+        <div id="tang-3-7"
             class="floor-section w-full min-h-[60svh] lg:min-h-[100svh] relative flex items-center justify-center p-0 overflow-hidden group border-b border-white/5">
             <!-- Giant Watermark -->
             <h3
                 class="absolute top-[10vh] lg:top-[15vh] right-8 lg:right-16 text-6xl md:text-8xl lg:text-[10rem] font-bold playfair text-white/[0.03] uppercase tracking-widest z-0 pointer-events-none whitespace-nowrap">
-                Tầng 3-3A</h3>
+                Tầng 3-7</h3>
 
             <!-- Image Container -->
             <div
@@ -71,11 +71,11 @@
                 <div class="relative w-full h-full flex items-center justify-center group/floor">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-03.png"
                         class="w-full h-auto lg:h-full max-h-[40svh] lg:max-h-none object-contain max-w-[1400px] transition-transform duration-700"
-                        alt="Mặt bằng tầng 1" loading="lazy" title="Mặt bằng tầng 1">
+                        alt="Mặt bằng tầng 3-7" loading="lazy" title="Mặt bằng tầng 3-7">
 
                     <!-- Custom Expand Button -->
                     <button
-                        onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-03.png', 'Mặt Bằng Tầng 3-3A')"
+                        onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-03.png', 'Mặt Bằng Tầng 3-7')"
                         class="absolute top-2 right-2 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
                         <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -91,20 +91,20 @@
         </div>
 
         <!-- Tầng 5-7 -->
-        <div id="tang-5-7"
+        <div id="tang-8-12a"
             class="floor-section w-full min-h-[60svh] lg:min-h-[100svh] relative flex items-center justify-center p-0 overflow-hidden group border-b border-white/5">
             <h3
                 class="absolute top-[10vh] lg:top-[15vh] right-8 lg:right-16 text-6xl md:text-8xl lg:text-[10rem] font-bold playfair text-white/[0.03] uppercase tracking-widest z-0 pointer-events-none whitespace-nowrap">
-                Tầng 5-7</h3>
+                Tầng 8-12A</h3>
 
             <div
                 class="w-full h-[60svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 pt-32 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
                 <div class="relative w-full h-full flex items-center justify-center group/floor">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-04.png"
                         class="w-full h-auto lg:h-full max-h-[40svh] lg:max-h-none object-contain max-w-[1400px] transition-transform duration-700"
-                        alt="Mặt bằng tầng 2-20" loading="lazy" title="Mặt bằng tầng 2-20">
+                        alt="Mặt bằng tầng 8-12A" loading="lazy" title="Mặt bằng tầng 8-12A">
                     <button
-                        onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-04.png', 'Mặt Bằng Tầng 5-7')"
+                        onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-04.png', 'Mặt Bằng Tầng 8-12A')"
                         class="absolute top-2 right-2 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
                         <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -117,18 +117,18 @@
         </div>
 
         <!-- Tầng 39-40 -->
-        <div id="tang"
+        <div id="tang-14-21"
             class="floor-section w-full min-h-[60svh] lg:min-h-[100svh] relative flex items-center justify-center p-0 overflow-hidden group">
             <h3
                 class="absolute top-[10vh] lg:top-[15vh] right-8 lg:right-16 text-6xl md:text-8xl lg:text-[10rem] font-bold playfair text-white/[0.03] uppercase tracking-widest z-0 pointer-events-none whitespace-nowrap">
-                Tầng</h3>
+                Tầng 14-21</h3>
 
             <div
                 class="w-full h-[60svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 pt-32 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
                 <div class="relative w-full h-full flex items-center justify-center group/floor">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png"
                         class="w-full h-auto lg:h-full max-h-[40svh] lg:max-h-none object-contain max-w-[1400px] transition-transform duration-700"
-                        alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 22">
+                        alt="Mặt bằng tầng 14-21" loading="lazy" title="Mặt bằng tầng 14-21">
                     <button
                         onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-05.png', 'Mặt Bằng Căn Hộ')"
                         class="absolute top-2 right-2 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
@@ -143,11 +143,11 @@
         </div>
 
         <!-- Tầng 8-13 -->
-        <div id="tang-8-13"
+        <div id="tang-22"
             class="floor-section w-full min-h-[60svh] lg:min-h-[100svh] relative flex items-center justify-center p-0 overflow-hidden group">
             <h3
                 class="absolute top-[10vh] lg:top-[15vh] right-8 lg:right-16 text-6xl md:text-8xl lg:text-[10rem] font-bold playfair text-white/[0.03] uppercase tracking-widest z-0 pointer-events-none whitespace-nowrap">
-                Tầng 8-13</h3>
+                Tầng 22</h3>
 
             <div
                 class="w-full h-[60svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 pt-32 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
@@ -157,31 +157,6 @@
                         alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 22">
                     <button
                         onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-06.png', 'Mặt Bằng Căn Hộ')"
-                        class="absolute top-2 right-2 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
-                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Tầng 14-21 -->
-        <div id="tang-14-21"
-            class="floor-section w-full min-h-[60svh] lg:min-h-[100svh] relative flex items-center justify-center p-0 overflow-hidden group">
-            <h3
-                class="absolute top-[10vh] lg:top-[15vh] right-8 lg:right-16 text-6xl md:text-8xl lg:text-[10rem] font-bold playfair text-white/[0.03] uppercase tracking-widest z-0 pointer-events-none whitespace-nowrap">
-                Tầng 14-21</h3>
-
-            <div
-                class="w-full h-[60svh] lg:h-[100svh] z-10 flex items-center justify-center p-4 pt-32 pb-8 lg:p-12 lg:pl-[320px] xl:pl-[400px]">
-                <div class="relative w-full h-full flex items-center justify-center group/floor">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-07.png"
-                        class="w-full h-auto lg:h-full max-h-[40svh] lg:max-h-none object-contain max-w-[1400px] transition-transform duration-700"
-                        alt="Mặt bằng tầng 22" loading="lazy" title="Mặt bằng tầng 22">
-                    <button
-                        onclick="openPanZoomModal('<?php echo get_template_directory_uri(); ?>/assets/images/mau-mat-bang-tang-07.png', 'Mặt Bằng Căn Hộ')"
                         class="absolute top-2 right-2 lg:top-4 lg:right-4 z-30 w-10 h-10 md:w-12 md:h-12 bg-[#0e1e2e]/80 backdrop-blur-md border border-[#d4ae6f]/50 rounded-full flex items-center justify-center text-white hover:text-[#d4ae6f] hover:bg-white/10 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
                         <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"

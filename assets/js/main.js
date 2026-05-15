@@ -261,11 +261,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const floorImages = document.querySelectorAll('.floor-img');
 
     const floorData = {
-        '1': { title: 'Mặt bằng Tầng 3-3A', desc: 'Không gian thiết kế mở, tối ưu hóa công năng sử dụng và tận dụng tối đa ánh sáng tự nhiên.' },
-        '2': { title: 'Mặt bằng Tầng 5-7', desc: 'Khu vực căn hộ tiêu chuẩn, được bố trí khéo léo mang lại sự yên tĩnh và thoải mái tuyệt đối cho gia chủ.' },
-        '3': { title: 'Mặt bằng Tầng', desc: 'Tầng cao cấp với tầm nhìn panorama tuyệt đẹp ôm trọn dòng sông Sài Gòn.' },
-        '4': { title: 'Mặt bằng Tầng 8-13', desc: 'Tầng cao cấp với tầm nhìn panorama tuyệt đẹp ôm trọn dòng sông Sài Gòn.' },
-        '5': { title: 'Mặt bằng Tầng 14-21', desc: 'Tầng cao cấp với tầm nhìn panorama tuyệt đẹp ôm trọn dòng sông Sài Gòn.' }
+        '1': { title: 'Mặt bằng Tầng 3-7', desc: 'Không gian thiết kế mở, tối ưu hóa công năng sử dụng và tận dụng tối đa ánh sáng tự nhiên.' },
+        '2': { title: 'Mặt bằng Tầng 8-12A', desc: 'Khu vực căn hộ tiêu chuẩn, được bố trí khéo léo mang lại sự yên tĩnh và thoải mái tuyệt đối cho gia chủ.' },
+        '3': { title: 'Mặt bằng Tầng 14-21', desc: 'Tầng cao cấp với tầm nhìn panorama tuyệt đẹp ôm trọn dòng sông Sài Gòn.' },
+        '4': { title: 'Mặt bằng Tầng 22', desc: 'Tầng cao cấp với tầm nhìn panorama tuyệt đẹp ôm trọn dòng sông Sài Gòn.' }
     };
 
     if (floorTabs.length > 0) {

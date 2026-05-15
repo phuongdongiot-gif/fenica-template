@@ -35,18 +35,16 @@
 
                             <a href="#tang-3-7"
                                 class="floor-nav-link text-center lg:text-left px-5 lg:px-4 py-2 lg:py-3.5 rounded-full lg:rounded-xl text-[12px] lg:text-[14px] xl:text-[15px] font-bold uppercase tracking-wider transition-all duration-300 text-white/60 hover:text-white hover:bg-white/10 lg:hover:bg-white/5 active-link whitespace-nowrap shrink-0 snap-center">Tầng
-                                3-3A</a>
+                                3-7</a>
                             <a href="#tang-8-12a"
                                 class="floor-nav-link text-center lg:text-left px-5 lg:px-4 py-2 lg:py-3.5 rounded-full lg:rounded-xl text-[12px] lg:text-[14px] xl:text-[15px] font-bold uppercase tracking-wider transition-all duration-300 text-white/60 hover:text-white hover:bg-white/10 lg:hover:bg-white/5 whitespace-nowrap shrink-0 snap-center">Tầng
-                                5-7</a>
-                            <a href="#tang"
-                                class="floor-nav-link text-center lg:text-left px-5 lg:px-4 py-2 lg:py-3.5 rounded-full lg:rounded-xl text-[12px] lg:text-[14px] xl:text-[15px] font-bold uppercase tracking-wider transition-all duration-300 text-white/60 hover:text-white hover:bg-white/10 lg:hover:bg-white/5 whitespace-nowrap shrink-0 snap-center">Tầng</a>
-                            <a href="#tang-8-13"
-                                class="floor-nav-link text-center lg:text-left px-5 lg:px-4 py-2 lg:py-3.5 rounded-full lg:rounded-xl text-[12px] lg:text-[14px] xl:text-[15px] font-bold uppercase tracking-wider transition-all duration-300 text-white/60 hover:text-white hover:bg-white/10 lg:hover:bg-white/5 whitespace-nowrap shrink-0 snap-center">Tầng
-                                8-13</a>
+                                8-12A</a>
                             <a href="#tang-14-21"
                                 class="floor-nav-link text-center lg:text-left px-5 lg:px-4 py-2 lg:py-3.5 rounded-full lg:rounded-xl text-[12px] lg:text-[14px] xl:text-[15px] font-bold uppercase tracking-wider transition-all duration-300 text-white/60 hover:text-white hover:bg-white/10 lg:hover:bg-white/5 whitespace-nowrap shrink-0 snap-center">Tầng
                                 14-21</a>
+                            <a href="#tang-22"
+                                class="floor-nav-link text-center lg:text-left px-5 lg:px-4 py-2 lg:py-3.5 rounded-full lg:rounded-xl text-[12px] lg:text-[14px] xl:text-[15px] font-bold uppercase tracking-wider transition-all duration-300 text-white/60 hover:text-white hover:bg-white/10 lg:hover:bg-white/5 whitespace-nowrap shrink-0 snap-center">Tầng
+                                22</a>
                         </div>
                     </div>
                 </div>

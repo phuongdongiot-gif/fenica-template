@@ -731,14 +731,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const href = this.getAttribute('href');
             const target = this.getAttribute('target');
 
-            // Bỏ qua nếu: không có href, là hash link, link email/call/js, mở tab mới, hoặc có thuộc tính download
+            // Bỏ qua nếu: không có href, là hash link, link email/call/js, mở tab mới, hoặc có thuộc tính download, hoặc là link của glightbox
             if (!href ||
                 href.startsWith('#') ||
                 href.startsWith('mailto:') ||
                 href.startsWith('tel:') ||
                 href.startsWith('javascript:') ||
                 target === '_blank' ||
-                this.hasAttribute('download')) {
+                this.hasAttribute('download') ||
+                this.classList.contains('glightbox') ||
+                this.closest('.glightbox')) {
                 return;
             }
 

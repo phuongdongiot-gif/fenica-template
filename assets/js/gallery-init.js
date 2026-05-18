@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Xử lý nút Play cho Video và TikTok (Facade Lazy Load)
+    // Xử lý nút Play cho Video và TikTok (Facade Lazy Load) bằng Event Delegation
     let tiktokScriptLoaded = false;
-    document.querySelectorAll('.video-overlay').forEach(overlay => {
-        overlay.addEventListener('click', function () {
-            const media = this.previousElementSibling;
+    document.addEventListener('click', function (e) {
+        const overlay = e.target.closest('.video-overlay');
+        if (overlay) {
+            const media = overlay.previousElementSibling;
             
             if (media && media.tagName === 'IFRAME' && media.hasAttribute('data-src')) {
                 // Load Youtube iframe
@@ -18,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     tiktokScriptLoaded = true;
                 }
             }
-            this.style.display = 'none';
-        });
+            overlay.style.display = 'none';
+        }
     });
 
     // Setup Swiper Video Carousel

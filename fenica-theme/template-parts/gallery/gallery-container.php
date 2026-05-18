@@ -55,6 +55,15 @@
                 <div
                     class="swiper gallery-cards-swiper w-full max-w-[400px] lg:max-w-[500px] xl:max-w-[700px] h-[350px] md:h-[450px] lg:h-[600px] xl:h-[700px]">
                     <div class="swiper-wrapper">
+                        <!-- Card 0 -->
+                        <div
+                            class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-moi-nhat.jpg"
+                                class="w-full h-full object-cover" alt="Gallery 1" loading="lazy" title="Gallery 1">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
+                            </div>
+                        </div>
                         <!-- Card 1 -->
                         <div
                             class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
@@ -62,8 +71,6 @@
                                 class="w-full h-full object-cover" alt="Gallery 1" loading="lazy" title="Gallery 1">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
-                                <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">Cảnh
-                                    quan về đêm</h3>
                             </div>
                         </div>
 
@@ -74,8 +81,6 @@
                                 class="w-full h-full object-cover" alt="Gallery 2" loading="lazy" title="Gallery 2">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
-                                <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">Kiến
-                                    trúc mặt ngoài</h3>
                             </div>
                         </div>
 
@@ -86,8 +91,6 @@
                                 class="w-full h-full object-cover" alt="Gallery 3" loading="lazy" title="Gallery 3">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
-                                <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">Không
-                                    gian xanh</h3>
                             </div>
                         </div>
 
@@ -98,8 +101,6 @@
                                 class="w-full h-full object-cover p-8" alt="Gallery 4" loading="lazy" title="Gallery 4">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
-                                <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">Tổng
-                                    thể dự án</h3>
                             </div>
                         </div>
 
@@ -111,8 +112,6 @@
                                 title="Gallery 5">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
-                                <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">Nhà trẻ
-                                </h3>
                             </div>
                         </div>
 
@@ -123,8 +122,6 @@
                                 class="w-full h-full object-cover p-4" alt="Gallery 6" loading="lazy" title="Gallery 6">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
-                                <h3 class="text-2xl md:text-3xl font-bold text-white playfair tracking-wide">Tiện
-                                    ích nội khu</h3>
                             </div>
                         </div>
                     </div>

@@ -181,7 +181,7 @@
                             class="px-5 md:px-6 pb-6 text-gray-300 font-light text-sm md:text-base leading-relaxed border-t border-white/5 pt-5">
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-4">
                                 <li class="flex items-start gap-2.5"><span
-                                        class="text-[#d4ae6f] mt-[3px] text-[10px]">◆</span> <span>Ga S12 & Ga S11
+                                        class="text-[#d4ae6f] mt-[3px] text-[10px]">◆</span> <span>Ga S12 & ga An Phú
                                         <span class="text-gray-500 text-xs italic">(3 - 5 phút)</span></span></li>
                                 <li class="flex items-start gap-2.5"><span
                                         class="text-[#d4ae6f] mt-[3px] text-[10px]">◆</span> <span>ICD Tân Cảng Sóng

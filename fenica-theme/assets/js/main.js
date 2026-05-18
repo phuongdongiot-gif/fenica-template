@@ -6,7 +6,7 @@ const mapData = [
         radius: 1080, // Largest radius (outer arc)
         color: "#c29b6f",
         nodes: [
-            { id: "01", name: "Ga S12 & Ga S11", img: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=150&h=150&fit=crop&q=80" },
+            { id: "01", name: "Ga S12 & ga An Phú", img: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=150&h=150&fit=crop&q=80" },
             { id: "02", name: "Trường Mầm Non Hoa Cúc 2", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=150&h=150&fit=crop&q=80" },
             { id: "03", name: "Trường tiểu học An Phú 3", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=150&h=150&fit=crop&q=80" },
             { id: "04", name: "Trường tiểu học Bùi Thị Xuân", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&h=150&fit=crop&q=80" },

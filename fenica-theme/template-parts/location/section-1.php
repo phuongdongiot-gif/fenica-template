@@ -32,7 +32,7 @@
                     <p class="text-base text-gray-200 font-light leading-relaxed">
                         Fenica tọa lạc trong lõi phát triển đô thị TOD (Transit-Oriented Development) tại Đông
                         Bắc
-                        TP.HCM, sở hữu vị trí gần ngay ga S11 và S12 thuộc tuyến Metro số 1 nối dài (Thành phố
+                        TP.HCM, sở hữu vị trí gần ngay ga An Phú và S12 thuộc tuyến Metro số 1 nối dài (Thành phố
                         Mới –
                         Suối Tiên) và liền kề Vành đai 3 – trục giao thông huyết mạch của toàn vùng Đông Nam Bộ,
                         dự

@@ -25,7 +25,7 @@ def update_bento(filepath):
                         'title' => get_the_title(),
                         'permalink' => get_permalink(),
                         'excerpt' => wp_trim_words(get_the_excerpt(), 18, '...'),
-                        'thumbnail' => get_the_post_thumbnail_url(get_the_ID(), 'large') ?: get_template_directory_uri() . '/assets/images/fenica-goc-nhin-thu-ba.webp',
+                        'thumbnail' => get_the_post_thumbnail_url(get_the_ID(), 'large') ?: get_template_directory_uri() . '/assets/images/anh-du-an-fenica-khoi-de.jpg',
                         'category' => !empty($cats) ? esc_html($cats[0]->name) : 'Tin tức',
                         'date' => get_the_date('j \T\h\g n')
                     );
@@ -37,7 +37,7 @@ def update_bento(filepath):
                     'title' => 'Chưa có bài viết',
                     'permalink' => '#',
                     'excerpt' => 'Đang cập nhật...',
-                    'thumbnail' => get_template_directory_uri() . '/assets/images/fenica-goc-nhin-thu-ba.webp',
+                    'thumbnail' => get_template_directory_uri() . '/assets/images/anh-du-an-fenica-khoi-de.jpg',
                     'category' => 'Tin tức',
                     'date' => date('j \T\h\g n')
                 );

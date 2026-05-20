@@ -5,7 +5,7 @@
         class="group relative border-b border-white/20 cursor-pointer overflow-hidden transition-all duration-500 hover:bg-white/5">
         <!-- Background Image on Hover -->
         <div class="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-30 transition-opacity duration-700 z-0"
-            style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg');">
+            style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg');">
         </div>
         <!-- Overlay to darken background image -->
         <div
@@ -106,7 +106,7 @@
     <div
         class="group relative border-b border-white/20 cursor-pointer overflow-hidden transition-all duration-500 hover:bg-white/5">
         <div class="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-30 transition-opacity duration-700 z-0"
-            style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp');">
+            style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg');">
         </div>
         <div
             class="absolute inset-0 bg-gradient-to-r from-[#0e1e2e] via-[#0e1e2e]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0">

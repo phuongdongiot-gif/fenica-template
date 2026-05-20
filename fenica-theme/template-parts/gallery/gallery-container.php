@@ -67,7 +67,7 @@
                         <!-- Card 1 -->
                         <div
                             class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg"
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg"
                                 class="w-full h-full object-cover" alt="Gallery 1" loading="lazy" title="Gallery 1">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
@@ -87,7 +87,7 @@
                         <!-- Card 3 -->
                         <div
                             class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp"
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                                 class="w-full h-full object-cover" alt="Gallery 3" loading="lazy" title="Gallery 3">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
@@ -97,7 +97,7 @@
                         <!-- Card 4 -->
                         <div
                             class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp"
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                                 class="w-full h-full object-cover p-8" alt="Gallery 4" loading="lazy" title="Gallery 4">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">

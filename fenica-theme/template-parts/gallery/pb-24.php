@@ -40,8 +40,8 @@
             <!-- Masonry Item -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
                 data-aos-delay="100">
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg" class="glightbox"
-                    data-gallery="masonry">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
+                    class="glightbox" data-gallery="masonry">
                     <div class="relative overflow-hidden rounded-2xl">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
                             alt="Phối cảnh kiến trúc dự án Fenica Dĩ An"
@@ -62,10 +62,10 @@
             <!-- Masonry Item -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
                 data-aos-delay="200">
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                     class="glightbox" data-gallery="masonry">
                     <div class="relative overflow-hidden rounded-2xl">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                             alt="Không gian sống xanh tại Fenica Dĩ An"
                             class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                             loading="lazy" title="Không gian sống xanh tại Fenica Dĩ An">
@@ -83,10 +83,10 @@
 
             <!-- Masonry Item -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800">
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                     class="glightbox" data-gallery="masonry">
                     <div class="relative overflow-hidden rounded-2xl bg-white/5">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                             alt="Phối cảnh kiến trúc dự án Fenica Dĩ An"
                             class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                             loading="lazy" title="Phối cảnh kiến trúc dự án Fenica Dĩ An">
@@ -105,10 +105,10 @@
             <!-- Masonry Item -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
                 data-aos-delay="100">
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg" class="glightbox"
-                    data-gallery="masonry">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg"
+                    class="glightbox" data-gallery="masonry">
                     <div class="relative overflow-hidden rounded-2xl bg-white/5">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg"
                             alt="Mặt bằng tầng dự án Fenica Dĩ An"
                             class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                             loading="lazy" title="Mặt bằng tầng dự án Fenica Dĩ An">

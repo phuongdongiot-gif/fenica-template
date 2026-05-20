@@ -16,7 +16,7 @@ def update_grid(filepath):
                             $categories = get_the_category();
                             $cat_name = !empty($categories) ? esc_html($categories[0]->name) : 'Tin tức';
                             $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'large');
-                            if (!$thumbnail) $thumbnail = get_template_directory_uri() . '/assets/images/fenica-goc-nhin-thu-ba.webp';
+                            if (!$thumbnail) $thumbnail = get_template_directory_uri() . '/assets/images/anh-du-an-fenica-khoi-de.jpg';
                     ?>
                     <div class="h-auto flex">
                         <div onclick="window.location.href='<?php the_permalink(); ?>';" class="group cursor-pointer flex flex-col h-full overflow-hidden transition-all duration-500 bg-white/[0.02] border border-[#d4ae6f]/20 rounded-[2rem] p-4 md:p-5 hover:bg-white/[0.05] hover:border-[#d4ae6f]/40 shadow-lg hover:shadow-[0_10px_30px_rgba(212,174,111,0.15)] hover:-translate-y-2 w-full">

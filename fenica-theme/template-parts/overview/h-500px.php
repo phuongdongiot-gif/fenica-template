@@ -26,7 +26,7 @@
             <!-- Slide 1 -->
             <div class="swiper-slide relative">
                 <div class="absolute inset-0 bg-black/20 z-10"></div>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg"
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg"
                     class="w-full h-full object-cover" alt="Tổng quan dự án Fenica Dĩ An" loading="lazy"
                     title="Tổng quan dự án Fenica Dĩ An">
                 <div
@@ -72,7 +72,7 @@
             <!-- Slide 3 -->
             <div class="swiper-slide relative">
                 <div class="absolute inset-0 bg-black/20 z-10"></div>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp"
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                     class="w-full h-full object-cover" alt="Nature" loading="lazy" title="Nature">
                 <div
                     class="absolute inset-0 z-20 flex flex-col items-center justify-end pb-8 md:pb-12 px-6 md:px-16 text-left">

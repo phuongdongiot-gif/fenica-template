@@ -134,10 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
         preTl.to('#fenica-logo-svg .st0', { strokeDashoffset: 0, duration: 0.8, stagger: 0.1, ease: "power2.inOut" })
             // 2. Fill the logo with color
             .to('#fenica-logo-svg .st0', { fill: "#f0e0ca", duration: 0.3, ease: "power2.out" }, "-=0.3")
-            // 3. Animate the progress bar
-            .to('.preloader-progress', { width: '100%', duration: 0.6, ease: "power2.inOut" }, "-=0.3")
-            // 4. Massive scale up (zoom out effect) and fade out
-            .to('.preloader-logo', { scale: 8, opacity: 0, duration: 0.5, ease: "power3.in" })
+            // 3. Massive scale up (zoom out effect) centered on the letter N with 3D rotation
+            .to('#fenica-logo-svg .st0:not(#letter-n)', { opacity: 0, duration: 0.4 }, "-=0.2")
+            .to('.preloader-logo', { scale: 100, rotationY: 45, rotationX: 15, transformOrigin: "42.6% 50%", opacity: 0, duration: 1.0, ease: "power3.in" }, "-=0.2")
             .to(preloader, { yPercent: -100, duration: 0.5, ease: "power4.inOut" }, "-=0.4");
     }
 

@@ -14,16 +14,22 @@
         <div id="marquee-1" class="flex gap-2 md:gap-4 w-max hover:!duration-1000">
             <!-- Group 1 -->
             <div class="flex gap-2 md:gap-4 items-center shrink-0">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-anh-tong-the.jpg"
+                    data-lightbox="gallery">
+                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-anh-tong-the.jpg');">
+                    </div>
+                </a>
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-moi-nhat.jpg"
+                    data-lightbox="gallery">
+                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-moi-nhat.jpg');">
+                    </div>
+                </a>
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                     data-lightbox="gallery">
                     <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
                         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg');">
-                    </div>
-                </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
-                    data-lightbox="gallery">
-                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg');">
                     </div>
                 </a>
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
@@ -38,31 +44,25 @@
                         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg');">
                     </div>
                 </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp"
-                    data-lightbox="gallery">
-                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp');">
-                    </div>
-                </a>
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
                     data-lightbox="gallery">
                     <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
                         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg');">
                     </div>
                 </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-view-tu-tren-cao.jpg"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
                     data-lightbox="gallery">
                     <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-view-tu-tren-cao.jpg');">
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg');">
                     </div>
                 </a>
             </div>
             <!-- Group 2 (Clone) -->
             <div class="flex gap-2 md:gap-4 items-center shrink-0">
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg"
                     data-lightbox="gallery">
                     <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg');">
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg');">
                     </div>
                 </a>
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
@@ -71,10 +71,16 @@
                         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg');">
                     </div>
                 </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/khuon-vien-anh-du-an-fenica.jpg"
                     data-lightbox="gallery">
                     <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg');">
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/khuon-vien-anh-du-an-fenica.jpg');">
+                    </div>
+                </a>
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-goc-nhin-ho-boi.jpg"
+                    data-lightbox="gallery">
+                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-goc-nhin-ho-boi.jpg');">
                     </div>
                 </a>
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
@@ -89,16 +95,10 @@
                         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp');">
                     </div>
                 </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
                     data-lightbox="gallery">
                     <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg');">
-                    </div>
-                </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
-                    data-lightbox="gallery">
-                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg');">
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg');">
                     </div>
                 </a>
             </div>
@@ -108,16 +108,22 @@
         <div id="marquee-2" class="flex gap-2 md:gap-4 w-max">
             <!-- Group 1 -->
             <div class="flex gap-2 md:gap-4 items-center shrink-0">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-goc-nhin-ho-boi.jpg"
+                    data-lightbox="gallery">
+                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-goc-nhin-ho-boi.jpg');">
+                    </div>
+                </a>
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg"
+                    data-lightbox="gallery">
+                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg');">
+                    </div>
+                </a>
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
                     data-lightbox="gallery">
                     <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
                         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg');">
-                    </div>
-                </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp"
-                    data-lightbox="gallery">
-                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp');">
                     </div>
                 </a>
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
@@ -126,22 +132,16 @@
                         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg');">
                     </div>
                 </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                     data-lightbox="gallery">
                     <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg');">
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg');">
                     </div>
                 </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp"
-                    data-lightbox="gallery">
-                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp');">
-                    </div>
-                </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/khuon-vien-anh-du-an-fenica.jpg"
                     data-lightbox="gallery">
                     <div class="w-[350px] md:w-[700px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg');">
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/khuon-vien-anh-du-an-fenica.jpg');">
                     </div>
                 </a>
             </div>
@@ -153,16 +153,16 @@
                         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg');">
                     </div>
                 </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                     data-lightbox="gallery">
                     <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp');">
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg');">
                     </div>
                 </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/khuon-vien-anh-du-an-fenica.jpg"
                     data-lightbox="gallery">
                     <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg');">
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/khuon-vien-anh-du-an-fenica.jpg');">
                     </div>
                 </a>
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
@@ -171,16 +171,16 @@
                         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg');">
                     </div>
                 </a>
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp"
-                    data-lightbox="gallery">
-                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
-                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/nha-tre-fenica.webp');">
-                    </div>
-                </a>
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
                     data-lightbox="gallery">
-                    <div class="w-[350px] md:w-[700px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                    <div class="w-[280px] md:w-[450px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
                         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg');">
+                    </div>
+                </a>
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
+                    data-lightbox="gallery">
+                    <div class="w-[350px] md:w-[700px] h-[25vh] md:h-[35vh] bg-center bg-cover rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg border border-white/20"
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg');">
                     </div>
                 </a>
             </div>

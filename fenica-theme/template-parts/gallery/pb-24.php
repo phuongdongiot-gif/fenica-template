@@ -18,6 +18,27 @@
 
             <!-- Masonry Item -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-anh-tong-the.jpg"
+                    class="glightbox" data-gallery="masonry">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-anh-tong-the.jpg"
+                            alt="Tổng thể dự án Fenica Dĩ An"
+                            class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                            loading="lazy" title="Tổng thể dự án Fenica Dĩ An">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Masonry Item -->
+            <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800">
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-moi-nhat.jpg"
                     class="glightbox" data-gallery="masonry">
                     <div class="relative overflow-hidden rounded-2xl">
@@ -25,6 +46,27 @@
                             alt="Tổng quan dự án Fenica Dĩ An"
                             class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                             loading="lazy" title="Tổng quan dự án Fenica Dĩ An">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Masonry Item -->
+            <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-view-tu-tren-cao.jpg"
+                    class="glightbox" data-gallery="masonry">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-view-tu-tren-cao.jpg"
+                            alt="Dự án Fenica Dĩ An từ trên cao"
+                            class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                            loading="lazy" title="Dự án Fenica Dĩ An từ trên cao">
                         <div
                             class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <svg class="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,6 +103,51 @@
 
             <!-- Masonry Item -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
+                data-aos-delay="100">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/sanh-fenica.webp" class="glightbox"
+                    data-gallery="masonry">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sanh-fenica.webp"
+                            alt="sảnh đợi dự án Fenica Dĩ An"
+                            class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                            loading="lazy" title="sảnh đợi dự án Fenica Dĩ An">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Masonry Item -->
+            <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
+                data-aos-delay="100">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-goc-nhin-ho-boi.jpg"
+                    class="glightbox" data-gallery="masonry">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-goc-nhin-ho-boi.jpg"
+                            alt="dự án Fenica Dĩ An góc nhìn từ hồ bơi"
+                            class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                            loading="lazy" title="dự án Fenica Dĩ An góc nhìn từ hồ bơi">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <!-- Masonry Item -->
+            <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
                 data-aos-delay="200">
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                     class="glightbox" data-gallery="masonry">
@@ -69,6 +156,28 @@
                             alt="Không gian sống xanh tại Fenica Dĩ An"
                             class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                             loading="lazy" title="Không gian sống xanh tại Fenica Dĩ An">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Masonry Item -->
+            <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
+                data-aos-delay="200">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
+                    class="glightbox" data-gallery="masonry">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
+                            alt="căn hộ mẫu tại Fenica Dĩ An"
+                            class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                            loading="lazy" title="căn hộ mẫu tại Fenica Dĩ An">
                         <div
                             class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <svg class="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -127,6 +236,28 @@
             <!-- Masonry Item -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
                 data-aos-delay="200">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
+                    class="glightbox" data-gallery="masonry">
+                    <div class="relative overflow-hidden rounded-2xl bg-white/5">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
+                            alt="Góc nhìn hồ bơi dự án Fenica Dĩ An"
+                            class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                            loading="lazy" title="góc nhìn hồ bơi dự án Fenica Dĩ An">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Masonry Item -->
+            <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
+                data-aos-delay="200">
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
                     class="glightbox" data-gallery="masonry">
                     <div class="relative overflow-hidden rounded-2xl bg-white/5">
@@ -148,13 +279,13 @@
 
             <!-- Masonry Item (Extra) -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800">
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/khuon-vien-anh-du-an-fenica.jpg"
                     class="glightbox" data-gallery="masonry">
                     <div class="relative overflow-hidden rounded-2xl bg-white/5">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
-                            alt="Bản đồ vị trí và kết nối dự án Fenica Dĩ An"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/khuon-vien-anh-du-an-fenica.jpg"
+                            alt="khuôn viên dự án Fenica Dĩ An"
                             class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
-                            loading="lazy" title="Bản đồ vị trí và kết nối dự án Fenica Dĩ An">
+                            loading="lazy" title="khuôn viên dự án Fenica Dĩ An">
                         <div
                             class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <svg class="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">

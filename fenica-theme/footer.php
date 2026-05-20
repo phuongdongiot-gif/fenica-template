@@ -68,14 +68,14 @@
                 <h3 class="text-xl md:text-2xl font-bold uppercase playfair tracking-widest mb-2 text-white">Kết nối
                     với chúng tôi</h3>
                 <div class="flex items-center gap-4">
-                    <a href="#"
+                    <a href="https://www.facebook.com/dxmdvietnam.vn" target="_blank"
                         class="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-lg">
                         <svg class="w-7 h-7 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                         </svg>
                     </a>
-                    <a href="#"
+                    <a href="https://youtube.com/@dxmdvietnam?si=8YkrNrB3neuy4JgH" target="_blank"
                         class="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-lg">
                         <svg class="w-7 h-7 text-[#FF0000]" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -162,10 +162,10 @@
 </footer>
 
 <!-- Floating Action Buttons -->
-<div class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[990] flex flex-col gap-4 items-center">
+<div class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[990] flex md:flex-col gap-4 items-center">
     <!-- Zalo Button -->
     <a href="https://zalo.me/0965355355" target="_blank" rel="noopener noreferrer"
-        class="w-12 h-12 md:w-14 md:h-14 bg-[#0068ff] rounded-full flex items-center justify-center shadow-[0_5px_15px_rgba(0,104,255,0.5)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group relative">
+        class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-[#d4ae6f] to-[#b38e55] rounded-full flex items-center justify-center shadow-[0_5px_15px_rgba(0,104,255,0.5)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group relative">
         <span class="text-white font-bold text-sm md:text-base tracking-wider">Zalo</span>
         <span
             class="absolute right-full mr-4 bg-[#0e1e2e] text-white text-sm font-bold px-4 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 hidden md:block">
@@ -175,7 +175,7 @@
 
     <!-- Call Button -->
     <a href="tel:0965355355"
-        class="w-12 h-12 md:w-14 md:h-14 bg-[#4ade80] rounded-full flex items-center justify-center shadow-[0_5px_15px_rgba(74,222,128,0.5)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group relative animate-pulse">
+        class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-[#d4ae6f] to-[#b38e55] rounded-full flex items-center justify-center shadow-[0_5px_15px_rgba(74,222,128,0.5)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group relative animate-pulse">
         <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
@@ -189,7 +189,7 @@
 
     <!-- Contact Button -->
     <button id="floating-contact-btn"
-        class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r from-[#d4ae6f] to-[#b38e55] rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(212,174,111,0.5)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group relative">
+        class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-[#d4ae6f] to-[#b38e55] rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(212,174,111,0.5)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group relative">
         <svg class="w-6 h-6 md:w-8 md:h-8 text-[#0e1e2e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">

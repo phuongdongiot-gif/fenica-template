@@ -29,7 +29,7 @@
                             class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                             alt="Video Thumbnail" loading="lazy" title="Video Thumbnail">
                         <div
-                            class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500">
+                            class="absolute inset-0 bg-black/20 group-hover:bg-black/20 transition-colors duration-500">
                         </div>
                         <div
                             class="w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:bg-[#d4ae6f] group-hover:border-[#d4ae6f] transition-all duration-300 shadow-[0_0_20px_rgba(212,174,111,0)] group-hover:shadow-[0_0_20px_rgba(212,174,111,0.6)] relative z-20">

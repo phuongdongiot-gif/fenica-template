@@ -2,15 +2,12 @@
     <div class="swiper heroSwiper w-full h-full">
         <div class="swiper-wrapper">
             <div class="swiper-slide relative">
-                <div class="absolute inset-0 bg-black/40 z-10"></div>
+                <div class="absolute inset-0 bg-black/20 z-10"></div>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-moi-nhat.jpg"
                     class="w-full h-full object-cover" alt="Tổng quan dự án Fenica Dĩ An" loading="lazy"
                     title="Tổng quan dự án Fenica Dĩ An">
                 <div
                     class="absolute inset-0 z-20 flex flex-center items-start justify-end pb-8 md:pb-12 px-6 md:px-16 text-left">
-                    <h2
-                        class="text-2xl lg:text-4xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
-                        FENICA</h2>
                     <div class="w-full flex items-center justify-center gap-3 my-1">
                         <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#d4ae6f]"></div>
                         <div
@@ -25,15 +22,12 @@
             </div>
             <!-- Slide 1 -->
             <div class="swiper-slide relative">
-                <div class="absolute inset-0 bg-black/40 z-10"></div>
+                <div class="absolute inset-0 bg-black/20 z-10"></div>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg"
                     class="w-full h-full object-cover" alt="khối đế dự án Fenica Dĩ An" loading="lazy"
                     title="khối đế dự án Fenica Dĩ An">
                 <div
                     class="absolute inset-0 z-20 flex flex-center items-start justify-end pb-8 md:pb-12 px-6 md:px-16 text-left">
-                    <h2
-                        class="text-2xl lg:text-4xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
-                        FENICA</h2>
                     <div class="w-full flex items-center justify-center gap-3 my-1">
                         <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#d4ae6f]"></div>
                         <div
@@ -48,15 +42,12 @@
             </div>
             <!-- Slide 2 -->
             <div class="swiper-slide relative">
-                <div class="absolute inset-0 bg-black/40 z-10"></div>
+                <div class="absolute inset-0 bg-black/20 z-10"></div>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
                     class="w-full h-full object-cover" alt="cảnh hồ bơi dự án Fenica Dĩ An" loading="lazy"
                     title="cảnh hồ bơi dự án Fenica Dĩ An">
                 <div
                     class="absolute inset-0 z-20 flex flex-col items-center justify-end pb-8 md:pb-12 px-6 md:px-16 text-left">
-                    <h2
-                        class="text-2xl lg:text-4xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
-                        Kiến Trúc Tinh Tế</h2>
                     <div class="w-full flex items-center justify-center gap-3 my-1">
                         <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#d4ae6f]"></div>
                         <div
@@ -71,15 +62,12 @@
             </div>
             <!-- Slide 3 -->
             <div class="swiper-slide relative">
-                <div class="absolute inset-0 bg-black/40 z-10"></div>
+                <div class="absolute inset-0 bg-black/20 z-10"></div>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg"
                     class="w-full h-full object-cover" alt="hướng từ metro dự án Fenica Dĩ An" loading="lazy"
                     title="hướng từ metro dự án Fenica Dĩ An">
                 <div
                     class="absolute inset-0 z-20 flex flex-col items-center justify-end pb-8 md:pb-12 px-6 md:px-16 text-left">
-                    <h2
-                        class="text-center text-2xl lg:text-4xl font-bold text-white playfair tracking-wider mb-3 uppercase slide-anim opacity-0 translate-y-8 transition-all duration-1000">
-                        Tiện Ích Đặc Quyền</h2>
                     <div class="w-full flex items-center justify-center gap-3 my-1">
                         <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#d4ae6f]"></div>
                         <div

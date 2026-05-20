@@ -194,7 +194,7 @@ get_header(); ?>
         <div
             class="group relative border-b border-white/20 cursor-pointer overflow-hidden transition-all duration-500 hover:bg-white/5">
             <div class="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-30 transition-opacity duration-700 z-0"
-                style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/sanh-fenica.webp');">
+                style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg');">
             </div>
             <div
                 class="absolute inset-0 bg-gradient-to-r from-[#0e1e2e] via-[#0e1e2e]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0">

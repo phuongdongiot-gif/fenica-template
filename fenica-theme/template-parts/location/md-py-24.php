@@ -74,14 +74,14 @@
                 <div class="grid grid-rows-2 gap-4 h-full">
                     <div class="bg-center bg-cover rounded-md lg:rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
                         data-aos="zoom-in-left" data-aos-duration="1000"
-                        style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80');">
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-huong-tu-metro.jpg');">
                         <div
                             class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500">
                         </div>
                     </div>
                     <div class="bg-center bg-cover rounded-md lg:rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
                         data-aos="zoom-in-left" data-aos-duration="1000" data-aos-delay="100"
-                        style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80');">
+                        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khoi-de.jpg');">
                         <div
                             class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500">
                         </div>
@@ -90,7 +90,7 @@
                 <!-- Large Main Image (Right column of the right side) -->
                 <div class="h-full bg-center bg-cover rounded-md lg:rounded-[2rem] overflow-hidden shadow-lg border border-[#d4ae6f]/20 group relative"
                     data-aos="zoom-in-left" data-aos-duration="1000" data-aos-delay="200"
-                    style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/ho-boi-fenica.webp');">
+                    style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg');">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500">
                     </div>
                 </div>

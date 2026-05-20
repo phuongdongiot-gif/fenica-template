@@ -3,7 +3,7 @@
         <div class="swiper-wrapper">
             <!-- Slide 1 -->
             <div class="swiper-slide relative">
-                <div class="absolute inset-0 bg-black/40 z-10"></div>
+                <div class="absolute inset-0 bg-black/20 z-10"></div>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bg-fenica.jpg"
                     class="w-full h-full object-cover" alt="Tổng quan dự án Fenica Dĩ An" loading="lazy"
                     title="Tổng quan dự án Fenica Dĩ An">
@@ -26,8 +26,8 @@
             </div>
             <!-- Slide 2 -->
             <div class="swiper-slide relative">
-                <div class="absolute inset-0 bg-black/40 z-10"></div>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/goc-nhin-hoan-hon-fenica.webp"
+                <div class="absolute inset-0 bg-black/20 z-10"></div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
                     class="w-full h-full object-cover" alt="Phối cảnh kiến trúc dự án Fenica Dĩ An" loading="lazy"
                     title="Phối cảnh kiến trúc dự án Fenica Dĩ An">
                 <div
@@ -49,7 +49,7 @@
             </div>
             <!-- Slide 3 -->
             <div class="swiper-slide relative">
-                <div class="absolute inset-0 bg-black/40 z-10"></div>
+                <div class="absolute inset-0 bg-black/20 z-10"></div>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fenica-goc-nhin-thu-ba.webp"
                     class="w-full h-full object-cover" alt="Nature" loading="lazy" title="Nature">
                 <div

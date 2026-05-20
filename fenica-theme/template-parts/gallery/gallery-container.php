@@ -77,7 +77,7 @@
                         <!-- Card 2 -->
                         <div
                             class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sanh-fenica.webp"
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
                                 class="w-full h-full object-cover" alt="Gallery 2" loading="lazy" title="Gallery 2">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">
@@ -118,7 +118,7 @@
                         <!-- Card 6 -->
                         <div
                             class="swiper-slide rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/goc-nhin-hoan-hon-fenica.webp"
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
                                 class="w-full h-full object-cover p-4" alt="Gallery 6" loading="lazy" title="Gallery 6">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8">

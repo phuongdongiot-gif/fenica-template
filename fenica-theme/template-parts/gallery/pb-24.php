@@ -40,10 +40,10 @@
             <!-- Masonry Item -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
                 data-aos-delay="100">
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/sanh-fenica.webp" class="glightbox"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg" class="glightbox"
                     data-gallery="masonry">
                     <div class="relative overflow-hidden rounded-2xl">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sanh-fenica.webp"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-phong-ngu.jpg"
                             alt="Phối cảnh kiến trúc dự án Fenica Dĩ An"
                             class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                             loading="lazy" title="Phối cảnh kiến trúc dự án Fenica Dĩ An">
@@ -127,10 +127,10 @@
             <!-- Masonry Item -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800"
                 data-aos-delay="200">
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/goc-nhin-hoan-hon-fenica.webp"
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
                     class="glightbox" data-gallery="masonry">
                     <div class="relative overflow-hidden rounded-2xl bg-white/5">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/goc-nhin-hoan-hon-fenica.webp"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-can-ho.jpg"
                             alt="Tiện ích nội khu dự án Fenica Dĩ An"
                             class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                             loading="lazy" title="Tiện ích nội khu dự án Fenica Dĩ An">
@@ -148,10 +148,10 @@
 
             <!-- Masonry Item (Extra) -->
             <div class="break-inside-avoid group cursor-pointer" data-aos="fade-up" data-aos-duration="800">
-                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/ho-boi-fenica.webp" class="glightbox"
-                    data-gallery="masonry">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
+                    class="glightbox" data-gallery="masonry">
                     <div class="relative overflow-hidden rounded-2xl bg-white/5">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ho-boi-fenica.webp"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh-du-an-fenica-khung-canh-ho-boi.jpg"
                             alt="Bản đồ vị trí và kết nối dự án Fenica Dĩ An"
                             class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                             loading="lazy" title="Bản đồ vị trí và kết nối dự án Fenica Dĩ An">
